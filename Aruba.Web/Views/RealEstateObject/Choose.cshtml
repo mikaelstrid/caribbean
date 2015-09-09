@@ -1,0 +1,9 @@
+﻿@using Caribbean.Aruba.Web.ViewModels.RealEstateObject
+@model ChooseObjectViewModel
+
+<ul>
+    @foreach (var o in Model.AvailableObjects)
+    {
+        <li>@o.Address</li>
+    }
+</ul>

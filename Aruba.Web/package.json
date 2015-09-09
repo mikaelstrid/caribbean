@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "aruba",
+  "private": true,
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-filter": "^3.0.1",
+    "main-bower-files": "^2.9.0"
+  }
+}

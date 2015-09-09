@@ -1,0 +1,15 @@
+{
+  "name": "aruba",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery-validation": "~1.14.0",
+    "jquery-validation-unobtrusive": "~3.2.3",
+    "modernizr": "~2.8.3"
+  },
+  "overrides": {
+    "modernizr": {
+      "main": "modernizr.js"
+    }
+  }
+}

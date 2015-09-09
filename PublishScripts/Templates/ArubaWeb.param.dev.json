@@ -1,0 +1,32 @@
+{
+  "siteName": {
+    "value": "mm-aruba"
+  },
+  "hostingPlanName": {
+    "value": "Default1"
+  },
+  "siteLocation": {
+    "value": "North Europe"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "serverName": {
+    "value": "caribbean"
+  },
+  "serverLocation": {
+    "value": "North Europe"
+  },
+  "administratorLogin": {
+    "value": "mmadmin"
+  },
+  "administratorLoginPassword": {
+    "value": "SunIsKing1987!"
+  },
+  "databaseName": {
+    "value": "mm-aruba_db"
+  }
+}
