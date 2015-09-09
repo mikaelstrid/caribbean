@@ -227,11 +227,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RealEstateObjectController.cs" />
+    <Compile Include="Controllers\PrintTemplatesController.cs" />
+    <Compile Include="Controllers\RealEstateObjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\PrintTemplates\AvailablePrintTemplateViewModel.cs" />
+    <Compile Include="ViewModels\PrintTemplates\ChoosePrintTemplateModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -290,7 +293,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\RealEstateObject\Choose.cshtml" />
+    <Content Include="Views\RealEstateObjects\Choose.cshtml" />
+    <Content Include="Views\PrintTemplates\Choose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +307,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer.Database\DataAccessLayer.Database.csproj">
+      <Project>{EE09B9B4-8229-4072-96CF-F279A701350E}</Project>
+      <Name>DataAccessLayer.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer.PrintTemplates\DataAccessLayer.PrintTemplates.csproj">
+      <Project>{2E136492-644A-42B8-A039-83E572909E6D}</Project>
+      <Name>DataAccessLayer.PrintTemplates</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer.RealEstateObjects\DataAccessLayer.RealEstateObjects.csproj">
       <Project>{FD149EAF-6B6A-480B-8710-67B95CCB92B5}</Project>
       <Name>DataAccessLayer.RealEstateObjects</Name>
@@ -311,9 +323,17 @@
       <Project>{7F131E5C-442B-4B2D-971B-D41840812777}</Project>
       <Name>DataContexts.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Models.Database\Models.Database.csproj">
+      <Project>{713A3E40-EF43-4A5B-BC19-3CCA50431D07}</Project>
+      <Name>Models.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models.Identity\Models.Identity.csproj">
       <Project>{7440A59D-DD34-4751-98B6-7173411201D6}</Project>
       <Name>Models.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models.PrintTemplates\Models.PrintTemplates.csproj">
+      <Project>{38687A44-B932-4470-8A0B-224735C1983E}</Project>
+      <Name>Models.PrintTemplates</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models.RealEstateObjects\Models.RealEstateObjects.csproj">
       <Project>{083d2d02-c755-4a23-979f-504040e171b6}</Project>

@@ -1,6 +1,6 @@
-﻿namespace Caribbean.Models.Database
+﻿namespace Caribbean.Models.PrintTemplates
 {
-    public class PrintVariantMetadata
+    public class PrintTemplateMetadata
     {
         public string StorageUri { get; set; }
         public string Type { get; set; }
@@ -18,25 +18,18 @@
             set { _reason = value; }
         }
 
-        public bool IsValid
-        {
-            get
-            {
-                return
-                    !string.IsNullOrWhiteSpace(Reason) &&
-                    !string.IsNullOrWhiteSpace(Name) &&
-                    !string.IsNullOrWhiteSpace(Type);
-            }
-        }
-
-
-        public static PrintVariantMetadata CreateInvalid(string reason)
+        public bool IsValid => !string.IsNullOrWhiteSpace(Reason) &&
+                               !string.IsNullOrWhiteSpace(Name) &&
+                               !string.IsNullOrWhiteSpace(Type);
+        
+        public static PrintTemplateMetadata CreateInvalid(string reason)
         {
             return CreateInvalid(reason, null);
         }
-        public static PrintVariantMetadata CreateInvalid(string reason, string storageUri)
+
+        public static PrintTemplateMetadata CreateInvalid(string reason, string storageUri)
         {
-            return new PrintVariantMetadata { Reason = reason, StorageUri = storageUri };
+            return new PrintTemplateMetadata { Reason = reason, StorageUri = storageUri };
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Caribbean.Models.Database
+﻿namespace Caribbean.Models.PrintTemplates
 {
     public class PageTemplateMetadata
     {
@@ -18,19 +18,13 @@
             set { _reason = value; }
         }
 
-        public bool IsValid
-        {
-            get
-            {
-                return !string.IsNullOrWhiteSpace(Reason) && !string.IsNullOrWhiteSpace(Name);
-            }
-        }
-
-
+        public bool IsValid => !string.IsNullOrWhiteSpace(Reason) && !string.IsNullOrWhiteSpace(Name);
+        
         public static PageTemplateMetadata CreateInvalid(string reason)
         {
             return CreateInvalid(reason, null);
         }
+
         public static PageTemplateMetadata CreateInvalid(string reason, string storageUri)
         {
             return new PageTemplateMetadata { Reason = reason, StorageUri = storageUri };

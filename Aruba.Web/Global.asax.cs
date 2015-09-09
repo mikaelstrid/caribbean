@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Caribbean.DataContexts.Application;
 
 namespace Caribbean.Aruba.Web
 {
@@ -15,6 +16,8 @@ namespace Caribbean.Aruba.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ApplicationDbContext.InitializeDatabase();
         }
     }
 }

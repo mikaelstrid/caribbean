@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Caribbean.DataContexts.Application.Migrations;
 using Caribbean.Models.Database;
 using Caribbean.Models.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -15,6 +16,11 @@ namespace Caribbean.DataContexts.Application
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        public static void InitializeDatabase()
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public DbSet<Agent> Agents { get; set; }

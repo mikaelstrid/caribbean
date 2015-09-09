@@ -1,0 +1,10 @@
+﻿@model Caribbean.Aruba.Web.ViewModels.PrintTemplates.ChoosePrintTemplateModel
+
+<h2>Välj trycksak</h2>
+
+<ul>
+    @foreach (var o in Model.AvailablePrintTypes)
+    {
+        <li>@o.Slug - @o.Description</li>
+    }
+</ul>
