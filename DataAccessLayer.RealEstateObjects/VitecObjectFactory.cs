@@ -64,6 +64,5 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 Category = pictureElement.Element("pickategori").Value,
             };
         }
-
     }
 }

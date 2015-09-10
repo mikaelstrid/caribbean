@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Caribbean.Aruba.Web.Controllers
 {
+    [Authorize]
     [RoutePrefix("trycksaksmallar")]
     public class PrintTemplatesController : Controller
     {
@@ -20,9 +21,11 @@ namespace Caribbean.Aruba.Web.Controllers
             _templateMetadataRepository = templateMetadataRepository;
         }
 
-        [Route("valj/{selectedObjectId?}")]
-        public async Task<ActionResult> Choose(string selectedObjectId)
+        [Route("valj/{o?}")]
+        public async Task<ActionResult> Choose(string o)
         {
+            var selectedObjectId = o;
+
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
             if (agent == null) return HttpNotFound("No agent associated with the username found.");
 

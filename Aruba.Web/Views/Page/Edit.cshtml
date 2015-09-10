@@ -1,0 +1,11 @@
+﻿@model Caribbean.Aruba.Web.ViewModels.Page.DesignPageViewModel
+
+<ul>
+    @foreach (var i in Model.ObjectImages)
+    {
+        <li>@i.ThumbnailUrl</li>
+    }
+</ul>
+
+<iframe src="@Model.Page.PreviewUrl" frameborder="0" scrolling="no" style="width: @(Model.Page.Width + "px"); height: @(Model.Page.Height + "px;")"></iframe>
+

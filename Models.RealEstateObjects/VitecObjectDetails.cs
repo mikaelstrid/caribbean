@@ -16,12 +16,10 @@ namespace Caribbean.Models.RealEstateObjects
             var element = XDocument.XPathSelectElement(xpath);
             return element?.Value;
         }
-
-        //public VitecObjectImage GetImage(string xpath)
-        //{
-        //    if (string.IsNullOrWhiteSpace(xpath)) return null;
-        //    var element = XDocument.XPathSelectElement(xpath);
-        //    return VitecObjectImage.Load(element);
-        //}
+        
+        public XElement GetElement(string xpath)
+        {
+            return !string.IsNullOrWhiteSpace(xpath) ? XDocument.XPathSelectElement(xpath) : null;
+        }
     }
 }

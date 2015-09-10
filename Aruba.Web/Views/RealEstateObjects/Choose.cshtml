@@ -2,8 +2,15 @@
 @model ChooseObjectViewModel
 
 <ul>
-    @foreach (var o in Model.AvailableObjects)
+    @foreach (var o in Model.AvailableObjects.Where(o => !string.IsNullOrEmpty(o.Address)))
     {
-        <li>@o.Address</li>
+        if (string.IsNullOrEmpty(Model.SelectedPrintTemplateSlug))
+        {
+            <li>@Html.ActionLink(o.Address, "Choose", "PrintTemplates", new { o = o.Id }, null)</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink(o.Address, "Create", "Prints", new { t = Model.SelectedPrintTemplateSlug, o = o.Id }, null)</li>
+        }
     }
 </ul>

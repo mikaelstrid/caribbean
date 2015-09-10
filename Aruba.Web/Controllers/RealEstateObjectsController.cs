@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Caribbean.Aruba.Web.Controllers
 {
+    [Authorize]
     [RoutePrefix("objekt")]
     public class RealEstateObjectsController : Controller
     {
@@ -20,9 +21,11 @@ namespace Caribbean.Aruba.Web.Controllers
             _vitecObjectRepository = vitecObjectRepository;
         }
 
-        [Route("valj/{selectedPrintTemplateName?}")]
-        public async Task<ActionResult> Choose(string selectedPrintTemplateName)
+        [Route("valj/{t?}")]
+        public async Task<ActionResult> Choose(string t)
         {
+            var selectedPrintTemplateName = t;
+
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
             if (agent == null) return HttpNotFound("No agent associated with the username found.");
 
@@ -30,7 +33,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
             return View(new ChooseObjectViewModel
             {
-                SelectedPrintTemplateName = selectedPrintTemplateName,
+                SelectedPrintTemplateSlug = selectedPrintTemplateName,
                 AvailableObjects = availableObjects.Select(o => new ObjectSummaryViewModel
                 {
                     Id = o.Id,

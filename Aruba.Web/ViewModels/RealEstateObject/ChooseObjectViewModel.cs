@@ -4,7 +4,7 @@ namespace Caribbean.Aruba.Web.ViewModels.RealEstateObject
 {
     public class ChooseObjectViewModel
     {
-        public string SelectedPrintTemplateName { get; set; }
+        public string SelectedPrintTemplateSlug { get; set; }
         public IEnumerable<ObjectSummaryViewModel> AvailableObjects { get; set; }
     }
 }

@@ -224,15 +224,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Business\InitialFieldValuesFactory.cs" />
+    <Compile Include="Business\MuseTemplateParser.cs" />
+    <Compile Include="Business\PageFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PrintsController.cs" />
     <Compile Include="Controllers\PrintTemplatesController.cs" />
     <Compile Include="Controllers\RealEstateObjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Page\DesignPageViewModel.cs" />
+    <Compile Include="ViewModels\Prints\DesignPrintViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\AvailablePrintTemplateViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\ChoosePrintTemplateModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -295,6 +302,8 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\RealEstateObjects\Choose.cshtml" />
     <Content Include="Views\PrintTemplates\Choose.cshtml" />
+    <Content Include="Views\Prints\Edit.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,7 +367,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64879</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64879/</IISUrl>
+          <IISUrl>http://localhost:64879</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

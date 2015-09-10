@@ -1,0 +1,12 @@
+﻿@model Caribbean.Aruba.Web.ViewModels.Prints.DesignPrintViewModel
+
+<h2>Redigera trycksak</h2>
+
+<h3>@Model.PrintVariantType</h3>
+
+<ul>
+    @foreach (var p in Model.Pages)
+    {
+        <li>@Html.ActionLink("Sida " + p.Position, "Edit", "Page", new { id = p.Id }, null)</li>
+    }
+</ul>

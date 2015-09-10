@@ -3,8 +3,15 @@
 <h2>Välj trycksak</h2>
 
 <ul>
-    @foreach (var o in Model.AvailablePrintTypes)
+    @foreach (var t in Model.AvailablePrintTypes)
     {
-        <li>@o.Slug - @o.Description</li>
+        if (string.IsNullOrEmpty(Model.SelectedObjectId))
+        {
+            <li>@Html.ActionLink(t.Slug + "-" + t.Description, "Choose", "RealEstateObjects", new { t = t.Slug }, null)</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink(t.Slug + "-" + t.Description, "Create", "Prints", new { t = t.Slug, o = Model.SelectedObjectId }, null)</li>
+        }
     }
 </ul>

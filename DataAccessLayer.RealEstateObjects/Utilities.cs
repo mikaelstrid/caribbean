@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Caribbean.DataAccessLayer.RealEstateObjects
@@ -12,17 +14,17 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         {
             var uri = new Uri(url);
             //var newQueryString = HttpUtility.ParseQueryString(uri.Query); // Depends on System.Web
-            var newQueryString = ParseQueryString(uri.Query);
+            var queryStringParameters = ParseQueryString(uri.Query);
             foreach (var key in keys)
             {
-                newQueryString.Remove(key);
+                queryStringParameters.Remove(key);
             }
             var pagePathWithoutQueryString = uri.GetLeftPart(UriPartial.Path);
-            return newQueryString.Count > 0 ? $"{pagePathWithoutQueryString}?{newQueryString}" : pagePathWithoutQueryString;
+            return queryStringParameters.Count > 0 ? $"{pagePathWithoutQueryString}?{ToQueryString(queryStringParameters)}" : pagePathWithoutQueryString;
         }
 
         // http://stackoverflow.com/questions/68624/how-to-parse-a-query-string-into-a-namevaluecollection-in-net
-        public static NameValueCollection ParseQueryString(string s)
+        private static NameValueCollection ParseQueryString(string s)
         {
             var nvc = new NameValueCollection();
 
@@ -47,6 +49,12 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             }
 
             return nvc;
+        }
+
+        private static string ToQueryString(NameValueCollection nvc)
+        {
+            var parameters = nvc.AllKeys.Select(key => $"{key}={nvc[key]}").ToList();
+            return string.Join("&", parameters);
         }
     }
 }
