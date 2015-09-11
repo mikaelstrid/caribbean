@@ -95,7 +95,6 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
         [AllowAnonymous]
-        [Route("rendera")]
         public async Task<ActionResult> Render(string agentUserId, int pageId)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);

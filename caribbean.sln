@@ -34,6 +34,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.Database", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models.PrintTemplates", "Models.PrintTemplates\Models.PrintTemplates.csproj", "{38687A44-B932-4470-8A0B-224735C1983E}"
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureCloudService", "AzureCloudService\AzureCloudService.ccproj", "{9D4068DD-7D4E-4EDB-A3A0-814079D67791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aruba.PdfWorkerRole", "Aruba.PdfWorkerRole\Aruba.PdfWorkerRole.csproj", "{79176E42-B467-46A7-A140-587D4B12229D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aruba.SharedTypes", "Aruba.SharedTypes\Aruba.SharedTypes.csproj", "{E65F5AC1-73FE-4FFC-B964-C9CB04B56721}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +82,18 @@ Global
 		{38687A44-B932-4470-8A0B-224735C1983E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38687A44-B932-4470-8A0B-224735C1983E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38687A44-B932-4470-8A0B-224735C1983E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4068DD-7D4E-4EDB-A3A0-814079D67791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4068DD-7D4E-4EDB-A3A0-814079D67791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4068DD-7D4E-4EDB-A3A0-814079D67791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4068DD-7D4E-4EDB-A3A0-814079D67791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79176E42-B467-46A7-A140-587D4B12229D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79176E42-B467-46A7-A140-587D4B12229D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79176E42-B467-46A7-A140-587D4B12229D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79176E42-B467-46A7-A140-587D4B12229D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65F5AC1-73FE-4FFC-B964-C9CB04B56721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65F5AC1-73FE-4FFC-B964-C9CB04B56721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65F5AC1-73FE-4FFC-B964-C9CB04B56721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65F5AC1-73FE-4FFC-B964-C9CB04B56721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
