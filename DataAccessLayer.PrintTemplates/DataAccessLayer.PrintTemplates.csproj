@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlobStorageRepositoryBase.cs" />
+    <Compile Include="PagePdfRepository.cs" />
+    <Compile Include="PageThumbnailRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateContentRepository.cs" />
     <Compile Include="TemplateMetadataRepository.cs" />
