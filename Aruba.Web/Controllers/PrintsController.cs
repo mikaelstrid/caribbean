@@ -23,6 +23,8 @@ namespace Caribbean.Aruba.Web.Controllers
         private readonly IMuseTemplateParser _museTemplateParser;
         private readonly IVitecObjectRepository _vitecObjectRepository;
         private readonly IInitialFieldValuesFactory _initialFieldValuesFactory;
+        private readonly IPrintPdfGeneratorService _printPdfGeneratorService;
+        private readonly IPrintPdfRepository _printPdfRepository;
 
         public PrintsController(
             IUnitOfWork unitOfWork, 
@@ -30,7 +32,9 @@ namespace Caribbean.Aruba.Web.Controllers
             ITemplateContentRepository templateContentRepository,
             IMuseTemplateParser museTemplateParser,
             IVitecObjectRepository vitecObjectRepository,
-            IInitialFieldValuesFactory initialFieldValuesFactory)
+            IInitialFieldValuesFactory initialFieldValuesFactory,
+            IPrintPdfGeneratorService printPdfGeneratorService,
+            IPrintPdfRepository printPdfRepository)
         {
             _unitOfWork = unitOfWork;
             _templateMetadataRepository = templateMetadataRepository;
@@ -38,6 +42,8 @@ namespace Caribbean.Aruba.Web.Controllers
             _museTemplateParser = museTemplateParser;
             _vitecObjectRepository = vitecObjectRepository;
             _initialFieldValuesFactory = initialFieldValuesFactory;
+            _printPdfGeneratorService = printPdfGeneratorService;
+            _printPdfRepository = printPdfRepository;
         }
 
         [Route("skapa")]
@@ -87,6 +93,7 @@ namespace Caribbean.Aruba.Web.Controllers
         }
 
 
+
         [Route("redigera/{id}")]
         public async Task<ActionResult> Edit(int id)
         {
@@ -99,7 +106,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var printVariantType = _templateMetadataRepository.GetPrintVariantBySlug(agent.Agency.Slug, print.PrintVariantSlug);
             if (printVariantType == null) return HttpNotFound("No print variant with a matching slug found.");
 
-            return View(new DesignPrintViewModel
+            return View(new EditPrintViewModel
             {
                 PrintId = print.Id,
                 PrintVariantType = printVariantType.Type,
@@ -107,10 +114,10 @@ namespace Caribbean.Aruba.Web.Controllers
             });
         }
 
-        private DesignPrintViewModel.PageViewModel CreatePageViewModel(string agencySlug, Page page)
+        private EditPrintViewModel.PageViewModel CreatePageViewModel(string agencySlug, Page page)
         {
             var template = _templateMetadataRepository.GetPageTemplateBySlug(agencySlug, page.PageTemplateSlug);
-            return new DesignPrintViewModel.PageViewModel
+            return new EditPrintViewModel.PageViewModel
             {
                 Id = page.Id,
                 Position = page.Position,
@@ -118,5 +125,45 @@ namespace Caribbean.Aruba.Web.Controllers
                 TemplateName = template.Name,
             };
         }
+
+
+
+        [Route("bestall/{id}")]
+        public async Task<ActionResult> Order(int id)
+        {
+            var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
+            if (agent == null) return HttpNotFound("No agent associated with the username found.");
+
+            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
+            if (print == null) return HttpNotFound("No print with a matching id found.");
+
+            var viewModel = new OrderPrintViewModel
+            {
+                AllPagePdfsGenerated = print.Pages.All(p => !string.IsNullOrWhiteSpace(p.PdfUrl)),
+            };
+
+            if (viewModel.AllPagePdfsGenerated)
+            {
+                var result = _printPdfGeneratorService.GeneratePdf(print);
+                if (result != null)
+                {
+                    viewModel.PrintPdfUrl = result.PdfUrl;
+                    UpdatePrintWithNewPdf(print, result.PdfName, result.PdfUrl);
+                }
+            }
+
+            return View(viewModel);
+        }
+
+        private void UpdatePrintWithNewPdf(Print print, string printPdfName, string printPdfUrl)
+        {
+            if (!string.IsNullOrWhiteSpace(print.PdfName)) _printPdfRepository.Delete(print.PdfName);
+
+            print.PdfName = printPdfName;
+            print.PdfUrl = printPdfUrl;
+            _unitOfWork.PrintRepository.Update(print);
+            _unitOfWork.Save();
+        }
+
     }
 }

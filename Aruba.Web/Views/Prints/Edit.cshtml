@@ -1,4 +1,4 @@
-﻿@model Caribbean.Aruba.Web.ViewModels.Prints.DesignPrintViewModel
+﻿@model Caribbean.Aruba.Web.ViewModels.Prints.EditPrintViewModel
 
 <h2>Redigera trycksak</h2>
 
@@ -7,6 +7,8 @@
 <ul>
     @foreach (var p in Model.Pages)
     {
-        <li>@Html.ActionLink("Sida " + p.Position, "Edit", "Page", new { id = p.Id }, null)</li>
+        <li>@Html.ActionLink("Sida " + p.Position, "Edit", "Page", new {id = p.Id}, null)</li>
     }
 </ul>
+
+@Html.ActionLink("Beställ", "Order", new { id =  @Model.PrintId })

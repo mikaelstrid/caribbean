@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Caribbean.Aruba.Web.ViewModels.Prints
 {
-    public class DesignPrintViewModel
+    public class EditPrintViewModel
     {
         public int PrintId { get; set; }
         public IEnumerable<PageViewModel> Pages { get; set; }
