@@ -98,6 +98,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ServiceBus, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.ServiceBus.3.0.2\lib\net45-full\Microsoft.ServiceBus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.7.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -105,6 +113,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -227,6 +237,7 @@
     <Compile Include="Business\InitialFieldValuesFactory.cs" />
     <Compile Include="Business\MuseTemplateParser.cs" />
     <Compile Include="Business\PageFactory.cs" />
+    <Compile Include="Business\PagePdfGeneratorProxyService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -238,7 +249,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\Page\DesignPageViewModel.cs" />
+    <Compile Include="ViewModels\Page\EditPageSaveChangesViewModel.cs" />
+    <Compile Include="ViewModels\Page\EditPageViewModel.cs" />
     <Compile Include="ViewModels\Prints\DesignPrintViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\AvailablePrintTemplateViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\ChoosePrintTemplateModel.cs" />
@@ -316,6 +328,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aruba.SharedTypes\Aruba.SharedTypes.csproj">
+      <Project>{E65F5AC1-73FE-4FFC-B964-C9CB04B56721}</Project>
+      <Name>Aruba.SharedTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer.Database\DataAccessLayer.Database.csproj">
       <Project>{EE09B9B4-8229-4072-96CF-F279A701350E}</Project>
       <Name>DataAccessLayer.Database</Name>

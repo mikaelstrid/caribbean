@@ -21,18 +21,20 @@ namespace Caribbean.Aruba.Web.Controllers
         private readonly ITemplateContentRepository _templateContentRepository;
         private readonly IPageFactory _pageFactory;
         private readonly IVitecObjectRepository _vitecObjectRepository;
+        private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
 
-        public PageController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository, ITemplateContentRepository templateContentRepository, IPageFactory pageFactory, IVitecObjectRepository vitecObjectRepository)
+        public PageController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository, ITemplateContentRepository templateContentRepository, IPageFactory pageFactory, IVitecObjectRepository vitecObjectRepository, IPagePdfGeneratorProxyService pagePdfGeneratorProxyService)
         {
             _unitOfWork = unitOfWork;
             _templateMetadataRepository = templateMetadataRepository;
             _templateContentRepository = templateContentRepository;
             _pageFactory = pageFactory;
             _vitecObjectRepository = vitecObjectRepository;
+            _pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
         }
 
 
-        [Route("redigera/{id}")]
+        [Route("redigera")]
         public async Task<ActionResult> Edit(int id)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
@@ -41,7 +43,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var requestedPage = await _unitOfWork.PageRepository.GetSingle(p => p.Id == id, "Print");
             if (requestedPage == null) return HttpNotFound("No page associated with the id found.");
 
-            return View(new DesignPageViewModel
+            return View(new EditPageViewModel
             {
                 PrintId = requestedPage.PrintId,
                 Page = CreatePageViewModel(_unitOfWork, requestedPage, agent.Agency.Slug),
@@ -49,11 +51,11 @@ namespace Caribbean.Aruba.Web.Controllers
             });
         }
 
-        private DesignPageViewModel.PageViewModel CreatePageViewModel(IUnitOfWork unitOfWork, Page page, string agencySlug)
+        private EditPageViewModel.PageViewModel CreatePageViewModel(IUnitOfWork unitOfWork, Page page, string agencySlug)
         {
             var pageTemplate = page == null ? null : _templateMetadataRepository.GetPageTemplateBySlug(agencySlug, page.PageTemplateSlug);
             if (page == null || pageTemplate == null) return null;
-            return new DesignPageViewModel.PageViewModel
+            return new EditPageViewModel.PageViewModel
             {
                 Id = page.Id,
                 Position = page.Position,
@@ -63,14 +65,40 @@ namespace Caribbean.Aruba.Web.Controllers
             };
         }
 
-        private IEnumerable<DesignPageViewModel.ObjectImageViewModel> GetObjectImages(string objectId, IUnitOfWork unitOfWork)
+        private IEnumerable<EditPageViewModel.ObjectImageViewModel> GetObjectImages(string objectId, IUnitOfWork unitOfWork)
         {
             var vitecObject = _vitecObjectRepository.GetDetailsById(objectId);
-            return vitecObject.Images.Select(i => new DesignPageViewModel.ObjectImageViewModel
+            return vitecObject.Images.Select(i => new EditPageViewModel.ObjectImageViewModel
             {
                 PictureUrl = i.GetImageUrl(),
                 ThumbnailUrl = i.GetThumbnailUrl(width: 250)
             });
+        }
+
+
+
+
+        [HttpPost]
+        [Route("redigera")]
+        public async Task<ActionResult> Edit(EditPageSaveChangesViewModel viewModel)
+        {
+            _pagePdfGeneratorProxyService.Initialize();
+
+            var agentUserId = User.Identity.GetUserId();
+            var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);
+
+            if (viewModel.PageId != -1)
+            {
+                var page = await _unitOfWork.PageRepository.GetById(viewModel.PageId);
+                if (page == null) return HttpNotFound($"No page associated with id {viewModel.PageId} found.");
+
+                var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
+                if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
+
+                _pagePdfGeneratorProxyService.QueueJob(viewModel.PageId, agentUserId, template.Width, template.Height, template.Dpi, 220, 308);
+            }
+
+            return RedirectToAction("Edit", "Prints", new { id = viewModel.PrintId });
         }
 
 
@@ -95,6 +123,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
         [AllowAnonymous]
+        [Route("rendera")]
         public async Task<ActionResult> Render(string agentUserId, int pageId)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);
