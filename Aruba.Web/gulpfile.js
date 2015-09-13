@@ -1,6 +1,7 @@
 ﻿var mainBowerFiles = require('main-bower-files');
 var gulp = require('gulp'),
-    gulpFilter = require('gulp-filter');
+    gulpFilter = require('gulp-filter'),
+    gulpSass = require('gulp-sass');
 
 gulp.task('default', function () {
     console.log("Hello world!");
@@ -16,5 +17,11 @@ gulp.task('js', function () {
 gulp.task('css', function () {
     gulp.src(mainBowerFiles())
         .pipe(gulpFilter('*.css'))
-		.pipe(gulp.dest('./Content/lib'));
+		.pipe(gulp.dest('./Stylesheets/lib'));
+});
+
+gulp.task('sass', function () {
+    gulp.src('./Stylesheets/scss/*.scss')
+      .pipe(gulpSass().on('error', gulpSass.logError))
+      .pipe(gulp.dest('./Stylesheets'));
 });

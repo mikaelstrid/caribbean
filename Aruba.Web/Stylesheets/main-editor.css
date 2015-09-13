@@ -1,0 +1,28 @@
+#page {
+  overflow: hidden; }
+
+.editable-textfield, .editable-htmlfield {
+  min-height: 1em; }
+  .editable-textfield.active, .editable-htmlfield.active {
+    background-color: rgba(125, 163, 208, 0.6); }
+  .editable-textfield:hover, .editable-htmlfield:hover {
+    background-color: rgba(125, 163, 208, 0.6);
+    cursor: pointer; }
+
+.editable-imagefield-parent {
+  overflow: hidden;
+  position: relative; }
+  .editable-imagefield-parent:hover, .editable-imagefield-parent.active {
+    border: 12px solid rgba(125, 163, 208, 0.6);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+    .editable-imagefield-parent:hover .editable-imagefield, .editable-imagefield-parent.active .editable-imagefield {
+      margin: -12px; }
+  .editable-imagefield-parent:hover .editable-imagefield .guillotine-window {
+    cursor: pointer; }
+  .editable-imagefield-parent.active .editable-imagefield .guillotine-window {
+    cursor: move; }
+
+strong {
+  font-weight: 700; }

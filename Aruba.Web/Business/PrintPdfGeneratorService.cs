@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Net;
-using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
 using Caribbean.Models.Database;
 using PdfSharp.Pdf;
@@ -17,12 +16,10 @@ namespace Caribbean.Aruba.Web.Business
 
     public class PrintPdfGeneratorService : IPrintPdfGeneratorService
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IPrintPdfRepository _printPdfRepository;
 
-        public PrintPdfGeneratorService(IUnitOfWork unitOfWork, IPrintPdfRepository printPdfRepository)
+        public PrintPdfGeneratorService(IPrintPdfRepository printPdfRepository)
         {
-            _unitOfWork = unitOfWork;
             _printPdfRepository = printPdfRepository;
         }
 

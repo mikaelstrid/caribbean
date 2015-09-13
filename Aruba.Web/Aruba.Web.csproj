@@ -259,7 +259,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Business\InitialFieldValuesFactory.cs" />
     <Compile Include="Business\MuseTemplateParser.cs" />
-    <Compile Include="Business\PageFactory.cs" />
+    <Compile Include="Business\PrintPageHtmlStringFactory.cs" />
     <Compile Include="Business\PagePdfGeneratorProxyService.cs" />
     <Compile Include="Business\PrintPdfGeneratorService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -286,23 +286,34 @@
     <Compile Include="ViewModels\RealEstateObject\ObjectSummaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\design-page.js" />
+    <Content Include="Scripts\init.js" />
+    <Content Include="Scripts\lib\jquery.js" />
+    <Content Include="Scripts\lib\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\lib\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\modernizr.js" />
+    <Content Include="Stylesheets\main-editor.css" />
+    <Content Include="Stylesheets\main-renderer.css" />
+    <Content Include="Stylesheets\vendor\jquery.guillotine.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="gulpfile.js" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
+    <Content Include="Stylesheets\scss\main-editor.scss" />
+    <Content Include="Stylesheets\scss\main-renderer.scss" />
+    <None Include="Stylesheets\scss\modules\_editor.scss" />
+    <None Include="Stylesheets\scss\modules\_renderer.scss" />
     <None Include="Properties\PublishProfiles\mm-aruba.pubxml" />
     <Content Include="Scripts\ai.0.15.0-build46802.js" />
     <Content Include="Scripts\ai.0.15.0-build46802.min.js" />
-    <Content Include="Scripts\lib\jquery.js" />
-    <Content Include="Scripts\lib\jquery.validate.js" />
-    <Content Include="Scripts\lib\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\lib\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\lib\modernizr.js" />
+    <Content Include="Scripts\render-scripts.js" />
+    <Content Include="Scripts\vendor\jquery.guillotine.js" />
+    <Content Include="Scripts\vendor\jquery.guillotine.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -342,6 +353,8 @@
     <Content Include="Views\Prints\Edit.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
     <Content Include="Views\Prints\Order.cshtml" />
+    <Content Include="Scripts\vendor\jquery.guillotine.min.js.map" />
+    <None Include="Stylesheets\scss\partials\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

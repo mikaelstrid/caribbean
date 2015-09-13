@@ -14,5 +14,19 @@
     <button type="submit" class="btn btn-primary">Klar!</button>
 }
 
-<iframe src="@Model.Page.PreviewUrl" frameborder="0" scrolling="no" style="width: @(Model.Page.Width + "px"); height: @(Model.Page.Height + "px;")"></iframe>
+<div id="page-editor">
+    <iframe src="@Model.Page.PreviewUrl" frameborder="0" scrolling="no" style="width: @(Model.Page.Width + "px"); height: @(Model.Page.Height + "px;")"></iframe>
+</div>
 
+@section scripts
+{
+    <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
+    <script src="~/Scripts/init.js"></script>
+    <script src="~/Scripts/design-page.js"></script>
+    <script>
+        $(document).ready(function() {
+            window.pixel.designpage.initPage($('#page-editor'), @(Model.Page?.Width ?? 0));
+        });
+    </script>
+
+}

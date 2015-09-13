@@ -19,16 +19,16 @@ namespace Caribbean.Aruba.Web.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITemplateMetadataRepository _templateMetadataRepository;
         private readonly ITemplateContentRepository _templateContentRepository;
-        private readonly IPageFactory _pageFactory;
+        private readonly IPrintPageHtmlStringFactory _printPageHtmlStringFactory;
         private readonly IVitecObjectRepository _vitecObjectRepository;
         private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
 
-        public PageController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository, ITemplateContentRepository templateContentRepository, IPageFactory pageFactory, IVitecObjectRepository vitecObjectRepository, IPagePdfGeneratorProxyService pagePdfGeneratorProxyService)
+        public PageController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository, ITemplateContentRepository templateContentRepository, IPrintPageHtmlStringFactory printPageHtmlStringFactory, IVitecObjectRepository vitecObjectRepository, IPagePdfGeneratorProxyService pagePdfGeneratorProxyService)
         {
             _unitOfWork = unitOfWork;
             _templateMetadataRepository = templateMetadataRepository;
             _templateContentRepository = templateContentRepository;
-            _pageFactory = pageFactory;
+            _printPageHtmlStringFactory = printPageHtmlStringFactory;
             _vitecObjectRepository = vitecObjectRepository;
             _pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
         }
@@ -116,7 +116,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var templateContent = _templateContentRepository.GetPageTemplateBySlug(agent.Agency.Slug, requestedPage.PageTemplateSlug);
             if (templateContent == null) return HttpNotFound("No page template associated with the id found.");
 
-            var editorHtml = _pageFactory.CreatePageEditorHtmlString(templateContent, requestedPage);
+            var editorHtml = _printPageHtmlStringFactory.CreatePageEditorHtmlString(templateContent, requestedPage);
 
             return Content(editorHtml);
         }
@@ -135,7 +135,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var templateContent = _templateContentRepository.GetPageTemplateBySlug(agent.Agency.Slug, requestedPage.PageTemplateSlug);
             if (templateContent == null) return HttpNotFound("No page template associated with the id found.");
 
-            var editorHtml = _pageFactory.CreatePageRenderHtmlString(templateContent, requestedPage);
+            var editorHtml = _printPageHtmlStringFactory.CreatePageRenderHtmlString(templateContent, requestedPage);
 
             return Content(editorHtml);
         }

@@ -1,0 +1,47 @@
+﻿@import '../partials/variables';
+$color-blue-transparent: rgba(125, 163, 208, 0.6);
+
+#page {
+    overflow: hidden;
+}
+
+.editable-textfield, .editable-htmlfield {
+    min-height: 1em;
+    &.active {
+        background-color: $color-blue-transparent;
+    }
+
+    &:hover {
+        background-color: $color-blue-transparent;
+        cursor: pointer;
+    }
+}
+
+.editable-imagefield-parent {
+    overflow: hidden;
+    position: relative;
+
+    &:hover, &.active {
+        $border-width: 12px;
+        border: $border-width solid $color-blue-transparent;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        .editable-imagefield {
+            margin: -$border-width;
+        }
+    }
+
+    &:hover .editable-imagefield .guillotine-window {
+        cursor: pointer;
+    }
+
+    &.active .editable-imagefield .guillotine-window {
+        cursor: move;
+    }
+}
+
+strong {
+    font-weight: $font-weight-bold;
+}

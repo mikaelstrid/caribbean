@@ -4,17 +4,17 @@ using Caribbean.Models.Database;
 
 namespace Caribbean.Aruba.Web.Business
 {
-    public interface IPageFactory
+    public interface IPrintPageHtmlStringFactory
     {
         string CreatePageEditorHtmlString(string templateHtml, Page modelPage);
         string CreatePageRenderHtmlString(string templateHtml, Page modelPage);
     }
 
-    public class PageFactory : IPageFactory
+    public class PrintPageHtmlStringFactory : IPrintPageHtmlStringFactory
     {
         private readonly IMuseTemplateParser _museTemplateParser;
 
-        public PageFactory(IMuseTemplateParser museTemplateParser)
+        public PrintPageHtmlStringFactory(IMuseTemplateParser museTemplateParser)
         {
             _museTemplateParser = museTemplateParser;
         }
@@ -23,7 +23,7 @@ namespace Caribbean.Aruba.Web.Business
         {
             var editorHtmlString = _museTemplateParser.MarkAllFields(templateHtml, modelPage.FieldValues);
             editorHtmlString = InjectPageIdInHtmlTag(editorHtmlString, modelPage.Id);
-            editorHtmlString = InjectStyles(editorHtmlString, new[] { "/Content/thirdparty/jquery.guillotine.css", "/Content/pixel/editor-styles.css" });
+            editorHtmlString = InjectStyles(editorHtmlString, new[] { "/Stylesheets/vendor/jquery.guillotine.css", "/Stylesheets/main-editor.css" });
             return editorHtmlString;
         }
 
@@ -31,8 +31,8 @@ namespace Caribbean.Aruba.Web.Business
         {
             var renderHtmlString = _museTemplateParser.MarkAllFields(templateHtml, modelPage.FieldValues);
             renderHtmlString = InjectPageIdInHtmlTag(renderHtmlString, modelPage.Id);
-            renderHtmlString = InjectStyles(renderHtmlString, new[] { "/Content/thirdparty/jquery.guillotine.css", "/Content/pixel/render-styles.css" });
-            renderHtmlString = InjectScripts(renderHtmlString, new[] { "/Scripts/thirdparty/jquery.guillotine.js", "/Scripts/pixel/render-scripts.js" });
+            renderHtmlString = InjectStyles(renderHtmlString, new[] { "/Stylesheets/vendor/jquery.guillotine.css", "/Stylesheets/main-renderer.css" });
+            renderHtmlString = InjectScripts(renderHtmlString, new[] { "/Scripts/vendor/jquery.guillotine.js", "/Scripts/render-scripts.js" });
             return renderHtmlString;
         }
 
@@ -48,7 +48,7 @@ namespace Caribbean.Aruba.Web.Business
             var templateString = html;
             foreach (var styleSheetUrl in styleSheetUrls)
             {
-                var styleSheetLink = string.Format("    <link href=\"{0}\" rel=\"stylesheet\" />\r\n", styleSheetUrl);
+                var styleSheetLink = $"    <link href=\"{styleSheetUrl}\" rel=\"stylesheet\" />\r\n";
                 templateString = regex.Replace(templateString, styleSheetLink + "$1");
             }
             return templateString;
@@ -60,7 +60,7 @@ namespace Caribbean.Aruba.Web.Business
             var templateString = html;
             foreach (var scriptUrl in scriptUrls)
             {
-                var scriptLink = string.Format("    <script src=\"{0}\"></script>\r\n", scriptUrl);
+                var scriptLink = $"    <script src=\"{scriptUrl}\"></script>\r\n";
                 templateString = regex.Replace(templateString, scriptLink + "$1");
             }
             return templateString;
