@@ -5,9 +5,9 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://mmcaribbean.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5UmpMbbABEkgCaHiXmpmiV4AjVpLVQg3YvIVlrvEV4Y=" />
       <Setting name="Aruba.PdfWorkerQueueName" value="arubapdfqueue" />
-      <Setting name="RenderPageBaseUrl" value="http://mm-aruba.azurewebsites.net/sida/rendera?agentUserId={0}&amp;pageId={1}" />
-      <Setting name="UpdatePageThumbnailUrl" value="http://mm-aruba.azurewebsites.net/api/pagethumbnails" />
-      <Setting name="UpdatePagePdfUrl" value="http://mm-aruba.azurewebsites.net/api/pagepdfs" />
+      <Setting name="RenderPageBaseUrl" value="http://objektprint.modernmaklarmedia.se/sida/rendera?agentUserId={0}&amp;pageId={1}" />
+      <Setting name="UpdatePageThumbnailUrl" value="http://objektprint.modernmaklarmedia.se/api/pagethumbnails" />
+      <Setting name="UpdatePagePdfUrl" value="http://objektprint.modernmaklarmedia.se/api/pagepdfs" />
       <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcarribean;AccountKey=BokQ7ge54FHWaO7DvQBLLj6UeE4PWXpCF1OUKYSEIYirliWTJrNjRcPhJzMvURRBi9N6XHyKqsZVOoUZiOFUmw==" />
       <!--<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="aruba" />
