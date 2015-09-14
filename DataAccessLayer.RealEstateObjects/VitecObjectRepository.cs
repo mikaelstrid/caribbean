@@ -20,6 +20,8 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
     {
         private const string CACHE_PREFIX_SUMMARY = "VS_";
         private const string CACHE_PREFIX_DETAILS = "VD_";
+        private const string VITECT_CURRENT_OBJECT_LIST_URL_WITH_FORMAT = "http://net.sfd.se/webpack/ObjectList/ObjectList.aspx?RenderAsXML=1&Custom=1&DBSPace={0}";
+        private const string VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT = "http://net.sfd.se/Gateway.aspx?SFDGatewayID=58&DBSPace={0}&RefObject=3";
 
         private readonly IVitecObjectFactory _vitecObjectFactory;
 
@@ -35,14 +37,11 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             var cachedObjectSummaries = cache[CACHE_PREFIX_SUMMARY + vitecCustomerId];
             if (cachedObjectSummaries != null) return cachedObjectSummaries as IEnumerable<VitecObjectSummary>;
 
-            var xmlDocument = LoadVitecSummaryXmlDocument(vitecCustomerId);
-            if (xmlDocument == null) return new VitecObjectSummary[0];
+            var createdObjectSummaries = GetSummariesAndUpdateCache(vitecCustomerId, cache);
 
-            var createdObjectSummaries = xmlDocument.Descendants("objekt").Select(_vitecObjectFactory.CreateSummary);
-            cache.Set(CACHE_PREFIX_SUMMARY + vitecCustomerId, createdObjectSummaries, DateTimeOffset.Now.AddMinutes(30));
             return createdObjectSummaries;
         }
-        
+
         public VitecObjectSummary GetSummaryById(string vitecCustomerId, string objectId)
         {
             var cache = MemoryCache.Default;
@@ -51,18 +50,28 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             var matchingSummary = ((IEnumerable<VitecObjectSummary>) cachedObjectSummaries)?.FirstOrDefault(s => s.Id == objectId);
             if (matchingSummary != null) return matchingSummary;
 
-            var xmlDocument = LoadVitecSummaryXmlDocument(vitecCustomerId);
-            var createdObjectSummaries = xmlDocument.Descendants("objekt").Select(_vitecObjectFactory.CreateSummary);
-            cache.Set(CACHE_PREFIX_SUMMARY + vitecCustomerId, createdObjectSummaries, DateTimeOffset.Now.AddMinutes(30));
+            var createdObjectSummaries = GetSummariesAndUpdateCache(vitecCustomerId, cache);
+
             return createdObjectSummaries.FirstOrDefault(s => s.Id == objectId);
         }
 
-        private static XDocument LoadVitecSummaryXmlDocument(string vitecCustomerId)
+        private IEnumerable<VitecObjectSummary> GetSummariesAndUpdateCache(string vitecCustomerId, MemoryCache cache)
+        {
+            var result = new List<VitecObjectSummary>();
+            result.AddRange(CreateSummaries(LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_CURRENT_OBJECT_LIST_URL_WITH_FORMAT)));
+            result.AddRange(CreateSummaries(LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT)));
+            if (result.Any())
+            {
+                cache.Set(CACHE_PREFIX_SUMMARY + vitecCustomerId, result, DateTimeOffset.Now.AddMinutes(30));
+            }
+            return result;
+        }
+
+        private static XDocument LoadVitecSummaryXmlDocument(string vitecCustomerId, string objectListUrlWithFormat)
         {
             try
             {
-                const string VITEC_OBJECT_LIST_URL = "http://net.sfd.se/webpack/ObjectList/ObjectList.aspx?RenderAsXML=1&Custom=1&DBSPace={0}";
-                var objectListUrl = string.Format(VITEC_OBJECT_LIST_URL, vitecCustomerId);
+                var objectListUrl = string.Format(objectListUrlWithFormat, vitecCustomerId);
                 return XDocument.Load(objectListUrl);
             }
             catch
@@ -70,6 +79,17 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 return null;
             }
         }
+
+        private IEnumerable<VitecObjectSummary> CreateSummaries(XDocument xmlDocument)
+        {
+            if (xmlDocument != null)
+            {
+                return xmlDocument.Descendants("objekt").Select(_vitecObjectFactory.CreateSummary);
+            }
+            return new VitecObjectSummary[0];
+        }
+
+        
 
 
         public VitecObjectDetails GetDetailsById(string objectId)
