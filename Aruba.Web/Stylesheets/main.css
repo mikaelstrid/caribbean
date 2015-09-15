@@ -6346,6 +6346,18 @@ html {
 .page {
   padding-top: 9.375rem; }
 
+.box-with-header {
+  background-color: #fff; }
+  .box-with-header h3 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    border-bottom: 1px dotted #7F7F7F;
+    padding: 1.25rem 3.75rem;
+    margin-bottom: 0; }
+  .box-with-header .content {
+    padding: 3.75rem; }
+
 footer {
   background-color: #282828; }
   footer .row {
@@ -6383,7 +6395,10 @@ footer {
       margin-right: 0.625rem;
       border: solid 1px #fff;
       float: left;
-      display: inline; }
+      display: inline-block; }
+    .information-box .progress-bar .step .step-label {
+      float: left;
+      display: inline-block; }
     .information-box .progress-bar .step.active .step-number {
       background-color: #fff;
       color: #1B142A; }
@@ -6436,3 +6451,31 @@ footer {
         border: solid 1px #fff; }
         .page-home .hero .text-box .button:hover, .page-home .hero .text-box .button:focus {
           background-color: #B50082; }
+
+.page-choose-printtemplate ul.printtemplate-list .printtemplate {
+  border: 1px solid #7F7F7F;
+  padding: 1.25rem; }
+  .page-choose-printtemplate ul.printtemplate-list .printtemplate img {
+    display: inline-block;
+    float: left;
+    width: 60%;
+    padding-right: 3.75rem; }
+  .page-choose-printtemplate ul.printtemplate-list .printtemplate .description-box {
+    display: inline-block;
+    float: left;
+    width: 40%; }
+    .page-choose-printtemplate ul.printtemplate-list .printtemplate .description-box h4 {
+      font-size: 1rem;
+      line-height: 1.1875rem;
+      font-weight: bold;
+      color: #7F7F7F; }
+    .page-choose-printtemplate ul.printtemplate-list .printtemplate .description-box h5 {
+      font-size: 0.875rem;
+      line-height: 1.0625rem;
+      font-weight: 300;
+      color: #7F7F7F; }
+    .page-choose-printtemplate ul.printtemplate-list .printtemplate .description-box p.description {
+      font-size: 0.75rem;
+      line-height: 0.875rem;
+      font-weight: 300;
+      color: #7F7F7F; }

@@ -1,0 +1,44 @@
+﻿@import '../partials/variables';
+
+.page-choose-printtemplate {
+    ul.printtemplate-list {
+        .printtemplate {
+            border: 1px solid $metal;
+            padding: rem-calc(20);
+
+            img {
+                display: inline-block;
+                float: left;
+                width: 60%;
+                padding-right: rem-calc(60);
+            }
+
+            .description-box {
+                display: inline-block;
+                float: left;
+                width: 40%;
+
+                h4 {
+                    font-size: rem-calc(16);
+                    line-height: rem-calc(19);
+                    font-weight: bold;
+                    color: $metal;
+                }
+
+                h5 {
+                    font-size: rem-calc(14);
+                    line-height: rem-calc(17);
+                    font-weight: 300;
+                    color: $metal;
+                }
+
+                p.description {
+                    font-size: rem-calc(12);
+                    line-height: rem-calc(14);
+                    font-weight: 300;
+                    color: $metal;
+                }
+            }
+        }
+    }
+}

@@ -25,7 +25,12 @@
                 margin-right: rem-calc(10);
                 border: solid 1px $white;
                 float: left;
-                display: inline;
+                display: inline-block;
+            }
+
+            .step-label {
+                float: left;
+                display: inline-block;
             }
 
             &.active {

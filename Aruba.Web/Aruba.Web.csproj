@@ -317,6 +317,7 @@
     <Content Include="Stylesheets\scss\main-renderer.scss" />
     <Content Include="Stylesheets\scss\main.scss" />
     <Content Include="Stylesheets\scss\modules\_base.scss" />
+    <Content Include="Stylesheets\scss\modules\_page-choose-printtemplate.scss" />
     <None Include="Stylesheets\scss\modules\_editor.scss" />
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <None Include="Stylesheets\scss\modules\_renderer.scss" />

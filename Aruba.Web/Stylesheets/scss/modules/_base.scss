@@ -19,6 +19,23 @@ html {
     padding-top: rem-calc(150);
 }
 
+.box-with-header {
+    background-color: $white;
+
+    h3 {
+        font-size: rem-calc(20);
+        line-height: rem-calc(24);
+        font-weight: 300;
+        border-bottom: 1px dotted $metal;
+        padding: rem-calc(20) rem-calc(60);
+        margin-bottom: 0;
+    }
+
+    .content {
+        padding: rem-calc(60);
+    }
+}
+
 footer {
     background-color: rgb(40, 40, 40);
 
