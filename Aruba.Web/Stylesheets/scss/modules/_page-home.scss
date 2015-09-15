@@ -1,4 +1,6 @@
 ﻿@import '../partials/variables';
+@import '../partials/logo';
+@import 'foundation/components/buttons';
 
 html {
     background: url('/Images/balance-865091_1920.jpg') no-repeat center center fixed;
@@ -6,30 +8,69 @@ html {
 }
 
 .page-home {
-    header {
-        .row {
-            height: 5rem;
-            margin-top: 2rem;
+    .top-bar {
+        padding-left: rem-calc(60);
+        padding-right: rem-calc(60);
+
+        .logo {
+            margin-top: rem-calc(32);
+            @include logo($purple, $white);
         }
     }
 
     .hero {
-        height: 500px;
-    }
+        padding-top: rem-calc(80) + rem-calc(150);
+        padding-bottom: rem-calc(80);
 
-    .recent-objects {
         .row {
-            /*background-color: $color-white;*/
+            padding-left: rem-calc(60);
+            padding-right: rem-calc(60);
         }
 
+        .text-box {
+            max-width: rem-calc(480);
+
+            h2 {
+                font-family: 'Advent Pro', sans-serif;
+                font-weight: 200;
+                font-size: rem-calc(80);
+                color: $white;
+                line-height: 1.1em;
+            }
+
+            p {
+                color: $white;
+                font-size: rem-calc(25);
+                margin-top: rem-calc(25);
+            }
+
+            .button {
+                margin-top: rem-calc(10);
+                background-color: transparent;
+                border: solid 1px $white;
+
+                &:hover, &:focus {
+                    background-color: $purple;
+                }
+            }
+        }
+    }
+
+    /*.recent-objects {
         h3 {
             border-bottom: solid 1px gray;
         }
-    }
+    }*/
 
     footer {
-        height: 17rem;
-        padding-bottom: 7rem;
         background-color: rgb(40, 40, 40);
+
+        .row {
+            padding: rem-calc(100) rem-calc(60);
+        }
+
+        .logo {
+            @include logo(transparent, $white);
+        }
     }
 }

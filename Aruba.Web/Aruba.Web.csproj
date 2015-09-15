@@ -365,6 +365,7 @@
     <Content Include="Scripts\vendor\jquery.guillotine.min.js.map" />
     <Content Include="Stylesheets\scss\modules\_page-home.scss" />
     <Content Include="Stylesheets\scss\partials\_foundation-settings.scss" />
+    <Content Include="Stylesheets\scss\partials\_logo.scss" />
     <None Include="Stylesheets\scss\partials\_variables.scss" />
   </ItemGroup>
   <ItemGroup>

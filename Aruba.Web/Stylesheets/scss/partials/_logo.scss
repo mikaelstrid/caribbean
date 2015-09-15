@@ -1,0 +1,20 @@
+﻿@mixin logo($backgroundColor, $foregroundColor) {
+    background-color: $backgroundColor;
+    color: $foregroundColor;
+    text-align: center;
+    width: rem-calc(250);
+    padding: rem-calc(7);
+
+    p {
+        margin: 0;
+    }
+
+    .first-line {
+        font-size: rem-calc(28);
+    }
+
+    .second-line {
+        font-size: rem-calc(28);
+        font-weight: bold;
+    }
+}
