@@ -5,11 +5,19 @@
     "jquery": "~2.1.4",
     "jquery-validation": "~1.14.0",
     "jquery-validation-unobtrusive": "~3.2.3",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "foundation": "~5.5.2",
+    "normalize-css": "~3.0.3"
   },
   "overrides": {
     "modernizr": {
       "main": "modernizr.js"
+    },
+    "normalize": {
+      "main": "normalize.css"
     }
+  },
+  "devDependencies": {
+    "foundation": "~5.5.2"
   }
 }

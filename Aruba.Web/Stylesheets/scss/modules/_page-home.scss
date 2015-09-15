@@ -1,0 +1,35 @@
+﻿@import '../partials/variables';
+
+html {
+    background: url('/Images/balance-865091_1920.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.page-home {
+    header {
+        .row {
+            height: 5rem;
+            margin-top: 2rem;
+        }
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .recent-objects {
+        .row {
+            /*background-color: $color-white;*/
+        }
+
+        h3 {
+            border-bottom: solid 1px gray;
+        }
+    }
+
+    footer {
+        height: 17rem;
+        padding-bottom: 7rem;
+        background-color: rgb(40, 40, 40);
+    }
+}

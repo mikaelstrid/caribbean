@@ -1,12 +1,11 @@
-﻿var mainBowerFiles = require('main-bower-files');
-var gulp = require('gulp'),
-    gulpFilter = require('gulp-filter'),
-    gulpSass = require('gulp-sass');
+/// <binding AfterBuild='sass' />
+var mainBowerFiles = require('main-bower-files');
+var gulp = require('gulp');
+var gulpFilter = require('gulp-filter');
+var gulpRubySass = require('gulp-ruby-sass');
 
-gulp.task('default', function () {
-    console.log("Hello world!");
-    // place code for your default task here
-});
+//gulp.task('default', function () {
+//});
 
 gulp.task('js', function () {
     gulp.src(mainBowerFiles())
@@ -21,7 +20,13 @@ gulp.task('css', function () {
 });
 
 gulp.task('sass', function () {
-    gulp.src('./Stylesheets/scss/*.scss')
-      .pipe(gulpSass().on('error', gulpSass.logError))
+    return gulpRubySass('./Stylesheets/scss/**/*.scss', {
+        loadPath: ['bower_components/foundation/scss']
+    })
+      .on('error', gulpRubySass.logError)
       .pipe(gulp.dest('./Stylesheets'));
+});
+
+gulp.task('watch-sass', function () {
+    gulp.watch('./Stylesheets/**/*.scss', ['sass']);
 });
