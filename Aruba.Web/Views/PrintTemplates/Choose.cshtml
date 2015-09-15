@@ -1,17 +1,45 @@
 ﻿@model Caribbean.Aruba.Web.ViewModels.PrintTemplates.ChoosePrintTemplateModel
 
-<h2>Välj trycksak</h2>
+<div class="page page-select-printtemplate">
+    <div class="row information-box">
+        <div class="progress-bar clearfix">
+            <div class="step active">
+                <div class="step-number active">1</div>
+                <div class="step-label">Välj trycksaksmall</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Välj objekt</div>
+            </div>
+        </div>
+        <div class="purple-box">
+            <p>
+                Biblioteket nedan innehåller tillgängliga trycksaksmallar. Saknar ni en mall för något speciellt?<br />
+                Inga problem – vi kan tillverka mallar för nästan vad som helst.
+            </p>
+        </div>
+    </div>
 
-<ul>
-    @foreach (var t in Model.AvailablePrintTypes)
-    {
-        if (string.IsNullOrEmpty(Model.SelectedObjectId))
+    <ul>
+        @foreach (var t in Model.AvailablePrintTypes)
         {
-            <li>@Html.ActionLink(t.Slug + "-" + t.Description, "Choose", "RealEstateObjects", new { t = t.Slug }, null)</li>
+            if (string.IsNullOrEmpty(Model.SelectedObjectId))
+            {
+                <li>@Html.ActionLink(t.Slug + "-" + t.Description, "Choose", "RealEstateObjects", new { t = t.Slug }, null)</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink(t.Slug + "-" + t.Description, "Create", "Prints", new { t = t.Slug, o = Model.SelectedObjectId }, null)</li>
+            }
         }
-        else
-        {
-            <li>@Html.ActionLink(t.Slug + "-" + t.Description, "Create", "Prints", new { t = t.Slug, o = Model.SelectedObjectId }, null)</li>
+    </ul>
+</div>
+
+@section styles
+{
+    <style>
+        html {
+            background: url('/Images/notes-514998_1920.jpg') no-repeat center center fixed;
         }
-    }
-</ul>
+    </style>
+}

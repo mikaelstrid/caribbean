@@ -1,42 +1,29 @@
 ﻿<div class="page page-home">
-    <div class="contain-to-grid fixed">
-        <nav class="top-bar" data-topbar role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1 class="logo">
-                        <span class="first-line">Modern</span>
-                        <span class="second-line">Mäklarmedia</span>
-                    </h1>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
     <section class="hero">
         <div class="row">
             <div class="text-box">
                 <h2>Vad vill du skapa idag?</h2>
                 <p>Rulla nedåt eller välj här!</p>
-                <a role="button" href="#" class="button">Skapa nytt</a>
+                @Html.ActionLink("Skapa nytt", "Choose", "PrintTemplates", null, new { role = "button", @class = "button" })
             </div>
         </div>
     </section>
 
     @*<section class="recent-objects">
-        <div class="row">
-            <h3>Detta är dina senaste objekt. Behöver du en trycksak?</h3>
-            <div class="object-list">
+            <div class="row">
+                <h3>Detta är dina senaste objekt. Behöver du en trycksak?</h3>
+                <div class="object-list">
 
+                </div>
             </div>
-        </div>
-    </section>*@
-
-    <footer>
-        <div class="row">
-            <div class="logo">
-                <span class="first-line">Modern</span>
-                <span class="second-line">Mäklarmedia</span>
-            </div>
-        </div>
-    </footer>
+        </section>*@
 </div>
+
+@section styles
+{
+    <style>
+        html {
+            background: url('/Images/balance-865091_1920.jpg') no-repeat center center fixed;
+        }
+    </style>
+}

@@ -1,0 +1,68 @@
+﻿@import 'foundation/settings';
+@import '../partials/variables';
+
+.information-box {
+    color: $white;
+    background-color: $darkpurple;
+
+    .progress-bar {
+        padding: rem-calc(20) rem-calc(60);
+        border-bottom: dotted 1px $white;
+        font-size: rem-calc(20);
+        line-height: rem-calc(28);
+        font-weight: 300;
+
+        .step {
+            &:not(:last-child) {
+                margin-bottom: rem-calc(20);
+            }
+
+            .step-number {
+                border-radius: rem-calc(28);
+                width: rem-calc(28);
+                height: rem-calc(28);
+                text-align: center;
+                margin-right: rem-calc(10);
+                border: solid 1px $white;
+                float: left;
+                display: inline;
+            }
+
+            &.active {
+                .step-number {
+                    background-color: $white;
+                    color: $darkpurple;
+                }
+
+                .step-label {
+                    font-weight: normal;
+                }
+            }
+
+            @media #{$medium-up} {
+                float: left;
+                display: inline;
+
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                    margin-right: rem-calc(50);
+                }
+            }
+        }
+    }
+
+    .purple-box {
+        text-align: center;
+        padding: rem-calc(20) rem-calc(60);
+
+        p {
+            max-width: rem-calc(860);
+            font-size: rem-calc(16);
+            line-height: rem-calc(24);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+﻿@import '../partials/variables';
+@import '../partials/logo';
+
+html {
+    background-size: cover;
+}
+
+.top-bar {
+    padding-left: rem-calc(60);
+    padding-right: rem-calc(60);
+
+    .logo {
+        margin-top: rem-calc(32);
+        @include logo($purple, $white);
+    }
+}
+
+.page {
+    padding-top: rem-calc(150);
+}
+
+footer {
+    background-color: rgb(40, 40, 40);
+
+    .row {
+        padding: rem-calc(100) rem-calc(60);
+    }
+
+    .logo {
+        @include logo(transparent, $white);
+    }
+}

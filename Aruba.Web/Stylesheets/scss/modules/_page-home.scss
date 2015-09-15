@@ -1,25 +1,9 @@
 ﻿@import '../partials/variables';
-@import '../partials/logo';
 @import 'foundation/components/buttons';
 
-html {
-    background: url('/Images/balance-865091_1920.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
 .page-home {
-    .top-bar {
-        padding-left: rem-calc(60);
-        padding-right: rem-calc(60);
-
-        .logo {
-            margin-top: rem-calc(32);
-            @include logo($purple, $white);
-        }
-    }
-
     .hero {
-        padding-top: rem-calc(80) + rem-calc(150);
+        padding-top: rem-calc(80);
         padding-bottom: rem-calc(80);
 
         .row {
@@ -61,16 +45,4 @@ html {
             border-bottom: solid 1px gray;
         }
     }*/
-
-    footer {
-        background-color: rgb(40, 40, 40);
-
-        .row {
-            padding: rem-calc(100) rem-calc(60);
-        }
-
-        .logo {
-            @include logo(transparent, $white);
-        }
-    }
 }

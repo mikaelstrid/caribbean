@@ -6323,8 +6323,88 @@ th.hide-for-touch {
   .show-for-print {
     display: none !important; } }
 html {
-  background: url("/Images/balance-865091_1920.jpg") no-repeat center center fixed;
   background-size: cover; }
+
+.top-bar {
+  padding-left: 3.75rem;
+  padding-right: 3.75rem; }
+  .top-bar .logo {
+    margin-top: 2rem;
+    background-color: #B50082;
+    color: #fff;
+    text-align: center;
+    width: 15.625rem;
+    padding: 0.4375rem; }
+    .top-bar .logo p {
+      margin: 0; }
+    .top-bar .logo .first-line {
+      font-size: 1.75rem; }
+    .top-bar .logo .second-line {
+      font-size: 1.75rem;
+      font-weight: bold; }
+
+.page {
+  padding-top: 9.375rem; }
+
+footer {
+  background-color: #282828; }
+  footer .row {
+    padding: 6.25rem 3.75rem; }
+  footer .logo {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    width: 15.625rem;
+    padding: 0.4375rem; }
+    footer .logo p {
+      margin: 0; }
+    footer .logo .first-line {
+      font-size: 1.75rem; }
+    footer .logo .second-line {
+      font-size: 1.75rem;
+      font-weight: bold; }
+
+.information-box {
+  color: #fff;
+  background-color: #1B142A; }
+  .information-box .progress-bar {
+    padding: 1.25rem 3.75rem;
+    border-bottom: dotted 1px #fff;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 300; }
+    .information-box .progress-bar .step:not(:last-child) {
+      margin-bottom: 1.25rem; }
+    .information-box .progress-bar .step .step-number {
+      border-radius: 1.75rem;
+      width: 1.75rem;
+      height: 1.75rem;
+      text-align: center;
+      margin-right: 0.625rem;
+      border: solid 1px #fff;
+      float: left;
+      display: inline; }
+    .information-box .progress-bar .step.active .step-number {
+      background-color: #fff;
+      color: #1B142A; }
+    .information-box .progress-bar .step.active .step-label {
+      font-weight: normal; }
+    @media only screen and (min-width: 40.0625em) {
+      .information-box .progress-bar .step {
+        float: left;
+        display: inline; }
+        .information-box .progress-bar .step:not(:last-child) {
+          margin-bottom: 0;
+          margin-right: 3.125rem; } }
+  .information-box .purple-box {
+    text-align: center;
+    padding: 1.25rem 3.75rem; }
+    .information-box .purple-box p {
+      max-width: 53.75rem;
+      font-size: 1rem;
+      line-height: 1.5rem; }
+      .information-box .purple-box p:last-child {
+        margin-bottom: 0; }
 
 .page-home {
   /*.recent-objects {
@@ -6332,25 +6412,8 @@ html {
           border-bottom: solid 1px gray;
       }
   }*/ }
-  .page-home .top-bar {
-    padding-left: 3.75rem;
-    padding-right: 3.75rem; }
-    .page-home .top-bar .logo {
-      margin-top: 2rem;
-      background-color: #B50082;
-      color: #fff;
-      text-align: center;
-      width: 15.625rem;
-      padding: 0.4375rem; }
-      .page-home .top-bar .logo p {
-        margin: 0; }
-      .page-home .top-bar .logo .first-line {
-        font-size: 1.75rem; }
-      .page-home .top-bar .logo .second-line {
-        font-size: 1.75rem;
-        font-weight: bold; }
   .page-home .hero {
-    padding-top: 14.375rem;
+    padding-top: 5rem;
     padding-bottom: 5rem; }
     .page-home .hero .row {
       padding-left: 3.75rem;
@@ -6373,20 +6436,3 @@ html {
         border: solid 1px #fff; }
         .page-home .hero .text-box .button:hover, .page-home .hero .text-box .button:focus {
           background-color: #B50082; }
-  .page-home footer {
-    background-color: #282828; }
-    .page-home footer .row {
-      padding: 6.25rem 3.75rem; }
-    .page-home footer .logo {
-      background-color: transparent;
-      color: #fff;
-      text-align: center;
-      width: 15.625rem;
-      padding: 0.4375rem; }
-      .page-home footer .logo p {
-        margin: 0; }
-      .page-home footer .logo .first-line {
-        font-size: 1.75rem; }
-      .page-home footer .logo .second-line {
-        font-size: 1.75rem;
-        font-weight: bold; }

@@ -8,22 +8,37 @@
     <link href="~/Stylesheets/main.css" rel="stylesheet" />
     <script src="~/Scripts/lib/modernizr.js"></script>
 
-    <script type="text/javascript">
-        var appInsights = window.appInsights || function (config) {
-            function s(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u; for (o.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", r.getElementsByTagName(e)[0].parentNode.appendChild(o), t.cookie = r.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) s("track" + i.pop()); return config.disableExceptionTracking || (i = "onerror", s("_" + i), u = f[i], f[i] = function (config, r, f, e, o) { var s = u && u(config, r, f, e, o); return s !== !0 && t["_" + i](config, r, f, e, o), s }), t
-        }({
-            instrumentationKey: "988d9c28-3e99-4f2b-a2fe-ef14f8a49f1a"
-        });
+    @RenderSection("styles", required: false)
 
-        window.appInsights = appInsights;
-        appInsights.trackPageView();
-    </script>
+    @Html.Partial("_AppInsights")
 </head>
 <body>
     @*@Html.ActionLink("Application name", "Index", "Home")
-    @Html.Partial("_LoginPartial")*@
+        @Html.Partial("_LoginPartial")*@
+
+    <div class="contain-to-grid fixed">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1 class="logo">
+                        <span class="first-line">Modern</span>
+                        <span class="second-line">Mäklarmedia</span>
+                    </h1>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     @RenderBody()
+
+    <footer>
+        <div class="row">
+            <div class="logo">
+                <span class="first-line">Modern</span>
+                <span class="second-line">Mäklarmedia</span>
+            </div>
+        </div>
+    </footer>
 
     <script src="~/Scripts/lib/jquery.js"></script>
     <script src="~/Scripts/lib/foundation.js"></script>

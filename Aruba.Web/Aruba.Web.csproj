@@ -287,6 +287,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\balance-865091_1920.jpg" />
+    <Content Include="Images\notes-514998_1920.jpg" />
     <Content Include="Scripts\design-page.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\lib\fastclick.js" />
@@ -315,7 +316,9 @@
     <Content Include="Stylesheets\scss\main-editor.scss" />
     <Content Include="Stylesheets\scss\main-renderer.scss" />
     <Content Include="Stylesheets\scss\main.scss" />
+    <Content Include="Stylesheets\scss\modules\_base.scss" />
     <None Include="Stylesheets\scss\modules\_editor.scss" />
+    <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <None Include="Stylesheets\scss\modules\_renderer.scss" />
     <None Include="Properties\PublishProfiles\mm-aruba.pubxml" />
     <Content Include="Scripts\ai.0.15.0-build46802.js" />
@@ -367,6 +370,7 @@
     <Content Include="Stylesheets\scss\partials\_foundation-settings.scss" />
     <Content Include="Stylesheets\scss\partials\_logo.scss" />
     <None Include="Stylesheets\scss\partials\_variables.scss" />
+    <Content Include="Views\Shared\_AppInsights.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

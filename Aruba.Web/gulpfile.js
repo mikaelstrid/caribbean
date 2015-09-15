@@ -1,4 +1,4 @@
-/// <binding AfterBuild='sass' />
+/// <binding />
 var mainBowerFiles = require('main-bower-files');
 var gulp = require('gulp');
 var gulpFilter = require('gulp-filter');

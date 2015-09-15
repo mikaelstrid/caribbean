@@ -1,4 +1,7 @@
-﻿@import "./partials/foundation-settings";
+﻿@import "partials/foundation-settings";
 @import "foundation";
 
-@import './modules/page-home';
+@import 'modules/base';
+@import 'modules/information-box';
+
+@import 'modules/page-home';
