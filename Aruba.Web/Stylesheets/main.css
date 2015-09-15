@@ -6479,3 +6479,28 @@ footer {
       line-height: 0.875rem;
       font-weight: 300;
       color: #7F7F7F; }
+
+.page-choose-realestateobject ul.realestateobject-list .realestateobject {
+  border: 1px solid #7F7F7F; }
+  .page-choose-realestateobject ul.realestateobject-list .realestateobject img {
+    width: 100%;
+    max-width: none; }
+  .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box {
+    padding: 0.625rem; }
+    .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box h4 {
+      font-size: 1rem;
+      line-height: 1.1875rem;
+      font-weight: bold;
+      color: #7F7F7F; }
+    .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box h5 {
+      font-size: 0.875rem;
+      line-height: 1.0625rem;
+      font-weight: 300;
+      color: #7F7F7F;
+      margin-bottom: 1.25rem; }
+    .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box p.price {
+      font-size: 0.875rem;
+      line-height: 1.0625rem;
+      font-weight: 300;
+      color: #7F7F7F;
+      margin-bottom: 0; }

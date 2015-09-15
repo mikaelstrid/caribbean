@@ -38,7 +38,8 @@ namespace Caribbean.Aruba.Web.Controllers
                 {
                     Id = o.Id,
                     Address = o.Address,
-                    ThumbailUrl = o.ThumbnailUrl
+                    ThumbailUrl = o.ThumbnailUrl,
+                    Price = o.Price
                 })
             });
         }

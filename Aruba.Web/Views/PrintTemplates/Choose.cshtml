@@ -6,14 +6,28 @@
 <div class="page page-choose-printtemplate">
     <div class="row information-box">
         <div class="progress-bar clearfix">
-            <div class="step active clearfix">
-                <div class="step-number active">1</div>
-                <div class="step-label">Välj trycksaksmall</div>
-            </div>
-            <div class="step clearfix">
-                <div class="step-number">2</div>
-                <div class="step-label">Välj objekt</div>
-            </div>
+            @if (string.IsNullOrEmpty(Model.SelectedObjectId))
+            {
+                <div class="step active clearfix">
+                    <div class="step-number active">1</div>
+                    <div class="step-label">Välj trycksaksmall</div>
+                </div>
+                <div class="step clearfix">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Välj objekt</div>
+                </div>
+            }
+            else
+            {
+                <div class="step clearfix">
+                    <div class="step-number active">1</div>
+                    <div class="step-label">Välj objekt</div>
+                </div>
+                <div class="step active clearfix">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Välj trycksaksmall</div>
+                </div>
+            }
         </div>
         <div class="purple-box">
             <p>
@@ -26,28 +40,25 @@
     <div class="row box-with-header">
         <h3>Trycksaksbibliotek - klicka för att gå vidare</h3>
         <div class="content">
-            <ul class="medium-block-grid-2 printtemplate-list">
+            <ul class="small-block-grid-1 medium-block-grid-2 printtemplate-list">
                 @foreach (var t in Model.AvailablePrintTypes)
                 {
                     var url = string.IsNullOrEmpty(Model.SelectedObjectId) ?
                         urlHelper.Action("Choose", "RealEstateObjects", new { t = t.Slug }) :
                         urlHelper.Action("Create", "Prints", new { t = t.Slug, o = Model.SelectedObjectId });
 
-                    for (var i = 0; i < 4; i++)
-                    {
-                        <li>
-                            <a href="@url">
-                                <div class="printtemplate clearfix">
-                                    <img src="@t.ThumbnailUrl" alt="@t.SubType" />
-                                    <div class="description-box">
-                                        <h4>@t.Type</h4>
-                                        <h5>@t.SubType</h5>
-                                        <p class="description">@t.Description</p>
-                                    </div>
+                    <li>
+                        <a href="@url">
+                            <div class="printtemplate clearfix">
+                                <img src="@t.ThumbnailUrl" alt="@t.SubType" />
+                                <div class="description-box">
+                                    <h4>@t.Type</h4>
+                                    <h5>@t.SubType</h5>
+                                    <p class="description">@t.Description</p>
                                 </div>
-                            </a>
-                        </li>
-                    }
+                            </div>
+                        </a>
+                    </li>
                 }
             </ul>
         </div>

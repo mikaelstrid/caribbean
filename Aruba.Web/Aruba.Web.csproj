@@ -320,6 +320,7 @@
     <Content Include="Stylesheets\scss\modules\_page-choose-printtemplate.scss" />
     <None Include="Stylesheets\scss\modules\_editor.scss" />
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
+    <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />
     <None Include="Stylesheets\scss\modules\_renderer.scss" />
     <None Include="Properties\PublishProfiles\mm-aruba.pubxml" />
     <Content Include="Scripts\ai.0.15.0-build46802.js" />

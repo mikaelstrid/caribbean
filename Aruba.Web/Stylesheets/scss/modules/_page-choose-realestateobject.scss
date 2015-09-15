@@ -1,0 +1,41 @@
+﻿@import '../partials/variables';
+
+.page-choose-realestateobject {
+    ul.realestateobject-list {
+        .realestateobject {
+            border: 1px solid $metal;
+            
+            img {
+                width: 100%;
+                max-width: none;
+            }
+
+            .description-box {
+                padding: rem-calc(10);
+
+                h4 {
+                    font-size: rem-calc(16);
+                    line-height: rem-calc(19);
+                    font-weight: bold;
+                    color: $metal;
+                }
+
+                h5 {
+                    font-size: rem-calc(14);
+                    line-height: rem-calc(17);
+                    font-weight: 300;
+                    color: $metal;
+                    margin-bottom: rem-calc(20);
+                }
+
+                p.price {
+                    font-size: rem-calc(14);
+                    line-height: rem-calc(17);
+                    font-weight: 300;
+                    color: $metal;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

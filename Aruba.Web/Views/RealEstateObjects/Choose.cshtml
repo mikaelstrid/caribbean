@@ -1,16 +1,74 @@
 ﻿@using Caribbean.Aruba.Web.ViewModels.RealEstateObject
 @model ChooseObjectViewModel
+@{
+    var urlHelper = new UrlHelper(Context.Request.RequestContext);
+}
 
-<ul>
-    @foreach (var o in Model.AvailableObjects.Where(o => !string.IsNullOrEmpty(o.Address)))
-    {
-        if (string.IsNullOrEmpty(Model.SelectedPrintTemplateSlug))
-        {
-            <li>@Html.ActionLink(o.Address, "Choose", "PrintTemplates", new { o = o.Id }, null)</li>
+<div class="page page-choose-realestateobject">
+    <div class="row information-box">
+        <div class="progress-bar clearfix">
+            @if (string.IsNullOrEmpty(Model.SelectedPrintTemplateSlug))
+            {
+                <div class="step active clearfix">
+                    <div class="step-number active">1</div>
+                    <div class="step-label">Välj objekt</div>
+                </div>
+                <div class="step clearfix">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Välj trycksaksmall</div>
+                </div>
+            }
+            else
+            {
+                <div class="step clearfix">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Välj trycksaksmall</div>
+                </div>
+                <div class="step active clearfix">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Välj objekt</div>
+                </div>
+            }
+        </div>
+        <div class="purple-box">
+            <p>Här syns de objekt som finns tillgängliga för automatisk bearbetning. Tänk på att objektet måste vara kommande, annonserat eller märkt som referens för att synas i listan.</p>
+        </div>
+    </div>
+
+    <div class="row box-with-header">
+        <h3>Objektlista - klicka för att gå vidare</h3>
+        <div class="content">
+            <ul class="small-block-grid-1 medium-block-grid-2 realestateobject-list">
+
+                @foreach (var o in Model.AvailableObjects.Where(o => !string.IsNullOrEmpty(o.Address)))
+                {
+                    var url = string.IsNullOrEmpty(Model.SelectedPrintTemplateSlug) ?
+                        urlHelper.Action("Choose", "PrintTemplates", new { o = o.Id }) :
+                        urlHelper.Action("Create", "Prints", new { t = Model.SelectedPrintTemplateSlug, o = o.Id });
+
+                    <li>
+                        <a href="@url">
+                            <div class="realestateobject">
+                                <img src="@o.ThumbailUrl" alt="@o.Address"/>
+                                <div class="description-box">
+                                    <h4>@o.Address</h4>
+                                    <h5>Änggården</h5>
+                                    <p class="price">@(o.Price.HasValue ? o.Price.Value.ToString("# ### ### ### ###") : "-") kr</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section styles
+{
+    <style>
+        html {
+            background: url('/Images/notes-514998_1920.jpg') no-repeat center center fixed;
         }
-        else
-        {
-            <li>@Html.ActionLink(o.Address, "Create", "Prints", new { t = Model.SelectedPrintTemplateSlug, o = o.Id }, null)</li>
-        }
-    }
-</ul>
+    </style>
+}

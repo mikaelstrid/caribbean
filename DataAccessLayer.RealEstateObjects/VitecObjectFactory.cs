@@ -22,7 +22,14 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 Address = objectElement.Element("Adress").Value,
                 ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: 150),
                 Status = objectElement.Element("Kind").Value,
+                Price = ConvertToInt(objectElement.Element("Pris").Value),
             };
+        }
+
+        private static int? ConvertToInt(string s)
+        {
+            int value;
+            return int.TryParse(s.Replace(".", "").Replace(" ", ""), out value) ? (int?) value : null;
         }
 
         private string CreateSummaryThumbnailUrl(string originalUrl, int width)
