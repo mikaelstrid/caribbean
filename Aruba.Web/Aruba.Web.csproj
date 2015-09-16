@@ -276,7 +276,6 @@
     <Compile Include="ViewModels\Prints\OrderPrintViewModel.cs" />
     <Compile Include="ViewModels\Page\EditPageSaveChangesViewModel.cs" />
     <Compile Include="ViewModels\Page\EditPageViewModel.cs" />
-    <Compile Include="ViewModels\Prints\EditPrintViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\AvailablePrintTemplateViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\ChoosePrintTemplateModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -364,7 +363,6 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\RealEstateObjects\Choose.cshtml" />
     <Content Include="Views\PrintTemplates\Choose.cshtml" />
-    <Content Include="Views\Prints\Edit.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
     <Content Include="Views\Prints\Order.cshtml" />
     <Content Include="Scripts\vendor\jquery.guillotine.min.js.map" />

@@ -89,43 +89,8 @@ namespace Caribbean.Aruba.Web.Controllers
             _unitOfWork.PrintRepository.Add(print);
             _unitOfWork.Save();
 
-            return RedirectToAction("Edit", new { id = print.Id });
+            return RedirectToAction("Edit", "Page", new { id = print.Pages.First().Id });
         }
-
-
-
-        [Route("redigera/{id}")]
-        public async Task<ActionResult> Edit(int id)
-        {
-            var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
-            if (agent == null) return HttpNotFound("No agent associated with the username found.");
-
-            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
-            if (print == null) return HttpNotFound("No print with a matching id found.");
-
-            var printVariantType = _templateMetadataRepository.GetPrintVariantBySlug(agent.Agency.Slug, print.PrintVariantSlug);
-            if (printVariantType == null) return HttpNotFound("No print variant with a matching slug found.");
-
-            return View(new EditPrintViewModel
-            {
-                PrintId = print.Id,
-                PrintVariantType = printVariantType.Type,
-                Pages = print.Pages.Select(p => CreatePageViewModel(agent.Agency.Slug, p)).OrderBy(p => p.Position)
-            });
-        }
-
-        private EditPrintViewModel.PageViewModel CreatePageViewModel(string agencySlug, Page page)
-        {
-            var template = _templateMetadataRepository.GetPageTemplateBySlug(agencySlug, page.PageTemplateSlug);
-            return new EditPrintViewModel.PageViewModel
-            {
-                Id = page.Id,
-                Position = page.Position,
-                ThumbnailUrl = page.ThumbnailUrl ?? template.ThumbnailUrl,
-                TemplateName = template.Name,
-            };
-        }
-
 
 
         [Route("bestall/{id}")]

@@ -1,6 +1,7 @@
 ﻿@model Caribbean.Aruba.Web.ViewModels.Page.EditPageViewModel
 
-<ul>
+
+@*<ul>
     @foreach (var i in Model.ObjectImages)
     {
         <li>@i.ThumbnailUrl</li>
@@ -16,7 +17,7 @@
 
 <div id="page-editor">
     <iframe src="@Model.Page.PreviewUrl" frameborder="0" scrolling="no" style="width: @(Model.Page.Width + "px"); height: @(Model.Page.Height + "px;")"></iframe>
-</div>
+</div>*@
 
 @section scripts
 {
@@ -29,4 +30,18 @@
         });
     </script>
 
+}
+
+@section styles
+{
+    <style>
+        html {
+            background: url('/Images/notes-514998_1920.jpg') no-repeat center center fixed;
+        }
+
+        body {
+            background-color: #F0F0F0;
+            opacity: 0.9;
+        }
+    </style>
 }
