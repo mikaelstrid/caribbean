@@ -263,6 +263,7 @@
     <Compile Include="Business\PagePdfGeneratorProxyService.cs" />
     <Compile Include="Business\PrintPdfGeneratorService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="ViewModels\Prints\EditPrintViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -320,6 +321,7 @@
     <None Include="Stylesheets\scss\modules\_editor.scss" />
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />
+    <Content Include="Stylesheets\scss\modules\_page-edit-print.scss" />
     <None Include="Stylesheets\scss\modules\_renderer.scss" />
     <None Include="Properties\PublishProfiles\mm-aruba.pubxml" />
     <Content Include="Scripts\ai.0.15.0-build46802.js" />
@@ -363,7 +365,6 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\RealEstateObjects\Choose.cshtml" />
     <Content Include="Views\PrintTemplates\Choose.cshtml" />
-    <Content Include="Views\Page\Edit.cshtml" />
     <Content Include="Views\Prints\Order.cshtml" />
     <Content Include="Scripts\vendor\jquery.guillotine.min.js.map" />
     <Content Include="Stylesheets\scss\modules\_page-home.scss" />
@@ -372,9 +373,11 @@
     <None Include="Stylesheets\scss\partials\_variables.scss" />
     <Content Include="Views\Shared\_AppInsights.cshtml" />
     <Content Include="Views\Shared\_LayoutFullTopbarAndFooter.cshtml" />
+    <Content Include="Views\Prints\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Page\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

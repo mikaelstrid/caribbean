@@ -1,0 +1,88 @@
+﻿@using System.Globalization
+@model Caribbean.Aruba.Web.ViewModels.Prints.EditPrintViewModel
+
+@{
+    var currentPage = Model.Pages.First();
+}
+
+<div class="contain-to-grid fixed slim-topbar">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1 class="logo">
+                    <span class="first-line">Modern</span>
+                    <span class="second-line">Mäklarmedia</span>
+                </h1>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page page-edit-print">
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <a class="left-off-canvas-toggle" href="#">Menu</a>
+
+            <aside class="left-off-canvas-menu">
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                </ul>
+            </aside>
+
+            <div class="row clearfix">
+                <div class="page-editor-wrap">
+                    <div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>
+                    <div id="page-editor" class="page-editor">
+                        <iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>
+                    </div>
+                </div>
+
+                <div class="toolbox">
+                    <p>Set in the year 0 F.E. ("Foundation Era"), The Psychohistorians opens on Trantor, the capital of the 12,000-year-old Galactic Empire. Though the empire appears stable and powerful, it is slowly decaying in ways that parallel the decline of the Western Roman Empire. Hari Seldon, a mathematician and psychologist, has developed psychohistory, a new field of science and psychology that equates all possibilities in large societies to mathematics, allowing for the prediction of future events.</p>
+                </div>
+            </div>
+
+            <a class="exit-off-canvas"></a>
+        </div>
+    </div>
+</div>
+
+@*<ul>
+        @foreach (var i in Model.ObjectImages)
+        {
+            <li>@i.ThumbnailUrl</li>
+        }
+    </ul>
+
+    @using (Html.BeginForm(null, null, FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.PrintId)
+        @Html.Hidden("PageId", Model.Page.Id)
+        <button type="submit" class="btn btn-primary">Klar!</button>
+    }
+
+*@
+
+@section scripts
+{
+    <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
+    <script src="~/Scripts/design-page.js"></script>
+    <script>
+        $(document).ready(function() {
+            window.pixel.designpage.initPage($('#page-editor'), @(currentPage.Width));
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        html {
+            background: url('/Images/notes-514998_1920.jpg') no-repeat center center fixed;
+        }
+
+        body {
+            background-color: rgba(240, 240, 240, 0.9);
+        }
+    </style>
+}

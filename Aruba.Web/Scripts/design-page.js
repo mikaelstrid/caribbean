@@ -155,11 +155,11 @@
     //}
 
     // === PRIVATE FUNCTIONS ===
-    //function resizeIframe(iframe, previewWidth, iframeWrapperWidth) { // iframe is a jQuery element
-    //    var scaleValue = iframeWrapperWidth / previewWidth;
-    //    iframe.css('transform-origin', '0 0');
-    //    iframe.css('transform', 'scale(' + scaleValue + ')');
-    //}
+    function resizeIframe(iframe, previewWidth, iframeWrapperWidth) { // iframe is a jQuery element
+        var scaleValue = iframeWrapperWidth / previewWidth;
+        iframe.css('transform-origin', '0 0');
+        iframe.css('transform', 'scale(' + scaleValue + ')');
+    }
 
     // === PUBLIC FUNCTIONS ===
     var initPage = function (page, actualTemplateWidth) { // page is a jQuery element
@@ -212,10 +212,10 @@
                 }
             });
         });
-        //$(window).resize(function () {
-        //    resizeIframe(iframe, actualTemplateWidth, page.width());
-        //});
-        //resizeIframe(iframe, actualTemplateWidth, page.width());
+        $(window).resize(function () {
+            resizeIframe(iframe, actualTemplateWidth, page.width());
+        });
+        resizeIframe(iframe, actualTemplateWidth, page.width());
     }
     //var initTextFieldEditor = function (editor) {
     //    //editor.on('blur', function () { viewModel.handleTextFieldEditorBlur(); });

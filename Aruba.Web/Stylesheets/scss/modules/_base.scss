@@ -5,7 +5,7 @@ html {
     background-size: cover;
 }
 
-.contain-to-grid {
+.full-topbar {
     .top-bar {
         padding: rem-calc(35) rem-calc(60);
 
@@ -15,8 +15,13 @@ html {
     }
 }
 
-.page {
-    padding-top: rem-calc(190);
+.slim-topbar {
+    background-color: $purple;
+    opacity: 1 !important;
+
+    .logo {
+        @include logo(transparent, $white);
+    }
 }
 
 .box-with-header {

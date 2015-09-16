@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using Caribbean.Aruba.Web.Business;
-using Caribbean.Aruba.Web.ViewModels.Page;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
-using Caribbean.DataAccessLayer.RealEstateObjects;
-using Caribbean.Models.Database;
 using Microsoft.AspNet.Identity;
 
 namespace Caribbean.Aruba.Web.Controllers
@@ -17,89 +12,89 @@ namespace Caribbean.Aruba.Web.Controllers
     public class PageController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ITemplateMetadataRepository _templateMetadataRepository;
+        //private readonly ITemplateMetadataRepository _templateMetadataRepository;
         private readonly ITemplateContentRepository _templateContentRepository;
         private readonly IPrintPageHtmlStringFactory _printPageHtmlStringFactory;
-        private readonly IVitecObjectRepository _vitecObjectRepository;
-        private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
+        //private readonly IVitecObjectRepository _vitecObjectRepository;
+        //private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
 
-        public PageController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository, ITemplateContentRepository templateContentRepository, IPrintPageHtmlStringFactory printPageHtmlStringFactory, IVitecObjectRepository vitecObjectRepository, IPagePdfGeneratorProxyService pagePdfGeneratorProxyService)
+        public PageController(IUnitOfWork unitOfWork, ITemplateContentRepository templateContentRepository, IPrintPageHtmlStringFactory printPageHtmlStringFactory)
         {
             _unitOfWork = unitOfWork;
-            _templateMetadataRepository = templateMetadataRepository;
+            //_templateMetadataRepository = templateMetadataRepository;
             _templateContentRepository = templateContentRepository;
             _printPageHtmlStringFactory = printPageHtmlStringFactory;
-            _vitecObjectRepository = vitecObjectRepository;
-            _pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
+            //_vitecObjectRepository = vitecObjectRepository;
+            //_pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
         }
 
 
-        [Route("redigera")]
-        public async Task<ActionResult> Edit(int id)
-        {
-            var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
-            if (agent == null) return HttpNotFound("No agent associated with the username found.");
+        //[Route("redigera")]
+        //public async Task<ActionResult> Edit(int id)
+        //{
+        //    var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
+        //    if (agent == null) return HttpNotFound("No agent associated with the username found.");
 
-            var requestedPage = await _unitOfWork.PageRepository.GetSingle(p => p.Id == id, "Print");
-            if (requestedPage == null) return HttpNotFound("No page associated with the id found.");
+        //    var requestedPage = await _unitOfWork.PageRepository.GetSingle(p => p.Id == id, "Print");
+        //    if (requestedPage == null) return HttpNotFound("No page associated with the id found.");
 
-            return View(new EditPageViewModel
-            {
-                PrintId = requestedPage.PrintId,
-                Page = CreatePageViewModel(_unitOfWork, requestedPage, agent.Agency.Slug),
-                ObjectImages = GetObjectImages(requestedPage.Print.ObjectId, _unitOfWork)
-            });
-        }
+        //    return View(new EditPageViewModel
+        //    {
+        //        PrintId = requestedPage.PrintId,
+        //        Page = CreatePageViewModel(_unitOfWork, requestedPage, agent.Agency.Slug),
+        //        ObjectImages = GetObjectImages(requestedPage.Print.ObjectId, _unitOfWork)
+        //    });
+        //}
 
-        private EditPageViewModel.PageViewModel CreatePageViewModel(IUnitOfWork unitOfWork, Page page, string agencySlug)
-        {
-            var pageTemplate = page == null ? null : _templateMetadataRepository.GetPageTemplateBySlug(agencySlug, page.PageTemplateSlug);
-            if (page == null || pageTemplate == null) return null;
-            return new EditPageViewModel.PageViewModel
-            {
-                Id = page.Id,
-                Position = page.Position,
-                PreviewUrl = Url.Action("Editor", "Page", new { id = page.Id }),
-                Width = pageTemplate.Width,
-                Height = pageTemplate.Height,
-            };
-        }
+        //private EditPageViewModel.PageViewModel CreatePageViewModel(IUnitOfWork unitOfWork, Page page, string agencySlug)
+        //{
+        //    var pageTemplate = page == null ? null : _templateMetadataRepository.GetPageTemplateBySlug(agencySlug, page.PageTemplateSlug);
+        //    if (page == null || pageTemplate == null) return null;
+        //    return new EditPageViewModel.PageViewModel
+        //    {
+        //        Id = page.Id,
+        //        Position = page.Position,
+        //        PreviewUrl = Url.Action("Editor", "Page", new { id = page.Id }),
+        //        Width = pageTemplate.Width,
+        //        Height = pageTemplate.Height,
+        //    };
+        //}
 
-        private IEnumerable<EditPageViewModel.ObjectImageViewModel> GetObjectImages(string objectId, IUnitOfWork unitOfWork)
-        {
-            var vitecObject = _vitecObjectRepository.GetDetailsById(objectId);
-            return vitecObject.Images.Select(i => new EditPageViewModel.ObjectImageViewModel
-            {
-                PictureUrl = i.GetImageUrl(),
-                ThumbnailUrl = i.GetThumbnailUrl(width: 250)
-            });
-        }
-
-
+        //private IEnumerable<EditPageViewModel.ObjectImageViewModel> GetObjectImages(string objectId, IUnitOfWork unitOfWork)
+        //{
+        //    var vitecObject = _vitecObjectRepository.GetDetailsById(objectId);
+        //    return vitecObject.Images.Select(i => new EditPageViewModel.ObjectImageViewModel
+        //    {
+        //        PictureUrl = i.GetImageUrl(),
+        //        ThumbnailUrl = i.GetThumbnailUrl(width: 250)
+        //    });
+        //}
 
 
-        [HttpPost]
-        [Route("redigera")]
-        public async Task<ActionResult> Edit(EditPageSaveChangesViewModel viewModel)
-        {
-            _pagePdfGeneratorProxyService.Initialize();
 
-            var agentUserId = User.Identity.GetUserId();
-            var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);
 
-            if (viewModel.PageId != -1)
-            {
-                var page = await _unitOfWork.PageRepository.GetById(viewModel.PageId);
-                if (page == null) return HttpNotFound($"No page associated with id {viewModel.PageId} found.");
+        //[HttpPost]
+        //[Route("redigera")]
+        //public async Task<ActionResult> Edit(EditPageSaveChangesViewModel viewModel)
+        //{
+        //    _pagePdfGeneratorProxyService.Initialize();
 
-                var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
-                if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
+        //    var agentUserId = User.Identity.GetUserId();
+        //    var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);
 
-                _pagePdfGeneratorProxyService.QueueJob(viewModel.PageId, agentUserId, template.Width, template.Height, template.Dpi, 220, 308);
-            }
+        //    if (viewModel.PageId != -1)
+        //    {
+        //        var page = await _unitOfWork.PageRepository.GetById(viewModel.PageId);
+        //        if (page == null) return HttpNotFound($"No page associated with id {viewModel.PageId} found.");
 
-            return RedirectToAction("Edit", "Prints", new { id = viewModel.PrintId });
-        }
+        //        var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
+        //        if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
+
+        //        _pagePdfGeneratorProxyService.QueueJob(viewModel.PageId, agentUserId, template.Width, template.Height, template.Dpi, 220, 308);
+        //    }
+
+        //    return RedirectToAction("Edit", "Prints", new { id = viewModel.PrintId });
+        //}
 
 
 
