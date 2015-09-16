@@ -6325,26 +6325,24 @@ th.hide-for-touch {
 html {
   background-size: cover; }
 
-.top-bar {
-  padding-left: 3.75rem;
-  padding-right: 3.75rem; }
-  .top-bar .logo {
-    margin-top: 2rem;
+.contain-to-grid .top-bar {
+  padding: 2.1875rem 3.75rem; }
+  .contain-to-grid .top-bar .logo {
     background-color: #B50082;
     color: #fff;
     text-align: center;
     width: 15.625rem;
     padding: 0.4375rem; }
-    .top-bar .logo p {
+    .contain-to-grid .top-bar .logo p {
       margin: 0; }
-    .top-bar .logo .first-line {
+    .contain-to-grid .top-bar .logo .first-line {
       font-size: 1.75rem; }
-    .top-bar .logo .second-line {
+    .contain-to-grid .top-bar .logo .second-line {
       font-size: 1.75rem;
       font-weight: bold; }
 
 .page {
-  padding-top: 9.375rem; }
+  padding-top: 11.875rem; }
 
 .box-with-header {
   background-color: #fff; }

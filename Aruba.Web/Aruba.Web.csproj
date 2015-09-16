@@ -373,6 +373,7 @@
     <Content Include="Stylesheets\scss\partials\_logo.scss" />
     <None Include="Stylesheets\scss\partials\_variables.scss" />
     <Content Include="Views\Shared\_AppInsights.cshtml" />
+    <Content Include="Views\Shared\_LayoutFullTopbarAndFooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,18 +5,18 @@ html {
     background-size: cover;
 }
 
-.top-bar {
-    padding-left: rem-calc(60);
-    padding-right: rem-calc(60);
+.contain-to-grid {
+    .top-bar {
+        padding: rem-calc(35) rem-calc(60);
 
-    .logo {
-        margin-top: rem-calc(32);
-        @include logo($purple, $white);
+        .logo {
+            @include logo($purple, $white);
+        }
     }
 }
 
 .page {
-    padding-top: rem-calc(150);
+    padding-top: rem-calc(190);
 }
 
 .box-with-header {
