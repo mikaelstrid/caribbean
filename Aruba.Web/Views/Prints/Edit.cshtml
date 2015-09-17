@@ -1,11 +1,7 @@
-﻿@using System.Globalization
-@model Caribbean.Aruba.Web.ViewModels.Prints.EditPrintViewModel
+﻿@model Caribbean.Aruba.Web.ViewModels.Prints.EditPrintViewModel
 
-@{
-    var currentPage = Model.Pages.First();
-}
 <div ng-init="printId = '@Model.PrintId'">
-    <div ng-controller="printEditor">
+    <div ng-controller="printEditorCtrl">
         <div class="contain-to-grid fixed slim-topbar">
             <nav class="top-bar" data-topbar role="navigation">
                 <ul class="title-area">
@@ -55,10 +51,8 @@
 
                             <div class="small-12 small large-7 large-pull-5 column">
                                 <div class="page-editor-wrap">
-                                    @*<div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>*@
                                     <div id="dummy" class="dummy"></div>
                                     <div id="page-editor" class="page-editor">
-                                        @*<iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>*@
                                     </div>
                                 </div>
                             </div>
