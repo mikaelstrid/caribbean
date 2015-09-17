@@ -4,70 +4,74 @@
 @{
     var currentPage = Model.Pages.First();
 }
-
-<div class="contain-to-grid fixed slim-topbar">
-    <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-            <li class="name">
-                <h1 class="logo">
-                    <span class="first-line">Modern</span>
-                    <span class="second-line">Mäklarmedia</span>
-                </h1>
-            </li>
-        </ul>
-    </nav>
-</div>
-
-<div class="page page-edit-print">
-    <div class="off-canvas-wrap" data-offcanvas>
-        <div class="inner-wrap">
-            <a class="left-off-canvas-toggle" href="#">Menu</a>
-
-            <aside class="left-off-canvas-menu">
-                <ul>
-                    <li><a href="#">Item 1</a></li>
+<div ng-init="printId = '@Model.PrintId'">
+    <div ng-controller="printEditor">
+        <div class="contain-to-grid fixed slim-topbar">
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1 class="logo">
+                            <span class="first-line">Modern</span>
+                            <span class="second-line">Mäklarmedia</span>
+                        </h1>
+                    </li>
                 </ul>
-            </aside>
+            </nav>
+        </div>
 
-            <div class="edit-surface">
-                <div class="row">
-                    <div class="small-12 large-5 large-push-7 column">
-                        <div class="toolbox">
-                            <ul class="tabs" data-tab>
-                                <li class="tab-title active"><a href="#panel1">Verktyg</a></li>
-                                <li class="tab-title"><a href="#panel2">Mallar</a></li>
-                                <li class="tab-title"><a href="#panel3">Extra</a></li>
-                            </ul>
-                            <div class="tabs-content">
-                                <div class="content active" id="panel1">
-                                    <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+        <div class="page page-edit-print">
+            <div class="off-canvas-wrap" data-offcanvas>
+                <div class="inner-wrap">
+                    <a class="left-off-canvas-toggle" href="#">Menu</a>
+
+                    <aside class="left-off-canvas-menu">
+                        <ul>
+                            <li ng-repeat="page in pages">
+                                <a href="#">Sida {{page.position}}</a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <div class="edit-surface">
+                        <div class="row">
+                            <div class="small-12 large-5 large-push-7 column">
+                                <div class="toolbox">
+                                    <ul class="tabs" data-tab>
+                                        <li class="tab-title active"><a href="#panel1">Verktyg</a></li>
+                                        <li class="tab-title"><a href="#panel2">Mallar</a></li>
+                                        <li class="tab-title"><a href="#panel3">Extra</a></li>
+                                    </ul>
+                                    <div class="tabs-content">
+                                        <div class="content active" id="panel1">
+                                            <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+                                        </div>
+                                        <div class="content" id="panel2">
+                                            <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+                                        </div>
+                                        <div class="content" id="panel3">
+                                            <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="content" id="panel2">
-                                    <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
-                                </div>
-                                <div class="content" id="panel3">
-                                    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+                            </div>
+
+                            <div class="small-12 small large-7 large-pull-5 column">
+                                <div class="page-editor-wrap">
+                                    <div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>
+                                    <div id="page-editor" class="page-editor">
+                                        <iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="small-12 small large-7 large-pull-5 column">
-                        <div class="page-editor-wrap">
-                            <div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>
-                            <div id="page-editor" class="page-editor">
-                                <iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>
-                            </div>
-                        </div>
-                    </div>
+                    <a class="exit-off-canvas"></a>
                 </div>
             </div>
-
-            <a class="exit-off-canvas"></a>
         </div>
     </div>
 </div>
-
 @*<ul>
         @foreach (var i in Model.ObjectImages)
         {
@@ -86,11 +90,12 @@
 
 @section scripts
 {
+    <script src="~/Scripts/lib/angular.js"></script>
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
-    <script src="~/Scripts/design-page.js"></script>
+    <script src="~/Scripts/design-page-app.js"></script>
     <script>
         $(document).ready(function() {
-            window.pixel.designpage.initPage($('#page-editor'), @(currentPage.Width));
+            @*window.pixel.designpage.initPage($('#page-editor'), @(currentPage.Width));*@
         });
     </script>
 }

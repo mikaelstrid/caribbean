@@ -7238,4 +7238,5 @@ footer {
   .page-edit-print .toolbox .tabs .tab-title {
     background-color: #DEDEDE; }
   .page-edit-print .toolbox .tabs-content {
-    padding: 1.25rem; }
+    padding-left: 1.875rem;
+    padding-right: 1.875rem; }

@@ -1,4 +1,25 @@
-﻿window.pixel.designpage = (function () {
+﻿angular.module("aruba", [])
+    .service("printService", function ($http) {
+        return {
+            getPages: function (printId) {
+                return $http.get("/api/prints/" + printId + "/pages");
+            }
+        }
+    })
+    .controller("printEditor", function ($scope, printService) {
+        printService.getPages($scope.printId)
+            .then(function (response) {
+                console.log(response.data);
+                $scope.pages = response.data;
+            }, function (response) {
+                alert("Call to /api/prints/{id}/pages failed.");
+            });
+    });
+
+
+
+
+window.pixel.designpage = (function () {
 
     // ReSharper disable once InconsistentNaming
     //function ViewModel() {
@@ -166,7 +187,7 @@
         var iframe = $('iframe', page);
         iframe.load(function () {
             //$(".editable-textfield", iframe.contents()).click(viewModel.handleTextFieldClick);
-            $(".editable-textfield", iframe.contents()).click(function () { console.log("textfield clicked;")});
+            $(".editable-textfield", iframe.contents()).click(function () { console.log("textfield clicked;") });
 
             //$(".editable-htmlfield", iframe.contents()).click(viewModel.handleHtmlFieldClick);
             $(".editable-htmlfield", iframe.contents()).click(function () { console.log("htmlfield clicked;") });

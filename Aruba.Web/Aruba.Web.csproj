@@ -250,6 +250,7 @@
     <Compile Include="ApiControllers\FieldValuesController.cs" />
     <Compile Include="ApiControllers\PagePdfsController.cs" />
     <Compile Include="ApiControllers\PageThumbnailsController.cs" />
+    <Compile Include="ApiControllers\PrintsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -288,8 +289,9 @@
   <ItemGroup>
     <Content Include="Images\balance-865091_1920.jpg" />
     <Content Include="Images\notes-514998_1920.jpg" />
-    <Content Include="Scripts\design-page.js" />
+    <Content Include="Scripts\design-page-app.js" />
     <Content Include="Scripts\init.js" />
+    <Content Include="Scripts\lib\angular.js" />
     <Content Include="Scripts\lib\fastclick.js" />
     <Content Include="Scripts\lib\foundation.js" />
     <Content Include="Scripts\lib\jquery.cookie.js" />
