@@ -29,30 +29,36 @@
                 </ul>
             </aside>
 
-            <div class="row clearfix">
-                <div class="page-editor-wrap">
-                    <div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>
-                    <div id="page-editor" class="page-editor">
-                        <iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>
+            <div class="edit-surface">
+                <div class="row">
+                    <div class="small-12 large-5 large-push-7 column">
+                        <div class="toolbox">
+                            <ul class="tabs" data-tab>
+                                <li class="tab-title active"><a href="#panel1">Verktyg</a></li>
+                                <li class="tab-title"><a href="#panel2">Mallar</a></li>
+                                <li class="tab-title"><a href="#panel3">Extra</a></li>
+                            </ul>
+                            <div class="tabs-content">
+                                <div class="content active" id="panel1">
+                                    <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+                                </div>
+                                <div class="content" id="panel2">
+                                    <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+                                </div>
+                                <div class="content" id="panel3">
+                                    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="toolbox">
-                    <ul class="tabs" data-tab>
-                        <li class="tab-title active"><a href="#panel1">Verktyg</a></li>
-                        <li class="tab-title"><a href="#panel2">Mallar</a></li>
-@*                        <li class="tab-title"><a href="#panel3">Extra</a></li>*@
-                    </ul>
-                    <div class="tabs-content">
-                        <div class="content active" id="panel1">
-                            <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+                    <div class="small-12 small large-7 large-pull-5 column">
+                        <div class="page-editor-wrap">
+                            <div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>
+                            <div id="page-editor" class="page-editor">
+                                <iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>
+                            </div>
                         </div>
-                        <div class="content" id="panel2">
-                            <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
-                        </div>
-                        @*<div class="content" id="panel3">
-                            <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-                        </div>*@
                     </div>
                 </div>
             </div>

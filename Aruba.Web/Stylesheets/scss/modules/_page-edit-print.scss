@@ -2,11 +2,11 @@
 @import "../partials/logo";
 
 .page-edit-print {
+    .edit-surface {
+        margin-top: 50px;
+    }
+
     .page-editor-wrap {
-        width: 60%;
-        margin-right: 10%;
-        float: left;
-        display: inline-block;
         position: relative;
         overflow: hidden;
 
@@ -24,9 +24,6 @@
     }
 
     .toolbox {
-        width: 30%;
-        float: left;
-        display: inline-block;
         background-color: $white;
 
         .tabs {

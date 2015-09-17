@@ -7219,11 +7219,9 @@ footer {
       color: #7F7F7F;
       margin-bottom: 0; }
 
+.page-edit-print .edit-surface {
+  margin-top: 50px; }
 .page-edit-print .page-editor-wrap {
-  width: 60%;
-  margin-right: 10%;
-  float: left;
-  display: inline-block;
   position: relative;
   overflow: hidden; }
   .page-edit-print .page-editor-wrap .page-editor {
@@ -7236,9 +7234,6 @@ footer {
     .page-edit-print .page-editor-wrap .page-editor iframe {
       overflow: hidden; }
 .page-edit-print .toolbox {
-  width: 30%;
-  float: left;
-  display: inline-block;
   background-color: #fff; }
   .page-edit-print .toolbox .tabs .tab-title {
     background-color: #DEDEDE; }
