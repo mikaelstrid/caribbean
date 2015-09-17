@@ -248,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiControllers\FieldValuesController.cs" />
+    <Compile Include="ApiControllers\PageController.cs" />
     <Compile Include="ApiControllers\PagePdfsController.cs" />
     <Compile Include="ApiControllers\PageThumbnailsController.cs" />
     <Compile Include="ApiControllers\PrintsController.cs" />

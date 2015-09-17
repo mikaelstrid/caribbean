@@ -36,19 +36,19 @@ namespace Caribbean.Aruba.Web.ApiControllers
         public async Task<IHttpActionResult> GetPages(int id)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
-            if (agent == null) return NotFound();
+            if (agent == null) return Unauthorized();
 
             var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
             if (print == null) return NotFound();
 
-            return Ok(print.Pages.Select(p => new PageApiModel { Id = p.Id, Position = p.Position, PreviewUrl = p.ThumbnailUrl}));
+            return Ok(print.Pages.Select(p => new PageApiModel { Id = p.Id, Position = p.Position, ThumbnailUrl = p.ThumbnailUrl}));
         }
 
         public class PageApiModel
         {
             public int Id { get; set; }
             public int Position { get; set; }
-            public string PreviewUrl { get; set; }
+            public string ThumbnailUrl { get; set; }
         }
 
         //// POST: api/Prints

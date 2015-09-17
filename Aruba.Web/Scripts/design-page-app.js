@@ -6,17 +6,34 @@
             }
         }
     })
-    .controller("printEditor", function ($scope, printService) {
+    .service("pageService", function ($http) {
+        return {
+            getPage: function (pageId) {
+                return $http.get("/api/page/" + pageId);
+            }
+        }
+    })
+    .controller("printEditor", function ($scope, printService, pageService) {
         printService.getPages($scope.printId)
             .then(function (response) {
                 console.log(response.data);
                 $scope.pages = response.data;
             }, function (response) {
-                alert("Call to /api/prints/{id}/pages failed.");
+                alert("Call printService.getPages failed.");
             });
+
+        $scope.switchToPage = function (pageId) {
+            pageService.getPage(pageId)
+                .then(function(response) {
+                    var p = response.data;
+                    $("#dummy").css("margin-top", p.aspectRatioInPercent + "%");
+                    var iframe = $("<iframe src='" + p.previewUrl + "' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>");
+                    $("#page-editor").empty().append(iframe);
+                }, function(response) {
+                    alert("Call to pageService.getPage failed.");
+                });
+        }
     });
-
-
 
 
 window.pixel.designpage = (function () {

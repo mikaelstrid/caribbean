@@ -99,7 +99,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
 
-        [Route("editor/{id}")]
+        [Route("editor/{id}", Name = "PageEditorRoute")]
         public async Task<ActionResult> Editor(int id)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());

@@ -26,9 +26,7 @@
 
                     <aside class="left-off-canvas-menu">
                         <ul>
-                            <li ng-repeat="page in pages">
-                                <a href="#">Sida {{page.position}}</a>
-                            </li>
+                            <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">Sida {{page.position}}</li>
                         </ul>
                     </aside>
 
@@ -57,9 +55,10 @@
 
                             <div class="small-12 small large-7 large-pull-5 column">
                                 <div class="page-editor-wrap">
-                                    <div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>
+                                    @*<div class="dummy" style="margin-top: @(currentPage.AspectRatioInPercent.ToString("N2", CultureInfo.InvariantCulture) + "%")"></div>*@
+                                    <div id="dummy" class="dummy"></div>
                                     <div id="page-editor" class="page-editor">
-                                        <iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>
+                                        @*<iframe src="@currentPage.PreviewUrl" frameborder="0" scrolling="no" style="width: @(currentPage.Width + "px"); height: @(currentPage.Height + "px;")"></iframe>*@
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +93,7 @@
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
     <script src="~/Scripts/design-page-app.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             @*window.pixel.designpage.initPage($('#page-editor'), @(currentPage.Width));*@
         });
     </script>
