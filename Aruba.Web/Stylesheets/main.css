@@ -6251,7 +6251,7 @@ blockquote p {
 
 .left-off-canvas-menu {
   -webkit-backface-visibility: hidden;
-  background: #333333;
+  background: #fff;
   bottom: 0;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -6275,7 +6275,7 @@ blockquote p {
 
 .right-off-canvas-menu {
   -webkit-backface-visibility: hidden;
-  background: #333333;
+  background: #fff;
   bottom: 0;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -6313,7 +6313,7 @@ ul.off-canvas-list {
     padding: 0.3rem 0.9375rem;
     text-transform: uppercase; }
   ul.off-canvas-list li a {
-    border-bottom: 1px solid #262626;
+    border-bottom: 1px solid #bfbfbf;
     color: rgba(255, 255, 255, 0.7);
     display: block;
     padding: 0.66667rem;
@@ -6332,11 +6332,11 @@ ul.off-canvas-list {
   transform: translate3d(15.625rem, 0, 0); }
 .move-right .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(255, 255, 255, 0.2);
+  background: none;
   bottom: 0;
   display: block;
   left: 0;
@@ -6346,7 +6346,7 @@ ul.off-canvas-list {
   z-index: 1002; }
   @media only screen and (min-width: 40.0625em) {
     .move-right .exit-off-canvas:hover {
-      background: rgba(255, 255, 255, 0.05); } }
+      background: none; } }
 
 .move-left > .inner-wrap {
   -webkit-transform: translate3d(-15.625rem, 0, 0);
@@ -6357,11 +6357,11 @@ ul.off-canvas-list {
   transform: translate3d(-15.625rem, 0, 0); }
 .move-left .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(255, 255, 255, 0.2);
+  background: none;
   bottom: 0;
   display: block;
   left: 0;
@@ -6371,7 +6371,7 @@ ul.off-canvas-list {
   z-index: 1002; }
   @media only screen and (min-width: 40.0625em) {
     .move-left .exit-off-canvas:hover {
-      background: rgba(255, 255, 255, 0.05); } }
+      background: none; } }
 
 .offcanvas-overlap .left-off-canvas-menu, .offcanvas-overlap .right-off-canvas-menu {
   -ms-transform: none;
@@ -6382,11 +6382,11 @@ ul.off-canvas-list {
   z-index: 1003; }
 .offcanvas-overlap .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(255, 255, 255, 0.2);
+  background: none;
   bottom: 0;
   display: block;
   left: 0;
@@ -6396,7 +6396,7 @@ ul.off-canvas-list {
   z-index: 1002; }
   @media only screen and (min-width: 40.0625em) {
     .offcanvas-overlap .exit-off-canvas:hover {
-      background: rgba(255, 255, 255, 0.05); } }
+      background: none; } }
 
 .offcanvas-overlap-left .right-off-canvas-menu {
   -ms-transform: none;
@@ -6407,11 +6407,11 @@ ul.off-canvas-list {
   z-index: 1003; }
 .offcanvas-overlap-left .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(255, 255, 255, 0.2);
+  background: none;
   bottom: 0;
   display: block;
   left: 0;
@@ -6421,7 +6421,7 @@ ul.off-canvas-list {
   z-index: 1002; }
   @media only screen and (min-width: 40.0625em) {
     .offcanvas-overlap-left .exit-off-canvas:hover {
-      background: rgba(255, 255, 255, 0.05); } }
+      background: none; } }
 
 .offcanvas-overlap-right .left-off-canvas-menu {
   -ms-transform: none;
@@ -6432,11 +6432,11 @@ ul.off-canvas-list {
   z-index: 1003; }
 .offcanvas-overlap-right .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(255, 255, 255, 0.2);
+  background: none;
   bottom: 0;
   display: block;
   left: 0;
@@ -6446,7 +6446,7 @@ ul.off-canvas-list {
   z-index: 1002; }
   @media only screen and (min-width: 40.0625em) {
     .offcanvas-overlap-right .exit-off-canvas:hover {
-      background: rgba(255, 255, 255, 0.05); } }
+      background: none; } }
 
 .no-csstransforms .left-off-canvas-menu {
   left: -15.625rem; }
@@ -6460,7 +6460,7 @@ ul.off-canvas-list {
 .left-submenu {
   -webkit-backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  background: #333333;
+  background: #fff;
   bottom: 0;
   box-sizing: content-box;
   margin: 0;
@@ -6512,7 +6512,7 @@ ul.off-canvas-list {
 .right-submenu {
   -webkit-backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
-  background: #333333;
+  background: #fff;
   bottom: 0;
   box-sizing: content-box;
   margin: 0;
@@ -7219,6 +7219,27 @@ footer {
       color: #7F7F7F;
       margin-bottom: 0; }
 
+.page-edit-print .left-off-canvas-toggle {
+  position: absolute; }
+  .page-edit-print .left-off-canvas-toggle div {
+    padding: 0 1.875rem;
+    background-color: #1B142A; }
+    .page-edit-print .left-off-canvas-toggle div i {
+      font-size: 3.125rem;
+      line-height: 6.25rem;
+      color: #fff; }
+.page-edit-print .left-off-canvas-menu header {
+  background-color: #DEDEDE;
+  height: 6.25rem;
+  padding: 1.875rem;
+  box-sizing: border-box; }
+  .page-edit-print .left-off-canvas-menu header h3 {
+    margin: 0; }
+.page-edit-print .left-off-canvas-menu .page-list {
+  margin: 1.875rem; }
+  .page-edit-print .left-off-canvas-menu .page-list li {
+    cursor: pointer;
+    list-style-type: none; }
 .page-edit-print .edit-surface {
   margin-top: 50px; }
 .page-edit-print .page-editor-wrap {

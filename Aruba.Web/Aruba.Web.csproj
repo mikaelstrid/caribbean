@@ -288,6 +288,8 @@
     <Compile Include="ViewModels\RealEstateObject\ObjectSummaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\foundation-icons.css" />
+    <Content Include="Fonts\foundation-icons.svg" />
     <Content Include="Images\balance-865091_1920.jpg" />
     <Content Include="Images\notes-514998_1920.jpg" />
     <Content Include="Scripts\design-page-app.js" />
@@ -321,6 +323,9 @@
     <Content Include="Stylesheets\scss\main.scss" />
     <Content Include="Stylesheets\scss\modules\_base.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-printtemplate.scss" />
+    <Content Include="Fonts\foundation-icons.eot" />
+    <Content Include="Fonts\foundation-icons.ttf" />
+    <Content Include="Fonts\foundation-icons.woff" />
     <None Include="Stylesheets\scss\modules\_editor.scss" />
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />

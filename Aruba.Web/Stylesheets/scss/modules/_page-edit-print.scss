@@ -2,6 +2,43 @@
 @import "../partials/logo";
 
 .page-edit-print {
+    .left-off-canvas-toggle {
+        position: absolute;
+
+        div {
+            padding: 0 rem-calc(30);
+            background-color: $darkpurple;
+
+            i {
+                font-size: rem-calc(50);
+                line-height: rem-calc(100);
+                color: $white;
+            }
+        }
+    }
+
+    .left-off-canvas-menu {
+        header {
+            background-color: $silver;
+            height: rem-calc(100);
+            padding: rem-calc(30);
+            box-sizing: border-box;
+
+            h3 {
+                margin: 0;
+            }
+        }
+
+        .page-list {
+            margin: rem-calc(30);
+
+            li {
+                cursor: pointer;
+                list-style-type: none;
+            }
+        }
+    }
+
     .edit-surface {
         margin-top: 50px;
     }

@@ -18,11 +18,20 @@
         <div class="page page-edit-print">
             <div class="off-canvas-wrap" data-offcanvas>
                 <div class="inner-wrap">
-                    <a class="left-off-canvas-toggle" href="#">Menu</a>
+
+                    <a class="left-off-canvas-toggle" href="#">
+                        <div><i class="fi-page-multiple"></i></div>
+                    </a>
 
                     <aside class="left-off-canvas-menu">
-                        <ul>
-                            <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">Sida {{page.position}}</li>
+                        <header>
+                            <h3>Sidplanering</h3>
+                        </header>
+                        <ul class="page-list">
+                            <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">
+                                @*Sida {{page.position}}*@
+                                <img ng-src="page.thumbnailUrl" alt="Sida {{page.position}}"/>
+                            </li>
                         </ul>
                     </aside>
 
@@ -86,11 +95,6 @@
     <script src="~/Scripts/lib/angular.js"></script>
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
     <script src="~/Scripts/design-page-app.js"></script>
-    <script>
-        $(document).ready(function () {
-            @*window.pixel.designpage.initPage($('#page-editor'), @(currentPage.Width));*@
-        });
-    </script>
 }
 
 @section styles
