@@ -35,12 +35,64 @@
                     $scope.currentPage = response.data;
                     var p = response.data;
                     $("#dummy").css("margin-top", p.aspectRatioInPercent + "%");
-                    var iframe = $("<iframe src='" + p.previewUrl + "' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>");
-                    $("#page-editor").empty().append(iframe);
+                    $("#page-editor").empty().append($("<iframe id='pageEditorIframe' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>"));
+                    $("#pageEditorIframe").attr('src', p.previewUrl);
+                    $("#pageEditorIframe").load($scope.initIframe);
                     $scope.resizeIframe();
                 }, function(response) {
                     alert("Call to pageService.getPage failed.");
                 });
+        }
+
+        $scope.initIframe = function () {
+            var iframe = $("#pageEditorIframe");
+
+            //$(".editable-textfield", iframe.contents()).click(viewModel.handleTextFieldClick);
+            $(".editable-textfield", iframe.contents()).click(function () { console.log("textfield clicked;") });
+
+            //$(".editable-htmlfield", iframe.contents()).click(viewModel.handleHtmlFieldClick);
+            $(".editable-htmlfield", iframe.contents()).click(function () { console.log("htmlfield clicked;") });
+
+            var editableImageFields = $(".editable-imagefield", iframe.contents());
+            editableImageFields.each(function () {
+                var parent = $(this).parent();
+                parent.addClass("editable-imagefield-parent");
+                parent.css("z-index", parseInt($(this).css("z-index")) + 1);
+            });
+            //editableImageFields.click(viewModel.handleImageFieldClick);
+            editableImageFields.click(function () { console.log("imagefield clicked;") });
+            $(".editable-imagefield[data-imagefieldtype='1']", iframe.contents()).each(function () {
+                if ($(this).data("afvid")) {
+                    var initData = $(this).data("init");
+                    $("img", $(this)).guillotine({ width: $(this).width(), height: $(this).height(), init: initData });
+                    $("img", $(this)).guillotine("disable");
+                }
+            });
+            $(".editable-imagefield[data-imagefieldtype='2']", iframe.contents()).each(function () {
+                $(this).parent().css("width", $(this).width());
+                $(this).parent().css("height", $(this).height());
+                $(this).css("width", $(this).width());
+                $(this).css("height", $(this).height());
+                if ($(this).data("afvid")) {
+                    var selectedPictureUrl = $(this).data("imgurl");
+                    var targetImage = $("img", $(this));
+                    targetImage.removeAttr("id");
+                    targetImage.removeAttr("width");
+                    targetImage.removeAttr("height");
+                    targetImage.hide()
+                        .one("load", function () {
+                            var imageField = $(this).parent();
+                            var initData = imageField.data("init");
+                            $(this).guillotine({ width: imageField.width(), height: imageField.height(), init: initData });
+                            $("img", $(this)).guillotine("disable");
+                            $(this).show();
+                        })
+                        .attr("src", selectedPictureUrl)
+                        .each(function () {
+                            if (this.complete) $(this).trigger("load");
+                        });
+                }
+            });
         }
 
         $scope.resizeIframe = function () {
@@ -270,10 +322,10 @@ window.pixel.designpage = (function () {
                 }
             });
         });
-        $(window).resize(function () {
-            resizeIframe(iframe, actualTemplateWidth, page.width());
-        });
-        resizeIframe(iframe, actualTemplateWidth, page.width());
+        //$(window).resize(function () {
+        //    resizeIframe(iframe, actualTemplateWidth, page.width());
+        //});
+        //resizeIframe(iframe, actualTemplateWidth, page.width());
     }
     //var initTextFieldEditor = function (editor) {
     //    //editor.on('blur', function () { viewModel.handleTextFieldEditorBlur(); });
