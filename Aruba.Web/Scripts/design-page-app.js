@@ -18,6 +18,8 @@
             .then(function (response) {
                 console.log(response.data);
                 $scope.pages = response.data;
+                if (response.data.length > 0)
+                    $scope.switchToPage(response.data[0].id);
             }, function (response) {
                 alert("Call printService.getPages failed.");
             });
