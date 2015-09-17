@@ -17,7 +17,6 @@
             left: 0;
             right: 0;
             /*border: 1px solid #CCCCCC;*/
-
             iframe {
                 overflow: hidden;
             }
@@ -28,5 +27,16 @@
         width: 30%;
         float: left;
         display: inline-block;
+        background-color: $white;
+
+        .tabs {
+            .tab-title {
+                background-color: $silver;
+            }
+        }
+
+        .tabs-content {
+            padding: rem-calc(20);
+        }
     }
 }
