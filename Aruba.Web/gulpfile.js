@@ -7,16 +7,29 @@ var gulpRubySass = require('gulp-ruby-sass');
 //gulp.task('default', function () {
 //});
 
-gulp.task('js', function () {
+gulp.task('bower-js', function () {
     gulp.src(mainBowerFiles())
         .pipe(gulpFilter('*.js'))
         .pipe(gulp.dest('./Scripts/lib'));
 });
 
-gulp.task('css', function () {
+gulp.task('bower-css', function () {
     gulp.src(mainBowerFiles())
         .pipe(gulpFilter('*.css'))
 		.pipe(gulp.dest('./Stylesheets/lib'));
+});
+
+gulp.task('bower-ckeditor', function () {
+    var baseDir = 'bower_components/ckeditor';
+    gulp.src([
+        baseDir + '/**/*.*',
+        '!' + baseDir + '/samples/**',
+        '!' + baseDir + '/skins/kama/**',
+        '!' + baseDir + '/plugins/**',
+        '!' + baseDir + '/lang/**/!(sv.js)',
+        '!' + baseDir + '/*.json',
+        '!' + baseDir + '/*.md'])
+        .pipe(gulp.dest('./Scripts/lib/ckeditor'));
 });
 
 gulp.task('sass', function () {

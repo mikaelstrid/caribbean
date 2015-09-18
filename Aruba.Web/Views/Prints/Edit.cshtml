@@ -29,8 +29,7 @@
                         </header>
                         <ul class="page-list">
                             <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">
-                                @*Sida {{page.position}}*@
-                                <img ng-src="page.thumbnailUrl" alt="Sida {{page.position}}"/>
+                                <img ng-src="{{page.thumbnailUrl}}" alt="Sida {{page.position}}"/>
                             </li>
                         </ul>
                     </aside>
@@ -46,13 +45,13 @@
                                     </ul>
                                     <div class="tabs-content">
                                         <div class="content active" id="panel1">
-                                            <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+                                            <textarea ckeditor="editorOptions" ng-model="modelName"></textarea>
                                         </div>
                                         <div class="content" id="panel2">
-                                            <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+                                            <p>Kommer snart.</p>
                                         </div>
                                         <div class="content" id="panel3">
-                                            <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+                                            <p>Kommer snart.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -94,6 +93,8 @@
 {
     <script src="~/Scripts/lib/angular.js"></script>
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
+    <script src="~/Scripts/lib/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/lib/ng-ckeditor.js"></script>
     <script src="~/Scripts/design-page-app.js"></script>
 }
 

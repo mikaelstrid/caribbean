@@ -8,7 +8,9 @@
     "modernizr": "~2.8.3",
     "foundation": "~5.5.2",
     "normalize-css": "~3.0.3",
-    "angular": "~1.4.5"
+    "angular": "~1.4.5",
+    "ckeditor": "~4.5.3",
+    "ng-ckeditor": "~0.2.1"
   },
   "overrides": {
     "modernizr": {
@@ -20,5 +22,8 @@
   },
   "devDependencies": {
     "foundation": "~5.5.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.5"
   }
 }

@@ -7261,3 +7261,5 @@ footer {
   .page-edit-print .toolbox .tabs-content {
     padding-left: 1.875rem;
     padding-right: 1.875rem; }
+.page-edit-print .cke_chrome {
+  box-shadow: none; }
