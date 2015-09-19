@@ -14,7 +14,7 @@
         }
     })
     .controller("printEditorCtrl", function ($scope, printService, pageService) {
-        $scope.editorOptions = {
+        $scope.textEditor = {
             language: 'sv',
             uiColor: '#ffffff',
             toolbarGroups: [
@@ -33,12 +33,8 @@
 		        { name: 'colors', groups: ['colors'] },
 		        { name: 'about', groups: ['about'] }
             ],
-            removeButtons : 'Subscript,Strike,Anchor,Image,Blockquote,Styles,Format,About,Cut,Copy,Paste,PasteText,Redo,Undo,Link,Scayt,Source,Maximize,RemoveFormat,NumberedList,Indent,Outdent,Table,HorizontalRule,SpecialChar,PasteFromWord,Unlink,BulletedList,Superscript,Underline'
+            removeButtons: 'Subscript,Strike,Anchor,Image,Blockquote,Styles,Format,About,Cut,Copy,Paste,PasteText,Redo,Undo,Link,Scayt,Source,Maximize,RemoveFormat,NumberedList,Indent,Outdent,Table,HorizontalRule,SpecialChar,PasteFromWord,Unlink,BulletedList,Superscript,Underline'
         };
-
-        //CKEDITOR.replace('editorOptions', {
-        //    customConfig: '/custom/ckeditor_config.js'
-        //});
 
         printService.getPages($scope.printId)
             .then(function (response) {
@@ -73,8 +69,8 @@
         $scope.initIframe = function () {
             var iframe = $("#pageEditorIframe");
 
-            //$(".editable-textfield", iframe.contents()).click(viewModel.handleTextFieldClick);
-            $(".editable-textfield", iframe.contents()).click(function () { console.log("textfield clicked;") });
+            $(".editable-textfield", iframe.contents()).click($scope.handleTextFieldClick);
+            //$(".editable-textfield", iframe.contents()).click(function () { console.log("textfield clicked;") });
 
             //$(".editable-htmlfield", iframe.contents()).click(viewModel.handleHtmlFieldClick);
             $(".editable-htmlfield", iframe.contents()).click(function () { console.log("htmlfield clicked;") });
@@ -127,5 +123,10 @@
                 "transform-origin": "0 0",
                 "transform": "scale(" + scaleValue + ")"
             });
+        }
+
+        $scope.handleTextFieldClick = function () {
+            $scope.textEditorValue = $(this).html();
+            $scope.$apply();
         }
     });

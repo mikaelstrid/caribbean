@@ -29,7 +29,7 @@
                         </header>
                         <ul class="page-list">
                             <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">
-                                <img ng-src="{{page.thumbnailUrl}}" alt="Sida {{page.position}}"/>
+                                <img ng-src="{{page.thumbnailUrl}}" alt="Sida {{page.position}}" />
                             </li>
                         </ul>
                     </aside>
@@ -45,7 +45,9 @@
                                     </ul>
                                     <div class="tabs-content">
                                         <div class="content active" id="panel1">
-                                            <textarea ckeditor="editorOptions" ng-model="modelName"></textarea>
+                                            <form name="testForm">
+                                                <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue" @*ng-change="save()"*@></textarea>
+                                            </form>
                                         </div>
                                         <div class="content" id="panel2">
                                             <p>Kommer snart.</p>
