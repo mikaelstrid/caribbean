@@ -27,6 +27,7 @@
         // Local variables
         var currentSelectedTextField = null;
         var currentSelectedHtmlField = null;
+        var currentSelectedImageField = null;
 
         // Initialize the CKEditors
         $scope.textEditor = {
@@ -75,6 +76,7 @@
         // Scope variables
         $scope.textEditorToolboxVisible = false;
         $scope.htmlEditorVisible = false;
+        $scope.imageEditorToolboxVisible = false;
 
 
         // Scope functions
@@ -131,7 +133,7 @@
         $scope.saveHtmlEditorValue = function () {
             var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
             var withParagraphClass = $scope.htmlEditorValue.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
-            
+
             // Save the new value to the database
             $scope._saveFieldValue(currentSelectedHtmlField, { html: withParagraphClass })
                 .then(function () {
@@ -142,6 +144,29 @@
 
             // Update the print page preview
             currentSelectedHtmlField.html(withParagraphClass);
+        }
+
+
+        // Image editor functions
+        $scope.handleImageFieldClick = function () {
+            currentSelectedImageField = $(this);
+            $scope._changeVisibleEditor("imageEditor");
+            $scope.$apply();
+            currentSelectedImageField.parent().addClass("active");
+            currentSelectedImageField.unbind("click");
+            $("img", currentSelectedImageField).guillotine("enable");
+        }
+        $scope.saveImageEditorValue = function () {
+            if (!$scope._isCurrentImageFieldInitialized()) return;
+            var targetImage = $("img", currentSelectedImageField);
+            var guillotineData = targetImage.guillotine("getData"); // { scale: 1.4, angle: 270, x: 10, y: 20, w: 400, h: 300 }
+            var data = $.extend({}, { url: targetImage.attr("src") }, guillotineData);
+            $scope._saveFieldValue(currentSelectedImageField, data)
+                .then(function () {
+                    console.log("Field value updated successfully.");
+                }, function () {
+                    alert("Field value update failed.");
+                });
         }
 
 
@@ -184,6 +209,7 @@
         $scope._changeVisibleEditor = function (toolbox) {
             $scope.textEditorToolboxVisible = (toolbox === "textEditor");
             $scope.htmlEditorToolboxVisible = (toolbox === "htmlEditor");
+            $scope.imageEditorToolboxVisible = (toolbox === "imageEditor");
         }
 
         $scope.initIframe = function () {
@@ -198,8 +224,7 @@
                 parent.addClass("editable-imagefield-parent");
                 parent.css("z-index", parseInt($(this).css("z-index")) + 1);
             });
-            //editableImageFields.click(viewModel.handleImageFieldClick);
-            editableImageFields.click(function () { console.log("imagefield clicked;") });
+            editableImageFields.click($scope.handleImageFieldClick);
             $(".editable-imagefield[data-imagefieldtype='1']", iframe.contents()).each(function () {
                 if ($(this).data("afvid")) {
                     var initData = $(this).data("init");
@@ -240,6 +265,10 @@
                 "transform-origin": "0 0",
                 "transform": "scale(" + scaleValue + ")"
             });
+        }
+
+        $scope._isCurrentImageFieldInitialized = function () {
+            return currentSelectedImageField && !($("img", currentSelectedImageField).attr("id")); // Image selected and not a dummy image
         }
 
     });
