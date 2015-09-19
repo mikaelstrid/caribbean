@@ -7263,3 +7263,7 @@ footer {
     padding-right: 1.875rem; }
 .page-edit-print .cke_chrome {
   box-shadow: none; }
+.page-edit-print .textEditor .cke {
+  margin-bottom: 1.25rem; }
+.page-edit-print .textEditor button {
+  margin-bottom: 0; }

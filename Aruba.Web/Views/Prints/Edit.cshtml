@@ -45,9 +45,13 @@
                                     </ul>
                                     <div class="tabs-content">
                                         <div class="content active" id="panel1">
-                                            <form name="testForm">
-                                                <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue" @*ng-change="save()"*@></textarea>
-                                            </form>
+                                            <div class="textEditor clearfix">
+                                                <form name="testForm" class="clearfix">
+                                                    <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue" @*ng-change="save()"*@></textarea>
+                                                    @*<a role="button" class="button" ng-click="saveTextEditorValue()">Spara</a>*@
+                                                    <button class="right" ng-click="saveTextEditorValue()">Spara</button>
+                                                </form>
+                                            </div>
                                         </div>
                                         <div class="content" id="panel2">
                                             <p>Kommer snart.</p>
@@ -94,6 +98,7 @@
 @section scripts
 {
     <script src="~/Scripts/lib/angular.js"></script>
+    <script src="~/Scripts/lib/lodash.js"></script>
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
     <script src="~/Scripts/lib/ckeditor/ckeditor.js"></script>
     <script src="~/Scripts/lib/ng-ckeditor.js"></script>

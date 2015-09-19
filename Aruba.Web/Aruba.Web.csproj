@@ -332,6 +332,7 @@
     <Content Include="Scripts\lib\jquery.validate.js" />
     <Content Include="Scripts\lib\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\lib\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\lodash.js" />
     <Content Include="Scripts\lib\modernizr.js" />
     <Content Include="Scripts\lib\ng-ckeditor.js" />
     <Content Include="Scripts\ckeditor-config-custom.js" />

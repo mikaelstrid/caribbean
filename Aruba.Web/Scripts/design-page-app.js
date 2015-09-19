@@ -13,7 +13,19 @@
             }
         }
     })
-    .controller("printEditorCtrl", function ($scope, printService, pageService) {
+    .service("fieldValuesService", function ($http) {
+        return {
+            addFieldValue: function (pageId, fieldName, fieldValue) {
+                return $http.post("/api/fieldvalues/", { pageId: pageId, fieldName: fieldName, fieldValue: fieldValue });
+            },
+            updateFieldValue: function (fieldValueId, fieldValue) {
+                return $http.put("/api/fieldvalues", { fieldValueId: fieldValueId, fieldValue: fieldValue });
+            }
+        }
+    })
+    .controller("printEditorCtrl", function ($scope, $q, printService, pageService, fieldValuesService) {
+        var currentSelectedTextField = null;
+
         $scope.textEditor = {
             language: 'sv',
             uiColor: '#ffffff',
@@ -126,7 +138,45 @@
         }
 
         $scope.handleTextFieldClick = function () {
+            currentSelectedTextField = $(this);
             $scope.textEditorValue = $(this).html();
             $scope.$apply();
+        }
+
+        $scope.saveTextEditorValue = function () {
+            // Remove newlines and <p> tags
+            var trimmed = $scope.textEditorValue;
+            trimmed = trimmed.replace(/(\r\n|\n|\r)/gm, "");
+            trimmed = _.startsWith(trimmed, '<p>') ? trimmed.slice(3) : trimmed;
+            trimmed = _.endsWith(trimmed, '</p>') ? trimmed.slice(0, trimmed.length - 4) : trimmed;
+
+            // Save the new value to the database
+            $scope.saveFieldValue(currentSelectedTextField, { html: trimmed })
+                .then(function() {
+                    console.log("Field value updated successfully.");
+                }, function() {
+                    alert("Field value update failed.");
+                });
+
+            // Update the print page preview
+            currentSelectedTextField.html(trimmed);
+        }
+
+
+
+
+        // HELPER FUNCTIONS
+        $scope.saveFieldValue = function (field, dataValue) {
+            var pageId = field.closest('html').data('pageid');
+
+            var fieldName = field.data('afname');
+            if (fieldName)
+                return fieldValuesService.addFieldValue(pageId, fieldName, JSON.stringify(dataValue));
+
+            var fieldValueId = field.data('afvid');
+            if (fieldValueId)
+                return fieldValuesService.updateFieldValue(fieldValueId, JSON.stringify(dataValue));
+
+            return $q.reject("Illegal field type (not afname or afvid).");
         }
     });

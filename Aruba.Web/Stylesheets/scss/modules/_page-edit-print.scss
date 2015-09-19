@@ -78,4 +78,14 @@
     .cke_chrome {
         box-shadow: none;
     }
+
+    .textEditor {
+        .cke {
+            margin-bottom: rem-calc(20);
+        }
+
+        button {
+            margin-bottom: 0;
+        }
+    }
 }
