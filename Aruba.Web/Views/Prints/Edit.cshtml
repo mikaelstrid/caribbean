@@ -45,11 +45,16 @@
                                     </ul>
                                     <div class="tabs-content">
                                         <div class="content active" id="panel1">
-                                            <div class="textEditor clearfix">
-                                                <form name="testForm" class="clearfix">
-                                                    <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue" @*ng-change="save()"*@></textarea>
-                                                    @*<a role="button" class="button" ng-click="saveTextEditorValue()">Spara</a>*@
+                                            <div class="textEditorToolbox clearfix" ng-show="textEditorToolboxVisible">
+                                                <form class="clearfix">
+                                                    <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue"></textarea>
                                                     <button class="right" ng-click="saveTextEditorValue()">Spara</button>
+                                                </form>
+                                            </div>
+                                            <div class="htmlEditorToolbox clearfix" ng-show="htmlEditorToolboxVisible">
+                                                <form class="clearfix">
+                                                    <textarea id="htmlEditor" name="body" ckeditor="htmlEditor" ng-model="htmlEditorValue"></textarea>
+                                                    <button class="right" ng-click="saveHtmlEditorValue()">Spara</button>
                                                 </form>
                                             </div>
                                         </div>

@@ -24,30 +24,129 @@
         }
     })
     .controller("printEditorCtrl", function ($scope, $q, printService, pageService, fieldValuesService) {
+        // Local variables
         var currentSelectedTextField = null;
+        var currentSelectedHtmlField = null;
 
+        // Initialize the CKEditors
         $scope.textEditor = {
-            language: 'sv',
-            uiColor: '#ffffff',
+            language: "sv",
+            uiColor: "#ffffff",
             toolbarGroups: [
-		        { name: 'clipboard', groups: ['clipboard', 'undo'] },
-		        { name: 'editing', groups: ['find', 'selection', 'spellchecker', 'editing'] },
-		        { name: 'links', groups: ['links'] },
-		        { name: 'insert', groups: ['insert'] },
-		        { name: 'forms', groups: ['forms'] },
-		        { name: 'tools', groups: ['tools'] },
-		        { name: 'document', groups: ['mode', 'document', 'doctools'] },
-		        { name: 'others', groups: ['others'] },
-		        '/',
-		        { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
-		        { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] },
-		        { name: 'styles', groups: ['styles'] },
-		        { name: 'colors', groups: ['colors'] },
-		        { name: 'about', groups: ['about'] }
+		        { name: "clipboard", groups: ["clipboard", "undo"] },
+		        { name: "editing", groups: ["find", "selection", "spellchecker", "editing"] },
+		        { name: "links", groups: ["links"] },
+		        { name: "insert", groups: ["insert"] },
+		        { name: "forms", groups: ["forms"] },
+		        { name: "tools", groups: ["tools"] },
+		        { name: "document", groups: ["mode", "document", "doctools"] },
+		        { name: "others", groups: ["others"] },
+		        "/",
+		        { name: "basicstyles", groups: ["basicstyles", "cleanup"] },
+		        { name: "paragraph", groups: ["list", "indent", "blocks", "align", "bidi", "paragraph"] },
+		        { name: "styles", groups: ["styles"] },
+		        { name: "colors", groups: ["colors"] },
+		        { name: "about", groups: ["about"] }
             ],
-            removeButtons: 'Subscript,Strike,Anchor,Image,Blockquote,Styles,Format,About,Cut,Copy,Paste,PasteText,Redo,Undo,Link,Scayt,Source,Maximize,RemoveFormat,NumberedList,Indent,Outdent,Table,HorizontalRule,SpecialChar,PasteFromWord,Unlink,BulletedList,Superscript,Underline'
+            removeButtons: "Subscript,Strike,Anchor,Image,Blockquote,Styles,Format,About,Cut,Copy,Paste,PasteText,Redo,Undo,Link,Scayt,Source,Maximize,RemoveFormat,NumberedList,Indent,Outdent,Table,HorizontalRule,SpecialChar,PasteFromWord,Unlink,BulletedList,Superscript,Underline"
+        };
+        $scope.htmlEditor = {
+            language: "sv",
+            uiColor: "#ffffff",
+            toolbarGroups: [
+		        { name: "clipboard", groups: ["clipboard", "undo"] },
+		        { name: "editing", groups: ["find", "selection", "spellchecker", "editing"] },
+		        { name: "links", groups: ["links"] },
+		        { name: "insert", groups: ["insert"] },
+		        { name: "forms", groups: ["forms"] },
+		        { name: "tools", groups: ["tools"] },
+		        { name: "document", groups: ["mode", "document", "doctools"] },
+		        { name: "others", groups: ["others"] },
+		        "/",
+		        { name: "basicstyles", groups: ["basicstyles", "cleanup"] },
+		        { name: "paragraph", groups: ["list", "indent", "blocks", "align", "bidi", "paragraph"] },
+		        { name: "styles", groups: ["styles"] },
+		        { name: "colors", groups: ["colors"] },
+		        { name: "about", groups: ["about"] }
+            ],
+            removeButtons: "Underline,Subscript,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Scayt,Link,Anchor,Unlink,Image,Table,HorizontalRule,SpecialChar,Maximize,Source,Strike,Superscript,RemoveFormat,Outdent,Indent,Blockquote,Styles,About,Format"
         };
 
+        // Scope variables
+        $scope.textEditorToolboxVisible = false;
+        $scope.htmlEditorVisible = false;
+
+
+        // Scope functions
+        $scope.switchToPage = function (pageId) {
+            pageService.getPage(pageId)
+                .then(function (response) {
+                    $scope.currentPage = response.data;
+                    var p = response.data;
+                    $("#dummy").css("margin-top", p.aspectRatioInPercent + "%");
+                    $("#page-editor").empty().append($("<iframe id='pageEditorIframe' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>"));
+                    $("#pageEditorIframe").attr("src", p.previewUrl);
+                    $("#pageEditorIframe").load($scope.initIframe);
+                    $scope.resizeIframe();
+                }, function (response) {
+                    alert("Call to pageService.getPage failed.");
+                });
+        }
+
+
+        // Text editor functions
+        $scope.handleTextFieldClick = function () {
+            currentSelectedTextField = $(this);
+            $scope.textEditorValue = $(this).html();
+            $scope._changeVisibleEditor("textEditor");
+            $scope.$apply();
+        }
+        $scope.saveTextEditorValue = function () {
+            // Remove newlines and <p> tags
+            var trimmed = $scope.textEditorValue;
+            trimmed = trimmed.replace(/(\r\n|\n|\r)/gm, "");
+            trimmed = _.startsWith(trimmed, "<p>") ? trimmed.slice(3) : trimmed;
+            trimmed = _.endsWith(trimmed, "</p>") ? trimmed.slice(0, trimmed.length - 4) : trimmed;
+
+            // Save the new value to the database
+            $scope._saveFieldValue(currentSelectedTextField, { html: trimmed })
+                .then(function () {
+                    console.log("Field value updated successfully.");
+                }, function () {
+                    alert("Field value update failed.");
+                });
+
+            // Update the print page preview
+            currentSelectedTextField.html(trimmed);
+        }
+
+
+        // HTML editor functions
+        $scope.handleHtmlFieldClick = function () {
+            currentSelectedHtmlField = $(this);
+            $scope.htmlEditorValue = $(this).html();
+            $scope._changeVisibleEditor("htmlEditor");
+            $scope.$apply();
+        }
+        $scope.saveHtmlEditorValue = function () {
+            var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
+            var withParagraphClass = $scope.htmlEditorValue.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
+            
+            // Save the new value to the database
+            $scope._saveFieldValue(currentSelectedHtmlField, { html: withParagraphClass })
+                .then(function () {
+                    console.log("Field value updated successfully.");
+                }, function () {
+                    alert("Field value update failed.");
+                });
+
+            // Update the print page preview
+            currentSelectedHtmlField.html(withParagraphClass);
+        }
+
+
+
+        // Initialization
         printService.getPages($scope.printId)
             .then(function (response) {
                 console.log(response.data);
@@ -63,29 +162,35 @@
                 $scope.resizeIframe();
         });
 
-        $scope.switchToPage = function (pageId) {
-            pageService.getPage(pageId)
-                .then(function (response) {
-                    $scope.currentPage = response.data;
-                    var p = response.data;
-                    $("#dummy").css("margin-top", p.aspectRatioInPercent + "%");
-                    $("#page-editor").empty().append($("<iframe id='pageEditorIframe' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>"));
-                    $("#pageEditorIframe").attr('src', p.previewUrl);
-                    $("#pageEditorIframe").load($scope.initIframe);
-                    $scope.resizeIframe();
-                }, function (response) {
-                    alert("Call to pageService.getPage failed.");
-                });
+
+
+
+
+        // HELPER FUNCTIONS
+        $scope._saveFieldValue = function (field, dataValue) {
+            var pageId = field.closest("html").data("pageid");
+
+            var fieldName = field.data("afname");
+            if (fieldName)
+                return fieldValuesService.addFieldValue(pageId, fieldName, JSON.stringify(dataValue));
+
+            var fieldValueId = field.data("afvid");
+            if (fieldValueId)
+                return fieldValuesService.updateFieldValue(fieldValueId, JSON.stringify(dataValue));
+
+            return $q.reject("Illegal field type (not afname or afvid).");
+        }
+
+        $scope._changeVisibleEditor = function (toolbox) {
+            $scope.textEditorToolboxVisible = (toolbox === "textEditor");
+            $scope.htmlEditorToolboxVisible = (toolbox === "htmlEditor");
         }
 
         $scope.initIframe = function () {
             var iframe = $("#pageEditorIframe");
 
             $(".editable-textfield", iframe.contents()).click($scope.handleTextFieldClick);
-            //$(".editable-textfield", iframe.contents()).click(function () { console.log("textfield clicked;") });
-
-            //$(".editable-htmlfield", iframe.contents()).click(viewModel.handleHtmlFieldClick);
-            $(".editable-htmlfield", iframe.contents()).click(function () { console.log("htmlfield clicked;") });
+            $(".editable-htmlfield", iframe.contents()).click($scope.handleHtmlFieldClick);
 
             var editableImageFields = $(".editable-imagefield", iframe.contents());
             editableImageFields.each(function () {
@@ -137,46 +242,4 @@
             });
         }
 
-        $scope.handleTextFieldClick = function () {
-            currentSelectedTextField = $(this);
-            $scope.textEditorValue = $(this).html();
-            $scope.$apply();
-        }
-
-        $scope.saveTextEditorValue = function () {
-            // Remove newlines and <p> tags
-            var trimmed = $scope.textEditorValue;
-            trimmed = trimmed.replace(/(\r\n|\n|\r)/gm, "");
-            trimmed = _.startsWith(trimmed, '<p>') ? trimmed.slice(3) : trimmed;
-            trimmed = _.endsWith(trimmed, '</p>') ? trimmed.slice(0, trimmed.length - 4) : trimmed;
-
-            // Save the new value to the database
-            $scope.saveFieldValue(currentSelectedTextField, { html: trimmed })
-                .then(function() {
-                    console.log("Field value updated successfully.");
-                }, function() {
-                    alert("Field value update failed.");
-                });
-
-            // Update the print page preview
-            currentSelectedTextField.html(trimmed);
-        }
-
-
-
-
-        // HELPER FUNCTIONS
-        $scope.saveFieldValue = function (field, dataValue) {
-            var pageId = field.closest('html').data('pageid');
-
-            var fieldName = field.data('afname');
-            if (fieldName)
-                return fieldValuesService.addFieldValue(pageId, fieldName, JSON.stringify(dataValue));
-
-            var fieldValueId = field.data('afvid');
-            if (fieldValueId)
-                return fieldValuesService.updateFieldValue(fieldValueId, JSON.stringify(dataValue));
-
-            return $q.reject("Illegal field type (not afname or afvid).");
-        }
     });
