@@ -13,6 +13,13 @@
             }
         }
     })
+    .service("realEstateObjectService", function ($http) {
+        return {
+            getImages: function (printId) {
+                return $http.get("/api/realestateobjects/print/" + printId + "/images");
+            }
+        }
+    })
     .service("fieldValuesService", function ($http) {
         return {
             addFieldValue: function (pageId, fieldName, fieldValue) {
@@ -23,7 +30,7 @@
             }
         }
     })
-    .controller("printEditorCtrl", function ($scope, $q, printService, pageService, fieldValuesService) {
+    .controller("printEditorCtrl", function ($scope, $q, printService, pageService, fieldValuesService, realEstateObjectService) {
         // Local variables
         var currentSelectedTextField = null;
         var currentSelectedHtmlField = null;
@@ -156,6 +163,30 @@
             currentSelectedImageField.unbind("click");
             $("img", currentSelectedImageField).guillotine("enable");
         }
+        $scope.handleObjectImageClick = function (imageUrl) {
+            var targetImage = $("img", currentSelectedImageField);
+            targetImage.removeAttr("id");
+            targetImage.removeAttr("width");
+            targetImage.removeAttr("height");
+            targetImage.guillotine("remove");
+            targetImage.hide()
+                .one("load", function () {
+                    $(this).guillotine({ width: currentSelectedImageField.width(), height: currentSelectedImageField.height() });
+                    $(this).fadeIn();
+                })
+                .attr("src", imageUrl)
+                .each(function () {
+                    if (this.complete) $(this).trigger("load");
+                });
+        }
+        $scope.increaseImageSize = function () {
+            if (!$scope._isCurrentImageFieldInitialized()) return;
+            $("img", currentSelectedImageField).guillotine("zoomIn");
+        }
+        $scope.decreaseImageSize = function () {
+            if (!$scope._isCurrentImageFieldInitialized()) return;
+            $("img", currentSelectedImageField).guillotine("zoomOut");
+        }
         $scope.saveImageEditorValue = function () {
             if (!$scope._isCurrentImageFieldInitialized()) return;
             var targetImage = $("img", currentSelectedImageField);
@@ -168,19 +199,27 @@
                     alert("Field value update failed.");
                 });
         }
+        
+
 
 
 
         // Initialization
         printService.getPages($scope.printId)
             .then(function (response) {
-                console.log(response.data);
                 $scope.pages = response.data;
                 if (response.data.length > 0)
                     $scope.switchToPage(response.data[0].id);
             }, function (response) {
                 alert("Call printService.getPages failed.");
             });
+
+        realEstateObjectService.getImages($scope.printId)
+            .then(function (response) {
+                $scope.images = response.data;
+                }, function (response) {
+                    alert("Call realEstateObjectService.getImages failed.");
+                });
 
         $(window).resize(function () {
             if ($scope.currentPage)

@@ -251,6 +251,7 @@
     <Compile Include="ApiControllers\PageController.cs" />
     <Compile Include="ApiControllers\PagePdfsController.cs" />
     <Compile Include="ApiControllers\PageThumbnailsController.cs" />
+    <Compile Include="ApiControllers\RealEstateObjectsController.cs" />
     <Compile Include="ApiControllers\PrintsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
