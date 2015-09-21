@@ -25,6 +25,7 @@ namespace Caribbean.Aruba.Web.Controllers
         private readonly IInitialFieldValuesFactory _initialFieldValuesFactory;
         private readonly IPrintPdfGeneratorService _printPdfGeneratorService;
         private readonly IPrintPdfRepository _printPdfRepository;
+        private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
 
         public PrintsController(
             IUnitOfWork unitOfWork, 
@@ -34,7 +35,8 @@ namespace Caribbean.Aruba.Web.Controllers
             IVitecObjectRepository vitecObjectRepository,
             IInitialFieldValuesFactory initialFieldValuesFactory,
             IPrintPdfGeneratorService printPdfGeneratorService,
-            IPrintPdfRepository printPdfRepository)
+            IPrintPdfRepository printPdfRepository,
+            IPagePdfGeneratorProxyService pagePdfGeneratorProxyService)
         {
             _unitOfWork = unitOfWork;
             _templateMetadataRepository = templateMetadataRepository;
@@ -44,6 +46,7 @@ namespace Caribbean.Aruba.Web.Controllers
             _initialFieldValuesFactory = initialFieldValuesFactory;
             _printPdfGeneratorService = printPdfGeneratorService;
             _printPdfRepository = printPdfRepository;
+            _pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
         }
 
         [Route("skapa")]
@@ -127,6 +130,29 @@ namespace Caribbean.Aruba.Web.Controllers
             };
         }
 
+
+
+        [HttpPost]
+        [Route("redigera")]
+        public async Task<ActionResult> Edit(EditPageSaveChangesViewModel viewModel)
+        {
+            _pagePdfGeneratorProxyService.Initialize();
+
+            var agentUserId = User.Identity.GetUserId();
+            var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);
+
+            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == viewModel.PrintId, "Pages");
+            if (print == null) return HttpNotFound("No print with a matching id found.");
+
+            foreach (var page in print.Pages)
+            {
+                var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
+                if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
+
+                _pagePdfGeneratorProxyService.QueueJob(page.Id, agentUserId, template.Width, template.Height, template.Dpi, 220, 308);
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
 
 

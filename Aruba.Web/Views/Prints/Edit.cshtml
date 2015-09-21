@@ -3,7 +3,7 @@
 <div ng-init="printId = '@Model.PrintId'">
     <div ng-controller="printEditorCtrl">
         <div class="contain-to-grid fixed slim-topbar">
-            <nav class="top-bar" data-topbar role="navigation">
+            <nav class="top-bar clearfix" data-topbar role="navigation">
                 <ul class="title-area">
                     <li class="name">
                         <h1 class="logo">
@@ -12,6 +12,12 @@
                         </h1>
                     </li>
                 </ul>
+                @using (Html.BeginForm(null, null, FormMethod.Post))
+                {
+                    @Html.HiddenFor(m => m.PrintId)
+                    @Html.Hidden("PrintId", Model.PrintId)
+                    <button type="submit" class="button right">Spara</button>
+                }
             </nav>
         </div>
 
@@ -96,21 +102,6 @@
         </div>
     </div>
 </div>
-@*<ul>
-        @foreach (var i in Model.ObjectImages)
-        {
-            <li>@i.ThumbnailUrl</li>
-        }
-    </ul>
-
-    @using (Html.BeginForm(null, null, FormMethod.Post))
-    {
-        @Html.HiddenFor(m => m.PrintId)
-        @Html.Hidden("PageId", Model.Page.Id)
-        <button type="submit" class="btn btn-primary">Klar!</button>
-    }
-
-*@
 
 @section scripts
 {

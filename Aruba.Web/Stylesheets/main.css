@@ -7059,6 +7059,13 @@ html {
     .slim-topbar .logo .second-line {
       font-size: 1.75rem;
       font-weight: bold; }
+  .slim-topbar button {
+    margin-top: 1.875rem;
+    margin-right: 1.875rem;
+    background-color: transparent;
+    border: solid 1px #fff; }
+    .slim-topbar button:hover, .slim-topbar button:focus {
+      background-color: #1B142A; }
 
 .box-with-header {
   background-color: #fff; }

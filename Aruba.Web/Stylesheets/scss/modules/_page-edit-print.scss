@@ -60,6 +60,7 @@
         }
     }
 
+
     .toolbox {
         background-color: $white;
 
@@ -93,7 +94,7 @@
         .image-list {
             @include block-grid($per-row: 2, $spacing: rem-calc(20), $base-style: true );
 
-            @media #{$medium-only} { 
+            @media #{$medium-only} {
                 @include block-grid($per-row: 3, $spacing: rem-calc(20), $base-style: true );
             }
 

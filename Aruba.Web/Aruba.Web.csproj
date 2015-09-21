@@ -278,7 +278,7 @@
     </Compile>
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\Prints\OrderPrintViewModel.cs" />
-    <Compile Include="ViewModels\Page\EditPageSaveChangesViewModel.cs" />
+    <Compile Include="ViewModels\Prints\EditPageSaveChangesViewModel.cs" />
     <Compile Include="ViewModels\Page\EditPageViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\AvailablePrintTemplateViewModel.cs" />
     <Compile Include="ViewModels\PrintTemplates\ChoosePrintTemplateModel.cs" />
