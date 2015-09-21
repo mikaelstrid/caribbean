@@ -96,7 +96,7 @@ namespace Caribbean.Aruba.Web.Controllers
         }
 
 
-        [Route("redigera/{id}")]
+        [Route("redigera")]
         public async Task<ActionResult> Edit(int id)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
