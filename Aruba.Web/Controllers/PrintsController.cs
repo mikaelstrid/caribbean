@@ -49,6 +49,39 @@ namespace Caribbean.Aruba.Web.Controllers
             _pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
         }
 
+        [Route]
+        public async Task<ActionResult> Index()
+        {
+            var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
+            if (agent == null) return HttpNotFound("No agent associated with the username found.");
+
+            var prints = await _unitOfWork.PrintRepository.Get(p => p.AgentId == agent.Id);
+
+            return View(new IndexPrintsViewModel
+            {
+                Prints = prints.Select(p => CreatePrintViewModel(agent, p))
+            });
+        }
+
+        private IndexPrintsViewModel.PrintViewModel CreatePrintViewModel(Agent agent, Print print)
+        {
+            var realEstateObject = _vitecObjectRepository.GetSummaryById(agent.Agency.VitecCustomerId, print.ObjectId);
+            var template = _templateMetadataRepository.GetPrintVariantBySlug(agent.Agency.Slug, print.PrintVariantSlug);
+            return new IndexPrintsViewModel.PrintViewModel
+            {
+                Address = realEstateObject.Address,
+                ThumbnailUrl = realEstateObject.ThumbnailUrl,
+                TemplateType = template.Type,
+                TemplateName = template.Name,
+                Status = print.Status,
+                CreationTimeUtc = print.CreationTimeUtc,
+                PdfUrl = print.PdfUrl
+            };
+        }
+
+
+
+
         [Route("skapa")]
         public async Task<ActionResult> Create(string t, string o)
         {

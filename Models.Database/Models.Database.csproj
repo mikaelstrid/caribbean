@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,7 +47,8 @@
     <Compile Include="Page.cs" />
     <Compile Include="PageTemplatePlaceholderMapping.cs" />
     <Compile Include="PdfInfo.cs" />
-    <Compile Include="Print.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="PrintStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

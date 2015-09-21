@@ -48,7 +48,11 @@ html {
     }
 
     .content {
-        padding: rem-calc(60);
+        padding: rem-calc(30) rem-calc(60);
+
+        &.extra-padding-top-bottom {
+            padding: rem-calc(60);
+        }
     }
 }
 

@@ -1,0 +1,9 @@
+﻿@using Caribbean.Models.Database
+@using Pixel.Utilities
+@model  PrintStatus
+
+@{
+    var name = typeof(PrintStatus).GetName(Model.ToString());
+}
+
+<span class="printstatus @Model.ToString().ToLower()">@name</span>

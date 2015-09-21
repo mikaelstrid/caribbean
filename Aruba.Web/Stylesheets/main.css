@@ -7077,7 +7077,9 @@ html {
     padding: 1.25rem 3.75rem;
     margin-bottom: 0; }
   .box-with-header .content {
-    padding: 3.75rem; }
+    padding: 1.875rem 3.75rem; }
+    .box-with-header .content.extra-padding-top-bottom {
+      padding: 3.75rem; }
 
 footer {
   background-color: #282828; }
@@ -7335,3 +7337,25 @@ footer {
         .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(3n) {
           padding-left: 0.83333rem;
           padding-right: 0rem; } }
+
+.page-prints .row-print {
+  margin-bottom: 1.875rem; }
+  .page-prints .row-print:last-child {
+    margin-bottom: 0; }
+.page-prints .printstatus {
+  padding: 0.3125rem 0.625rem;
+  color: #fff; }
+  .page-prints .printstatus.unknown {
+    background-color: #1B142A; }
+  .page-prints .printstatus.inprogress {
+    background-color: #1B142A; }
+  .page-prints .printstatus.completed {
+    background-color: #1B142A; }
+  .page-prints .printstatus.ordered {
+    background-color: #B50082; }
+  .page-prints .printstatus.shipped {
+    background-color: #B50082; }
+  .page-prints .printstatus.received {
+    background-color: #B50082; }
+  .page-prints .printstatus.archived {
+    background-color: #B50082; }

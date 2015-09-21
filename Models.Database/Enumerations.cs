@@ -10,6 +10,7 @@ namespace Caribbean.Models.Database
         public string ObjectId { get; set; }
         public DateTime CreationTimeUtc { get; set; }
         public DateTime ModifiedTimeUtc { get; set; }
+        public PrintStatus Status { get; set; }
 
         public string PdfName { get; set; }
         public string PdfUrl { get; set; }

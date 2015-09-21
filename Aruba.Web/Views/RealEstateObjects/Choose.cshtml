@@ -38,7 +38,7 @@
 
     <div class="row box-with-header">
         <h3>Objektlista - klicka för att gå vidare</h3>
-        <div class="content">
+        <div class="content extra-padding-top-bottom">
             <ul class="small-block-grid-1 medium-block-grid-2 realestateobject-list">
 
                 @foreach (var o in Model.AvailableObjects.Where(o => !string.IsNullOrEmpty(o.Address)))

@@ -130,6 +130,12 @@
       <HintPath>..\packages\PDFsharp-MigraDoc-WPF.1.32.2608.0\lib\net20\PdfSharp.Charting-WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Pixel.Utilities">
+      <HintPath>..\Dependencies\Pixel.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Pixel.Utilities.Mvc">
+      <HintPath>..\Dependencies\Pixel.Utilities.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -266,6 +272,7 @@
     <Compile Include="Business\PagePdfGeneratorProxyService.cs" />
     <Compile Include="Business\PrintPdfGeneratorService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="ViewModels\Prints\IndexPrintsViewModel.cs" />
     <Compile Include="ViewModels\Prints\EditPrintViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -293,6 +300,7 @@
     <Content Include="Fonts\foundation-icons.svg" />
     <Content Include="Images\balance-865091_1920.jpg" />
     <Content Include="Images\notes-514998_1920.jpg" />
+    <Content Include="Images\toner-581905_1920.jpg" />
     <Content Include="Scripts\design-page-app.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\lib\angular.js" />
@@ -364,6 +372,7 @@
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />
     <Content Include="Stylesheets\scss\modules\_page-edit-print.scss" />
+    <Content Include="Stylesheets\scss\modules\_page-prints.scss" />
     <None Include="Stylesheets\scss\modules\_renderer.scss" />
     <None Include="Properties\PublishProfiles\mm-aruba.pubxml" />
     <Content Include="Scripts\ai.0.15.0-build46802.js" />
@@ -416,6 +425,8 @@
     <Content Include="Views\Shared\_AppInsights.cshtml" />
     <Content Include="Views\Shared\_LayoutFullTopbarAndFooter.cshtml" />
     <Content Include="Views\Prints\Edit.cshtml" />
+    <Content Include="Views\Prints\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PrintStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,45 @@
+﻿@using System.Globalization
+@model Caribbean.Aruba.Web.ViewModels.Prints.IndexPrintsViewModel
+@{
+    Layout = "../Shared/_LayoutFullTopbarAndFooter.cshtml";
+}
+
+
+<div class="page page-prints">
+    <div class="row box-with-header">
+        <h3>Komplett arbetshistorik</h3>
+        <div class="content">
+            @foreach (var p in Model.Prints)
+            {
+                <div class="row row-print">
+                    <div class="small-2 column"><img src="@p.ThumbnailUrl" alt="@p.Address"/></div>
+                    <div class="small-3 column">
+                        <strong>@Html.DisplayFor(m => p.Address)</strong><br/>
+                        Skapad @p.CreationTimeUtc.ToLocalTime().ToString("d MMMM", new CultureInfo("sv-SE"))
+                    </div>
+                    <div class="small-2 column">
+                        @Html.DisplayFor(m => p.TemplateType)<br/>
+                        @Html.DisplayFor(m => p.TemplateName)
+                    </div>
+                    <div class="small-2 column">@Html.DisplayFor(m => p.Status)</div>
+                    <div class="small-3 column">
+                        @if (!string.IsNullOrEmpty(p.PdfUrl))
+                        {
+                            <a href="@p.PdfUrl" role="button" class="button small right">Hämta PDF</a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section styles
+{
+    <style>
+        html {
+            background: url('/Images/toner-581905_1920.jpg') no-repeat center center fixed;
+        }
+    </style>
+}

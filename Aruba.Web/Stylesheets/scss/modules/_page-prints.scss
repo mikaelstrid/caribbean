@@ -1,0 +1,44 @@
+﻿@import "../partials/variables";
+
+.page-prints {
+    .row-print {
+        margin-bottom: rem-calc(30);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .printstatus {
+        padding: rem-calc(5) rem-calc(10);
+        color: $white;
+
+        &.unknown {
+            background-color: $darkpurple;
+        }
+
+        &.inprogress {
+            background-color: $darkpurple;
+        }
+
+        &.completed {
+            background-color: $darkpurple;
+        }
+
+        &.ordered {
+            background-color: $purple;
+        }
+
+        &.shipped {
+            background-color: $purple;
+        }
+
+        &.received {
+            background-color: $purple;
+        }
+
+        &.archived {
+            background-color: $purple;
+        }
+    }
+}
