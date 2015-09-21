@@ -88,6 +88,7 @@
 
         // Scope functions
         $scope.switchToPage = function (pageId) {
+            $('.off-canvas-wrap').foundation('offcanvas', 'hide', 'move-right');
             pageService.getPage(pageId)
                 .then(function (response) {
                     $scope.currentPage = response.data;
