@@ -105,9 +105,10 @@
 
         // Text editor functions
         $scope.handleTextFieldClick = function () {
-            currentSelectedTextField = $(this);
-            $scope.textEditorValue = $(this).html();
             $scope._changeVisibleEditor("textEditor");
+            currentSelectedTextField = $(this);
+            currentSelectedTextField.addClass("active");
+            $scope.textEditorValue = $(this).html();
             $scope.$apply();
         }
         $scope.saveTextEditorValue = function () {
@@ -132,9 +133,10 @@
 
         // HTML editor functions
         $scope.handleHtmlFieldClick = function () {
-            currentSelectedHtmlField = $(this);
-            $scope.htmlEditorValue = $(this).html();
             $scope._changeVisibleEditor("htmlEditor");
+            currentSelectedHtmlField = $(this);
+            currentSelectedHtmlField.addClass("active");
+            $scope.htmlEditorValue = $(this).html();
             $scope.$apply();
         }
         $scope.saveHtmlEditorValue = function () {
@@ -156,8 +158,8 @@
 
         // Image editor functions
         $scope.handleImageFieldClick = function () {
-            currentSelectedImageField = $(this);
             $scope._changeVisibleEditor("imageEditor");
+            currentSelectedImageField = $(this);
             $scope.$apply();
             currentSelectedImageField.parent().addClass("active");
             currentSelectedImageField.unbind("click");
@@ -246,6 +248,7 @@
         }
 
         $scope._changeVisibleEditor = function (toolbox) {
+            $scope._disableAllFields();
             $scope.textEditorToolboxVisible = (toolbox === "textEditor");
             $scope.htmlEditorToolboxVisible = (toolbox === "htmlEditor");
             $scope.imageEditorToolboxVisible = (toolbox === "imageEditor");
@@ -308,6 +311,23 @@
 
         $scope._isCurrentImageFieldInitialized = function () {
             return currentSelectedImageField && !($("img", currentSelectedImageField).attr("id")); // Image selected and not a dummy image
+        }
+
+        $scope._disableAllFields = function () {
+            if (currentSelectedTextField) {
+                currentSelectedTextField.removeClass("active");
+                currentSelectedTextField = null;
+            }
+            if (currentSelectedHtmlField) {
+                currentSelectedHtmlField.removeClass("active");
+                currentSelectedHtmlField = null;
+            }
+            if (currentSelectedImageField) {
+                currentSelectedImageField.parent().removeClass("active");
+                $('img', currentSelectedImageField).guillotine('disable');
+                currentSelectedImageField.click($scope.handleImageFieldClick); //Re-register click event to the old image
+                currentSelectedImageField = null;
+            }
         }
 
     });
