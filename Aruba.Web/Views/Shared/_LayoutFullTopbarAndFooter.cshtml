@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Caribbean.Aruba.Web.ViewModels
+@model FullTopbarLayoutViewModel
+
+@{
     Layout = "_Layout.cshtml";
 }
 
@@ -12,6 +15,12 @@
                 </h1>
             </li>
         </ul>
+        <section class="top-bar-section">
+            <ul class="right">
+                <li @(Model.ActiveMenuItem == MenuItem.Start ? "class=active" : "")>@Html.ActionLink("Start", "Index", "Home")</li>
+                <li @(Model.ActiveMenuItem == MenuItem.Trycksaksoversikt ? "class=active" : "")>@Html.ActionLink("Trycksaksöversikt", "Index", "Prints")</li>
+            </ul>
+        </section>
     </nav>
 </div>
 

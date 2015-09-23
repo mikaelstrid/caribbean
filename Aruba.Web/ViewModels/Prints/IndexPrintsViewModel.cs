@@ -4,8 +4,13 @@ using Caribbean.Models.Database;
 
 namespace Caribbean.Aruba.Web.ViewModels.Prints
 {
-    public class IndexPrintsViewModel
+    public class IndexPrintsViewModel : FullTopbarLayoutViewModel
     {
+        public IndexPrintsViewModel()
+        {
+            ActiveMenuItem = MenuItem.Trycksaksoversikt;
+        }
+
         public IEnumerable<PrintViewModel> Prints { get; set; }
 
         public class PrintViewModel

@@ -5322,7 +5322,7 @@ meta.foundation-mq-topbar {
         color: #fff;
         display: block;
         font-weight: 400;
-        padding: 0 auto/3;
+        padding: 0 1.875rem;
         width: 75%; }
   .top-bar .toggle-topbar {
     position: absolute;
@@ -5335,7 +5335,7 @@ meta.foundation-mq-topbar {
       font-weight: 700;
       height: auto;
       line-height: auto;
-      padding: 0 auto/3;
+      padding: 0 1.875rem;
       position: relative;
       text-transform: uppercase; }
     .top-bar .toggle-topbar.menu-icon {
@@ -5345,7 +5345,7 @@ meta.foundation-mq-topbar {
         color: #fff;
         height: 34px;
         line-height: 33px;
-        padding: 0 auto/31.5625rem 0 auto/3;
+        padding: 0 3.4375rem 0 1.875rem;
         position: relative; }
         .top-bar .toggle-topbar.menu-icon a span::after {
           content: "";
@@ -5354,7 +5354,7 @@ meta.foundation-mq-topbar {
           position: absolute;
           margin-top: -8px;
           top: 50%;
-          right: auto/3;
+          right: 1.875rem;
           box-shadow: 0 0 0 1px #fff, 0 7px 0 1px #fff, 0 14px 0 1px #fff;
           width: 16px; }
         .top-bar .toggle-topbar.menu-icon a span:hover:after {
@@ -5394,21 +5394,21 @@ meta.foundation-mq-topbar {
     height: 1px;
     width: 100%; }
   .top-bar-section ul li {
-    background: #333333; }
+    background: rgba(0, 0, 0, 0.2); }
     .top-bar-section ul li > a {
       color: #fff;
       display: block;
       font-family: quicksand, sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 400;
-      padding-left: auto/3;
-      padding: 12px 0 12px auto/3;
+      font-size: 1rem;
+      font-weight: 300;
+      padding-left: 1.875rem;
+      padding: 12px 0 12px 1.875rem;
       text-transform: none;
       width: 100%; }
       .top-bar-section ul li > a.button {
-        font-size: 0.8125rem;
-        padding-left: auto/3;
-        padding-right: auto/3;
+        font-size: 1rem;
+        padding-left: 1.875rem;
+        padding-right: 1.875rem;
         background-color: #008CBA;
         border-color: #007095;
         color: #fff; }
@@ -5457,9 +5457,9 @@ meta.foundation-mq-topbar {
         .top-bar-section ul li > a.button.info:hover, .top-bar-section ul li > a.button.info:focus {
           color: #fff; }
     .top-bar-section ul li > button {
-      font-size: 0.8125rem;
-      padding-left: auto/3;
-      padding-right: auto/3;
+      font-size: 1rem;
+      padding-left: 1.875rem;
+      padding-right: 1.875rem;
       background-color: #008CBA;
       border-color: #007095;
       color: #fff; }
@@ -5508,17 +5508,17 @@ meta.foundation-mq-topbar {
         .top-bar-section ul li > button.info:hover, .top-bar-section ul li > button.info:focus {
           color: #fff; }
     .top-bar-section ul li:hover:not(.has-form) > a {
-      background-color: #555555;
+      background-color: rgba(0, 0, 0, 0.2);
       color: #fff;
-      background: #222222; }
+      background: rgba(0, 0, 0, 0.2); }
     .top-bar-section ul li.active > a {
-      background: #008CBA;
+      background: rgba(0, 0, 0, 0.2);
       color: #fff; }
       .top-bar-section ul li.active > a:hover {
-        background: #0078a0;
+        background: rgba(0, 0, 0, 0.2);
         color: #fff; }
   .top-bar-section .has-form {
-    padding: auto/3; }
+    padding: 1.875rem; }
   .top-bar-section .has-dropdown {
     position: relative; }
     .top-bar-section .has-dropdown > a:after {
@@ -5529,7 +5529,7 @@ meta.foundation-mq-topbar {
       width: 0;
       border-color: transparent transparent transparent rgba(255, 255, 255, 0.4);
       border-left-style: solid;
-      margin-right: auto/3;
+      margin-right: 1.875rem;
       margin-top: -4.5px;
       position: absolute;
       top: 50%;
@@ -5564,9 +5564,9 @@ meta.foundation-mq-topbar {
       width: 100%; }
       .top-bar-section .dropdown li a {
         font-weight: 400;
-        padding: 8px auto/3; }
+        padding: 8px 1.875rem; }
         .top-bar-section .dropdown li a.parent-link {
-          font-weight: 400; }
+          font-weight: 300; }
       .top-bar-section .dropdown li.title h5, .top-bar-section .dropdown li.parent-link {
         margin-bottom: 0;
         margin-top: 0;
@@ -5577,7 +5577,7 @@ meta.foundation-mq-topbar {
           .top-bar-section .dropdown li.title h5 a:hover, .top-bar-section .dropdown li.parent-link a:hover {
             background: none; }
       .top-bar-section .dropdown li.has-form {
-        padding: 8px auto/3; }
+        padding: 8px 1.875rem; }
       .top-bar-section .dropdown li .button,
       .top-bar-section .dropdown li button {
         top: auto; }
@@ -5586,7 +5586,7 @@ meta.foundation-mq-topbar {
       font-size: 0.625rem;
       font-weight: 700;
       margin-bottom: 0;
-      padding: 8px auto/3 2px;
+      padding: 8px 1.875rem 2px;
       text-transform: uppercase; }
 
 .js-generated {
@@ -5640,26 +5640,26 @@ meta.foundation-mq-topbar {
         .top-bar-section ul li .js-generated {
           display: none; }
     .top-bar-section li.hover > a:not(.button) {
-      background-color: #555555;
-      background: #222222;
+      background-color: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.2);
       color: #fff; }
     .top-bar-section li:not(.has-form) a:not(.button) {
-      background: transparent;
+      background: rgba(0, 0, 0, 0.2);
       line-height: auto;
-      padding: 0 auto/3; }
+      padding: 0 1.875rem; }
       .top-bar-section li:not(.has-form) a:not(.button):hover {
-        background-color: #555555;
-        background: #222222; }
+        background-color: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.2); }
     .top-bar-section li.active:not(.has-form) a:not(.button) {
-      background: #008CBA;
+      background: rgba(0, 0, 0, 0.2);
       color: #fff;
       line-height: auto;
-      padding: 0 auto/3; }
+      padding: 0 1.875rem; }
       .top-bar-section li.active:not(.has-form) a:not(.button):hover {
-        background: #0078a0;
+        background: rgba(0, 0, 0, 0.2);
         color: #fff; }
     .top-bar-section .has-dropdown > a {
-      padding-right: auto/31.25rem !important; }
+      padding-right: 3.125rem !important; }
       .top-bar-section .has-dropdown > a:after {
         border: inset 5px;
         content: "";
@@ -5709,13 +5709,13 @@ meta.foundation-mq-topbar {
         background: #333333;
         color: #fff;
         line-height: auto;
-        padding: 12px auto/3;
+        padding: 12px 1.875rem;
         white-space: nowrap; }
       .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
         background: #333333;
         color: #fff; }
       .top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
-        background-color: #555555;
+        background-color: rgba(0, 0, 0, 0.2);
         color: #fff;
         background: #222222; }
       .top-bar-section .dropdown li label {
@@ -5733,9 +5733,9 @@ meta.foundation-mq-topbar {
       height: auto;
       width: 0; }
     .top-bar-section .has-form {
-      background: transparent;
+      background: rgba(0, 0, 0, 0.2);
       height: auto;
-      padding: 0 auto/3; }
+      padding: 0 1.875rem; }
     .top-bar-section .right li .dropdown {
       left: auto;
       right: 0; }
@@ -5748,11 +5748,11 @@ meta.foundation-mq-topbar {
         left: 100%; }
 
   .no-js .top-bar-section ul li:hover > a {
-    background-color: #555555;
-    background: #222222;
+    background-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     color: #fff; }
   .no-js .top-bar-section ul li:active > a {
-    background: #008CBA;
+    background: rgba(0, 0, 0, 0.2);
     color: #fff; }
   .no-js .top-bar-section .has-dropdown:hover > .dropdown {
     position: static !important;
@@ -7042,6 +7042,15 @@ html {
     .full-topbar .top-bar .logo .second-line {
       font-size: 1.75rem;
       font-weight: bold; }
+  .full-topbar .top-bar .top-bar-section ul li a {
+    line-height: 2.125rem;
+    text-align: center; }
+  .full-topbar .top-bar .top-bar-section ul li:hover {
+    border-bottom: 1px solid #fff; }
+  .full-topbar .top-bar .top-bar-section ul li.active {
+    border-bottom: 1px solid #7F7F7F; }
+    .full-topbar .top-bar .top-bar-section ul li.active:hover {
+      border-bottom: 1px solid #fff; }
 
 .slim-topbar {
   background-color: #B50082;

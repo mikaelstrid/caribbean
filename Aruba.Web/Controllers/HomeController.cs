@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Caribbean.Aruba.Web.ViewModels;
 
 namespace Caribbean.Aruba.Web.Controllers
 {
@@ -7,7 +8,7 @@ namespace Caribbean.Aruba.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(new FullTopbarLayoutViewModel { ActiveMenuItem = MenuItem.Start });
         }
     }
 }

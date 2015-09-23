@@ -272,6 +272,7 @@
     <Compile Include="Business\PagePdfGeneratorProxyService.cs" />
     <Compile Include="Business\PrintPdfGeneratorService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="ViewModels\FullTopbarLayoutViewModel.cs" />
     <Compile Include="ViewModels\Prints\IndexPrintsViewModel.cs" />
     <Compile Include="ViewModels\Prints\EditPrintViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />

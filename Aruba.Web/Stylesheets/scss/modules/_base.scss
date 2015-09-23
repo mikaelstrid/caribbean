@@ -12,6 +12,27 @@ html {
         .logo {
             @include logo($purple, $white);
         }
+
+        .top-bar-section {
+            ul li {
+                a {
+                    line-height: rem-calc(34);
+                    text-align: center;
+                }
+
+                &:hover {
+                    border-bottom: 1px solid $white;
+                }
+
+                &.active {
+                    border-bottom: 1px solid $metal;
+
+                    &:hover {
+                        border-bottom: 1px solid $white;
+                    }
+                }
+            }
+        }
     }
 }
 
