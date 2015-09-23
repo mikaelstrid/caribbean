@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Runtime.Caching;
@@ -24,10 +25,15 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         private const string VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT = "http://net.sfd.se/Gateway.aspx?SFDGatewayID=58&DBSPace={0}&RefObject=3";
 
         private readonly IVitecObjectFactory _vitecObjectFactory;
+        private readonly bool _disableCaching;
 
         public VitecObjectRepository(IVitecObjectFactory vitecObjectFactory)
         {
             _vitecObjectFactory = vitecObjectFactory;
+            if (!bool.TryParse(ConfigurationManager.AppSettings["Caribbean.RealEstateObjects.DisableCaching"], out _disableCaching))
+            {
+                _disableCaching = false;
+            }
         }
 
         public IEnumerable<VitecObjectSummary> GetAllSummariesForAgency(string vitecCustomerId)
@@ -60,10 +66,10 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             var result = new List<VitecObjectSummary>();
             result.AddRange(CreateSummaries(LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_CURRENT_OBJECT_LIST_URL_WITH_FORMAT)));
             result.AddRange(CreateSummaries(LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT)));
-            if (result.Any())
-            {
+
+            if (result.Any() && !_disableCaching)
                 cache.Set(CACHE_PREFIX_SUMMARY + vitecCustomerId, result, DateTimeOffset.Now.AddMinutes(30));
-            }
+
             return result;
         }
 
@@ -102,7 +108,10 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             var xml = LoadVitecDetailsXmlString(objectId);
             if (xml == null) return null;
             var createdObjectDetails = _vitecObjectFactory.CreateDetails(xml);
-            cache.Set(CACHE_PREFIX_DETAILS + objectId, createdObjectDetails, DateTimeOffset.Now.AddMinutes(30));
+
+            if (!_disableCaching)
+                cache.Set(CACHE_PREFIX_DETAILS + objectId, createdObjectDetails, DateTimeOffset.Now.AddMinutes(30));
+
             return createdObjectDetails;
         }
 

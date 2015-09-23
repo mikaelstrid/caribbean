@@ -19,7 +19,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
 
         public VitecObjectFactory()
         {
-            if (!int.TryParse(ConfigurationManager.AppSettings["Caribbean.RealEstateObjectThumbnailWidthInPx"], out _thumbnailWidthInPx))
+            if (!int.TryParse(ConfigurationManager.AppSettings["Caribbean.RealEstateObjects.ThumbnailWidthInPx"], out _thumbnailWidthInPx))
             {
                 _thumbnailWidthInPx = 508;
             }

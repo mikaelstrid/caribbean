@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
@@ -19,8 +20,17 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
 
     public class TemplateMetadataRepository : TemplateRepositoryBase, ITemplateMetadataRepository
     {
+        private readonly bool _disableCaching;
         private const string CACHE_PREFIX_PRINT_VARIANT = "PV_";
         private const string CACHE_PREFIX_PAGE_TEMPLATE_METADATA = "PT_";
+
+        public TemplateMetadataRepository()
+        {
+            if (!bool.TryParse(ConfigurationManager.AppSettings["Caribbean.PrintTemplates.DisableCaching"], out _disableCaching))
+            {
+                _disableCaching = false;
+            }
+        }
 
         public IEnumerable<PrintTemplateMetadata> GetAllPrintTemplatesForAgency(string agencySlug)
         {
@@ -38,15 +48,16 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                 .Where(b => IsValidMetadataBlob(b.Name, PRINT_VARIANT_PREFIX, PRINT_VARIANT_EXTENSION))
                 .Select(CreatePrintVariantMetadataFromBlob);
 
-            cache.Set(CACHE_PREFIX_PRINT_VARIANT + agencySlug, createdMetadata, DateTimeOffset.Now.AddMinutes(30));
+            if (!_disableCaching)
+                cache.Set(CACHE_PREFIX_PRINT_VARIANT + agencySlug, createdMetadata, DateTimeOffset.Now.AddMinutes(30));
+
             return createdMetadata;
         }
 
         public PrintTemplateMetadata GetPrintVariantBySlug(string agencySlug, string printVariantSlug)
         {
             var allMetadata = GetAllPrintTemplatesForAgency(agencySlug);
-            if (allMetadata == null) return null;
-            return allMetadata.FirstOrDefault(m => m.Slug == printVariantSlug);
+            return allMetadata?.FirstOrDefault(m => m.Slug == printVariantSlug);
         }
 
         public PageTemplateMetadata GetPageTemplateBySlug(string agencySlug, string pageTemplateSlug)
@@ -67,7 +78,10 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
 
             if (foundPageTemplateBlob == null) return null;
             var createdMetadata = CreatePageTemplateMetadataFromBlob(foundPageTemplateBlob);
-            cache.Set(cacheKey, createdMetadata, DateTimeOffset.Now.AddMinutes(30));
+
+            if (!_disableCaching)
+                cache.Set(cacheKey, createdMetadata, DateTimeOffset.Now.AddMinutes(30));
+
             return createdMetadata;
         }
 

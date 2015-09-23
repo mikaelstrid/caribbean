@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
@@ -15,6 +16,16 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
 
     public class TemplateContentRepository : TemplateRepositoryBase, ITemplateContentRepository
     {
+        private readonly bool _disableCaching;
+
+        public TemplateContentRepository()
+        {
+            if (!bool.TryParse(ConfigurationManager.AppSettings["Caribbean.PrintTemplates.DisableCaching"], out _disableCaching))
+            {
+                _disableCaching = false;
+            }
+        }
+
         private const string CACHE_PREFIX_PAGE_TEMPLATE_CONTENT = "PTC_";
 
         public string GetPageTemplateBySlug(string agencySlug, string pageTemplateSlug)
@@ -45,7 +56,9 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
 
             templateString = ReplaceTemplatePaths(templateString, foundPageTemplateBlob.Parent.Uri.ToString(), FindAllRelativePaths(templateString, subFolders));
 
-            cache.Set(cacheKey, templateString, DateTimeOffset.Now.AddMinutes(30));
+            if (!_disableCaching)
+                cache.Set(cacheKey, templateString, DateTimeOffset.Now.AddMinutes(30));
+
             return templateString;
         }
 
