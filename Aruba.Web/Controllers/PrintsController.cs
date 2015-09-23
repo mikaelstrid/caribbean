@@ -9,6 +9,7 @@ using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
 using Caribbean.DataAccessLayer.RealEstateObjects;
 using Caribbean.Models.Database;
+using Caribbean.Models.PrintTemplates;
 using Microsoft.AspNet.Identity;
 
 namespace Caribbean.Aruba.Web.Controllers
@@ -124,6 +125,8 @@ namespace Caribbean.Aruba.Web.Controllers
 
             _unitOfWork.PrintRepository.Add(print);
             _unitOfWork.Save();
+            
+            GeneratePdfFOrAllPages(print, agent);
 
             return RedirectToAction("Edit", new { id = print.Id });
         }
@@ -177,13 +180,8 @@ namespace Caribbean.Aruba.Web.Controllers
             var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == viewModel.PrintId, "Pages");
             if (print == null) return HttpNotFound("No print with a matching id found.");
 
-            foreach (var page in print.Pages)
-            {
-                var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
-                if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
+            GeneratePdfFOrAllPages(print, agent);
 
-                _pagePdfGeneratorProxyService.QueueJob(page.Id, agentUserId, template.Width, template.Height, template.Dpi, 220, 308);
-            }
             return RedirectToAction("Index", "Home");
         }
 
@@ -225,6 +223,20 @@ namespace Caribbean.Aruba.Web.Controllers
             print.PdfUrl = printPdfUrl;
             _unitOfWork.PrintRepository.Update(print);
             _unitOfWork.Save();
+        }
+
+
+
+        // COMMON HELPER METHODS
+        private void GeneratePdfFOrAllPages(Print print, Agent agent)
+        {
+            _pagePdfGeneratorProxyService.Initialize();
+            foreach (var page in print.Pages)
+            {
+                var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
+                //:TODO: LOG: if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
+                _pagePdfGeneratorProxyService.QueueJob(page.Id, agent.UserId, template.Width, template.Height, template.Dpi, 220, 308);
+            }
         }
 
     }
