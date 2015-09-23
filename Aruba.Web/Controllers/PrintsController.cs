@@ -184,7 +184,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
             GeneratePdfFOrAllPages(print, agent);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
 
 

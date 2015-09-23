@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Xml.Linq;
 using Caribbean.Models.RealEstateObjects;
@@ -14,13 +15,23 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
 
     public class VitecObjectFactory : IVitecObjectFactory
     {
+        private readonly int _thumbnailWidthInPx;
+
+        public VitecObjectFactory()
+        {
+            if (!int.TryParse(ConfigurationManager.AppSettings["Caribbean.RealEstateObjectThumbnailWidthInPx"], out _thumbnailWidthInPx))
+            {
+                _thumbnailWidthInPx = 508;
+            }
+        }
+
         public VitecObjectSummary CreateSummary(XElement objectElement)
         {
             return new VitecObjectSummary
             {
                 Id = objectElement.Element("GID").Value,
                 Address = objectElement.Element("Adress").Value,
-                ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: 150),
+                ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: _thumbnailWidthInPx),
                 Status = objectElement.Element("Kind").Value,
                 Price = ConvertToInt(objectElement.Element("Pris").Value),
             };
