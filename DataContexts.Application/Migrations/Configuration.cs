@@ -38,7 +38,7 @@ namespace Caribbean.DataContexts.Application.Migrations
                 var user1 = AddUser(userManager, "mikael@pixeldigitalbyra.se", "Pixel123!");
                 var user2 = AddUser(userManager, "per.rosenberg@kustreklam.se", "Kust123!");
 
-                var agency = new Agency { Slug = "fastighetsbyran-storangsgatan", VitecCustomerId = "26301" };
+                var agency = new Agency { Slug = "fastighetsbyran-storangsgatan", VitecCustomerId = "22998" }; //26301=test
 
                 context.Agents.Add(new Agent { Agency = agency, UserId = user1.Id });
                 context.Agents.Add(new Agent { Agency = agency, UserId = user2.Id });
