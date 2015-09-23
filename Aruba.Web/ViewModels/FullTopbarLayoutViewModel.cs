@@ -7,6 +7,7 @@ namespace Caribbean.Aruba.Web.ViewModels
 
     public enum MenuItem
     {
+        Unknown,
         Start,
         Trycksaksoversikt
     }
