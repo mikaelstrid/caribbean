@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using Caribbean.Aruba.Web.Business;
 using Caribbean.Aruba.Web.ViewModels.Prints;
@@ -70,6 +71,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var template = _templateMetadataRepository.GetPrintVariantBySlug(agent.Agency.Slug, print.PrintVariantSlug);
             return new IndexPrintsViewModel.PrintViewModel
             {
+                Id = print.Id,
                 Address = realEstateObject.Address,
                 ThumbnailUrl = realEstateObject.ThumbnailUrl,
                 TemplateType = template.Type,
@@ -187,6 +189,28 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
 
+        [Route("hamta-pdf/{id}")]
+        public async Task<ActionResult> GetPdf(int id)
+        {
+            var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
+            if (agent == null) return HttpNotFound("No agent associated with the username found.");
+
+            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
+            if (print == null) return HttpNotFound("No print with a matching id found.");
+
+            if (print.Pages.Any(p => string.IsNullOrWhiteSpace(p.PdfUrl)))
+                return new HttpStatusCodeResult(500, "All pages need to have generated PDFs.");
+
+            var result = _printPdfGeneratorService.GeneratePdf(print);
+            if (result == null)
+                return new HttpStatusCodeResult(500, "Could not generate and save print PDF.");
+
+            UpdatePrintWithNewPdf(print, result.PdfName, result.PdfUrl);
+
+            return File(result.Stream, "application/pdf", result.PdfName);
+        }
+
+
 
         [Route("bestall/{id}")]
         public async Task<ActionResult> Order(int id)
@@ -215,15 +239,6 @@ namespace Caribbean.Aruba.Web.Controllers
             return View(viewModel);
         }
 
-        private void UpdatePrintWithNewPdf(Print print, string printPdfName, string printPdfUrl)
-        {
-            if (!string.IsNullOrWhiteSpace(print.PdfName)) _printPdfRepository.Delete(print.PdfName);
-
-            print.PdfName = printPdfName;
-            print.PdfUrl = printPdfUrl;
-            _unitOfWork.PrintRepository.Update(print);
-            _unitOfWork.Save();
-        }
 
 
 
@@ -239,5 +254,14 @@ namespace Caribbean.Aruba.Web.Controllers
             }
         }
 
+        private void UpdatePrintWithNewPdf(Print print, string printPdfName, string printPdfUrl)
+        {
+            if (!string.IsNullOrWhiteSpace(print.PdfName)) _printPdfRepository.Delete(print.PdfName);
+
+            print.PdfName = printPdfName;
+            print.PdfUrl = printPdfUrl;
+            _unitOfWork.PrintRepository.Update(print);
+            _unitOfWork.Save();
+        }
     }
 }

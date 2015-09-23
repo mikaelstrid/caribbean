@@ -22,12 +22,7 @@
                         @Html.DisplayFor(m => p.TemplateName)
                     </div>
                     <div class="small-2 column">@Html.DisplayFor(m => p.Status)</div>
-                    <div class="small-3 column">
-                        @if (!string.IsNullOrEmpty(p.PdfUrl))
-                        {
-                            <a href="@p.PdfUrl" role="button" class="button small right">Hämta PDF</a>
-                        }
-                    </div>
+                    <div class="small-3 column">@Html.ActionLink("Hämta PDF", "GetPdf", new { id = p.Id }, new { role = "button", @class = "button small right" })</div>
                 </div>
             }
         </div>

@@ -10,6 +10,7 @@ namespace Caribbean.Aruba.Web.ViewModels.Prints
 
         public class PrintViewModel
         {
+            public int Id { get; set; }
             public string Address { get; set; }
             public string ThumbnailUrl { get; set; }
             public string TemplateType { get; set; }

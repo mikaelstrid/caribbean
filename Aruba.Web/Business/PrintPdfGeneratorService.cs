@@ -36,7 +36,10 @@ namespace Caribbean.Aruba.Web.Business
 
             var pdfInfo = _printPdfRepository.Add(pdfMemoryStream, $"{print.Id}-{Guid.NewGuid().ToString("N")}.pdf");
 
-            return new GeneratePdfResult { PdfName = pdfInfo.Name, PdfUrl = pdfInfo.Url };
+            pdfMemoryStream.Flush();
+            pdfMemoryStream.Position = 0;
+
+            return new GeneratePdfResult { PdfName = pdfInfo.Name, PdfUrl = pdfInfo.Url, Stream = pdfMemoryStream };
         }
 
         private static PdfDocument CreatePdfDocumentForPage(Page page)
@@ -65,6 +68,7 @@ namespace Caribbean.Aruba.Web.Business
         {
             public string PdfName { get; set; }
             public string PdfUrl { get; set; }
+            public MemoryStream Stream { get; set; }
         }
     }
 }
