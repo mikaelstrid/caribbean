@@ -1,22 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Caribbean.Models.Database
 {
-    public class Print
+    public enum PrintStatus
     {
-        public int Id { get; set; }
-        public string PrintVariantSlug { get; set; }
-        public string ObjectId { get; set; }
-        public DateTime CreationTimeUtc { get; set; }
-        public DateTime ModifiedTimeUtc { get; set; }
-        public PrintStatus Status { get; set; }
+        [Display(Name = "Okänd")]
+        Unknown,
 
-        public string PdfName { get; set; }
-        public string PdfUrl { get; set; }
+        [Display(Name = "Pågående")]
+        InProgress,
 
-        public int AgentId { get; set; }
+        [Display(Name = "Klar")]
+        Completed,
 
-        public ICollection<Page> Pages { get; set; }
+        [Display(Name = "Beställd")]
+        Ordered,
+
+        [Display(Name = "Skickad")]
+        Shipped,
+
+        [Display(Name = "Mottagen")]
+        Received,
+
+        [Display(Name = "Arkiverad")]
+        Archived
     }
 }
