@@ -1214,9 +1214,9 @@ select {
     border-color: #ff213a;
     color: #fff; }
   .alert-box.secondary {
-    background-color: #e7e7e7;
-    border-color: #c7c7c7;
-    color: #4f4f4f; }
+    background-color: #1B142A;
+    border-color: #171124;
+    color: #fff; }
   .alert-box.warning {
     background-color: #f08a24;
     border-color: #de770f;
@@ -2241,8 +2241,8 @@ select {
   margin-left: 0;
   overflow: hidden;
   padding: 0.5625rem 0.875rem 0.5625rem;
-  background-color: #f4f4f4;
-  border-color: gainsboro;
+  background-color: #8d76be;
+  border-color: #7c62b4;
   border-radius: 3px; }
   .breadcrumbs > * {
     color: #B50082;
@@ -2312,13 +2312,13 @@ button, .button {
   button:hover, button:focus, .button:hover, .button:focus {
     color: #fff; }
   button.secondary, .button.secondary {
-    background-color: #e7e7e7;
-    border-color: #b9b9b9;
-    color: #333333; }
+    background-color: #1B142A;
+    border-color: #161022;
+    color: #fff; }
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-      background-color: #b9b9b9; }
+      background-color: #161022; }
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-      color: #333333; }
+      color: #fff; }
   button.success, .button.success {
     background-color: #72AB73;
     border-color: #558f56;
@@ -2388,18 +2388,18 @@ button, .button {
     button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
       background-color: #B50082; }
     button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-      background-color: #e7e7e7;
-      border-color: #b9b9b9;
-      color: #333333;
+      background-color: #1B142A;
+      border-color: #161022;
+      color: #fff;
       box-shadow: none;
       cursor: default;
       opacity: 0.7; }
       button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-        background-color: #b9b9b9; }
+        background-color: #161022; }
       button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-        color: #333333; }
+        color: #fff; }
       button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-        background-color: #e7e7e7; }
+        background-color: #1B142A; }
     button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
       background-color: #72AB73;
       border-color: #558f56;
@@ -4136,8 +4136,8 @@ kbd {
     background-color: #72AB73;
     color: #fff; }
   .label.secondary {
-    background-color: #e7e7e7;
-    color: #333333; }
+    background-color: #1B142A;
+    color: #fff; }
   .label.info {
     background-color: #7F7F7F;
     color: #fff; }
@@ -4538,7 +4538,7 @@ ul.pagination {
     display: block;
     height: 100%; }
   .progress.secondary .meter {
-    background: #e7e7e7;
+    background: #1B142A;
     display: block;
     height: 100%; }
   .progress.success .meter {
@@ -4617,7 +4617,7 @@ ul.pagination {
         background: #9f0072; }
 
 .range-slider-active-segment {
-  background: #e5e5e5;
+  background: #1b142a;
   border-bottom-left-radius: inherit;
   border-top-left-radius: inherit;
   display: inline-block;
@@ -5417,13 +5417,13 @@ meta.foundation-mq-topbar {
         .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
           color: #fff; }
       .top-bar-section ul li > a.button.secondary {
-        background-color: #e7e7e7;
-        border-color: #b9b9b9;
-        color: #333333; }
+        background-color: #1B142A;
+        border-color: #161022;
+        color: #fff; }
         .top-bar-section ul li > a.button.secondary:hover, .top-bar-section ul li > a.button.secondary:focus {
-          background-color: #b9b9b9; }
+          background-color: #161022; }
         .top-bar-section ul li > a.button.secondary:hover, .top-bar-section ul li > a.button.secondary:focus {
-          color: #333333; }
+          color: #fff; }
       .top-bar-section ul li > a.button.success {
         background-color: #72AB73;
         border-color: #558f56;
@@ -5468,13 +5468,13 @@ meta.foundation-mq-topbar {
       .top-bar-section ul li > button:hover, .top-bar-section ul li > button:focus {
         color: #fff; }
       .top-bar-section ul li > button.secondary {
-        background-color: #e7e7e7;
-        border-color: #b9b9b9;
-        color: #333333; }
+        background-color: #1B142A;
+        border-color: #161022;
+        color: #fff; }
         .top-bar-section ul li > button.secondary:hover, .top-bar-section ul li > button.secondary:focus {
-          background-color: #b9b9b9; }
+          background-color: #161022; }
         .top-bar-section ul li > button.secondary:hover, .top-bar-section ul li > button.secondary:focus {
-          color: #333333; }
+          color: #fff; }
       .top-bar-section ul li > button.success {
         background-color: #72AB73;
         border-color: #558f56;
@@ -6014,8 +6014,8 @@ small {
   line-height: inherit; }
 
 code {
-  background-color: #f8f8f8;
-  border-color: #dfdfdf;
+  background-color: #b3a4d4;
+  border-color: #9e8bc8;
   border-style: solid;
   border-width: 1px;
   color: #333333;
@@ -7135,7 +7135,7 @@ footer {
   .button.transparent:hover, .button.transparent:focus {
     background-color: #910068; }
   .button.transparent.secondary:hover, .button.transparent.secondary:focus {
-    background-color: #b9b9b9; }
+    background-color: #161022; }
   .button.transparent.success:hover, .button.transparent.success:focus {
     background-color: #558f56; }
   .button.transparent.alert:hover, .button.transparent.alert:focus {
