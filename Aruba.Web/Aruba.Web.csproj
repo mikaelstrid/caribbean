@@ -369,6 +369,7 @@
     <Content Include="Fonts\foundation-icons.ttf" />
     <Content Include="Fonts\foundation-icons.woff" />
     <Content Include="Scripts\lib\ckeditor\skins\moono\readme.md" />
+    <Content Include="Stylesheets\scss\modules\_buttons.scss" />
     <None Include="Stylesheets\scss\modules\_editor.scss" />
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />

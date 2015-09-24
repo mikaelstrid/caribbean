@@ -30,12 +30,6 @@
 
             .button {
                 margin-top: rem-calc(10);
-                background-color: transparent;
-                border: solid 1px $white;
-
-                &:hover, &:focus {
-                    background-color: $purple;
-                }
             }
         }
     }

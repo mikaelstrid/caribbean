@@ -7153,6 +7153,22 @@ footer {
       .information-box .purple-box p:last-child {
         margin-bottom: 0; }
 
+.button.transparent {
+  background-color: transparent;
+  border: solid 1px #fff; }
+  .button.transparent:hover, .button.transparent:focus {
+    background-color: #910068; }
+  .button.transparent.secondary:hover, .button.transparent.secondary:focus {
+    background-color: #b9b9b9; }
+  .button.transparent.success:hover, .button.transparent.success:focus {
+    background-color: #558f56; }
+  .button.transparent.alert:hover, .button.transparent.alert:focus {
+    background-color: #ff0d29; }
+  .button.transparent.warning:hover, .button.transparent.warning:focus {
+    background-color: #cf6e0e; }
+  .button.transparent.info:hover, .button.transparent.info:focus {
+    background-color: #666666; }
+
 .page-home {
   /*.recent-objects {
       h3 {
@@ -7178,11 +7194,7 @@ footer {
         font-size: 1.5625rem;
         margin-top: 1.5625rem; }
       .page-home .hero .text-box .button {
-        margin-top: 0.625rem;
-        background-color: transparent;
-        border: solid 1px #fff; }
-        .page-home .hero .text-box .button:hover, .page-home .hero .text-box .button:focus {
-          background-color: #B50082; }
+        margin-top: 0.625rem; }
 
 .page-choose-printtemplate ul.printtemplate-list .printtemplate {
   border: 1px solid #7F7F7F;

@@ -1,0 +1,40 @@
+﻿.button {
+    &.transparent {
+        background-color: transparent;
+        border: solid 1px $white;
+
+        &:hover, &:focus {
+            background-color: scale-color($primary-color, $lightness: $button-function-factor);
+        }
+
+        &.secondary {
+            &:hover, &:focus {
+                background-color: scale-color($secondary-color, $lightness: $button-function-factor);
+            }
+        }
+
+        &.success {
+            &:hover, &:focus {
+                background-color: scale-color($success-color, $lightness: $button-function-factor);
+            }
+        }
+
+        &.alert {
+            &:hover, &:focus {
+                background-color: scale-color($alert-color, $lightness: $button-function-factor);
+            }
+        }
+
+        &.warning {
+            &:hover, &:focus {
+                background-color: scale-color($warning-color, $lightness: $button-function-factor);
+            }
+        }
+
+        &.info {
+            &:hover, &:focus {
+                background-color: scale-color($info-color, $lightness: $button-function-factor);
+            }
+        }
+    }
+}
