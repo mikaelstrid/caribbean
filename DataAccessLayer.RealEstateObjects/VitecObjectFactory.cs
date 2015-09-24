@@ -32,7 +32,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 Id = objectElement.Element("GID").Value,
                 Address = objectElement.Element("Adress").Value,
                 ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: _thumbnailWidthInPx),
-                Status = objectElement.Element("Kind").Value,
+                Status = ParseObjectStatus(objectElement.Element("Kind").Value),
                 Price = ConvertToInt(objectElement.Element("Pris").Value),
             };
         }
@@ -86,6 +86,16 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 Group = pictureElement.Element("picgrupp").Value,
                 Category = pictureElement.Element("pickategori").Value,
             };
+        }
+
+
+        // HELPER METHODS
+        internal static ObjectStatus ParseObjectStatus(string value)
+        {
+            if (value.StartsWith("1")) return ObjectStatus.Coming;
+            if (value.StartsWith("2") || value.StartsWith("3")) return ObjectStatus.ForSale;
+            if (value.StartsWith("5")) return ObjectStatus.Reference;
+            return ObjectStatus.Unknown;
         }
     }
 }
