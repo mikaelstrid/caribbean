@@ -2,32 +2,23 @@
 
 <div ng-init="printId = '@Model.PrintId'">
     <div ng-controller="printEditorCtrl">
-        <div class="contain-to-grid fixed slim-topbar">
-            <nav class="top-bar clearfix" data-topbar role="navigation">
-                <ul class="title-area">
-                    <li class="name">
-                        <h1 class="logo">
-                            <span class="first-line">Modern</span>
-                            <span class="second-line">Mäklarmedia</span>
-                        </h1>
-                    </li>
-                </ul>
-                @using (Html.BeginForm(null, null, FormMethod.Post))
-                {
-                    @Html.HiddenFor(m => m.PrintId)
-                    @Html.Hidden("PrintId", Model.PrintId)
-                    <button type="submit" class="button right">Spara</button>
-                }
-            </nav>
-        </div>
-
         <div class="page page-edit-print">
             <div class="off-canvas-wrap" data-offcanvas>
                 <div class="inner-wrap">
+                    <nav class="tab-bar">
+                        <section class="left-small">
+                            <a class="left-off-canvas-toggle" href="#">
+                                <label><i class="fi-page-multiple"></i></label>
+                            </a>
+                        </section>
 
-                    <a class="left-off-canvas-toggle" href="#">
-                        <div><i class="fi-page-multiple"></i></div>
-                    </a>
+                        <section class="full-width tab-bar-section">
+                            <div class="action-buttons clearfix">
+                                @Html.ActionLink("Tillbaka till översikten", "GeneratePdfPages", new { id = Model.PrintId }, new { role = "button", @class = "button success right" })
+                                @*@Html.ActionLink("Granska", "Preview", new { id = Model.PrintId }, new { role = "button", @class = "button alert right" })*@
+                            </div>
+                        </section>
+                    </nav>
 
                     <aside class="left-off-canvas-menu">
                         <header>
@@ -66,7 +57,7 @@
                                             <div class="imageEditorToolbox clearfix" ng-show="imageEditorToolboxVisible">
                                                 <ul class="image-list">
                                                     <li ng-repeat="image in images" ng-click="handleObjectImageClick(image.imageUrl)">
-                                                        <img ng-src="{{image.thumbnailUrl}}" alt=""/>
+                                                        <img ng-src="{{image.thumbnailUrl}}" alt="" />
                                                     </li>
                                                 </ul>
                                                 <form class="clearfix">

@@ -3,29 +3,56 @@
 
 .page-edit-print {
     .left-off-canvas-toggle {
-        position: absolute;
+        text-align: center;
 
-        div {
-            padding: 0 rem-calc(30);
+        label {
             background-color: $darkpurple;
 
             i {
-                font-size: rem-calc(50);
-                line-height: rem-calc(100);
+                font-size: rem-calc(40);
+                line-height: rem-calc(75);
                 color: $white;
             }
         }
     }
 
+    .tab-bar-section.full-width {
+        left: 0;
+        right: 0;
+        padding: 0;
+    }
+
+    .action-buttons {
+        width: 100%;
+        max-width: $row-width;
+        margin: 0 auto;
+        padding: 0 $column-gutter/2;
+
+        .button {
+            margin-top: rem-calc(12);
+            margin-bottom: 0;
+            margin-right: rem-calc(20);
+
+            &:first-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .left-small {
+        z-index: 1000;
+    }
+
     .left-off-canvas-menu {
         header {
             background-color: $silver;
-            height: rem-calc(100);
-            padding: rem-calc(30);
+            height: rem-calc(75);
+            padding: 0 rem-calc(30);
             box-sizing: border-box;
 
             h3 {
                 margin: 0;
+                line-height: rem-calc(75);
             }
         }
 

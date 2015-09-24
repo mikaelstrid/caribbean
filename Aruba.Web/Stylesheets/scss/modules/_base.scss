@@ -36,26 +36,6 @@ html {
     }
 }
 
-.slim-topbar {
-    background-color: $purple;
-    opacity: 1 !important;
-
-    .logo {
-        @include logo(transparent, $white);
-    }
-
-    button {
-        margin-top: $column-gutter / 2;
-        margin-right: $column-gutter / 2;
-        background-color: transparent;
-        border: solid 1px $white;
-
-        &:hover, &:focus {
-            background-color: $darkpurple;
-        }
-    }
-}
-
 .box-with-header {
     background-color: $white;
 

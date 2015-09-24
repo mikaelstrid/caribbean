@@ -170,16 +170,15 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
 
-        [HttpPost]
-        [Route("redigera")]
-        public async Task<ActionResult> Edit(EditPageSaveChangesViewModel viewModel)
+        [Route("generera-sidor")]
+        public async Task<ActionResult> GeneratePdfPages(int id)
         {
             _pagePdfGeneratorProxyService.Initialize();
 
             var agentUserId = User.Identity.GetUserId();
             var agent = await _unitOfWork.AgentRepository.GetByUserId(agentUserId);
 
-            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == viewModel.PrintId, "Pages");
+            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
             if (print == null) return HttpNotFound("No print with a matching id found.");
 
             GeneratePdfFOrAllPages(print, agent);
