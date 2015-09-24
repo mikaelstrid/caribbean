@@ -60,12 +60,17 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         {
             if (xmlDocument == null) throw new ArgumentNullException(nameof(xmlDocument));
             var objectElement = xmlDocument.Element("OBJEKT");
+
+            DateTime modifiedTime;
+            if (!DateTime.TryParse(objectElement.Element("akttid").Value, out modifiedTime)) modifiedTime = DateTime.MinValue;
+
             return new VitecObjectDetails
             {
                 XDocument = xmlDocument,
                 Id = objectElement.Attribute("gid").Value,
                 Address = objectElement.Element("msadress").Value,
-                Images = objectElement.Descendants("picture").Select(CreateImage)
+                Images = objectElement.Descendants("picture").Select(CreateImage),
+                ModifiedTime = modifiedTime,
             };
         }
 

@@ -1,4 +1,6 @@
-﻿namespace Caribbean.Models.RealEstateObjects
+﻿using System;
+
+namespace Caribbean.Models.RealEstateObjects
 {
     public class VitecObjectSummary : VitecObjectBase
     {

@@ -21,6 +21,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
     {
         private const string CACHE_PREFIX_SUMMARY = "VS_";
         private const string CACHE_PREFIX_DETAILS = "VD_";
+        private const string CACHE_PREFIX_MODIFIED_TIME = "VMT_";
         private const string VITECT_CURRENT_OBJECT_LIST_URL_WITH_FORMAT = "http://net.sfd.se/webpack/ObjectList/ObjectList.aspx?RenderAsXML=1&Custom=1&DBSPace={0}";
         private const string VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT = "http://net.sfd.se/Gateway.aspx?SFDGatewayID=58&DBSPace={0}&RefObject=3";
 
@@ -64,8 +65,8 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         private IEnumerable<VitecObjectSummary> GetSummariesAndUpdateCache(string vitecCustomerId, MemoryCache cache)
         {
             var result = new List<VitecObjectSummary>();
-            result.AddRange(CreateSummaries(LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_CURRENT_OBJECT_LIST_URL_WITH_FORMAT)));
-            result.AddRange(CreateSummaries(LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT)));
+            result.AddRange(CreateSummaries(cache, LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_CURRENT_OBJECT_LIST_URL_WITH_FORMAT)));
+            result.AddRange(CreateSummaries(cache, LoadVitecSummaryXmlDocument(vitecCustomerId, VITECT_REFERENCE_OBJECT_LIST_URL_WITH_FORMAT)));
 
             if (result.Any() && !_disableCaching)
                 cache.Set(CACHE_PREFIX_SUMMARY + vitecCustomerId, result, DateTimeOffset.Now.AddMinutes(30));
@@ -86,16 +87,30 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             }
         }
 
-        private IEnumerable<VitecObjectSummary> CreateSummaries(XDocument xmlDocument)
+        private IEnumerable<VitecObjectSummary> CreateSummaries(MemoryCache cache, XDocument xmlDocument)
         {
             if (xmlDocument != null)
             {
-                return xmlDocument.Descendants("objekt").Select(_vitecObjectFactory.CreateSummary);
+                return xmlDocument.Descendants("objekt").Select(o => CreateSummary(cache, o));
             }
             return new VitecObjectSummary[0];
         }
 
-        
+        private VitecObjectSummary CreateSummary(MemoryCache cache, XElement vitecObjectXml)
+        {
+            var createdSummary = _vitecObjectFactory.CreateSummary(vitecObjectXml);
+            try
+            {
+                var cachedModifiedTime = (DateTime) cache[CACHE_PREFIX_MODIFIED_TIME + createdSummary.Id];
+                createdSummary.ModifiedTime = cachedModifiedTime;
+            }
+            catch
+            {
+                var details = GetDetailsById(createdSummary.Id);
+                createdSummary.ModifiedTime = details.ModifiedTime;
+            }
+            return createdSummary;
+        }
 
 
         public VitecObjectDetails GetDetailsById(string objectId)
@@ -109,8 +124,11 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             if (xml == null) return null;
             var createdObjectDetails = _vitecObjectFactory.CreateDetails(xml);
 
+            cache.Set(CACHE_PREFIX_MODIFIED_TIME + objectId, createdObjectDetails.ModifiedTime, DateTimeOffset.Now.AddMonths(1));
             if (!_disableCaching)
+            {
                 cache.Set(CACHE_PREFIX_DETAILS + objectId, createdObjectDetails, DateTimeOffset.Now.AddMinutes(30));
+            }
 
             return createdObjectDetails;
         }

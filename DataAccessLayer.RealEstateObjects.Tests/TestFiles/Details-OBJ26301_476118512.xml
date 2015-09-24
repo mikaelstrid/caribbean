@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes" ?>
+<OBJEKT gid="OBJ26301_476118512">
+  <Firma nr="26301">
+    <faNamn><![CDATA[Vitec Demobyrå]]></faNamn>
+    <faAdress><![CDATA[Redegatan 1 B]]></faAdress>
+    <faBesokAdr><![CDATA[Redegatan, V.Frölunda]]></faBesokAdr>
+    <faPostnr><![CDATA[426 77]]></faPostnr>
+    <faPostadress><![CDATA[426 77  V.Frölunda]]></faPostadress>
+    <faTel1><![CDATA[031 - 360 61 00]]></faTel1>
+    <faFax><![CDATA[031 - 360 61 01]]></faFax>
+    <faHemsida><![CDATA[www.sfd.se/wpdemo]]></faHemsida>
+    <faXtra><![CDATA[Extra rad]]></faXtra>
+    <faKontor><![CDATA[]]></faKontor>
+  </Firma>
+  <Maklare>
+    <maGID><![CDATA[HAN26301_LH]]></maGID>
+    <maNamn><![CDATA[Lena Söderberg]]></maNamn>
+    <maEmail><![CDATA[johan.sunebring@vitec.se]]></maEmail>
+    <maMobilnr><![CDATA[]]></maMobilnr>
+    <maTitel><![CDATA[Demomäklare]]></maTitel>
+    <maDirektnr><![CDATA[031-3606100]]></maDirektnr>
+    <maBildRelUrl><![CDATA[20196/SFDA65E1139B4AC4A7983F51D085230D0CA.jpg]]></maBildRelUrl>
+    <maBildUrl><![CDATA[http://pics.objektdata.se/pic/pic.dll/image?url=20196/SFDA65E1139B4AC4A7983F51D085230D0CA.jpg]]></maBildUrl>
+    <maBildonobj><![CDATA[-1]]></maBildonobj>
+    <maInit><![CDATA[LS]]></maInit>
+    <maDontPublish><![CDATA[-1]]></maDontPublish>
+  </Maklare>
+  <Extrakontaktperson>
+    <ekGid><![CDATA[HANEE18EFE78D4643C4952BBD52DE64D98E]]></ekGid>
+    <ekNamn><![CDATA[David Aronsson]]></ekNamn>
+    <ekEmail><![CDATA[david.aronsson@demo.vitec.se]]></ekEmail>
+    <ekMobilnr><![CDATA[]]></ekMobilnr>
+    <ekTitel><![CDATA[Demomäklare]]></ekTitel>
+    <ekDirektnr><![CDATA[031-3606100]]></ekDirektnr>
+    <ekBildRelUrl><![CDATA[20196/SFD3939EA68AEBF43F7902D03BB3205B3BC.jpg]]></ekBildRelUrl>
+    <ekBildUrl><![CDATA[http://pics.objektdata.se/pic/pic.dll/image?url=20196/SFD3939EA68AEBF43F7902D03BB3205B3BC.jpg]]></ekBildUrl>
+    <ekBildonobj><![CDATA[-1]]></ekBildonobj>
+    <ekInit><![CDATA[DA]]></ekInit>
+    <ekDontPublish><![CDATA[-1]]></ekDontPublish>
+  </Extrakontaktperson>
+  <Forening>
+    <forNamn><![CDATA[]]></forNamn>
+    <forTxt><![CDATA[]]></forTxt>
+    <forKontaktNamn><![CDATA[]]></forKontaktNamn>
+    <forKontaktTel><![CDATA[]]></forKontaktTel>
+    <forAdress><![CDATA[]]></forAdress>
+    <maDirektnr><![CDATA[031-3606100]]></maDirektnr>
+  </Forening>
+  <akttid><![CDATA[2015-02-16 08:15]]></akttid>
+  <fastbet><![CDATA[Göteborg Älvsborg 9:42]]></fastbet>
+  <objekttyp>0</objekttyp>
+  <objekttyptext>Villa</objekttyptext>
+  <upplatform>0</upplatform>
+  <upplatformtext><![CDATA[Friköpt]]></upplatformtext>
+  <boendeform>0</boendeform>
+  <boendeformtext><![CDATA[1 familjs friliggande]]></boendeformtext>
+  <projnamn><![CDATA[]]></projnamn>
+  <arrende_objekt><![CDATA[]]></arrende_objekt>
+  <lghrefnr><![CDATA[]]></lghrefnr>
+  <kind><![CDATA[300]]></kind>
+  <kommandeForsaljning>0</kommandeForsaljning>
+  <taxkod><![CDATA[220]]></taxkod>
+  <taxvarde><![CDATA[1665000]]></taxvarde>
+  <taxbygg><![CDATA[1006000]]></taxbygg>
+  <taxar>2002</taxar>
+  <rattigheter><![CDATA[Inga servitut]]></rattigheter>
+  <msadress><![CDATA[Tångvägen 2]]></msadress>
+  <adress2><![CDATA[430 30 Frillesås]]></adress2>
+  <omrade><![CDATA[Tolered]]></omrade>
+  <kommun><![CDATA[Kungsbacka]]></kommun>
+  <land><![CDATA[Sverige]]></land>
+  <landskodiso><![CDATA[SE]]></landskodiso>
+  <kommskatt><![CDATA[33,38]]></kommskatt>
+  <vaning><![CDATA[]]></vaning>
+  <vaningav><![CDATA[]]></vaningav>
+  <startpris><![CDATA[3250000]]></startpris>
+  <mspris><![CDATA[3250000]]></mspris>
+  <pristext><![CDATA[acceptpris]]></pristext>
+  <slutpris><![CDATA[]]></slutpris>
+  <nytid><![CDATA[den 9 februari 2010 15:28]]></nytid>
+  <tomttyp><![CDATA[Plan  trädgårdstomt]]></tomttyp>
+  <driftskostnad><![CDATA[25900]]></driftskostnad>
+  <druppv><![CDATA[4000]]></druppv>
+  <drel><![CDATA[13800]]></drel>
+  <drva><![CDATA[2600]]></drva>
+  <drren><![CDATA[1800]]></drren>
+  <drvag><![CDATA[100]]></drvag>
+  <drsot><![CDATA[300]]></drsot>
+  <drfors><![CDATA[3100]]></drfors>
+  <drovr><![CDATA[200]]></drovr>
+  <drpers><![CDATA[4]]></drpers>
+  <pantbrevsum><![CDATA[1695000]]></pantbrevsum>
+  <status>67666964</status>
+
+  <hiss>0</hiss>
+
+
+
+
+  <hissFinns></hissFinns>
+
+
+  <hisstext><![CDATA[]]></hisstext>
+  <lkf><![CDATA[138406]]></lkf>
+  <ort><![CDATA[]]></ort>
+  <ovrigt><![CDATA[]]></ovrigt>
+  <ovrigt2><![CDATA[Det finns en gemensamt ägd bastu vid sjön. Den är bokningsbar via vår hemsida.]]></ovrigt2>
+  <ovrigtbyggn><![CDATA[Stensatt utplats i väster]]></ovrigtbyggn>
+  <ovrigabyggn><![CDATA[Friliggande förrådsbyggnad]]></ovrigabyggn>
+  <ovrtomt><![CDATA[Trädgården har en mycket vacker planering som är enkel att underhålla. Belöningen låter dig inte vänta. Att flaggstången är pricken över i är inte svårt att förstå när du ser helheten.]]></ovrtomt>
+  <budtyp>3</budtyp>
+  <budstyle>1</budstyle>
+  <budhistorikstyle>1</budhistorikstyle>
+  <budrelurl><![CDATA[]]></budrelurl>
+  <iExtra><![CDATA[10272]]></iExtra>
+
+  <nyproduktion><![CDATA[0]]></nyproduktion>
+
+  <dagensObjekt>0</dagensObjekt>
+  <dagensReferensObjekt>0</dagensReferensObjekt>
+  <byteskrav><![CDATA[-1]]></byteskrav>
+  <byteskravtext><![CDATA[Byte mot hästgård i närheten av Hallsberg av intresse.]]></byteskravtext>
+  <husform><![CDATA[Villa i etage]]></husform>
+  <boarea><![CDATA[106]]></boarea>
+  <biarea><![CDATA[56]]></biarea>
+  <bobiText><![CDATA[taxeringsinformation]]></bobiText>
+  <rum><![CDATA[7]]></rum>
+  <sovrummin><![CDATA[3]]></sovrummin>
+  <sovrummax><![CDATA[4]]></sovrummax>
+  <koktyp><![CDATA[]]></koktyp>
+  <kokbeskr><![CDATA[]]></kokbeskr>
+  <badrumbeskr><![CDATA[]]></badrumbeskr>
+  <tvattbeskr><![CDATA[]]></tvattbeskr>
+
+  <rumsbeskrivningar>
+
+    <rumsbeskrivning>
+      <namn><![CDATA[Vardagsrum]]></namn>
+      <beskrivning><![CDATA[Vitmålat kök med matplats. Uppvärmt klinkergolv. Spis m glashäll (-95), Spisfläkt (-95), Stor kyl (-95), Diskmaskin (-98). Frys i källarplan.]]></beskrivning>
+    </rumsbeskrivning>
+
+
+
+    <rumsbeskrivning>
+      <namn><![CDATA[Sovrum]]></namn>
+      <beskrivning><![CDATA[Tvättmaskin (-95) och Torktumlare (-90)]]></beskrivning>
+    </rumsbeskrivning>
+
+
+
+    <rumsbeskrivning>
+      <namn><![CDATA[Hall]]></namn>
+      <beskrivning><![CDATA[Helkaklat badrum med inbyggd dusch, WC och handfat. El. golvvärme.]]></beskrivning>
+    </rumsbeskrivning>
+  </rumsbeskrivningar>
+
+  <tomtareal><![CDATA[769]]></tomtareal>
+  <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD90CF16407EEB48ADA95E34E5363DEB30.jpg&sizex=250]]></picurl>
+  <beskrivning><![CDATA[Charmig villa med öppen ljus planlösning på lättskött trädgårdstomt. Totalt sju rum varav 3/4 sovrum. Lugnt och barnvänligt läge vid återvändsgata. 300 m. till småbåtshamn och badplats.]]></beskrivning>
+  <saljbeskrivningLang><![CDATA[Charmig villa med öppen ljus planlösning på lättskött trädgårdstomt. Totalt sju rum varav 3/4 sovrum. Lugnt och barnvänligt läge vid återvändsgata. 300 m. till småbåtshamn och badplats.]]></saljbeskrivningLang>
+  <tilltrdag><![CDATA[2002-12-03 00:00]]></tilltrdag>
+  <tilltrtext><![CDATA[]]></tilltrtext>
+  <vagbeskr><![CDATA[Du tar av den stora vägen och svänger höger. Kör en bit och vik vänster. Välkommen!]]></vagbeskr>
+  <VisnInfo><![CDATA[]]></VisnInfo>
+  <visningar>
+    <visning>
+      <PubStart>
+        2015-03-14
+
+
+        12:00
+
+
+      </PubStart>
+      <PubSlut>
+        2015-03-14
+
+
+        14:00
+
+
+      </PubSlut>
+      <Start>
+        2015-03-14
+        12:00
+      </Start>
+      <Slut>
+        2015-03-14
+        14:00
+      </Slut>
+      <Status>1</Status>
+      <GID>VIS5204AEFCFF264096AF5B09C1C77882FD</GID>
+      <text><![CDATA[Välkommen]]></text>
+      <BokaVisningPublicerad>0</BokaVisningPublicerad>
+      <BokaVisningUrl>
+        <![CDATA[]]>
+      </BokaVisningUrl>
+      <BokaVisningDoljInnanVisning></BokaVisningDoljInnanVisning>
+    </visning>
+  </visningar>
+  <planlosning>
+    <![CDATA[ENTRÉ med klinkergolv. Vardagsrum med parkettgolv, högt i tak typ "kyrktak" och utgång till stensatt uteplats i väster. Fräscht vitmålat kök med matplats och utgång till trädgård.
+
+1/2-PLAN UPP: Allrum/Matsal med parkettgolv. Stort föräldrasovrum med parkett och öppen spis. Utgång till trädgård. Två sovrum med laminatgolv "furu". Helkaklat badrum med inbygg dusch, WC och handfat. El. golvvärme.
+
+1/2-PLAN NER: Gästrum/kontor med klinkergolv. Tvättstuga. Pannrum. Gillestuga med laminatgolv, ej golvvärme - direktverkande el. Hobbyrum och förråd.
+
+FÖRRÅDSVIND med ståhöjd.]]>
+  </planlosning>
+  <avgift><![CDATA[]]></avgift>
+  <avgifttext><![CDATA[]]></avgifttext>
+  <byggnar><![CDATA[1954]]></byggnar>
+  <byggnartext><![CDATA[ombyggt 1998]]></byggnartext>
+  <avtalsdag><![CDATA[2002-08-14 00:00]]></avtalsdag>
+  <uppdragsdag><![CDATA[]]></uppdragsdag>
+  <prisannanvaluta><![CDATA[]]></prisannanvaluta>
+  <valutakod><![CDATA[]]></valutakod>
+
+
+
+  <webbudgivning>
+
+    <visabudgivningpagar>0</visabudgivningpagar>
+
+  </webbudgivning>
+
+
+  <bidhistory><![CDATA[http://budhistorik.maklare.vitec.net/objectbidhistory/bidhistory.aspx?ObjGID=OBJ26301_476118512&DBSpace=26301]]></bidhistory>
+  <highbid><![CDATA[http://net.sfd.se/WebPack/ObjectHighBid/__GetObjectHighBid.aspx?ObjGID=OBJ26301_476118512&DBSpace=26301&NumFormatSeparator=]]></highbid>
+  <wpbudxml><![CDATA[http://net.sfd.se/utils/WPBud/Default.aspx?firmanr=26301&gid=OBJ26301_476118512&renderasxml=1]]></wpbudxml>
+
+  <bildListaXml><![CDATA[http://w4.objektdata.se/pregen/512/OBJ26301_476118512/bilder.xml?firmanr=26301]]></bildListaXml>
+  <RightOnTarget>1</RightOnTarget>
+  <pictures numpics="6">
+    <picture pid="1">
+      <picnamn><![CDATA[Bra arbetsytor och fräscha materialval]]></picnamn>
+      <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD90CF16407EEB48ADA95E34E5363DEB30.jpg&sizex=390&sizey=272]]></picurl>
+      <thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD90CF16407EEB48ADA95E34E5363DEB30.jpg&sizex=80]]></thumburl>
+      <picgrupp><![CDATA[Kök]]></picgrupp>
+      <pickategori><![CDATA[]]></pickategori>
+    </picture>
+
+    <picture pid="2">
+      <picnamn><![CDATA[Fasad]]></picnamn>
+      <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD105A4EFF9ACF4CE1AD505DBA383D7F3D.jpg&sizex=390&sizey=272]]></picurl>
+      <thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD105A4EFF9ACF4CE1AD505DBA383D7F3D.jpg&sizex=80]]></thumburl>
+      <picgrupp><![CDATA[exteriör syd-väst]]></picgrupp>
+      <pickategori><![CDATA[]]></pickategori>
+    </picture>
+
+    <picture pid="3">
+      <picnamn><![CDATA[Läckert och stilrent]]></picnamn>
+      <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD649292DC569E454BAE76F1AE486207D5.jpg&sizex=390&sizey=272]]></picurl>
+      <thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD649292DC569E454BAE76F1AE486207D5.jpg&sizex=80]]></thumburl>
+      <picgrupp><![CDATA[Vardagsrum]]></picgrupp>
+      <pickategori><![CDATA[]]></pickategori>
+    </picture>
+
+    <picture pid="4">
+      <picnamn><![CDATA[Arbetsplats i sovrum med pampig utsikt]]></picnamn>
+      <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD839209F561EE4449A264B8592413432F.jpg&sizex=390&sizey=272]]></picurl>
+      <thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFD839209F561EE4449A264B8592413432F.jpg&sizex=80]]></thumburl>
+      <picgrupp><![CDATA[Sovrum 2]]></picgrupp>
+      <pickategori><![CDATA[]]></pickategori>
+    </picture>
+
+    <picture pid="5">
+      <picnamn><![CDATA[Sovrum]]></picnamn>
+      <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFDC0913DDF49AB44408DDF2292F5C21C8A.jpg&sizex=390&sizey=272]]></picurl>
+      <thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFDC0913DDF49AB44408DDF2292F5C21C8A.jpg&sizex=80]]></thumburl>
+      <picgrupp><![CDATA[Sovrum 1 öp]]></picgrupp>
+      <pickategori><![CDATA[]]></pickategori>
+    </picture>
+
+    <picture pid="6">
+      <picnamn><![CDATA[Fräscht och funktionellt]]></picnamn>
+      <picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFDC52CEF285E7A40C09440D516EA787BB1.jpg&sizex=390&sizey=272]]></picurl>
+      <thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=26301/SFDC52CEF285E7A40C09440D516EA787BB1.jpg&sizex=80]]></thumburl>
+      <picgrupp><![CDATA[Badrum]]></picgrupp>
+      <pickategori><![CDATA[]]></pickategori>
+    </picture>
+  </pictures>
+
+  <pdfs numpdfs="0">
+
+  </pdfs>
+
+  <pdfdokument numpdfs="0">
+
+  </pdfdokument>
+
+  <klickbarplanritningurl>
+
+
+    <![CDATA[]]>
+
+  </klickbarplanritningurl>
+
+  <utsokbegrepp>
+
+
+    <text><![CDATA[Trevliga grannar]]></text>
+
+
+
+    <text><![CDATA[Nära till natur]]></text>
+
+
+
+    <text><![CDATA[Nära till utsikt]]></text>
+
+  </utsokbegrepp>
+  <lankar>
+
+
+    <lank>
+      <Url><![CDATA[http://www.vitec.se]]></Url>
+      <Text><![CDATA[Vitec]]></Text>
+      <Kategori>0</Kategori>
+      <Grupp><![CDATA[]]></Grupp>
+
+    </lank>
+
+
+    <lank>
+      <Url><![CDATA[http://www.goteborg.se]]></Url>
+      <Text><![CDATA[Kommunen]]></Text>
+      <Kategori>1</Kategori>
+      <Grupp><![CDATA[]]></Grupp>
+
+    </lank>
+
+  </lankar>
+  <x>6360395</x>
+  <y>1280251</y>
+  <longitude>12,1572718367</longitude>
+  <latitude>57,3162517612</latitude>
+  <parkering><![CDATA[]]></parkering>
+  <omgivning><![CDATA[]]></omgivning>
+  <kommunikation><![CDATA[]]></kommunikation>
+  <naromradekommunikation><![CDATA[Du tar dig snabbt till och från orten med både tåg, buss och naturligtvis bil.]]></naromradekommunikation>
+  <naromradeparkering><![CDATA[Det finns pakering för 2 bilar vid fastigheten. Du kan även parkera gratis på gatan.]]></naromradeparkering>
+  <naromradeallmant>
+    <![CDATA[Området ligger praktiskt placerat nära både hav, affärer och kommunikation.
+Det de vackra kala klipporna och den gröna skogen skapar gott om promenadmöjligheter.]]>
+  </naromradeallmant>
+  <naromradenarservice><![CDATA[Det finns en ICA och en Konsum inom gångavstånd. 10min bort med bil finns även ett köpcentrum.]]></naromradenarservice>
+  <naromradeovrigt><![CDATA[På promenadavsstånd finns en stor lekplats med linbana och basketplan. Perfekt för barn i alla åldrar.]]></naromradeovrigt>
+  <stomme><![CDATA[Trä]]></stomme>
+  <bjalklag><![CDATA[Trä]]></bjalklag>
+  <grundmur><![CDATA[Betongsten]]></grundmur>
+  <grundlaggn><![CDATA[Platta + plintar]]></grundlaggn>
+  <tak><![CDATA[Betongpannor]]></tak>
+  <fasad><![CDATA[Trä]]></fasad>
+  <plat><![CDATA[Plåtisol]]></plat>
+  <fonster><![CDATA[2- och 3-glas]]></fonster>
+  <uppvarmn><![CDATA[Vattenburen golvvärme med elpanna.]]></uppvarmn>
+  <vent><![CDATA[Självdrag]]></vent>
+  <va><![CDATA[Kommunalt vatten och avlopp. Dagvatten inkoppl. 1998.]]></va>
+  <saljrubrik><![CDATA[Kan det här vara ditt hem?]]></saljrubrik>
+  <andelstal><![CDATA[]]></andelstal>
+  <andelstalenhet><![CDATA[]]></andelstalenhet>
+  <andelformog><![CDATA[]]></andelformog>
+  <repfond><![CDATA[]]></repfond>
+  <objektnr><![CDATA[LS030]]></objektnr>
+  <projuniknr><![CDATA[]]></projuniknr>
+  <HemnetHTML>
+    <![CDATA[
+
+
+	
+		
+			
+				
+					
+						<!-- inc _blobFieldCollection_-.htm -->
+						<!-- inc _blobInterior.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">INTERI&Ouml;R</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Antal rum</td>
+		<td class="Brod">7 rum  varav 3 - 4 sovrum</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Boarea&nbsp;+&nbsp;Biarea</td>
+		<td class="Brod">106&nbsp;kvm&nbsp;+&nbsp;56&nbsp;kvm</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Rumsbeskrivning</td>
+		<td class="Brod">ENTRÉ med klinkergolv. Vardagsrum med parkettgolv, högt i tak typ "kyrktak" och utgång till stensatt uteplats i väster. Fräscht vitmålat kök med matplats och utgång till trädgård.<br><br>1/2-PLAN UPP: Allrum/Matsal med parkettgolv. Stort föräldrasovrum med parkett och öppen spis. Utgång till trädgård. Två sovrum med laminatgolv "furu". Helkaklat badrum med inbygg dusch, WC och handfat. El. golvvärme.<br><br>1/2-PLAN NER: Gästrum/kontor med klinkergolv. Tvättstuga. Pannrum. Gillestuga med laminatgolv, ej golvvärme - direktverkande el. Hobbyrum och förråd.<br><br>FÖRRÅDSVIND med ståhöjd.</td></tr>
+		
+
+		
+		
+			<!-- inc _repeatDescriptions.htm" -->
+			<tr><td valign="top" width="27%" class="BrodRub">Vardagsrum</td>
+		<td class="Brod">Vitmålat kök med matplats. Uppvärmt klinkergolv. Spis m glashäll (-95), Spisfläkt (-95), Stor kyl (-95), Diskmaskin (-98). Frys i källarplan.</td></tr>
+    
+
+
+
+		<tr><td valign="top" width="27%" class="BrodRub">Sovrum</td>
+		<td class="Brod">Tvättmaskin (-95) och Torktumlare (-90)</td></tr>
+    
+
+
+
+		<tr><td valign="top" width="27%" class="BrodRub">Hall</td>
+		<td class="Brod">Helkaklat badrum med inbyggd dusch, WC och handfat. El. golvvärme.</td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobByggnad.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">BYGGNAD</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadstyp</td>
+		<td class="Brod">Villa i etage</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadsår</td>
+		<td class="Brod">1954 ombyggt 1998</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Uppvärmning</td>
+		<td class="Brod">Vattenburen golvvärme med elpanna.</td></tr>
+		
+		
+        
+		<tr><td valign="top" width="27%" class="BrodRub">Energideklaration</td>
+			<td class="Brod">
+            <div>Finns för närvarande inte</div>
+            
+            
+            
+            
+          			                               
+           
+			          
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadssätt</td>
+		<td class="Brod">
+			<div>Grundläggning: Platta + plintar</div>
+			<div>Grundmur: Betongsten</div>
+			<div>Stomme: Trä</div>
+			<div>Fasad: Trä</div>
+			<div>Fönster: 2- och 3-glas</div>
+			<div>Bjälklag: Trä</div>
+			<div>Tak: Betongpannor</div>
+			<div>Utv. plåtarbete: Plåtisol</div>
+		</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Övrigt</td>
+		<td class="Brod">Stensatt utplats i väster</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Fastighetsbet.</td>
+		<td class="Brod">Göteborg Älvsborg 9:42</td></tr>
+		
+		
+		
+	
+	</table>
+
+<!-- inc _blobOvrigaByggnader.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">&Ouml;VRIGA BYGGNADER</td></tr>
+
+	
+		<tr><td valign="top" class="Brod">Friliggande förrådsbyggnad</td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobAllmantFastigheten.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">ALLM&Auml;NT OM FASTIGHETEN</td></tr>
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad</td>
+		<td class="Brod">25&nbsp;900&nbsp;kr/år</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad, varav</td>
+		<td class="Brod">
+			<div>Uppvärmning: 4&nbsp;000 kr</div>
+			<div>El: 13&nbsp;800 kr &nbsp; </div>
+			<div>VA: 2&nbsp;600 kr</div>
+			<div>Renhållning: 1&nbsp;800 kr</div>
+			<div>Väg, samf.: 100 kr</div>
+			<div>Sotning: 300 kr</div>
+			<div>Försäkring: 3&nbsp;100 kr</div>
+			<div>Övrigt: 200 kr</div>
+			<div>Beräknat antal pers: 4</div>
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Kommentar: </td>
+		
+		<td class="Brod">Upptagen driftkostnad "övrigt" gäller gas.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringskod</td>
+		<td class="Brod">220</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringsvärde</td>
+		<td class="Brod">1&nbsp;665&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Summa pantbrev</td>
+		<td class="Brod">1&nbsp;695&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Tomt</td>
+		<td class="Brod">
+			<div>Areal: 769 kvm</div>
+			<div>Typ: Plan  trädgårdstomt</div>
+		</td></tr>
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Tomtbeskrivning</td>
+		<td class="Brod">Trädgården har en mycket vacker planering som är enkel att underhålla. Belöningen låter dig inte vänta. Att flaggstången är pricken över i är inte svårt att förstå när du ser helheten.</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Vatten/avlopp</td>
+		<td class="Brod">Kommunalt vatten och avlopp. Dagvatten inkoppl. 1998.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Servitut etc.</td>
+		<td class="Brod">Inga servitut</td></tr>
+		
+		
+		
+		
+	</table>
+
+<!-- inc _blobOvrigt.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">&Ouml;VRIGT</td></tr>
+
+	
+		<tr><td valign="top" class="Brod">Det finns en gemensamt ägd bastu vid sjön. Den är bokningsbar via vår hemsida.</td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobVagbeskrivning.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">VÄGBESKRIVNING</td></tr>
+
+		<tr><td valign="top" class="Brod">Du tar av den stora vägen och svänger höger. Kör en bit och vik vänster. Välkommen!</td></tr>
+		
+	
+	</table>
+
+					
+				
+			
+		
+	
+
+]]>
+  </HemnetHTML>
+  <WPHTML>
+    <![CDATA[
+
+
+	
+		
+			
+				
+					
+						<!-- inc _blobFieldCollection_-.htm -->
+						<!-- inc _blobInterior.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">INTERI&Ouml;R</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Antal rum</td>
+		<td class="Brod">7 rum  varav 3 - 4 sovrum</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Boarea&nbsp;+&nbsp;Biarea</td>
+		<td class="Brod">106&nbsp;kvm&nbsp;+&nbsp;56&nbsp;kvm</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Rumsbeskrivning</td>
+		<td class="Brod">ENTRÉ med klinkergolv. Vardagsrum med parkettgolv, högt i tak typ "kyrktak" och utgång till stensatt uteplats i väster. Fräscht vitmålat kök med matplats och utgång till trädgård.<br><br>1/2-PLAN UPP: Allrum/Matsal med parkettgolv. Stort föräldrasovrum med parkett och öppen spis. Utgång till trädgård. Två sovrum med laminatgolv "furu". Helkaklat badrum med inbygg dusch, WC och handfat. El. golvvärme.<br><br>1/2-PLAN NER: Gästrum/kontor med klinkergolv. Tvättstuga. Pannrum. Gillestuga med laminatgolv, ej golvvärme - direktverkande el. Hobbyrum och förråd.<br><br>FÖRRÅDSVIND med ståhöjd.</td></tr>
+		
+
+		
+		
+			<!-- inc _repeatDescriptions.htm" -->
+			<tr><td valign="top" width="27%" class="BrodRub">Vardagsrum</td>
+		<td class="Brod">Vitmålat kök med matplats. Uppvärmt klinkergolv. Spis m glashäll (-95), Spisfläkt (-95), Stor kyl (-95), Diskmaskin (-98). Frys i källarplan.</td></tr>
+    
+
+
+
+		<tr><td valign="top" width="27%" class="BrodRub">Sovrum</td>
+		<td class="Brod">Tvättmaskin (-95) och Torktumlare (-90)</td></tr>
+    
+
+
+
+		<tr><td valign="top" width="27%" class="BrodRub">Hall</td>
+		<td class="Brod">Helkaklat badrum med inbyggd dusch, WC och handfat. El. golvvärme.</td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobByggnad.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">BYGGNAD</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadstyp</td>
+		<td class="Brod">Villa i etage</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadsår</td>
+		<td class="Brod">1954 ombyggt 1998</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Uppvärmning</td>
+		<td class="Brod">Vattenburen golvvärme med elpanna.</td></tr>
+		
+		
+        
+		<tr><td valign="top" width="27%" class="BrodRub">Energideklaration</td>
+			<td class="Brod">
+            <div>Finns för närvarande inte</div>
+            
+            
+            
+            
+          			                               
+           
+			          
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadssätt</td>
+		<td class="Brod">
+			<div>Grundläggning: Platta + plintar</div>
+			<div>Grundmur: Betongsten</div>
+			<div>Stomme: Trä</div>
+			<div>Fasad: Trä</div>
+			<div>Fönster: 2- och 3-glas</div>
+			<div>Bjälklag: Trä</div>
+			<div>Tak: Betongpannor</div>
+			<div>Utv. plåtarbete: Plåtisol</div>
+		</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Övrigt</td>
+		<td class="Brod">Stensatt utplats i väster</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Fastighetsbet.</td>
+		<td class="Brod">Göteborg Älvsborg 9:42</td></tr>
+		
+		
+		
+	
+	</table>
+
+<!-- inc _blobOvrigaByggnader.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">&Ouml;VRIGA BYGGNADER</td></tr>
+
+	
+		<tr><td valign="top" class="Brod">Friliggande förrådsbyggnad</td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobAllmantFastigheten.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">ALLM&Auml;NT OM FASTIGHETEN</td></tr>
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad</td>
+		<td class="Brod">25&nbsp;900&nbsp;kr/år</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad, varav</td>
+		<td class="Brod">
+			<div>Uppvärmning: 4&nbsp;000 kr</div>
+			<div>El: 13&nbsp;800 kr &nbsp; </div>
+			<div>VA: 2&nbsp;600 kr</div>
+			<div>Renhållning: 1&nbsp;800 kr</div>
+			<div>Väg, samf.: 100 kr</div>
+			<div>Sotning: 300 kr</div>
+			<div>Försäkring: 3&nbsp;100 kr</div>
+			<div>Övrigt: 200 kr</div>
+			<div>Beräknat antal pers: 4</div>
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Kommentar: </td>
+		
+		<td class="Brod">Upptagen driftkostnad "övrigt" gäller gas.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringskod</td>
+		<td class="Brod">220</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringsvärde</td>
+		<td class="Brod">1&nbsp;665&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Summa pantbrev</td>
+		<td class="Brod">1&nbsp;695&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Tomt</td>
+		<td class="Brod">
+			<div>Areal: 769 kvm</div>
+			<div>Typ: Plan  trädgårdstomt</div>
+		</td></tr>
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Tomtbeskrivning</td>
+		<td class="Brod">Trädgården har en mycket vacker planering som är enkel att underhålla. Belöningen låter dig inte vänta. Att flaggstången är pricken över i är inte svårt att förstå när du ser helheten.</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Vatten/avlopp</td>
+		<td class="Brod">Kommunalt vatten och avlopp. Dagvatten inkoppl. 1998.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Servitut etc.</td>
+		<td class="Brod">Inga servitut</td></tr>
+		
+		
+		
+		
+	</table>
+
+<!-- inc _blobOvrigt.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">&Ouml;VRIGT</td></tr>
+
+	
+		<tr><td valign="top" class="Brod">Det finns en gemensamt ägd bastu vid sjön. Den är bokningsbar via vår hemsida.</td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobVagbeskrivning.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">VÄGBESKRIVNING</td></tr>
+
+		<tr><td valign="top" class="Brod">Du tar av den stora vägen och svänger höger. Kör en bit och vik vänster. Välkommen!</td></tr>
+		
+	
+	</table>
+
+					
+				
+			
+		
+	
+
+]]>
+  </WPHTML>
+  <kartUrl><![CDATA[http://kartor.eniro.se/visa?zoom=10&partnerid=vitec&cmpid=cpu_partner_vitec_sf&center=57.3162517612,12.1572718367&marker=57.3162517612,12.1572718367;typ:red;T%E5ngv%E4gen+2 Kungsbacka]]></kartUrl>
+  <longitude><![CDATA[12,1572718367]]></longitude>
+  <latitude><![CDATA[57,3162517612]]></latitude>
+  <EnergiDeklUtford><![CDATA[0]]></EnergiDeklUtford>
+  <EnergiDeklDatum><![CDATA[]]></EnergiDeklDatum>
+  <EnergiDeklEnergiforbrukning><![CDATA[]]></EnergiDeklEnergiforbrukning>
+  <EnergiKlass><![CDATA[]]></EnergiKlass>
+  <UpplatenMarkArea><![CDATA[]]></UpplatenMarkArea>
+  <UpplatenMarkNamn><![CDATA[]]></UpplatenMarkNamn>
+  <MaklarenInformerar><![CDATA[]]></MaklarenInformerar>
+  <AndelArsAvgift><![CDATA[]]></AndelArsAvgift>
+  <DrEnergiforbrukning><![CDATA[]]></DrEnergiforbrukning>
+  <DrElleverantor><![CDATA[Vattenfall]]></DrElleverantor>
+  <DrNatleverantor><![CDATA[Fortum]]></DrNatleverantor>
+  <DrKommentar><![CDATA[Upptagen driftkostnad "övrigt" gäller gas.]]></DrKommentar>
+  <Planbestammelser><![CDATA[Tomtindelning.]]></Planbestammelser>
+
+  <besiktigad></besiktigad>
+
+  <AllmantAnteckn><![CDATA[Anteckningar på fliken allmänt...]]></AllmantAnteckn>
+
+  <WPBoendekalkyl><![CDATA[http://beskrivningar.capitex.se/boendekalkyl/Boendekalkyl.swf?start=objekt&typ=1&pris=3250000&tomtratt=0&drift=25900&avgift=0&byggar=1954]]></WPBoendekalkyl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</OBJEKT>
+
