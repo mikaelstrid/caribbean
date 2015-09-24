@@ -1,3 +1,5 @@
+using System;
+
 namespace Caribbean.Aruba.Web.ViewModels.RealEstateObject
 {
     public class ObjectSummaryViewModel
@@ -7,5 +9,6 @@ namespace Caribbean.Aruba.Web.ViewModels.RealEstateObject
         //public ObjectStatus Status { get; set; }
         public string ThumbailUrl { get; set; }
         public int? Price { get; set; }
+        public DateTime ModifiedTime { get; set; }
     }
 }

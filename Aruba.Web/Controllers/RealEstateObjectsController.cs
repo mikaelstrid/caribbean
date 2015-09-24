@@ -34,12 +34,13 @@ namespace Caribbean.Aruba.Web.Controllers
             return View(new ChooseObjectViewModel
             {
                 SelectedPrintTemplateSlug = selectedPrintTemplateName,
-                AvailableObjects = availableObjects.Select(o => new ObjectSummaryViewModel
+                AvailableObjects = availableObjects.OrderByDescending(o => o.ModifiedTime).Select(o => new ObjectSummaryViewModel
                 {
                     Id = o.Id,
                     Address = o.Address,
                     ThumbailUrl = o.ThumbnailUrl,
-                    Price = o.Price
+                    Price = o.Price,
+                    ModifiedTime = o.ModifiedTime
                 })
             });
         }
