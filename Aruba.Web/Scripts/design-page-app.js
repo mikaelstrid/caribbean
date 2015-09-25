@@ -174,8 +174,13 @@
             targetImage.guillotine("remove");
             targetImage.hide()
                 .one("load", function () {
-                    $(this).guillotine({ width: currentSelectedImageField.width(), height: currentSelectedImageField.height() });
+                    $(this).guillotine({
+                        width: currentSelectedImageField.width(),
+                        height: currentSelectedImageField.height(),
+                        onChange: $scope.onImageEditorChange
+                    });
                     $(this).fadeIn();
+                    $scope._saveImageEditorValue();
                 })
                 .attr("src", imageUrl)
                 .each(function () {
@@ -190,19 +195,10 @@
             if (!$scope._isCurrentImageFieldInitialized()) return;
             $("img", currentSelectedImageField).guillotine("zoomOut");
         }
-        $scope.saveImageEditorValue = function () {
-            if (!$scope._isCurrentImageFieldInitialized()) return;
-            var targetImage = $("img", currentSelectedImageField);
-            var guillotineData = targetImage.guillotine("getData"); // { scale: 1.4, angle: 270, x: 10, y: 20, w: 400, h: 300 }
-            var data = $.extend({}, { url: targetImage.attr("src") }, guillotineData);
-            $scope._saveFieldValue(currentSelectedImageField, data)
-                .then(function () {
-                    console.log("Field value updated successfully.");
-                }, function () {
-                    alert("Field value update failed.");
-                });
+        $scope.onImageEditorChange = function () {
+            $scope._saveImageEditorValue();
         }
-        
+
 
 
 
@@ -220,9 +216,9 @@
         realEstateObjectService.getImages($scope.printId)
             .then(function (response) {
                 $scope.images = response.data;
-                }, function (response) {
-                    alert("Call realEstateObjectService.getImages failed.");
-                });
+            }, function (response) {
+                alert("Call realEstateObjectService.getImages failed.");
+            });
 
         $(window).resize(function () {
             if ($scope.currentPage)
@@ -234,6 +230,19 @@
 
 
         // HELPER FUNCTIONS
+        $scope._saveImageEditorValue = function () {
+            if (!$scope._isCurrentImageFieldInitialized()) return;
+            var targetImage = $("img", currentSelectedImageField);
+            var guillotineData = targetImage.guillotine("getData"); // { scale: 1.4, angle: 270, x: 10, y: 20, w: 400, h: 300 }
+            var data = $.extend({}, { url: targetImage.attr("src") }, guillotineData);
+            $scope._saveFieldValue(currentSelectedImageField, data)
+                .then(function () {
+                    console.log("Field value updated successfully.");
+                }, function () {
+                    alert("Field value update failed.");
+                });
+        }
+
         $scope._saveFieldValue = function (field, dataValue) {
             var pageId = field.closest("html").data("pageid");
 
@@ -271,7 +280,12 @@
             $(".editable-imagefield[data-imagefieldtype='1']", iframe.contents()).each(function () {
                 if ($(this).data("afvid")) {
                     var initData = $(this).data("init");
-                    $("img", $(this)).guillotine({ width: $(this).width(), height: $(this).height(), init: initData });
+                    $("img", $(this)).guillotine({
+                         width: $(this).width(), 
+                         height: $(this).height(), 
+                         init: initData,
+                         onChange: $scope.onImageEditorChange
+                    });
                     $("img", $(this)).guillotine("disable");
                 }
             });
@@ -290,7 +304,12 @@
                         .one("load", function () {
                             var imageField = $(this).parent();
                             var initData = imageField.data("init");
-                            $(this).guillotine({ width: imageField.width(), height: imageField.height(), init: initData });
+                            $(this).guillotine({
+                                 width: imageField.width(), 
+                                 height: imageField.height(), 
+                                 init: initData, 
+                                 onChange: $scope.onImageEditorChange
+                            });
                             $("img", $(this)).guillotine("disable");
                             $(this).show();
                         })
