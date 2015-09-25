@@ -55,16 +55,16 @@
                                                 </form>
                                             </div>
                                             <div class="imageEditorToolbox clearfix" ng-show="imageEditorToolboxVisible">
-                                                <ul class="image-list">
-                                                    <li ng-repeat="image in images" ng-click="handleObjectImageClick(image.imageUrl)">
-                                                        <img ng-src="{{image.thumbnailUrl}}" alt="" />
-                                                    </li>
-                                                </ul>
                                                 <form class="clearfix">
                                                     <button class="left" ng-click="increaseImageSize()"><i class="fi-plus"></i></button>
                                                     <button class="left" ng-click="decreaseImageSize()"><i class="fi-minus"></i></button>
                                                     <button class="right" ng-click="saveImageEditorValue()">Spara</button>
                                                 </form>
+                                                <ul class="image-list">
+                                                    <li ng-repeat="image in images" ng-click="handleObjectImageClick(image.imageUrl)">
+                                                        <img ng-src="{{image.thumbnailUrl}}" alt="" />
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="content" id="panel2">

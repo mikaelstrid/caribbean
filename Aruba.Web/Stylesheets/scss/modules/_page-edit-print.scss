@@ -118,6 +118,14 @@
     }
 
     .imageEditorToolbox {
+        form {
+            margin-bottom: rem-calc(30);
+
+            button:focus {
+                outline: none;
+            }
+        }
+
         .image-list {
             @include block-grid($per-row: 2, $spacing: rem-calc(20), $base-style: true );
 

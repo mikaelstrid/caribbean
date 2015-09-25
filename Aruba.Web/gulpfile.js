@@ -4,8 +4,7 @@ var gulp = require('gulp');
 var gulpFilter = require('gulp-filter');
 var gulpRubySass = require('gulp-ruby-sass');
 
-//gulp.task('default', function () {
-//});
+gulp.task('default', ['watch-sass']);
 
 gulp.task('bower-js', function () {
     gulp.src(mainBowerFiles())

@@ -7290,6 +7290,10 @@ footer {
   margin-bottom: 1.25rem; }
 .page-edit-print .textEditorToolbox button, .page-edit-print .htmlEditorToolbox button, .page-edit-print .imageEditorToolbox button {
   margin-bottom: 0; }
+.page-edit-print .imageEditorToolbox form {
+  margin-bottom: 1.875rem; }
+  .page-edit-print .imageEditorToolbox form button:focus {
+    outline: none; }
 .page-edit-print .imageEditorToolbox .image-list {
   display: block;
   padding: 0;
