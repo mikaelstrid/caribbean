@@ -82,8 +82,11 @@
 
         // Scope variables
         $scope.textEditorToolboxVisible = false;
-        $scope.htmlEditorVisible = false;
+        $scope.textEditorFormReady = false;
+        $scope.htmlEditorToolboxVisible = false;
+        $scope.htmlEditorFormReady = false;
         $scope.imageEditorToolboxVisible = false;
+
 
 
         // Scope functions
@@ -105,12 +108,18 @@
 
 
         // Text editor functions
+        $scope.textEditorValue = null;
+        $scope.textEditorPristineValue = null;
         $scope.handleTextFieldClick = function () {
-            $scope._changeVisibleEditor("textEditor");
+            $scope.textEditorFormReady = false;
+            $scope._changeVisibleToolbox("textEditor");
             currentSelectedTextField = $(this);
             currentSelectedTextField.addClass("active");
-            $scope.textEditorValue = $(this).html();
+            // Need to set the extra <p> and newline to get the $pristine funtionality 
+            // to work since CKEditor adds these automatically if not there
+            $scope.textEditorValue = "<p>" + $(this).html() + "</p>\n";
             $scope.$apply();
+            $scope.delayedSetPristine($scope.textEditorForm, 100, function () { $scope.textEditorFormReady = true; });
         }
         $scope.saveTextEditorValue = function () {
             // Remove newlines and <p> tags
@@ -123,6 +132,7 @@
             $scope._saveFieldValue(currentSelectedTextField, { html: trimmed })
                 .then(function () {
                     console.log("Field value updated successfully.");
+                    $scope.textEditorForm.$setPristine();
                 }, function () {
                     alert("Field value update failed.");
                 });
@@ -134,11 +144,13 @@
 
         // HTML editor functions
         $scope.handleHtmlFieldClick = function () {
-            $scope._changeVisibleEditor("htmlEditor");
+            $scope.htmlEditorFormReady = false;
+            $scope._changeVisibleToolbox("htmlEditor");
             currentSelectedHtmlField = $(this);
             currentSelectedHtmlField.addClass("active");
             $scope.htmlEditorValue = $(this).html();
             $scope.$apply();
+            $scope.delayedSetPristine($scope.htmlEditorForm, 100, function () { $scope.htmlEditorFormReady = true; });
         }
         $scope.saveHtmlEditorValue = function () {
             var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
@@ -148,6 +160,7 @@
             $scope._saveFieldValue(currentSelectedHtmlField, { html: withParagraphClass })
                 .then(function () {
                     console.log("Field value updated successfully.");
+                    $scope.htmlEditorForm.$setPristine();
                 }, function () {
                     alert("Field value update failed.");
                 });
@@ -159,7 +172,7 @@
 
         // Image editor functions
         $scope.handleImageFieldClick = function () {
-            $scope._changeVisibleEditor("imageEditor");
+            $scope._changeVisibleToolbox("imageEditor");
             currentSelectedImageField = $(this);
             $scope.$apply();
             currentSelectedImageField.parent().addClass("active");
@@ -230,6 +243,18 @@
 
 
         // HELPER FUNCTIONS
+        // This function is needed to guarantee that the form that the CKEditor is in
+        // is pristine after we have changed the value.
+        // The problem is that the Angular apply/digest loop is triggered after the 
+        // setPristine call and sets the form to dirty
+        $scope.delayedSetPristine = function (form, delayInMs, setFormReadyFunction) {
+            setTimeout(function () {
+                form.$setPristine();
+                setFormReadyFunction();
+                $scope.$apply();
+            }, delayInMs);
+        }
+
         $scope._saveImageEditorValue = function () {
             if (!$scope._isCurrentImageFieldInitialized()) return;
             var targetImage = $("img", currentSelectedImageField);
@@ -257,7 +282,7 @@
             return $q.reject("Illegal field type (not afname or afvid).");
         }
 
-        $scope._changeVisibleEditor = function (toolbox) {
+        $scope._changeVisibleToolbox = function (toolbox) {
             $scope._disableAllFields();
             $scope.textEditorToolboxVisible = (toolbox === "textEditor");
             $scope.htmlEditorToolboxVisible = (toolbox === "htmlEditor");
@@ -281,10 +306,10 @@
                 if ($(this).data("afvid")) {
                     var initData = $(this).data("init");
                     $("img", $(this)).guillotine({
-                         width: $(this).width(), 
-                         height: $(this).height(), 
-                         init: initData,
-                         onChange: $scope.onImageEditorChange
+                        width: $(this).width(),
+                        height: $(this).height(),
+                        init: initData,
+                        onChange: $scope.onImageEditorChange
                     });
                     $("img", $(this)).guillotine("disable");
                 }
@@ -305,10 +330,10 @@
                             var imageField = $(this).parent();
                             var initData = imageField.data("init");
                             $(this).guillotine({
-                                 width: imageField.width(), 
-                                 height: imageField.height(), 
-                                 init: initData, 
-                                 onChange: $scope.onImageEditorChange
+                                width: imageField.width(),
+                                height: imageField.height(),
+                                init: initData,
+                                onChange: $scope.onImageEditorChange
                             });
                             $("img", $(this)).guillotine("disable");
                             $(this).show();
