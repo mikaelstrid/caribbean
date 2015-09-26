@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http.Results;
 using System.Web.Mvc;
 using Caribbean.Aruba.Web.Business;
 using Caribbean.Aruba.Web.ViewModels.Prints;
@@ -10,7 +9,6 @@ using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
 using Caribbean.DataAccessLayer.RealEstateObjects;
 using Caribbean.Models.Database;
-using Caribbean.Models.PrintTemplates;
 using Microsoft.AspNet.Identity;
 
 namespace Caribbean.Aruba.Web.Controllers
@@ -30,8 +28,8 @@ namespace Caribbean.Aruba.Web.Controllers
         private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
 
         public PrintsController(
-            IUnitOfWork unitOfWork, 
-            ITemplateMetadataRepository templateMetadataRepository, 
+            IUnitOfWork unitOfWork,
+            ITemplateMetadataRepository templateMetadataRepository,
             ITemplateContentRepository templateContentRepository,
             IMuseTemplateParser museTemplateParser,
             IVitecObjectRepository vitecObjectRepository,
@@ -61,7 +59,9 @@ namespace Caribbean.Aruba.Web.Controllers
 
             return View(new IndexPrintsViewModel
             {
-                Prints = prints.Select(p => CreatePrintViewModel(agent, p))
+                Prints = prints
+                    .Select(print => CreatePrintViewModel(agent, print))
+                    .Where(vm => vm != null)
             });
         }
 
@@ -69,6 +69,8 @@ namespace Caribbean.Aruba.Web.Controllers
         {
             var realEstateObject = _vitecObjectRepository.GetSummaryById(agent.Agency.VitecCustomerId, print.ObjectId);
             var template = _templateMetadataRepository.GetPrintVariantBySlug(agent.Agency.Slug, print.PrintVariantSlug);
+            if (realEstateObject == null || template == null) return null;
+
             return new IndexPrintsViewModel.PrintViewModel
             {
                 Id = print.Id,
@@ -127,14 +129,14 @@ namespace Caribbean.Aruba.Web.Controllers
 
             _unitOfWork.PrintRepository.Add(print);
             _unitOfWork.Save();
-            
+
             GeneratePdfFOrAllPages(print, agent);
 
             return RedirectToAction("Edit", new { id = print.Id });
         }
 
 
-        [Route("redigera")]
+        [Route("redigera/{id}")]
         public async Task<ActionResult> Edit(int id)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
