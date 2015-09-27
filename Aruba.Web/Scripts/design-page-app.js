@@ -96,7 +96,7 @@
                     $scope.currentPage = response.data;
                     var p = response.data;
                     $("#dummy").css("margin-top", p.aspectRatioInPercent + "%");
-                    $("#page-editor").empty().append($("<iframe id='pageEditorIframe' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>"));
+                    $("#page-editor").empty().append($("<iframe id='pageEditorIframe' class='hide' frameborder='0' scrolling='no' style='width: " + p.width + "px; height: " + p.height + "px;'></iframe>"));
                     $("#pageEditorIframe").attr("src", p.previewUrl);
                     $("#pageEditorIframe").load($scope.initIframe);
                     $scope.resizeIframe();
@@ -343,6 +343,12 @@
                         });
                 }
             });
+
+            // Everything is ready, just give the guillotine a few milliseconds to execute
+            // and then show the iframe
+            setTimeout(function () {
+                iframe.removeClass("hide");
+            }, 100);
         }
 
         $scope.resizeIframe = function () {
