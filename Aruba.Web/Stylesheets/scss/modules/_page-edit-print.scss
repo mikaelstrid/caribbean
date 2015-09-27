@@ -114,6 +114,11 @@
 
         button {
             margin-bottom: 0;
+            margin-right: rem-calc(20);
+
+            &:first-of-type {
+                margin-right: 0;
+            }
         }
     }
 

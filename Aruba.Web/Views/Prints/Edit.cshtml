@@ -45,13 +45,15 @@
                                             <div class="textEditorToolbox clearfix" ng-show="textEditorToolboxVisible">
                                                 <form class="clearfix" name="textEditorForm" ng-show="textEditorFormReady">
                                                     <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue"></textarea>
-                                                    <button class="save right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || saveTextEditorValue()">Spara</button>
+                                                    <button class="right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || saveTextEditorValue()">Spara</button>
+                                                    <button class="right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || revertTextEditorValue()">Ångra</button>
                                                 </form>
                                             </div>
                                             <div class="htmlEditorToolbox clearfix" ng-show="htmlEditorToolboxVisible">
                                                 <form class="clearfix" name="htmlEditorForm" ng-show="htmlEditorFormReady">
                                                     <textarea id="htmlEditor" name="body" ckeditor="htmlEditor" ng-model="htmlEditorValue"></textarea>
-                                                    <button class="save right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || saveHtmlEditorValue()">Spara</button>
+                                                    <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || saveHtmlEditorValue()">Spara</button>
+                                                    <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || revertHtmlEditorValue()">Ångra</button>
                                                 </form>
                                             </div>
                                             <div class="imageEditorToolbox clearfix" ng-show="imageEditorToolboxVisible">

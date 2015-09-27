@@ -114,9 +114,7 @@
             $scope._changeVisibleToolbox("textEditor");
             currentSelectedTextField = $(this);
             currentSelectedTextField.addClass("active");
-            // Need to set the extra <p> and newline to get the $pristine funtionality 
-            // to work since CKEditor adds these automatically if not there
-            $scope.textEditorValue = "<p>" + $(this).html() + "</p>\n";
+            $scope.textEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.textEditorForm, 100, function () { $scope.textEditorFormReady = true; });
         }
@@ -138,6 +136,10 @@
 
             // Update the print page preview
             currentSelectedTextField.html(trimmed);
+        }
+        $scope.revertTextEditorValue = function () {
+            $scope.textEditorValue = currentSelectedTextField.html();
+            $scope.delayedSetPristine($scope.textEditorForm, 100);
         }
 
 
@@ -166,6 +168,10 @@
 
             // Update the print page preview
             currentSelectedHtmlField.html(withParagraphClass);
+        }
+        $scope.revertHtmlEditorValue = function () {
+            $scope.htmlEditorValue = currentSelectedHtmlField.html();
+            $scope.delayedSetPristine($scope.htmlEditorForm, 100);
         }
 
 
@@ -249,7 +255,7 @@
         $scope.delayedSetPristine = function (form, delayInMs, setFormReadyFunction) {
             setTimeout(function () {
                 form.$setPristine();
-                setFormReadyFunction();
+                if (setFormReadyFunction) setFormReadyFunction();
                 $scope.$apply();
             }, delayInMs);
         }
@@ -344,7 +350,7 @@
                 }
             });
 
-            // Everything is ready, just give the guillotine a few milliseconds to execute
+            //:#158: Everything is ready, just give the guillotine a few milliseconds to execute
             // and then show the iframe
             setTimeout(function () {
                 iframe.removeClass("hide");

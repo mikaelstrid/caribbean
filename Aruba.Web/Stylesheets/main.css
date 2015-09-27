@@ -7289,7 +7289,10 @@ footer {
 .page-edit-print .textEditorToolbox .cke, .page-edit-print .htmlEditorToolbox .cke, .page-edit-print .imageEditorToolbox .cke {
   margin-bottom: 1.25rem; }
 .page-edit-print .textEditorToolbox button, .page-edit-print .htmlEditorToolbox button, .page-edit-print .imageEditorToolbox button {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-right: 1.25rem; }
+  .page-edit-print .textEditorToolbox button:first-of-type, .page-edit-print .htmlEditorToolbox button:first-of-type, .page-edit-print .imageEditorToolbox button:first-of-type {
+    margin-right: 0; }
 .page-edit-print .imageEditorToolbox form {
   margin-bottom: 1.875rem; }
   .page-edit-print .imageEditorToolbox form button:focus {
