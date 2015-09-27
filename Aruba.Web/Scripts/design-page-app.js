@@ -114,6 +114,7 @@
             $scope._changeVisibleToolbox("textEditor");
             currentSelectedTextField = $(this);
             currentSelectedTextField.addClass("active");
+            $("#toolboxTab1").click();
             $scope.textEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.textEditorForm, 100, function () { $scope.textEditorFormReady = true; });
@@ -149,6 +150,7 @@
             $scope._changeVisibleToolbox("htmlEditor");
             currentSelectedHtmlField = $(this);
             currentSelectedHtmlField.addClass("active");
+            $("#toolboxTab1").click();
             $scope.htmlEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.htmlEditorForm, 100, function () { $scope.htmlEditorFormReady = true; });
@@ -183,6 +185,7 @@
             currentSelectedImageField.parent().addClass("active");
             currentSelectedImageField.unbind("click");
             $("img", currentSelectedImageField).guillotine("enable");
+            $("#toolboxTab1").click();
         }
         $scope.handleObjectImageClick = function (imageUrl) {
             var targetImage = $("img", currentSelectedImageField);
