@@ -41,6 +41,10 @@
     @RenderSection("styles", required: false)
 }
 
+@section headscripts {
+    @RenderSection("headscripts", required: false)
+}
+
 @section scripts {
     <script>
         $(document).ready(function () {

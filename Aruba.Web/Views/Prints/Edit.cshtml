@@ -34,7 +34,7 @@
                     <div class="edit-surface">
                         <div class="row">
                             <div class="small-12 large-5 large-push-7 column">
-                                <div class="toolbox">
+                                <div class="toolbox" ng-cloak>
                                     <ul class="tabs" data-tab>
                                         <li class="tab-title active"><a href="#panel1">Verktyg</a></li>
                                         <li class="tab-title"><a href="#panel2">Mallar</a></li>
@@ -93,9 +93,12 @@
     </div>
 </div>
 
+@section headscripts {
+    <script src="~/Scripts/lib/angular.js"></script>
+}
+
 @section scripts
 {
-    <script src="~/Scripts/lib/angular.js"></script>
     <script src="~/Scripts/lib/lodash.js"></script>
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
     <script src="~/Scripts/lib/ckeditor/ckeditor.js"></script>

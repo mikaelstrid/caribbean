@@ -88,7 +88,6 @@
         $scope.imageEditorToolboxVisible = false;
 
 
-
         // Scope functions
         $scope.switchToPage = function (pageId) {
             $('.off-canvas-wrap').foundation('offcanvas', 'hide', 'move-right');
