@@ -1,15 +1,17 @@
-﻿using System.Diagnostics;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Caribbean.Aruba.Web.ViewModels;
+using NLog;
 
 namespace Caribbean.Aruba.Web.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public ActionResult Index()
         {
-            Trace.TraceError("Hå och hej nu gick det fel!");
+            Logger.Error("Hå och hej nu gick det fel!");
 
             return View(new FullTopbarLayoutViewModel { ActiveMenuItem = MenuItem.Start });
         }
