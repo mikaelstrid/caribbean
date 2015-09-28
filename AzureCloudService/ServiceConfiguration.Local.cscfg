@@ -9,11 +9,7 @@
       <Setting name="UpdatePageThumbnailUrl" value="http://localhost:64879/api/pagethumbnails" />
       <Setting name="UpdatePagePdfUrl" value="http://localhost:64879/api/pagepdfs" />
       <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
-      <!--<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="aruba" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEBMsM3DUYLGDQY6OQo1PQ+8wDQYJKoZIhvcNAQEBBQAEggEAA+mkDar/c4FZXmnUt1kpVWJ6NwoxyI+S7be3oAsHc01hlJhXNOVZ18d6GeRqY/oay/kgYER89WDZ2pn8O4omr03sL0Kd1dL9QjG63XZrFueCJ9vwEDwATSLUsXpzBvHW1kxI0jyl+0emr8lwwmMERJnfDzWVe6w3EIAzl93pjwBjmMmTiz/6/18jjWSyk2aQjrlD3qX5IBOTxDcpiDZhfcw0jY21q3+7pzmzVscqDXms/RPR0F6zKOx1hSFxOAhw4ymAz7VAB/QDNrJaL2U/BLsoANGofG5F2yhfe6rRKrADylsysh2Ppj4s/KFSXqd8gumMeCJo27AEF46IkklInTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECCY/YYg1XXd6gBBqKGgOvbD74vQpIXECQF6y" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-03-04T23:59:59.0000000+01:00" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />-->
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

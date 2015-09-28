@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Aruba.PdfWorkerRole
 {
@@ -21,17 +23,17 @@ namespace Aruba.PdfWorkerRole
         private QueueClient _client;
         private readonly ManualResetEvent _completedEvent = new ManualResetEvent(false);
 
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         public override void Run()
         {
-            Trace.TraceInformation("Starting PdfPageGenerator worker role.");
-
             _client.OnMessageAsync(async receivedMessage =>
             {
                 string messageBody = null;
                 try
                 {
                     messageBody = receivedMessage.GetBody<string>();
-                    Trace.TraceInformation("Message received: {0}", messageBody);
+                    Logger.Debug("Message received: {0}", messageBody);
                     var message = JsonConvert.DeserializeObject<PdfPageGeneratorQueueMessage>(messageBody);
 
                     var localStorage = RoleEnvironment.GetLocalResource("LocalStoreForTemporaryPdfs").RootPath;
@@ -42,32 +44,41 @@ namespace Aruba.PdfWorkerRole
 
                     // === THUMBNAIL ===
                     var thumbnailLocalFilePath = RenderThumbnail(pageUrl, thumbnailName, localStorage, message);
-                    Trace.TraceInformation("Thumbnail created: {0}", thumbnailLocalFilePath);
+                    Logger.Debug("Thumbnail created: {0}", thumbnailLocalFilePath);
 
                     var thumbnailBlob = UploadAssetToBlobStorage(thumbnailLocalFilePath, "pagethumbnails");
-                    File.Delete(thumbnailLocalFilePath);
-                    Trace.TraceInformation("Thumbnail uploaded: {0}", thumbnailBlob.Uri.ToString());
+                    if (thumbnailBlob != null)
+                    {
+                        File.Delete(thumbnailLocalFilePath);
+                        Logger.Debug("Thumbnail uploaded: {0}", thumbnailBlob.Uri.ToString());
 
-                    await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, thumbnailBlob.Name, thumbnailBlob.Uri.ToString(), "UpdatePageThumbnailUrl");
+                        await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, thumbnailBlob.Name, thumbnailBlob.Uri.ToString(), "UpdatePageThumbnailUrl");
+                    }
+                    else
+                        Logger.Warn("Thumbnail could not be uploaded.");
 
                     // === PDF ===
                     var pdfLocalFilePath = RenderPdf(pageUrl, pdfName, localStorage, message);
-                    Trace.TraceInformation("PDF created: {0}", pdfLocalFilePath);
+                    Logger.Debug("PDF created: {0}", pdfLocalFilePath);
 
                     var pdfBlob = UploadAssetToBlobStorage(pdfLocalFilePath, "pagepdfs");
-                    File.Delete(pdfLocalFilePath);
-                    Trace.TraceInformation("PDF uploaded: {0}", pdfBlob.Uri.ToString());
-
-                    await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, pdfBlob.Name, pdfBlob.Uri.ToString(), "UpdatePagePdfUrl");
+                    if (pdfBlob != null)
+                    {
+                        File.Delete(pdfLocalFilePath);
+                        Logger.Debug("PDF uploaded: {0}", pdfBlob.Uri.ToString());
+                        await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, pdfBlob.Name, pdfBlob.Uri.ToString(), "UpdatePagePdfUrl");
+                    }
+                    else
+                        Logger.Warn("PDF could not be uploaded.");
 
                     receivedMessage.Complete();
                 }
                 catch (Exception e)
                 {
                     if (string.IsNullOrWhiteSpace(messageBody))
-                        Trace.TraceError("Error parsing message: {0}", receivedMessage.ToString());
+                        Logger.Warn("Error parsing message (message body null or empty): {0}", receivedMessage.ToString());
                     else
-                        Trace.TraceError("Error when processing message {0}: {1} ", messageBody, e.ToString());
+                        Logger.Warn("Error when processing message {0}: {1} ", messageBody, e.ToString());
 
                     receivedMessage.DeadLetter("Exception when processing", e.ToString());
                 }
@@ -106,6 +117,8 @@ namespace Aruba.PdfWorkerRole
             process.WaitForExit(20000);
             process.CancelOutputRead();
 
+            Logger.Trace("Output from RenderThumbnail: " + outputBuilder);
+
             return outputFilePath;
         }
         private static string RenderPdf(string pageUrl, string thumbnailName, string targetDirectory, PdfPageGeneratorQueueMessage message)
@@ -138,6 +151,8 @@ namespace Aruba.PdfWorkerRole
             process.BeginOutputReadLine();
             process.WaitForExit(20000);
             process.CancelOutputRead();
+
+            Logger.Trace("Output from RenderPdf: " + outputBuilder);
 
             return outputFilePath;
         }
@@ -174,11 +189,14 @@ namespace Aruba.PdfWorkerRole
             {
                 var apiModel = new PostAssetApiModel { AgentUserId = agentUserId, PageId = pageId, AssetName = assetName, AssetUrl = assetUrl };
                 var response = await client.PostAsJsonAsync(updateAssetUrl, apiModel);
+                Logger.Trace("Response from HttpClient: " + response);
             }
         }
 
         public override bool OnStart()
         {
+            LogTargetManager.SetLogTargetBaseDirectory("AzureLocalStorageFile", RoleEnvironment.GetLocalResource("CustomLogs").RootPath);
+
             var queueName = RoleEnvironment.GetConfigurationSettingValue("Aruba.PdfWorkerQueueName");
 
             ServicePointManager.DefaultConnectionLimit = 12;
@@ -187,6 +205,9 @@ namespace Aruba.PdfWorkerRole
             if (!namespaceManager.QueueExists(queueName)) namespaceManager.CreateQueue(queueName);
 
             _client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+
+            Logger.Info("Starting Worker Role Instance (v{0})...", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
             return base.OnStart();
         }
         public override void OnStop()
