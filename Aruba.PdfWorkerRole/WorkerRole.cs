@@ -117,7 +117,7 @@ namespace Aruba.PdfWorkerRole
             process.WaitForExit(20000);
             process.CancelOutputRead();
 
-            Logger.Trace("Output from RenderThumbnail: " + outputBuilder);
+            if (outputBuilder.Length > 0) Logger.Trace("Output from RenderThumbnail: " + outputBuilder);
 
             return outputFilePath;
         }
@@ -152,7 +152,7 @@ namespace Aruba.PdfWorkerRole
             process.WaitForExit(20000);
             process.CancelOutputRead();
 
-            Logger.Trace("Output from RenderPdf: " + outputBuilder);
+            if (outputBuilder.Length > 0) Logger.Trace("Output from RenderPdf: " + outputBuilder);
 
             return outputFilePath;
         }
@@ -189,7 +189,7 @@ namespace Aruba.PdfWorkerRole
             {
                 var apiModel = new PostAssetApiModel { AgentUserId = agentUserId, PageId = pageId, AssetName = assetName, AssetUrl = assetUrl };
                 var response = await client.PostAsJsonAsync(updateAssetUrl, apiModel);
-                Logger.Trace("Response from HttpClient: " + response);
+                Logger.Trace("Response from HttpClient: {0}, {1}", response.StatusCode, response.ReasonPhrase);
             }
         }
 
