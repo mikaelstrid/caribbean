@@ -11,8 +11,6 @@ namespace Caribbean.Aruba.Web.Controllers
 
         public ActionResult Index()
         {
-            Logger.Error("Hå och hej nu gick det fel!");
-
             return View(new FullTopbarLayoutViewModel { ActiveMenuItem = MenuItem.Start });
         }
     }
