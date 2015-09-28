@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics;
+using System.Web.Mvc;
 using Caribbean.Aruba.Web.ViewModels;
 
 namespace Caribbean.Aruba.Web.Controllers
@@ -8,6 +9,8 @@ namespace Caribbean.Aruba.Web.Controllers
     {
         public ActionResult Index()
         {
+            Trace.TraceError("Hå och hej nu gick det fel!");
+
             return View(new FullTopbarLayoutViewModel { ActiveMenuItem = MenuItem.Start });
         }
     }
