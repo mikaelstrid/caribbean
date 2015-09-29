@@ -56,125 +56,13 @@ namespace Caribbean.DataContexts.Application.Migrations
 
             if (!context.PageTemplatePlaceholderMappings.Any())
             {
-                var mappings = new List<Tuple<string, string>>
-                    {
-                        new Tuple<string, string>("objekt_gata", "/OBJEKT/msadress"),
-                        new Tuple<string, string>("objekt_rum", "/OBJEKT/rum"),
-                        new Tuple<string, string>("objekt_storlek", "/OBJEKT/boarea"),
-                        new Tuple<string, string>("kontorets_adress", "/OBJEKT/Firma/faBesokAdr"),
-                        new Tuple<string, string>("kontorets_tel", "/OBJEKT/Firma/faTel1"),
-                        new Tuple<string, string>("kontorets_www", "/OBJEKT/Firma/faHemsida"),
-                        new Tuple<string, string>("ansvarig_maklare", "/OBJEKT/Maklare/maNamn"),
-                        new Tuple<string, string>("ansvarig_maklare_tel", "/OBJEKT/Maklare/maDirektnr"),
-                        new Tuple<string, string>("ansvarig_maklare_mobil", "/OBJEKT/Maklare/maMobilnr"),
-                        new Tuple<string, string>("ansvarig_maklare_mail", "/OBJEKT/Maklare/maEmail"),
-                        new Tuple<string, string>("extra_kontaktperson", "/OBJEKT/Extrakontaktperson/ekNamn"),
-                        new Tuple<string, string>("extra_kontaktperson_tel", "/OBJEKT/Extrakontaktperson/ekDirektnr"),
-                        new Tuple<string, string>("extra_kontaktperson_mobil", "/OBJEKT/Extrakontaktperson/ekMobilnr"),
-                        new Tuple<string, string>("fritext", "/OBJEKT/beskrivning"),
-                        new Tuple<string, string>("2_3", "/OBJEKT/pictures/picture[1]"),
-                        new Tuple<string, string>("3_2", "/OBJEKT/pictures/picture[2]")
-                    };
-
+                var mappings = ConfigurationDataGenerator.GetPlaceholderMappings();
                 foreach (var t in mappings)
                 {
-                    context.PageTemplatePlaceholderMappings.Add(new PageTemplatePlaceholderMapping
-                    {
-                        TemplateType = "VitecMäklarsystem",
-                        TemplateVersion = "1.0",
-                        Name = t.Item1,
-                        Path = t.Item2
-                    });
+                    context.PageTemplatePlaceholderMappings.Add(t);
                 }
-
                 context.SaveChanges();
             }
-
-            if (context.PageTemplatePlaceholderMappings.Count() == 16)
-            {
-                context.PageTemplatePlaceholderMappings.RemoveRange(context.PageTemplatePlaceholderMappings.ToList());
-                context.SaveChanges();
-
-                var mappings = new List<Tuple<string, string>>
-                    {
-                        new Tuple<string, string>("ansvarig_maklare", "/OBJEKT/Maklare/maNamn"),
-                        new Tuple<string, string>("ansvarig_maklare_tel", "/OBJEKT/Maklare/maDirektnr"),
-                        new Tuple<string, string>("ansvarig_maklare_mobil", "/OBJEKT/Maklare/maMobilnr"),
-                        new Tuple<string, string>("ansvarig_maklare_mail", "/OBJEKT/Maklare/maEmail"),
-                        new Tuple<string, string>("ansvarig_maklare_titel", "/OBJEKT/Maklare/maTitel"),
-                        new Tuple<string, string>("ansvarig_maklare_bild", "/OBJEKT/Maklare/maBildUrl"),
-
-                        new Tuple<string, string>("extra_kontaktperson", "/OBJEKT/Extrakontaktperson/ekNamn"),
-                        new Tuple<string, string>("extra_kontaktperson_tel", "/OBJEKT/Extrakontaktperson/ekDirektnr"),
-                        new Tuple<string, string>("extra_kontaktperson_mobil", "/OBJEKT/Extrakontaktperson/ekMobilnr"),
-                        new Tuple<string, string>("extra_kontaktperson_mail", "/OBJEKT/Extrakontaktperson/ekEmail"),
-                        new Tuple<string, string>("extra_kontaktperson_titel", "/OBJEKT/Extrakontaktperson/ekTitel"),
-                        new Tuple<string, string>("extra_kontaktperson_bild", "/OBJEKT/Extrakontaktperson/ek_BildUrl"),
-
-                        new Tuple<string, string>("kontorets_adress", "/OBJEKT/Firma/faBesokAdr"),
-                        new Tuple<string, string>("kontorets_postnummer", "/OBJEKT/Firma/faPostadress"),
-                        new Tuple<string, string>("kontorets_tel", "/OBJEKT/Firma/faTel1"),
-                        new Tuple<string, string>("kontorets_www", "/OBJEKT/Firma/faHemsida"),
-
-                        new Tuple<string, string>("foreningen_namn", "/OBJEKT/Forening/ForNamn"),
-                        new Tuple<string, string>("foreningen_beskrivning", "/OBJEKT/Forening/ForTxt"),
-
-                        new Tuple<string, string>("obj_typ", "/OBJEKT/Objekttyptext"),
-                        new Tuple<string, string>("obj_fastighetsbeteckning", "/OBJEKT/Fastbet"),
-                        new Tuple<string, string>("obj_upplatelseform", "/OBJEKT/Upplatformtext"),
-                        new Tuple<string, string>("obj_boendeform", "/OBJEKT/Objekttyptext"),
-                        new Tuple<string, string>("obj_LghRefNr", "/OBJEKT/LghRefNr"),
-                        new Tuple<string, string>("objekt_gata", "/OBJEKT/msadress"),
-                        new Tuple<string, string>("obj_postadress", "/OBJEKT/Adress2"),
-                        new Tuple<string, string>("obj_omrade", "/OBJEKT/Omrade"),
-                        new Tuple<string, string>("obj_kommun", "/OBJEKT/Kommun"),
-                        new Tuple<string, string>("obj_vaning", "/OBJEKT/Vaning"),
-                        new Tuple<string, string>("obj_vaning_alla", "/OBJEKT/Vaningav"),
-                        new Tuple<string, string>("obj_pris", "/OBJEKT/mspris"),
-                        new Tuple<string, string>("obj_pristext", "/OBJEKT/pristext"),
-                        new Tuple<string, string>("obj_driftskostnad", "/OBJEKT/driftskostnad"),
-                        new Tuple<string, string>("obj_hisstext", "/OBJEKT/HissFinns"),
-                        new Tuple<string, string>("obj_tomtbeskrivning", "/OBJEKT/ovrigt"),
-                        new Tuple<string, string>("obj_boarea", "/OBJEKT/Boarea"),
-                        new Tuple<string, string>("obj_biarea", "/OBJEKT/Biarea"),
-                        new Tuple<string, string>("obj_tomtarea", "/OBJEKT/Tomtareal"),
-                        new Tuple<string, string>("obj_rum", "/OBJEKT/Rum"),
-                        new Tuple<string, string>("obj_saljrubrik", "/OBJEKT/saljrubrik"),
-                        new Tuple<string, string>("obj_saljbeskrivning", "/OBJEKT/Beskrivning"),
-                        new Tuple<string, string>("obj_avgift", "/OBJEKT/Avgift"),
-                        new Tuple<string, string>("obj_avgift_tillagg", "/OBJEKT/Avgifttext"),
-                        new Tuple<string, string>("obj_byggar", "/OBJEKT/Byggnar"),
-                        new Tuple<string, string>("obj_byggar_tillagg", "/OBJEKT/Byggnartext"),
-
-                        new Tuple<string, string>("huvudbild", "/OBJEKT/pictures/picture[1]"),
-                        //new Tuple<string, string>("objektbild", "/OBJEKT/pictures/picture[picgrupp = 'Objektsbeskrivning Bild 1'"),
-                        new Tuple<string, string>("bild1", "/OBJEKT/pictures/picture[1]"),
-                        new Tuple<string, string>("bild2", "/OBJEKT/pictures/picture[2]"),
-                        new Tuple<string, string>("bild3", "/OBJEKT/pictures/picture[3]"),
-                        new Tuple<string, string>("bild4", "/OBJEKT/pictures/picture[4]"),
-                        new Tuple<string, string>("bild5", "/OBJEKT/pictures/picture[5]"),
-                        new Tuple<string, string>("bild6", "/OBJEKT/pictures/picture[6]"),
-                        new Tuple<string, string>("bild7", "/OBJEKT/pictures/picture[7]"),
-                        new Tuple<string, string>("bild8", "/OBJEKT/pictures/picture[8]"),
-                        new Tuple<string, string>("bild9", "/OBJEKT/pictures/picture[9]"),
-                        new Tuple<string, string>("bild10", "/OBJEKT/pictures/picture[10]")
-                    };
-
-                foreach (var t in mappings)
-                {
-                    context.PageTemplatePlaceholderMappings.Add(new PageTemplatePlaceholderMapping
-                    {
-                        TemplateType = "VitecMäklarsystem",
-                        TemplateVersion = "1.0",
-                        Name = t.Item1,
-                        Path = t.Item2
-                    });
-                }
-
-                context.SaveChanges();
-            }
-
-
 
             //// Make sure all user-role associations are seeded in the database
             //if (!userManager.IsInRole(context.Users.SingleOrDefault(u => u.UserName == "mikael@pixeldigitalbyra.se").Id, "Users"))
@@ -201,5 +89,80 @@ namespace Caribbean.DataContexts.Application.Migrations
         //        }
         //    }
         //}
+    }
+
+    public static class ConfigurationDataGenerator
+    {
+        internal static IEnumerable<PageTemplatePlaceholderMapping> GetPlaceholderMappings()
+        {
+            var tuples = new List<Tuple<string, string>>
+            {
+                new Tuple<string, string>("ansvarig_maklare", "/OBJEKT/Maklare/maNamn"),
+                new Tuple<string, string>("ansvarig_maklare_tel", "/OBJEKT/Maklare/maDirektnr"),
+                new Tuple<string, string>("ansvarig_maklare_mobil", "/OBJEKT/Maklare/maMobilnr"),
+                new Tuple<string, string>("ansvarig_maklare_mail", "/OBJEKT/Maklare/maEmail"),
+                new Tuple<string, string>("ansvarig_maklare_titel", "/OBJEKT/Maklare/maTitel"),
+                new Tuple<string, string>("ansvarig_maklare_bild", "/OBJEKT/Maklare/maBildUrl"),
+                new Tuple<string, string>("extra_kontaktperson", "/OBJEKT/Extrakontaktperson/ekNamn"),
+                new Tuple<string, string>("extra_kontaktperson_tel", "/OBJEKT/Extrakontaktperson/ekDirektnr"),
+                new Tuple<string, string>("extra_kontaktperson_mobil", "/OBJEKT/Extrakontaktperson/ekMobilnr"),
+                new Tuple<string, string>("extra_kontaktperson_mail", "/OBJEKT/Extrakontaktperson/ekEmail"),
+                new Tuple<string, string>("extra_kontaktperson_titel", "/OBJEKT/Extrakontaktperson/ekTitel"),
+                new Tuple<string, string>("extra_kontaktperson_bild", "/OBJEKT/Extrakontaktperson/ek_BildUrl"),
+                new Tuple<string, string>("kontorets_adress", "/OBJEKT/Firma/faBesokAdr"),
+                new Tuple<string, string>("kontorets_postnummer", "/OBJEKT/Firma/faPostadress"),
+                new Tuple<string, string>("kontorets_tel", "/OBJEKT/Firma/faTel1"),
+                new Tuple<string, string>("kontorets_www", "/OBJEKT/Firma/faHemsida"),
+                new Tuple<string, string>("foreningen_namn", "/OBJEKT/Forening/forNamn"),
+                new Tuple<string, string>("foreningen_beskrivning", "/OBJEKT/Forening/forTxt"),
+                new Tuple<string, string>("obj_typ", "/OBJEKT/objekttyptext"),
+                new Tuple<string, string>("obj_fastighetsbeteckning", "/OBJEKT/fastbet"),
+                new Tuple<string, string>("obj_upplatelseform", "/OBJEKT/upplatformtext"),
+                new Tuple<string, string>("obj_boendeform", "/OBJEKT/objekttyptext"),
+                new Tuple<string, string>("obj_LghRefNr", "/OBJEKT/lghrefnr"),
+                new Tuple<string, string>("obj_gata", "/OBJEKT/msadress"),
+                new Tuple<string, string>("obj_postadress", "/OBJEKT/adress2"),
+                new Tuple<string, string>("obj_omrade", "/OBJEKT/omrade"),
+                new Tuple<string, string>("obj_kommun", "/OBJEKT/kommun"),
+                new Tuple<string, string>("obj_vaning", "/OBJEKT/vaning"),
+                new Tuple<string, string>("obj_vaning_alla", "/OBJEKT/vaningav"),
+                new Tuple<string, string>("obj_pris", "/OBJEKT/mspris"),
+                new Tuple<string, string>("obj_pristext", "/OBJEKT/pristext"),
+                new Tuple<string, string>("obj_driftskostnad", "/OBJEKT/driftskostnad"),
+                new Tuple<string, string>("obj_hisstext", "/OBJEKT/hissfinns"),
+                new Tuple<string, string>("obj_tomtbeskrivning", "/OBJEKT/ovrigt"),
+                new Tuple<string, string>("obj_boarea", "/OBJEKT/boarea"),
+                new Tuple<string, string>("obj_biarea", "/OBJEKT/biarea"),
+                new Tuple<string, string>("obj_tomtarea", "/OBJEKT/tomtareal"),
+                new Tuple<string, string>("obj_rum", "/OBJEKT/rum"),
+                new Tuple<string, string>("obj_saljrubrik", "/OBJEKT/saljrubrik"),
+                new Tuple<string, string>("obj_saljbeskrivning", "/OBJEKT/beskrivning"),
+                new Tuple<string, string>("obj_avgift", "/OBJEKT/avgift"),
+                new Tuple<string, string>("obj_avgift_tillagg", "/OBJEKT/avgifttext"),
+                new Tuple<string, string>("obj_byggar", "/OBJEKT/byggnar"),
+                new Tuple<string, string>("obj_byggar_tillagg", "/OBJEKT/byggnartext"),
+                new Tuple<string, string>("huvudbild", "/OBJEKT/pictures/picture[1]"),
+                //new Tuple<string, string>("objektbild", "/OBJEKT/pictures/picture[picgrupp = 'Objektsbeskrivning Bild 1'"),
+                new Tuple<string, string>("bild1", "/OBJEKT/pictures/picture[1]"),
+                new Tuple<string, string>("bild2", "/OBJEKT/pictures/picture[2]"),
+                new Tuple<string, string>("bild3", "/OBJEKT/pictures/picture[3]"),
+                new Tuple<string, string>("bild4", "/OBJEKT/pictures/picture[4]"),
+                new Tuple<string, string>("bild5", "/OBJEKT/pictures/picture[5]"),
+                new Tuple<string, string>("bild6", "/OBJEKT/pictures/picture[6]"),
+                new Tuple<string, string>("bild7", "/OBJEKT/pictures/picture[7]"),
+                new Tuple<string, string>("bild8", "/OBJEKT/pictures/picture[8]"),
+                new Tuple<string, string>("bild9", "/OBJEKT/pictures/picture[9]"),
+                new Tuple<string, string>("bild10", "/OBJEKT/pictures/picture[10]")
+            };
+
+            return tuples.Select(t => new PageTemplatePlaceholderMapping
+            {
+                TemplateType = "VitecMäklarsystem",
+                TemplateVersion = "1.0",
+                Name = t.Item1,
+                Path = t.Item2
+            });
+        }
+
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using Caribbean.Models.PrintTemplates;
 using HtmlAgilityPack;
 using Microsoft.WindowsAzure.Storage.Blob;
+using NLog;
 
 namespace Caribbean.DataAccessLayer.PrintTemplates
 {
@@ -20,6 +21,8 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
 
     public class TemplateMetadataRepository : TemplateRepositoryBase, ITemplateMetadataRepository
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly bool _disableCaching;
         private const string CACHE_PREFIX_PRINT_VARIANT = "PV_";
         private const string CACHE_PREFIX_PAGE_TEMPLATE_METADATA = "PT_";
@@ -37,7 +40,13 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
             var cache = MemoryCache.Default;
 
             var cachedMetadata = cache[CACHE_PREFIX_PRINT_VARIANT + agencySlug];
-            if (cachedMetadata != null) return cachedMetadata as IEnumerable<PrintTemplateMetadata>;
+            if (cachedMetadata != null)
+            {
+                Logger.Trace($"Print template metadatas for {agencySlug} found in cache.");
+                return cachedMetadata as IEnumerable<PrintTemplateMetadata>;
+            }
+
+            Logger.Trace($"Print template metadatas for {agencySlug} not in cache.");
 
             var container = GetContainer("templates");
             if (container == null) return new PrintTemplateMetadata[0];
@@ -66,7 +75,13 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
             var cacheKey = CACHE_PREFIX_PAGE_TEMPLATE_METADATA + agencySlug + "_" + pageTemplateSlug;
 
             var cachedMetadata = cache[cacheKey];
-            if (cachedMetadata != null) return cachedMetadata as PageTemplateMetadata;
+            if (cachedMetadata != null)
+            {
+                Logger.Trace($"Page template metadata for {agencySlug}.{pageTemplateSlug} found in cache.");
+                return cachedMetadata as PageTemplateMetadata;
+            }
+
+            Logger.Trace($"Page template metadata for {agencySlug}.{pageTemplateSlug} not in cache.");
 
             var container = GetContainer("templates");
             if (container == null) return null;
@@ -76,7 +91,11 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                 .Cast<CloudBlockBlob>()
                 .SingleOrDefault(b => IsMatchingPageTemplate(b.Name, pageTemplateSlug));
 
-            if (foundPageTemplateBlob == null) return null;
+            if (foundPageTemplateBlob == null)
+            {
+                Logger.Warn($"No page template blob for {agencySlug}.{pageTemplateSlug} could be found.");
+                return null;
+            }
             var createdMetadata = CreatePageTemplateMetadataFromBlob(foundPageTemplateBlob);
 
             if (!_disableCaching)
@@ -143,8 +162,9 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                     return htmlDocument;
                 }
             }
-            catch
+            catch (Exception e)
             {
+                Logger.Warn(e, $"Error downloading Html document {blob.StorageUri}.");
                 return null;
             }
         }
@@ -166,8 +186,9 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                         ProposedPageSlugs = GetMetaContent("foreslagnaSidor", metaNodes).Split(';'),
                     };
             }
-            catch
+            catch (Exception e)
             {
+                Logger.Warn(e, $"Error parsing HTML into print variant metadata {blob.StorageUri}.");
                 return PrintTemplateMetadata.CreateInvalid("The HTML is invalid.", blob.StorageUri.ToString());
             }
         }
@@ -190,8 +211,9 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                     Dpi = int.TryParse(GetMetaContent("dpi", metaNodes), out dpi) ? dpi : 300
                 };
             }
-            catch
+            catch (Exception e)
             {
+                Logger.Warn(e, $"Error parsing HTML into page template metadata {blob.StorageUri}.");
                 return PageTemplateMetadata.CreateInvalid("The HTML is invalid.", blob.StorageUri.ToString());
             }
         }

@@ -42,6 +42,10 @@
       <HintPath>..\..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +75,10 @@
     <ProjectReference Include="..\..\DataAccessLayer.RealEstateObjects\DataAccessLayer.RealEstateObjects.csproj">
       <Project>{FD149EAF-6B6A-480B-8710-67B95CCB92B5}</Project>
       <Name>DataAccessLayer.RealEstateObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataContexts.Application\DataContexts.Application.csproj">
+      <Project>{7F131E5C-442B-4B2D-971B-D41840812777}</Project>
+      <Name>DataContexts.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Models.Database\Models.Database.csproj">
       <Project>{713A3E40-EF43-4A5B-BC19-3CCA50431D07}</Project>
@@ -82,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestFiles\OBJ22998_1431132504.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

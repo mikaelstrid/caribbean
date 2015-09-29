@@ -7,6 +7,7 @@ using System.Runtime.Caching;
 using System.Text;
 using System.Xml.Linq;
 using Caribbean.Models.RealEstateObjects;
+using NLog;
 
 namespace Caribbean.DataAccessLayer.RealEstateObjects
 {
@@ -19,6 +20,8 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
 
     public class VitecObjectRepository : IVitecObjectRepository
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private const string CACHE_PREFIX_SUMMARY = "VS_";
         private const string CACHE_PREFIX_DETAILS = "VD_";
         private const string CACHE_PREFIX_MODIFIED_TIME = "VMT_";
@@ -42,8 +45,13 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             var cache = MemoryCache.Default;
 
             var cachedObjectSummaries = cache[CACHE_PREFIX_SUMMARY + vitecCustomerId];
-            if (cachedObjectSummaries != null) return cachedObjectSummaries as IEnumerable<VitecObjectSummary>;
+            if (cachedObjectSummaries != null)
+            {
+                Logger.Trace($"Object summaries for {vitecCustomerId} found in cache.");
+                return cachedObjectSummaries as IEnumerable<VitecObjectSummary>;
+            }
 
+            Logger.Trace($"Object summaries for {vitecCustomerId} not in cache.");
             var createdObjectSummaries = GetSummariesAndUpdateCache(vitecCustomerId, cache);
 
             return createdObjectSummaries;
@@ -55,8 +63,13 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
 
             var cachedObjectSummaries = cache[CACHE_PREFIX_SUMMARY + vitecCustomerId];
             var matchingSummary = ((IEnumerable<VitecObjectSummary>) cachedObjectSummaries)?.FirstOrDefault(s => s.Id == objectId);
-            if (matchingSummary != null) return matchingSummary;
+            if (matchingSummary != null)
+            {
+                Logger.Trace($"Object summary {objectId} for {vitecCustomerId} found in cache.");
+                return matchingSummary;
+            }
 
+            Logger.Trace($"Object summary {objectId} for {vitecCustomerId} not in cache.");
             var createdObjectSummaries = GetSummariesAndUpdateCache(vitecCustomerId, cache);
 
             return createdObjectSummaries.FirstOrDefault(s => s.Id == objectId);
@@ -118,10 +131,21 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             var cache = MemoryCache.Default;
 
             var cachedObjectDetails = cache[CACHE_PREFIX_DETAILS + objectId];
-            if (cachedObjectDetails != null) return cachedObjectDetails as VitecObjectDetails;
+            if (cachedObjectDetails != null)
+            {
+                Logger.Trace($"Object details {objectId} found in cache.");
+                return cachedObjectDetails as VitecObjectDetails;
+            }
+
+            Logger.Trace($"Object details {objectId} not in cache.");
 
             var xml = LoadVitecDetailsXmlString(objectId);
-            if (xml == null) return null;
+            if (xml == null)
+            {
+                Logger.Warn($"XML for object {objectId} could not be downloaded.");
+                return null;
+            }
+
             var createdObjectDetails = _vitecObjectFactory.CreateDetails(xml);
 
             cache.Set(CACHE_PREFIX_MODIFIED_TIME + objectId, createdObjectDetails.ModifiedTime, DateTimeOffset.Now.AddMonths(1));

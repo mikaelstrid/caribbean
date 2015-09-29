@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes" ?>
+<OBJEKT gid="OBJ22998_1431132504">
+	<Firma nr="22998">
+		<faNamn><![CDATA[Fastighetsbyrån Storängsgatan]]></faNamn>
+		<faAdress><![CDATA[Storängsgatan 2]]></faAdress>
+		<faBesokAdr><![CDATA[Storängsgatan 2]]></faBesokAdr>
+		<faPostnr><![CDATA[413 19]]></faPostnr>
+		<faPostadress><![CDATA[413 19  Göteborg]]></faPostadress>
+		<faTel1><![CDATA[031-825515]]></faTel1>
+		<faFax><![CDATA[]]></faFax>
+		<faHemsida><![CDATA[www.storangsgatan.se]]></faHemsida>
+		<faXtra><![CDATA[]]></faXtra>
+		<faKontor><![CDATA[]]></faKontor>
+	</Firma>
+	<Maklare>
+    <maGID><![CDATA[HAN2848A658970244798B4CDA8CD29C85B3]]></maGID>
+		<maNamn><![CDATA[Bo Wettergren]]></maNamn>
+		<maEmail><![CDATA[info@storangsgatan.se]]></maEmail>
+		<maMobilnr><![CDATA[0708 - 787966]]></maMobilnr>
+		<maTitel><![CDATA[Fastighetsmäklare]]></maTitel>
+		<maDirektnr><![CDATA[031- 825515]]></maDirektnr>
+		<maBildRelUrl><![CDATA[22998/SFDD2F324AB93DC48B8B41FA511CC3A4A90.jpg]]></maBildRelUrl>
+		<maBildUrl><![CDATA[http://pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD2F324AB93DC48B8B41FA511CC3A4A90.jpg]]></maBildUrl>
+		<maBildonobj><![CDATA[-1]]></maBildonobj>
+		<maInit><![CDATA[BW]]></maInit>
+		<maDontPublish><![CDATA[0]]></maDontPublish>
+	</Maklare>
+	<Extrakontaktperson>
+		<ekGid><![CDATA[]]></ekGid>
+		<ekNamn><![CDATA[]]></ekNamn>
+		<ekEmail><![CDATA[]]></ekEmail>
+		<ekMobilnr><![CDATA[]]></ekMobilnr>
+		<ekTitel><![CDATA[]]></ekTitel>
+		<ekDirektnr><![CDATA[]]></ekDirektnr>
+		<ekBildRelUrl><![CDATA[]]></ekBildRelUrl>
+		<ekBildUrl><![CDATA[]]></ekBildUrl>
+		<ekBildonobj><![CDATA[]]></ekBildonobj>
+		<ekInit><![CDATA[]]></ekInit>
+		<ekDontPublish><![CDATA[-1]]></ekDontPublish>
+	</Extrakontaktperson>
+	<Forening>
+		<forNamn><![CDATA[]]></forNamn>
+		<forTxt><![CDATA[]]></forTxt>
+		<forKontaktNamn><![CDATA[]]></forKontaktNamn>
+		<forKontaktTel><![CDATA[]]></forKontaktTel>
+		<forAdress><![CDATA[]]></forAdress>
+		<maDirektnr><![CDATA[031- 825515]]></maDirektnr>
+	</Forening>
+	<akttid><![CDATA[2015-09-28 05:30]]></akttid>
+	<fastbet><![CDATA[Långenäs 1:102]]></fastbet>
+	<objekttyp>0</objekttyp>
+	<objekttyptext>Villa</objekttyptext>
+	<upplatform>0</upplatform>
+	<upplatformtext><![CDATA[Friköpt]]></upplatformtext>
+	<boendeform>0</boendeform>
+	<boendeformtext><![CDATA[1 familjs friliggande]]></boendeformtext>
+	<projnamn><![CDATA[]]></projnamn>
+	<arrende_objekt><![CDATA[]]></arrende_objekt>
+	<lghrefnr><![CDATA[]]></lghrefnr>
+	<kind><![CDATA[300]]></kind>
+	<kommandeForsaljning>0</kommandeForsaljning>
+	<taxkod><![CDATA[220]]></taxkod>
+	<taxvarde><![CDATA[3004000]]></taxvarde>
+	<taxbygg><![CDATA[1814000]]></taxbygg>
+	<taxar>2014</taxar>
+	<rattigheter><![CDATA[Andel i samfällighet/GA: Långenäs GA:2
+Last & Förmån, Avtalsservitut: Vattenledning mm, 14-IM2-57/897]]></rattigheter>
+	<msadress><![CDATA[Långenäs 141]]></msadress>
+	<adress2><![CDATA[435 35 Mölnlycke]]></adress2>
+	<omrade><![CDATA[Mölnlycke, Råda, Härryda]]></omrade>
+	<kommun><![CDATA[Härryda]]></kommun>
+	<land><![CDATA[Sverige]]></land>
+	<landskodiso><![CDATA[SE]]></landskodiso>
+	<kommskatt><![CDATA[33,13]]></kommskatt>
+	<vaning><![CDATA[]]></vaning>
+	<vaningav><![CDATA[]]></vaningav>
+	<startpris><![CDATA[6750000]]></startpris>
+	<mspris><![CDATA[6750000]]></mspris>
+	<pristext><![CDATA[accepterat pris]]></pristext>
+	<slutpris><![CDATA[]]></slutpris>
+	<nytid><![CDATA[den 1 september 2015 23:33]]></nytid>
+	<tomttyp><![CDATA[Natur/trädgårdstomt]]></tomttyp>
+	<driftskostnad><![CDATA[42800]]></driftskostnad>
+	<druppv><![CDATA[35500]]></druppv>
+	<drel></drel>
+	<drva><![CDATA[0]]></drva>
+	<drren><![CDATA[1500]]></drren>
+	<drvag></drvag>
+	<drsot><![CDATA[800]]></drsot>
+	<drfors><![CDATA[5000]]></drfors>
+	<drovr></drovr>
+	<drpers><![CDATA[2]]></drpers>
+	<pantbrevsum><![CDATA[5000000]]></pantbrevsum>
+	<status>67404892</status>
+	
+		<hiss>0</hiss>
+	
+  
+  
+    
+      <hissFinns></hissFinns>
+    
+  
+  <hisstext><![CDATA[]]></hisstext>
+  <lkf><![CDATA[140103]]></lkf>
+  <ort><![CDATA[]]></ort>
+	<ovrigt><![CDATA[]]></ovrigt>
+	<ovrigt2><![CDATA[]]></ovrigt2>
+	<ovrigtbyggn><![CDATA[Uteplats 1:Stor altan i nordvästläge med sjöutsikt med utgång från vardagsrummet. 
+Uteplats 2: Altan i österläge med utgång från köket.
+<br><br>]]></ovrigtbyggn>
+	<ovrigabyggn><![CDATA[Mindre förråd på tomten.
+Gäststuga i behov av renovering
+Lekstuga
+<br><br>]]></ovrigabyggn>
+	<ovrtomt><![CDATA[]]></ovrtomt>
+	<budtyp>0</budtyp>
+	<budstyle></budstyle>
+	<budhistorikstyle>0</budhistorikstyle>
+	<budrelurl><![CDATA[]]></budrelurl>
+	<iExtra><![CDATA[0]]></iExtra>
+	
+		<nyproduktion><![CDATA[0]]></nyproduktion>
+	
+	<dagensObjekt>0</dagensObjekt>
+	<dagensReferensObjekt>0</dagensReferensObjekt>
+	<byteskrav><![CDATA[0]]></byteskrav>		
+	<byteskravtext><![CDATA[]]></byteskravtext>
+	<husform><![CDATA[2-plansvilla med inredd vind]]></husform>
+	<boarea><![CDATA[300]]></boarea>
+	<biarea><![CDATA[20]]></biarea>
+	<bobiText><![CDATA[taxeringsinformation]]></bobiText>
+	<rum><![CDATA[10]]></rum>
+	<sovrummin><![CDATA[4]]></sovrummin>
+	<sovrummax><![CDATA[6]]></sovrummax>
+	<koktyp><![CDATA[]]></koktyp>
+	<kokbeskr><![CDATA[]]></kokbeskr>
+	<badrumbeskr><![CDATA[]]></badrumbeskr>
+	<tvattbeskr><![CDATA[]]></tvattbeskr>
+	
+	<rumsbeskrivningar>
+			
+		
+	</rumsbeskrivningar>
+	
+	<tomtareal><![CDATA[5610]]></tomtareal>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD33DBBE0CC5D8447092381003A04690A2.jpg&sizex=250]]></picurl>
+	<beskrivning><![CDATA[Husets läge bjuder på det bästa av två världar, med 2 km till Mölnlycke centrum och 500m till den vackra badplatsen vid Landvettersjön. Här har du känslan av att bo på landet och samtidigt närheten till stan.]]></beskrivning>
+	<saljbeskrivningLang><![CDATA[Husets läge bjuder på det bästa av två världar, med 2 km till Mölnlycke centrum och 500m till den vackra badplatsen vid Landvettersjön. Här har du känslan av att bo på landet och samtidigt närheten till stan.]]></saljbeskrivningLang>
+	<tilltrdag><![CDATA[]]></tilltrdag>
+	<tilltrtext><![CDATA[]]></tilltrtext>
+	<vagbeskr><![CDATA[]]></vagbeskr>
+	<VisnInfo><![CDATA[]]></VisnInfo>
+	<visningar>
+	
+	</visningar>	
+	<planlosning><![CDATA[Välkomnande representativ hall med bra förvaring bland annat i form av platsbyggda garderober.
+
+Från hallen når man det stora härliga vardagsrummet. Här finns öppen spis, högt till tak, en inbyggd veranda med stora fönster samt utgång till den väl tilltagna och rustika altanen. Utsikten över Lanvettersjön är hänförande. 
+
+Ett litet vackert sovrum med kakelugn och egen utgång till altanen ligger i anslutning till vardagsrummet. 
+
+Från vardagsrummet når man en stor inre hall. I anslutning till denna ligger ett helkaklat badrum som rymmer dusch, handfat och toalett. Från den inre hallen nås husets TV- och sällskapsrum samt en stor härlig ateljé, alternativt kontor. Ateljén/kontoret  är ett mycket ljust och arbetsvänligt rum med stora fönster ut mot husets baksida. Utsikten över skogens grönska bildar en skön och inspirerande arbetsmiljö. 
+
+Från den inre hallen når man vidare det moderna och praktiska köket. Köket har köksö i granit med inbyggd induktionshäll, bra arbetsytor, vitvaror i rostfritt stål, golvvärme och en mysig gammeldags gjutjärnskamin. Via stora skjutdörra nås en separat altan. 
+
+En korridor innehåller en praktisk och helkaklad tvättstuga med moderna vitvaror. Korridoren leder vidare till husets vackra matsal. I matsalen finns en gammal vacker och fungerande kakelugn. Matsalens stora spröjsade fönster bjuder på en svårslagen utsikt ut över sjön och områdets grönskande natur.
+
+Andra våningen innehåller en övre hall med takfönster. Från hallen når man samtliga rum på detta våningsplan. Ett av rummen är ett stort härligt sovrum med högt i tak samt en tillhörande balkong från vilken man har en rogivande utsikt över sjön och dalen. Ett mindre badrum med tvättställ och toalett finns i direkt anslutning till detta sovrum. Vidare bort i hallen ligger ett större helkaklat badrum med två tvättställ, ångdusch samt ett bubbelbadkar. Badrummet har vackra framtagna träbalkar med inbyggda spotlights. Mitt emot badrummet ligger ytterligare ett sovrum som idag använd som barnrum. Övervåningen rymmer även ett härligt loft som vetter ut mot vardagsrummet. Loftet är idag bibliotek och den mysiga atmosfären lämpar sig mycket fint för läsning av en god bok uppkrupen i favoritfotöljen. På husets övervåning finner man slutligen ett ljust vackert sovrum med ett tillhörande sovloft, idag används det som ungdomssovrum. 
+
+Runt om hela huset sträcker sig en rustik träaltan i trä. Väl tilltagen trädgården med vackra blommor och stora gräsmattepartier som gjorda för lek och stoj.
+På tomten finns ett vackert förrådshus, en lekstuga och en fin gammal gäststuga vilken dock kan kräva lättare underhåll. Tomten angränsar till ett vackert, lummigt skogsområde, vilket ger huset en känsla av att vara inbäddat i grönska. 
+<br><br>]]></planlosning>
+	<avgift><![CDATA[]]></avgift>
+	<avgifttext><![CDATA[]]></avgifttext>
+	<byggnar><![CDATA[1907]]></byggnar>
+	<byggnartext><![CDATA[ombyggt 1992]]></byggnartext>
+	<avtalsdag><![CDATA[]]></avtalsdag>
+	<uppdragsdag><![CDATA[2015-09-02 00:00]]></uppdragsdag>
+    <prisannanvaluta><![CDATA[]]></prisannanvaluta>
+    <valutakod><![CDATA[]]></valutakod>
+    
+
+    <bostadsrattsforening>
+		<antalLagenheter></antalLagenheter>
+		<varavHyresratter></varavHyresratter>
+		<antalLokaler></antalLokaler>
+		<allmant></allmant>
+		<ekonomi></ekonomi>
+		<agerMarken></agerMarken>
+		<renoveringar></renoveringar>
+		<parkering></parkering>
+		<bredbandTV></bredbandTV>
+		<ovrigt></ovrigt>
+		<kontaktPerson></kontaktPerson>
+		<kontaktTelefon></kontaktTelefon>
+		<kontaktEmail></kontaktEmail>
+		<organisationsform></organisationsform>
+		
+			<aktaBrf></aktaBrf>
+		
+		
+			<tillaterJuridiskPerson></tillaterJuridiskPerson>
+		
+		<delatAgande></delatAgande>
+		<overlAvg></overlAvg>
+		<pantAvg></pantAvg>
+	</bostadsrattsforening>
+
+
+
+
+	
+	<webbudgivning>
+		
+			<visabudgivningpagar>0</visabudgivningpagar>
+		
+	</webbudgivning>
+	
+	
+		<bidhistory><![CDATA[http://budhistorik.maklare.vitec.net/objectbidhistory/bidhistory.aspx?ObjGID=OBJ22998_1431132504&DBSpace=22998]]></bidhistory>
+		<highbid><![CDATA[http://net.sfd.se/WebPack/ObjectHighBid/__GetObjectHighBid.aspx?ObjGID=OBJ22998_1431132504&DBSpace=22998&NumFormatSeparator=]]></highbid>
+		<wpbudxml><![CDATA[http://net.sfd.se/utils/WPBud/Default.aspx?firmanr=22998&gid=OBJ22998_1431132504&renderasxml=1]]></wpbudxml>
+	
+	<bildListaXml><![CDATA[http://w4.objektdata.se/pregen/504/OBJ22998_1431132504/bilder.xml?firmanr=22998]]></bildListaXml>
+	<RightOnTarget>0</RightOnTarget>
+	<pictures numpics="88">
+		<picture pid="1">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD33DBBE0CC5D8447092381003A04690A2.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD33DBBE0CC5D8447092381003A04690A2.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="2">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD42038CFB8C394742A274B3DBA3517059.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD42038CFB8C394742A274B3DBA3517059.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="3">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD804A3438AF324CE6BF79A5447A87DDCC.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD804A3438AF324CE6BF79A5447A87DDCC.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="4">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5A3113C6F76345A3963CDB9DAACB61B0.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5A3113C6F76345A3963CDB9DAACB61B0.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="5">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD32B81B260236495EAEC68CA55AD03CF4.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD32B81B260236495EAEC68CA55AD03CF4.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="6">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5EB15E08197A47CBA4214FAF3EF4801A.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5EB15E08197A47CBA4214FAF3EF4801A.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="7">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBC325F115D9E4C699896D4A6CC51E5B7.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBC325F115D9E4C699896D4A6CC51E5B7.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="8">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBDB0CBF9155940BCBF93635DCCC47F18.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBDB0CBF9155940BCBF93635DCCC47F18.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="9">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB852A9F1DA294B8C960E52CE2502CBA6.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB852A9F1DA294B8C960E52CE2502CBA6.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="10">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDE78F1B3115A14235967A44E312DB5031.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDE78F1B3115A14235967A44E312DB5031.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="11">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD07C44D8C7CBD468C93311C4A9D57C69F.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD07C44D8C7CBD468C93311C4A9D57C69F.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="12">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD24560C822C9C4C5987057FACBC2EA42B.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD24560C822C9C4C5987057FACBC2EA42B.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="13">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD65BBCA7C56B4022B843B17271F64B7C.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD65BBCA7C56B4022B843B17271F64B7C.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="14">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD424EF7EA205E4CA199140AE9E16ECEC7.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD424EF7EA205E4CA199140AE9E16ECEC7.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="15">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDAE54B34289794E05949BB9ADACD04BBC.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDAE54B34289794E05949BB9ADACD04BBC.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="16">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC5EC9D37E3404BE9AEE3D0808618318E.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC5EC9D37E3404BE9AEE3D0808618318E.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="17">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD850FC58AFDC4D03B3A4ECBC8E068A90.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD850FC58AFDC4D03B3A4ECBC8E068A90.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[Objektsbeskrivning Bild 1]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="18">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6BDA0FAA706A4C629E5FA54BA5D18564.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6BDA0FAA706A4C629E5FA54BA5D18564.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="19">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDE0D6A8026B274D8593AE5AD2E1928E75.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDE0D6A8026B274D8593AE5AD2E1928E75.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="20">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBB18688FB69343EBB1D5361E6C602EA9.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBB18688FB69343EBB1D5361E6C602EA9.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="21">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD24FF2F9A648749709641E09D24F58419.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD24FF2F9A648749709641E09D24F58419.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="22">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD4CB6730433F6480E8AA4B350BCF42D41.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD4CB6730433F6480E8AA4B350BCF42D41.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="23">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBAD747ACE1B34510B23B54D3AA32E719.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBAD747ACE1B34510B23B54D3AA32E719.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="24">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB47FB421FCD649C09D9D641F0DDECE2D.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB47FB421FCD649C09D9D641F0DDECE2D.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="25">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD1966C8EC5FCC4C64B09D7EA64231FC52.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD1966C8EC5FCC4C64B09D7EA64231FC52.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="26">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC1FAD4AF8FF849BCBCB8D0BC29A2F867.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC1FAD4AF8FF849BCBCB8D0BC29A2F867.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="27">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD34C29E8AD5AE45F5B154F44C9F01517F.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD34C29E8AD5AE45F5B154F44C9F01517F.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="28">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD36ED154F4E45481A9EFBB6CE0CB5744A.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD36ED154F4E45481A9EFBB6CE0CB5744A.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="29">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDE33C4153F5684D05BE1035558E989282.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDE33C4153F5684D05BE1035558E989282.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="30">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD7D2C4E3B9E204D05A0B4B9271F9E8338.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD7D2C4E3B9E204D05A0B4B9271F9E8338.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="31">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA3A29B9AD12D4078ACDE152E44458B98.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA3A29B9AD12D4078ACDE152E44458B98.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="32">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD7F8131D9E8B4D6692BDBA60D2FEA767.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD7F8131D9E8B4D6692BDBA60D2FEA767.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="33">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD878FF87D2D37445191DDC70AD1DFD55D.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD878FF87D2D37445191DDC70AD1DFD55D.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="34">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6DF7AE9ECCFC4A23B7BE47A61DDFA988.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6DF7AE9ECCFC4A23B7BE47A61DDFA988.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="35">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD94F164E5338D42D99B68902DFABDF6E0.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD94F164E5338D42D99B68902DFABDF6E0.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="36">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6386DE182D304975868C7D6250810972.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6386DE182D304975868C7D6250810972.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="37">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD723C5508CF304048B7A5C9E1FEC4DBF5.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD723C5508CF304048B7A5C9E1FEC4DBF5.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="38">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA3CCA92F34234D028BEA17CCF8B4A799.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA3CCA92F34234D028BEA17CCF8B4A799.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="39">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD498AD2D79C77435CA12DC179A9E6752B.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD498AD2D79C77435CA12DC179A9E6752B.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="40">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDCD80252F705F48709926C6351E038824.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDCD80252F705F48709926C6351E038824.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="41">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD2AA4F00F9038441B8063EF08ADECB3BB.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD2AA4F00F9038441B8063EF08ADECB3BB.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="42">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD579AB411BDE54FCBB3A59B93BCA79A87.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD579AB411BDE54FCBB3A59B93BCA79A87.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="43">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA1EF681404CA448ABC253B39F2D86D4F.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA1EF681404CA448ABC253B39F2D86D4F.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="44">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDFB4C891BBD914808A12D6C2D54BF9125.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDFB4C891BBD914808A12D6C2D54BF9125.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="45">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDCBD14373416F402391878BC3A582AA67.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDCBD14373416F402391878BC3A582AA67.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="46">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD9289C5E5A1804818B3720975C17809F0.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD9289C5E5A1804818B3720975C17809F0.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="47">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDCB72B098F8FD4C27ABC8E79E14A821D2.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDCB72B098F8FD4C27ABC8E79E14A821D2.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="48">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD3C8DE8F5D10A4A24934B74BD34C5225C.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD3C8DE8F5D10A4A24934B74BD34C5225C.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="49">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDF82CF5A890B24E3B8B4AC280A755DE99.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDF82CF5A890B24E3B8B4AC280A755DE99.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="50">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB3A5EEAB1646451288411A2B83EB030D.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB3A5EEAB1646451288411A2B83EB030D.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="51">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBBB7AB6A6F3349768AB8AAAB7AFEA9ED.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDBBB7AB6A6F3349768AB8AAAB7AFEA9ED.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="52">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD56186CB271054DE89ED4B5C6D3EF17E8.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD56186CB271054DE89ED4B5C6D3EF17E8.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="53">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5317792A60DD4ABDB5AFD8D18B02819A.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5317792A60DD4ABDB5AFD8D18B02819A.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="54">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD4D54B644812142DAB125996EDD551E55.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD4D54B644812142DAB125996EDD551E55.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="55">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD9EC347F13DDC446A8B2BCA4559E40AE4.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD9EC347F13DDC446A8B2BCA4559E40AE4.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="56">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD2B60AB695094948BBB45E3AFE97C03F.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD2B60AB695094948BBB45E3AFE97C03F.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="57">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD3AE27F98C6DF4AB4856BBDEFC0FF2400.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD3AE27F98C6DF4AB4856BBDEFC0FF2400.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="58">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDDF6EBA64FEDE4AE08B6E6D1C0A84452C.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDDF6EBA64FEDE4AE08B6E6D1C0A84452C.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="59">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6DF60C0902B94D00915EC7ECB5A236F8.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6DF60C0902B94D00915EC7ECB5A236F8.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="60">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD3200FF2EB5BE4C12B9F7FA7CD81721A3.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD3200FF2EB5BE4C12B9F7FA7CD81721A3.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="61">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDF2B072DA8A46420FB58D388622805509.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDF2B072DA8A46420FB58D388622805509.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="62">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD33926CDE9F544FD3BE0DE25ABF925615.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD33926CDE9F544FD3BE0DE25ABF925615.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="63">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6D0F193F77464FF7AF0DEB0A2EC3B5D3.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6D0F193F77464FF7AF0DEB0A2EC3B5D3.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="64">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD1B619497511743099E2A65AB20165605.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD1B619497511743099E2A65AB20165605.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="65">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6D1454BC9F4841099F5C1D3807A47F1E.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD6D1454BC9F4841099F5C1D3807A47F1E.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="66">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD093DFF94A8514B59A6C0A0CA09C3B864.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD093DFF94A8514B59A6C0A0CA09C3B864.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="67">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD374C544EFEEF4191BDFEEA4742CD2799.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD374C544EFEEF4191BDFEEA4742CD2799.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="68">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDACB815A814294022B05CF90F74097300.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDACB815A814294022B05CF90F74097300.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="69">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD10C51D97A7E046E4A51358CC6EB34CDE.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD10C51D97A7E046E4A51358CC6EB34CDE.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="70">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD2ED830EC47AB47B5BB5B7B303FB1AA9E.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD2ED830EC47AB47B5BB5B7B303FB1AA9E.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="71">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD8B0F7A38B1246999F7ADA0123B64306.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDD8B0F7A38B1246999F7ADA0123B64306.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="72">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD77FD6F99C0714F02ABFCE841531A6254.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD77FD6F99C0714F02ABFCE841531A6254.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="73">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA9606A042AB7417291920C3C9D949CAE.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDA9606A042AB7417291920C3C9D949CAE.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="74">
+	<picnamn><![CDATA[Fastighetskarta]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD2F58E84AC67B412ABA05DF01D2A82CCC.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD2F58E84AC67B412ABA05DF01D2A82CCC.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[4]]></pickategori>
+</picture>
+
+<picture pid="75">
+	<picnamn><![CDATA[Husritning]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD1561677B57E94733B626150B0F2B94D4.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD1561677B57E94733B626150B0F2B94D4.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[]]></pickategori>
+</picture>
+
+<picture pid="76">
+	<picnamn><![CDATA[Husritning]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5BCAA39EC3AD40518E1B6C9134596F85.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD5BCAA39EC3AD40518E1B6C9134596F85.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[]]></pickategori>
+</picture>
+
+<picture pid="77">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDF89598D9120343F18E98ED2AB0DF1B81.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDF89598D9120343F18E98ED2AB0DF1B81.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="78">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB247E032452947EDA45A76E0BF1A54F7.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB247E032452947EDA45A76E0BF1A54F7.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="79">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC811047AAB404A13A1C7F639D679C28A.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC811047AAB404A13A1C7F639D679C28A.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="80">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD064375FB2DFF4056B01BEA455D70BAF9.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD064375FB2DFF4056B01BEA455D70BAF9.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="81">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB354A2ACE069466D97714F03FF2AE92E.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDB354A2ACE069466D97714F03FF2AE92E.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="82">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD7AAC023A970C4FD0AF6FCD8D451C890D.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD7AAC023A970C4FD0AF6FCD8D451C890D.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="83">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDDD3B6A7DE7584B31BE0FA5B5E66AF264.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDDD3B6A7DE7584B31BE0FA5B5E66AF264.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="84">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD4A4EB35B41AF49389F4F908FE2239E73.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD4A4EB35B41AF49389F4F908FE2239E73.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="85">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD31EB4947189145548396AEBDA88C4C73.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD31EB4947189145548396AEBDA88C4C73.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="86">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD41139FB83F8948A98379237ECC1FBEB3.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD41139FB83F8948A98379237ECC1FBEB3.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[5]]></pickategori>
+</picture>
+
+<picture pid="87">
+	<picnamn><![CDATA[]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC73A762215CC4D719846758B3FBF6250.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFDC73A762215CC4D719846758B3FBF6250.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[]]></pickategori>
+</picture>
+
+<picture pid="88">
+	<picnamn><![CDATA[Välkommen till vårt kontor i Änggården]]></picnamn>
+	<picurl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD9F2AB27C49C741018341BBF056AA2E25.jpg&sizex=390&sizey=272]]></picurl>
+	<thumburl><![CDATA[http://farm1.pics.objektdata.se/pic/pic.dll/image?url=22998/SFD9F2AB27C49C741018341BBF056AA2E25.jpg&sizex=80]]></thumburl>
+	<picgrupp><![CDATA[]]></picgrupp>
+	<pickategori><![CDATA[]]></pickategori>
+</picture>
+	</pictures>
+	
+	<pdfs numpdfs="3">
+		
+			
+			<pdfurl name="Avstyckningskarta.pdf">http://pics.objektdata.se/_media_/22998/SFD8FDC74AACC454C82BC13A4DA7C4EA921.pdf</pdfurl>
+
+ 
+
+	<pdfurl name="Energideklaration_392940.pdf">http://pics.objektdata.se/_media_/22998/SFD244F2B8FF69F4BE88B6BA4E5B0EDBD1E.pdf</pdfurl>
+
+ 
+
+	<pdfurl name="Info, Unders&#246;kningsplikt &amp; Felansvar">http://pics.objektdata.se/_media_/22998/SFD34A1F94C66954789944BB3B9BD2E11E3.pdf</pdfurl>
+		
+	</pdfs>
+	
+	<pdfdokument numpdfs="3">
+		
+			
+			<pdf>
+	<name><![CDATA[Avstyckningskarta.pdf]]></name>
+	<url><![CDATA[http://pics.objektdata.se/_media_/22998/SFD8FDC74AACC454C82BC13A4DA7C4EA921.pdf]]></url>
+</pdf>
+
+
+ 
+
+<pdf>
+	<name><![CDATA[Energideklaration_392940.pdf]]></name>
+	<url><![CDATA[http://pics.objektdata.se/_media_/22998/SFD244F2B8FF69F4BE88B6BA4E5B0EDBD1E.pdf]]></url>
+</pdf>
+
+
+ 
+
+<pdf>
+	<name><![CDATA[Info, Undersökningsplikt & Felansvar]]></name>
+	<url><![CDATA[http://pics.objektdata.se/_media_/22998/SFD34A1F94C66954789944BB3B9BD2E11E3.pdf]]></url>
+</pdf>
+		
+	</pdfdokument>
+	
+	<klickbarplanritningurl>
+	
+	
+		<![CDATA[]]>
+	
+	</klickbarplanritningurl>
+
+	<utsokbegrepp>	
+		
+		
+	</utsokbegrepp>
+	<lankar>		
+		
+		
+			<lank>
+	<Url><![CDATA[http://www.harryda.se/byggaboochmiljo/planarbete/detaljplaner/molnlycke.4.124fd5f4139f22e498f800011617.html]]></Url>
+	<Text><![CDATA[Mölnlycke Härryda kommun]]></Text>
+	<Kategori>0</Kategori>
+	<Grupp><![CDATA[]]></Grupp>
+		
+</lank>
+		
+	</lankar>
+	<x>6399895</x>
+	<y>1282788</y>
+	<longitude>12,1641659897</longitude>
+	<latitude>57,6714281054</latitude>
+	<parkering><![CDATA[]]></parkering>
+	<omgivning><![CDATA[]]></omgivning>
+	<kommunikation><![CDATA[]]></kommunikation>
+	<naromradekommunikation><![CDATA[Mycket bra förbindelser till Göteborg och vidare med kollektivtrafik. 
+<br><br>]]></naromradekommunikation>
+	<naromradeparkering><![CDATA[]]></naromradeparkering>
+	<naromradeallmant><![CDATA[<h1>Historia</h1>. 
+Mölnlycke som samhälle betraktat växte fram från det att textilfabrikanten Gustav Henning år 1849 grundade en stor textilfabrik i området. Nu blev det viktigt att snabbt bygga bostäder till fabrikens många anställda. Vi kan se spåren av denna svunna tid genom att ta en titt på de många vackra 1800-tals trävillorna runt om i Mölnlycke.
+ 
+En känd historisk Mölnlycke profil är Hennings svärson den mytomspunne och skandalomsusade Bruno Wendel som drev textilfabriken vidare. Det var han som lät uppföra den vackra slottsliknande vita villan i området som från 1908 inrymmer Wendelsbergs folkhögskola.
+
+Områdets handelsträdgårdar var från 1800-talet och långt in på 1900-talet en viktigt näringskälla för Mölnlyckeborna. Här odlades blommor, frukt och grönsaker som såldes till stadsborna i Göteborg. 
+Handelsträdgårdarna fanns på många ställen runt om i området, de mest kända vilka delvis finns kvar än idag är trädgårdarna vid Råda säteri och Pixbo herrgård.
+
+Mölnlycke grönskans och sjöarnas rike!
+<br><br>]]></naromradeallmant>
+	<naromradenarservice><![CDATA[<h1>Mölnlycke</h1>
+Mölnlycke är ett perfekt område att bo i för såväl barn som unga och gamla. Naturen runt knuten, trygghet och närhet till några av Västsveriges bästa skolor. Allt från förskola upp till gymnasium. Bekvämt avstånd till Mölnlycke centrums fina utbud av caféer, butiker, kulturhus, vårdcentral och bibliotek. Närhet till Mölndals välrenommerade sjukhus. Här i Mölnlycke har du nära till såväl shopping, kultur restauranger och har samtidigt möjlighet att njuta av lugnet vid någon av områdets otaliga natursköna oaser.
+<br><br>]]></naromradenarservice>
+	<naromradeovrigt><![CDATA[]]></naromradeovrigt>
+	<stomme><![CDATA[Trä]]></stomme>
+	<bjalklag><![CDATA[Trä]]></bjalklag>	
+	<grundmur><![CDATA[Natursten]]></grundmur>
+	<grundlaggn><![CDATA[krypgrund- betongplatta]]></grundlaggn>
+	<tak><![CDATA[Plåt- omlagt på 80-talet]]></tak>
+	<fasad><![CDATA[trä]]></fasad>
+	<plat><![CDATA[Plåt]]></plat>
+	<fonster><![CDATA[2 och 3-glasfönster]]></fonster>
+	<uppvarmn><![CDATA[Direktverkande el med luftvärmepump och braskamin i vardagsrum.]]></uppvarmn>
+	<vent><![CDATA[Självdrag]]></vent>
+	<va><![CDATA[Enskilt vatten året om, borrad brunn. Enskilt avlopp, 3-kammarbrunn med infiltration.]]></va>
+	<saljrubrik><![CDATA[Vacker sekelskiftesvilla med fantastisk utsikt över Lanvettersjön.]]></saljrubrik>
+	<andelstal><![CDATA[]]></andelstal>
+	<andelstalenhet><![CDATA[]]></andelstalenhet>
+	<andelformog><![CDATA[]]></andelformog>
+	<repfond><![CDATA[]]></repfond>	
+	<objektnr><![CDATA[BW998]]></objektnr>
+	<projuniknr><![CDATA[]]></projuniknr>
+	<HemnetHTML><![CDATA[
+
+
+	
+		
+			
+				
+					
+						<!-- inc _blobFieldCollection_-.htm -->
+						<!-- inc _blobInterior.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">INTERI&Ouml;R</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Antal rum</td>
+		<td class="Brod">10 rum  varav 4 - 6 sovrum</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Boarea&nbsp;+&nbsp;Biarea</td>
+		<td class="Brod">300&nbsp;kvm&nbsp;+&nbsp;20&nbsp;kvm</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Rumsbeskrivning</td>
+		<td class="Brod">Välkomnande representativ hall med bra förvaring bland annat i form av platsbyggda garderober.<br><br>Från hallen når man det stora härliga vardagsrummet. Här finns öppen spis, högt till tak, en inbyggd veranda med stora fönster samt utgång till den väl tilltagna och rustika altanen. Utsikten över Lanvettersjön är hänförande. <br><br>Ett litet vackert sovrum med kakelugn och egen utgång till altanen ligger i anslutning till vardagsrummet. <br><br>Från vardagsrummet når man en stor inre hall. I anslutning till denna ligger ett helkaklat badrum som rymmer dusch, handfat och toalett. Från den inre hallen nås husets TV- och sällskapsrum samt en stor härlig ateljé, alternativt kontor. Ateljén/kontoret  är ett mycket ljust och arbetsvänligt rum med stora fönster ut mot husets baksida. Utsikten över skogens grönska bildar en skön och inspirerande arbetsmiljö. <br><br>Från den inre hallen når man vidare det moderna och praktiska köket. Köket har köksö i granit med inbyggd induktionshäll, bra arbetsytor, vitvaror i rostfritt stål, golvvärme och en mysig gammeldags gjutjärnskamin. Via stora skjutdörra nås en separat altan. <br><br>En korridor innehåller en praktisk och helkaklad tvättstuga med moderna vitvaror. Korridoren leder vidare till husets vackra matsal. I matsalen finns en gammal vacker och fungerande kakelugn. Matsalens stora spröjsade fönster bjuder på en svårslagen utsikt ut över sjön och områdets grönskande natur.<br><br>Andra våningen innehåller en övre hall med takfönster. Från hallen når man samtliga rum på detta våningsplan. Ett av rummen är ett stort härligt sovrum med högt i tak samt en tillhörande balkong från vilken man har en rogivande utsikt över sjön och dalen. Ett mindre badrum med tvättställ och toalett finns i direkt anslutning till detta sovrum. Vidare bort i hallen ligger ett större helkaklat badrum med två tvättställ, ångdusch samt ett bubbelbadkar. Badrummet har vackra framtagna träbalkar med inbyggda spotlights. Mitt emot badrummet ligger ytterligare ett sovrum som idag använd som barnrum. Övervåningen rymmer även ett härligt loft som vetter ut mot vardagsrummet. Loftet är idag bibliotek och den mysiga atmosfären lämpar sig mycket fint för läsning av en god bok uppkrupen i favoritfotöljen. På husets övervåning finner man slutligen ett ljust vackert sovrum med ett tillhörande sovloft, idag används det som ungdomssovrum. <br><br>Runt om hela huset sträcker sig en rustik träaltan i trä. Väl tilltagen trädgården med vackra blommor och stora gräsmattepartier som gjorda för lek och stoj.<br>På tomten finns ett vackert förrådshus, en lekstuga och en fin gammal gäststuga vilken dock kan kräva lättare underhåll. Tomten angränsar till ett vackert, lummigt skogsområde, vilket ger huset en känsla av att vara inbäddat i grönska. <br><br><br></td></tr>
+		
+
+		
+		
+	
+	</table>
+
+<!-- inc _blobByggnad.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">BYGGNAD</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadstyp</td>
+		<td class="Brod">2-plansvilla med inredd vind</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadsår</td>
+		<td class="Brod">1907 ombyggt 1992</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Uppvärmning</td>
+		<td class="Brod">Direktverkande el med luftvärmepump och braskamin i vardagsrum.</td></tr>
+		
+		
+        
+		<tr><td valign="top" width="27%" class="BrodRub">Energideklaration</td>
+			<td class="Brod">
+            
+            
+            <div>Utfärdad den 16 mars 2011</div>
+            
+            
+          			                               
+           
+             
+		   
+			<div>Energiprestanda: 108 kWh/m² (Atemp) och år</div>          
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadssätt</td>
+		<td class="Brod">
+			<div>Grundläggning: krypgrund- betongplatta</div>
+			<div>Grundmur: Natursten</div>
+			<div>Stomme: Trä</div>
+			<div>Fasad: trä</div>
+			<div>Fönster: 2 och 3-glasfönster</div>
+			<div>Bjälklag: Trä</div>
+			<div>Tak: Plåt- omlagt på 80-talet</div>
+			<div>Utv. plåtarbete: Plåt</div>
+		</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Övrigt</td>
+		<td class="Brod">Uteplats 1:Stor altan i nordvästläge med sjöutsikt med utgång från vardagsrummet. <br>Uteplats 2: Altan i österläge med utgång från köket.<br><br><br></td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Fastighetsbet.</td>
+		<td class="Brod">Långenäs 1:102</td></tr>
+		
+		
+		
+	
+	</table>
+
+<!-- inc _blobOvrigaByggnader.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">&Ouml;VRIGA BYGGNADER</td></tr>
+
+	
+		<tr><td valign="top" class="Brod">Mindre förråd på tomten.<br>Gäststuga i behov av renovering<br>Lekstuga<br><br><br></td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobAllmantFastigheten.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">ALLM&Auml;NT OM FASTIGHETEN</td></tr>
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad</td>
+		<td class="Brod">42&nbsp;800&nbsp;kr/år</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad, varav</td>
+		<td class="Brod">
+			<div>Uppvärmning: 35&nbsp;500 kr</div>
+			<div>El:  kr &nbsp;  (35200 kWh)</div>
+			
+			<div>Renhållning: 1&nbsp;500 kr</div>
+			
+			<div>Sotning: 800 kr</div>
+			<div>Försäkring: 5&nbsp;000 kr</div>
+			
+			<div>Beräknat antal pers: 2</div>
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Kommentar: </td>
+		
+		<td class="Brod">Driftkostnaderna är en uppskattning då säljaren inte har bott i fastigheten.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringskod</td>
+		<td class="Brod">220</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringsvärde</td>
+		<td class="Brod">3&nbsp;004&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Summa pantbrev</td>
+		<td class="Brod">5&nbsp;000&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Tomt</td>
+		<td class="Brod">
+			<div>Areal: 5&nbsp;610 kvm</div>
+			<div>Typ: Natur/trädgårdstomt</div>
+		</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Vatten/avlopp</td>
+		<td class="Brod">Enskilt vatten året om, borrad brunn. Enskilt avlopp, 3-kammarbrunn med infiltration.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Servitut etc.</td>
+		<td class="Brod">Andel i samfällighet/GA: Långenäs GA:2<br>Last & Förmån, Avtalsservitut: Vattenledning mm, 14-IM2-57/897</td></tr>
+		
+		
+		
+		
+	</table>
+
+<!-- inc _blobOvrigt.htm -->
+
+<!-- inc _blobVagbeskrivning.htm -->
+
+					
+				
+			
+		
+	
+
+]]></HemnetHTML>
+	<WPHTML><![CDATA[
+
+
+	
+		
+			
+				
+					
+						<!-- inc _blobFieldCollection_-.htm -->
+						<!-- inc _blobInterior.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">INTERI&Ouml;R</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Antal rum</td>
+		<td class="Brod">10 rum  varav 4 - 6 sovrum</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Boarea&nbsp;+&nbsp;Biarea</td>
+		<td class="Brod">300&nbsp;kvm&nbsp;+&nbsp;20&nbsp;kvm</td></tr>
+		
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Rumsbeskrivning</td>
+		<td class="Brod">Välkomnande representativ hall med bra förvaring bland annat i form av platsbyggda garderober.<br><br>Från hallen når man det stora härliga vardagsrummet. Här finns öppen spis, högt till tak, en inbyggd veranda med stora fönster samt utgång till den väl tilltagna och rustika altanen. Utsikten över Lanvettersjön är hänförande. <br><br>Ett litet vackert sovrum med kakelugn och egen utgång till altanen ligger i anslutning till vardagsrummet. <br><br>Från vardagsrummet når man en stor inre hall. I anslutning till denna ligger ett helkaklat badrum som rymmer dusch, handfat och toalett. Från den inre hallen nås husets TV- och sällskapsrum samt en stor härlig ateljé, alternativt kontor. Ateljén/kontoret  är ett mycket ljust och arbetsvänligt rum med stora fönster ut mot husets baksida. Utsikten över skogens grönska bildar en skön och inspirerande arbetsmiljö. <br><br>Från den inre hallen når man vidare det moderna och praktiska köket. Köket har köksö i granit med inbyggd induktionshäll, bra arbetsytor, vitvaror i rostfritt stål, golvvärme och en mysig gammeldags gjutjärnskamin. Via stora skjutdörra nås en separat altan. <br><br>En korridor innehåller en praktisk och helkaklad tvättstuga med moderna vitvaror. Korridoren leder vidare till husets vackra matsal. I matsalen finns en gammal vacker och fungerande kakelugn. Matsalens stora spröjsade fönster bjuder på en svårslagen utsikt ut över sjön och områdets grönskande natur.<br><br>Andra våningen innehåller en övre hall med takfönster. Från hallen når man samtliga rum på detta våningsplan. Ett av rummen är ett stort härligt sovrum med högt i tak samt en tillhörande balkong från vilken man har en rogivande utsikt över sjön och dalen. Ett mindre badrum med tvättställ och toalett finns i direkt anslutning till detta sovrum. Vidare bort i hallen ligger ett större helkaklat badrum med två tvättställ, ångdusch samt ett bubbelbadkar. Badrummet har vackra framtagna träbalkar med inbyggda spotlights. Mitt emot badrummet ligger ytterligare ett sovrum som idag använd som barnrum. Övervåningen rymmer även ett härligt loft som vetter ut mot vardagsrummet. Loftet är idag bibliotek och den mysiga atmosfären lämpar sig mycket fint för läsning av en god bok uppkrupen i favoritfotöljen. På husets övervåning finner man slutligen ett ljust vackert sovrum med ett tillhörande sovloft, idag används det som ungdomssovrum. <br><br>Runt om hela huset sträcker sig en rustik träaltan i trä. Väl tilltagen trädgården med vackra blommor och stora gräsmattepartier som gjorda för lek och stoj.<br>På tomten finns ett vackert förrådshus, en lekstuga och en fin gammal gäststuga vilken dock kan kräva lättare underhåll. Tomten angränsar till ett vackert, lummigt skogsområde, vilket ger huset en känsla av att vara inbäddat i grönska. <br><br><br></td></tr>
+		
+
+		
+		
+	
+	</table>
+
+<!-- inc _blobByggnad.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">BYGGNAD</td></tr>
+
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadstyp</td>
+		<td class="Brod">2-plansvilla med inredd vind</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadsår</td>
+		<td class="Brod">1907 ombyggt 1992</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Uppvärmning</td>
+		<td class="Brod">Direktverkande el med luftvärmepump och braskamin i vardagsrum.</td></tr>
+		
+		
+        
+		<tr><td valign="top" width="27%" class="BrodRub">Energideklaration</td>
+			<td class="Brod">
+            
+            
+            <div>Utfärdad den 16 mars 2011</div>
+            
+            
+          			                               
+           
+             
+		   
+			<div>Energiprestanda: 108 kWh/m² (Atemp) och år</div>          
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Byggnadssätt</td>
+		<td class="Brod">
+			<div>Grundläggning: krypgrund- betongplatta</div>
+			<div>Grundmur: Natursten</div>
+			<div>Stomme: Trä</div>
+			<div>Fasad: trä</div>
+			<div>Fönster: 2 och 3-glasfönster</div>
+			<div>Bjälklag: Trä</div>
+			<div>Tak: Plåt- omlagt på 80-talet</div>
+			<div>Utv. plåtarbete: Plåt</div>
+		</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Övrigt</td>
+		<td class="Brod">Uteplats 1:Stor altan i nordvästläge med sjöutsikt med utgång från vardagsrummet. <br>Uteplats 2: Altan i österläge med utgång från köket.<br><br><br></td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Fastighetsbet.</td>
+		<td class="Brod">Långenäs 1:102</td></tr>
+		
+		
+		
+	
+	</table>
+
+<!-- inc _blobOvrigaByggnader.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">&Ouml;VRIGA BYGGNADER</td></tr>
+
+	
+		<tr><td valign="top" class="Brod">Mindre förråd på tomten.<br>Gäststuga i behov av renovering<br>Lekstuga<br><br><br></td></tr>
+		
+	
+	</table>
+
+<!-- inc _blobAllmantFastigheten.htm -->
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%">
+	<tr><td class="Brod">&nbsp;</td></tr>
+	<tr><td colspan="2" class="Rubrik">ALLM&Auml;NT OM FASTIGHETEN</td></tr>
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad</td>
+		<td class="Brod">42&nbsp;800&nbsp;kr/år</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Driftskostnad, varav</td>
+		<td class="Brod">
+			<div>Uppvärmning: 35&nbsp;500 kr</div>
+			<div>El:  kr &nbsp;  (35200 kWh)</div>
+			
+			<div>Renhållning: 1&nbsp;500 kr</div>
+			
+			<div>Sotning: 800 kr</div>
+			<div>Försäkring: 5&nbsp;000 kr</div>
+			
+			<div>Beräknat antal pers: 2</div>
+		</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Kommentar: </td>
+		
+		<td class="Brod">Driftkostnaderna är en uppskattning då säljaren inte har bott i fastigheten.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringskod</td>
+		<td class="Brod">220</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Taxeringsvärde</td>
+		<td class="Brod">3&nbsp;004&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Summa pantbrev</td>
+		<td class="Brod">5&nbsp;000&nbsp;000 kr</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Tomt</td>
+		<td class="Brod">
+			<div>Areal: 5&nbsp;610 kvm</div>
+			<div>Typ: Natur/trädgårdstomt</div>
+		</td></tr>
+		
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Vatten/avlopp</td>
+		<td class="Brod">Enskilt vatten året om, borrad brunn. Enskilt avlopp, 3-kammarbrunn med infiltration.</td></tr>
+		
+		
+		<tr><td valign="top" width="27%" class="BrodRub">Servitut etc.</td>
+		<td class="Brod">Andel i samfällighet/GA: Långenäs GA:2<br>Last & Förmån, Avtalsservitut: Vattenledning mm, 14-IM2-57/897</td></tr>
+		
+		
+		
+		
+	</table>
+
+<!-- inc _blobOvrigt.htm -->
+
+<!-- inc _blobVagbeskrivning.htm -->
+
+					
+				
+			
+		
+	
+
+]]></WPHTML>
+	<kartUrl><![CDATA[http://map.eniro.no/visa?zoom=10&partnerid=vitec&cmpid=cpu_partner_vitec_sf&center=57.6714281054,12.1641659897&marker=57.6714281054,12.1641659897;typ:red;L%E5ngen%E4s+141 H%E4rryda]]></kartUrl>
+	<longitude><![CDATA[12,1641659897]]></longitude>
+	<latitude><![CDATA[57,6714281054]]></latitude>
+	<EnergiDeklUtford><![CDATA[2]]></EnergiDeklUtford>
+	<EnergiDeklDatum><![CDATA[2011-03-16 00:00]]></EnergiDeklDatum>
+	<EnergiDeklEnergiforbrukning><![CDATA[108]]></EnergiDeklEnergiforbrukning>
+	<EnergiKlass><![CDATA[-]]></EnergiKlass>
+	<UpplatenMarkArea><![CDATA[]]></UpplatenMarkArea>
+	<UpplatenMarkNamn><![CDATA[]]></UpplatenMarkNamn>
+	<MaklarenInformerar><![CDATA[]]></MaklarenInformerar>
+	<AndelArsAvgift><![CDATA[]]></AndelArsAvgift>
+	<DrEnergiforbrukning><![CDATA[35200]]></DrEnergiforbrukning>
+	<DrElleverantor><![CDATA[]]></DrElleverantor>
+	<DrNatleverantor><![CDATA[]]></DrNatleverantor>
+	<DrKommentar><![CDATA[Driftkostnaderna är en uppskattning då säljaren inte har bott i fastigheten.]]></DrKommentar>
+	<Planbestammelser><![CDATA[]]></Planbestammelser>
+	
+		<besiktigad></besiktigad>
+	
+	<AllmantAnteckn><![CDATA[]]></AllmantAnteckn>
+	
+	<WPBoendekalkyl><![CDATA[http://beskrivningar.capitex.se/boendekalkyl/Boendekalkyl.swf?start=objekt&typ=1&pris=6750000&tomtratt=0&drift=42800&avgift=0&byggar=1907]]></WPBoendekalkyl>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+</OBJEKT>	 
+

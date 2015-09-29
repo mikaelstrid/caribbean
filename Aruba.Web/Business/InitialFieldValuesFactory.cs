@@ -56,7 +56,7 @@ namespace Caribbean.Aruba.Web.Business
             return result;
         }
 
-        private static FieldValue CreateInitialTextFieldValue(TextFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
+        internal static FieldValue CreateInitialTextFieldValue(TextFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
         {
             var xpath = GetFieldPath(fieldInfo.FieldName, valueMappings);
             var vitecValue = vitecObject.GetElementValue(xpath);
