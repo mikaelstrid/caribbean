@@ -77,15 +77,23 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
 
         public VitecObjectImage CreateImage(XElement pictureElement)
         {
-            return new VitecObjectImage
+            try
             {
-                Pid = pictureElement.Attribute("pid").Value,
-                Name = pictureElement.Element("picnamn").Value,
-                ImageUrlWithoutSizeParameters = Utilities.RemoveQueryStringParamsByKey(pictureElement.Element("picurl").Value, new[] { "sizex", "sizey" }),
-                ThumbnailBaseUrlWithoutSizeParameters = Utilities.RemoveQueryStringParamsByKey(pictureElement.Element("thumburl").Value, new[] { "sizex", "sizey" }),
-                Group = pictureElement.Element("picgrupp").Value,
-                Category = pictureElement.Element("pickategori").Value,
-            };
+                return new VitecObjectImage
+                {
+                    Pid = pictureElement.Attribute("pid").Value,
+                    Name = pictureElement.Element("picnamn").Value,
+                    ImageUrlWithoutSizeParameters = Utilities.RemoveQueryStringParamsByKey(pictureElement.Element("picurl").Value, new[] { "sizex", "sizey" }),
+                    ThumbnailBaseUrlWithoutSizeParameters = Utilities.RemoveQueryStringParamsByKey(pictureElement.Element("thumburl").Value, new[] { "sizex", "sizey" }),
+                    Group = pictureElement.Element("picgrupp").Value,
+                    Category = pictureElement.Element("pickategori").Value,
+                };
+
+            }
+            catch 
+            {
+                return null;
+            }
         }
 
 

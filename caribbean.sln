@@ -44,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test projects", "Test proje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.RealEstateObjects.Tests", "DataAccessLayer.RealEstateObjects.Tests\DataAccessLayer.RealEstateObjects.Tests.csproj", "{27E5DD74-9A8E-46A8-A92A-D41F720D39E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aruba.Web.Tests", "Tests projects\Aruba.Web.Tests\Aruba.Web.Tests.csproj", "{1350AABB-122D-4C75-A6C6-8AE61E92EA9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{27E5DD74-9A8E-46A8-A92A-D41F720D39E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E5DD74-9A8E-46A8-A92A-D41F720D39E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E5DD74-9A8E-46A8-A92A-D41F720D39E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1350AABB-122D-4C75-A6C6-8AE61E92EA9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1350AABB-122D-4C75-A6C6-8AE61E92EA9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1350AABB-122D-4C75-A6C6-8AE61E92EA9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1350AABB-122D-4C75-A6C6-8AE61E92EA9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,5 +114,6 @@ Global
 		{C83877B4-45C4-4259-BBA5-91F640DA29C7} = {C3594C1A-7DD4-4145-9F09-AAF96B76B7EC}
 		{0880A5B3-29B0-45C2-BAC9-6F6E75FA86DC} = {C3594C1A-7DD4-4145-9F09-AAF96B76B7EC}
 		{27E5DD74-9A8E-46A8-A92A-D41F720D39E8} = {07CE7C55-3EAA-4683-AED4-394E532A3AA9}
+		{1350AABB-122D-4C75-A6C6-8AE61E92EA9C} = {07CE7C55-3EAA-4683-AED4-394E532A3AA9}
 	EndGlobalSection
 EndGlobal

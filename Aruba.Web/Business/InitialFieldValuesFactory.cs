@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.RealEstateObjects;
 using Caribbean.Models.Database;
 using Caribbean.Models.RealEstateObjects;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Caribbean.Aruba.Web.Business
 {
@@ -16,6 +18,8 @@ namespace Caribbean.Aruba.Web.Business
 
     public class InitialFieldValuesFactory : IInitialFieldValuesFactory
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly IUnitOfWork _unitOfWork;
         private readonly IVitecObjectFactory _vitecObjectFactory;
 
@@ -45,7 +49,7 @@ namespace Caribbean.Aruba.Web.Business
                 }
                 else if (field is ImageFieldInfo)
                 {
-                    var fieldValue = CreateInitialImageFieldValue(field as ImageFieldInfo, vitecObject, valueMappings);
+                    var fieldValue = CreateInitialImageFieldValue(_vitecObjectFactory, field as ImageFieldInfo, vitecObject, valueMappings);
                     if (fieldValue != null) result.Add(fieldValue);
                 }
             }
@@ -69,11 +73,29 @@ namespace Caribbean.Aruba.Web.Business
             return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = vitecValue }) };
         }
         
-        private FieldValue CreateInitialImageFieldValue(ImageFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
+        internal static FieldValue CreateInitialImageFieldValue(IVitecObjectFactory vitecObjectFactory, ImageFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
         {
             var xpath = GetFieldPath(fieldInfo.FieldName, valueMappings);
-            var image =  _vitecObjectFactory.CreateImage(vitecObject.GetElement(xpath));
-            if (image == null) return null;
+            if (xpath == null)
+            {
+                Logger.Warn($"Field {fieldInfo.FieldName} does not exist.");
+                return null;
+            }
+
+            var pictureElement = vitecObject.GetElement(xpath);
+            if (pictureElement == null)
+            {
+                Logger.Warn($"Field {fieldInfo.FieldName} with XPath {xpath} has no matches.");
+                return null;
+            }
+
+            var image =  vitecObjectFactory.CreateImage(pictureElement);
+            if (image == null)
+            {
+                Logger.Warn($"Could not create image for element {pictureElement}.");
+                return null;
+            }
+
             return new FieldValue
             {
                 FieldName = fieldInfo.FieldName,
