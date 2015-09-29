@@ -102,7 +102,7 @@ namespace Caribbean.Aruba.Web.Business
                 Value = JsonConvert.SerializeObject(new
                 {
                     url = image.GetImageUrl(),
-                    scale = 1.0,
+                    scale = 0.1, //:#220: Set a low value since the Guillotine.js makes sure that the entire container always is covered ("background-position: cover")
                     angle = 0,
                     x = 0,
                     y = 0,
