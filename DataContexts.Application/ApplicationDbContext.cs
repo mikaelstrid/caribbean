@@ -23,6 +23,7 @@ namespace Caribbean.DataContexts.Application
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
+        public DbSet<Agency> Agencies { get; set; }
         public DbSet<Agent> Agents { get; set; }
         public DbSet<Print> Prints { get; set; }
         public DbSet<PageTemplatePlaceholderMapping> PageTemplatePlaceholderMappings { get; set; }

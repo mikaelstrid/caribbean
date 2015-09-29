@@ -46,6 +46,14 @@ namespace Caribbean.DataContexts.Application.Migrations
                 context.SaveChanges();
             }
 
+            if (!context.Users.Any(u => u.UserName == "bo@storangsgatan.se"))
+            {
+                var user1 = AddUser(userManager, "bo@storangsgatan.se", "boianggarden");
+                var agency = context.Agencies.FirstOrDefault(a => a.Slug == "fastighetsbyran-storangsgatan");
+                context.Agents.Add(new Agent { Agency = agency, UserId = user1.Id });
+                context.SaveChanges();
+            }
+
             if (!context.PageTemplatePlaceholderMappings.Any())
             {
                 var mappings = new List<Tuple<string, string>>
