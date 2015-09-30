@@ -7380,3 +7380,7 @@ footer {
     background-color: #B50082; }
   .page-prints .printstatus.archived {
     background-color: #B50082; }
+.page-prints .action-buttons .button {
+  margin-right: 1.25rem; }
+  .page-prints .action-buttons .button:first-child {
+    margin-right: 0; }
