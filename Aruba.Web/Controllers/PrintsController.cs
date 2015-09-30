@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using Caribbean.Aruba.Web.Business;
 using Caribbean.Aruba.Web.ViewModels.Prints;
@@ -10,6 +11,7 @@ using Caribbean.DataAccessLayer.PrintTemplates;
 using Caribbean.DataAccessLayer.RealEstateObjects;
 using Caribbean.Models.Database;
 using Microsoft.AspNet.Identity;
+using NLog;
 
 namespace Caribbean.Aruba.Web.Controllers
 {
@@ -17,6 +19,8 @@ namespace Caribbean.Aruba.Web.Controllers
     [RoutePrefix("trycksaker")]
     public class PrintsController : Controller
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITemplateMetadataRepository _templateMetadataRepository;
         private readonly ITemplateContentRepository _templateContentRepository;
@@ -130,7 +134,7 @@ namespace Caribbean.Aruba.Web.Controllers
             _unitOfWork.PrintRepository.Add(print);
             _unitOfWork.Save();
 
-            GeneratePdfFOrAllPages(print, agent);
+            GeneratePdfForAllPages(print, agent);
 
             return RedirectToAction("Edit", new { id = print.Id });
         }
@@ -172,7 +176,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
 
-        [Route("generera-sidor")]
+        [Route("generera-sidor/{id}")]
         public async Task<ActionResult> GeneratePdfPages(int id)
         {
             _pagePdfGeneratorProxyService.Initialize();
@@ -183,7 +187,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
             if (print == null) return HttpNotFound("No print with a matching id found.");
 
-            GeneratePdfFOrAllPages(print, agent);
+            GeneratePdfForAllPages(print, agent);
 
             return RedirectToAction("Index");
         }
@@ -244,14 +248,23 @@ namespace Caribbean.Aruba.Web.Controllers
 
 
         // COMMON HELPER METHODS
-        private void GeneratePdfFOrAllPages(Print print, Agent agent)
+        private void GeneratePdfForAllPages(Print print, Agent agent)
         {
+            var thumbnailWidth = Convert.ToInt32(WebConfigurationManager.AppSettings["Aruba.PageThumbnailWidth"]);
+
             _pagePdfGeneratorProxyService.Initialize();
             foreach (var page in print.Pages)
             {
                 var template = _templateMetadataRepository.GetPageTemplateBySlug(agent.Agency.Slug, page.PageTemplateSlug);
-                //:TODO: LOG: if (template == null) return HttpNotFound($"Page template {page.PageTemplateSlug} not found.");
-                _pagePdfGeneratorProxyService.QueueJob(page.Id, agent.UserId, template.Width, template.Height, template.Dpi, 220, 308);
+
+                if (template == null)
+                {
+                    Logger.Warn($"Page template {page.PageTemplateSlug} not found.");
+                    continue;
+                }
+
+                var thumbnailHeight = thumbnailWidth*template.Height/template.Width;
+                _pagePdfGeneratorProxyService.QueueJob(page.Id, agent.UserId, template.Width, template.Height, template.Dpi, thumbnailWidth, thumbnailHeight);
             }
         }
 
