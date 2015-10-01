@@ -8,8 +8,8 @@
       <Setting name="RenderPageBaseUrl" value="http://objektprint.modernmaklarmedia.se/sida/rendera?agentUserId={0}&amp;pageId={1}" />
       <Setting name="UpdatePageThumbnailUrl" value="http://objektprint.modernmaklarmedia.se/api/pagethumbnails" />
       <Setting name="UpdatePagePdfUrl" value="http://objektprint.modernmaklarmedia.se/api/pagepdfs" />
-      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcarribean;AccountKey=BokQ7ge54FHWaO7DvQBLLj6UeE4PWXpCF1OUKYSEIYirliWTJrNjRcPhJzMvURRBi9N6XHyKqsZVOoUZiOFUmw==" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcarribean;AccountKey=BokQ7ge54FHWaO7DvQBLLj6UeE4PWXpCF1OUKYSEIYirliWTJrNjRcPhJzMvURRBi9N6XHyKqsZVOoUZiOFUmw==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcaribbean;AccountKey=Q5m8rJ7RnqmApmrc3VP2z9RpXJdSuzY5yf5hhWhEzh0RnRjpfJZwAVjLwMXgXwAbhInW2Tmx7N4KTzuKyV8+nA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcaribbean;AccountKey=Q5m8rJ7RnqmApmrc3VP2z9RpXJdSuzY5yf5hhWhEzh0RnRjpfJZwAVjLwMXgXwAbhInW2Tmx7N4KTzuKyV8+nA==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

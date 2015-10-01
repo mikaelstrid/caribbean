@@ -8,8 +8,8 @@
       <Setting name="RenderPageBaseUrl" value="http://localhost:64879/sida/rendera?agentUserId={0}&amp;pageId={1}" />
       <Setting name="UpdatePageThumbnailUrl" value="http://localhost:64879/api/pagethumbnails" />
       <Setting name="UpdatePagePdfUrl" value="http://localhost:64879/api/pagepdfs" />
-      <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcaribbeandev;AccountKey=alv3dS8nyG0Fr8H7WzJ/0VdsWQPSCAFdEaqzszhkSNU0ARnBs9ZYjCtvcpwgH327nyv1d3Q8jIk6CzbZX9cRig==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcaribbeandev;AccountKey=alv3dS8nyG0Fr8H7WzJ/0VdsWQPSCAFdEaqzszhkSNU0ARnBs9ZYjCtvcpwgH327nyv1d3Q8jIk6CzbZX9cRig==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
