@@ -140,7 +140,7 @@ select {
     margin-left: 0;
     margin-right: 0; }
   .row .row {
-    margin: 0 -1.875rem;
+    margin: 0 -0.9375rem;
     max-width: none;
     width: auto; }
     .row .row:before, .row .row:after {
@@ -160,8 +160,8 @@ select {
 
 .column,
 .columns {
-  padding-left: 1.875rem;
-  padding-right: 1.875rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
   width: 100%;
   float: left; }
 
@@ -302,8 +302,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 1.875rem;
-    padding-right: 1.875rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
     float: left; }
 
   .small-1 {
@@ -418,8 +418,8 @@ select {
     margin-right: 0; }
   .row.small-uncollapse > .column,
   .row.small-uncollapse > .columns {
-    padding-left: 1.875rem;
-    padding-right: 1.875rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
     float: left; } }
 @media only screen and (min-width: 40.0625em) {
   .medium-push-0 {
@@ -545,8 +545,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 1.875rem;
-    padding-right: 1.875rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
     float: left; }
 
   .medium-1 {
@@ -661,8 +661,8 @@ select {
     margin-right: 0; }
   .row.medium-uncollapse > .column,
   .row.medium-uncollapse > .columns {
-    padding-left: 1.875rem;
-    padding-right: 1.875rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
     float: left; }
 
   .push-0 {
@@ -908,8 +908,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 1.875rem;
-    padding-right: 1.875rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
     float: left; }
 
   .large-1 {
@@ -1024,8 +1024,8 @@ select {
     margin-right: 0; }
   .row.large-uncollapse > .column,
   .row.large-uncollapse > .columns {
-    padding-left: 1.875rem;
-    padding-right: 1.875rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
     float: left; }
 
   .push-0 {
@@ -1170,7 +1170,7 @@ select {
         background: lightgray; }
     .accordion .accordion-navigation > .content, .accordion dd > .content {
       display: none;
-      padding: 1.875rem; }
+      padding: 0.9375rem; }
       .accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
         background: #fff;
         display: block; }
@@ -1241,7 +1241,7 @@ select {
     display: block;
     float: left;
     height: auto;
-    padding: 0 1.875rem 3.75rem; }
+    padding: 0 0.9375rem 1.875rem; }
 
 @media only screen {
   .small-block-grid-1 > li {
@@ -1264,9 +1264,9 @@ select {
       clear: both; }
     .small-block-grid-2 > li:nth-of-type(2n+1) {
       padding-left: 0rem;
-      padding-right: 1.875rem; }
+      padding-right: 0.9375rem; }
     .small-block-grid-2 > li:nth-of-type(2n) {
-      padding-left: 1.875rem;
+      padding-left: 0.9375rem;
       padding-right: 0rem; }
 
   .small-block-grid-3 > li {
@@ -1278,12 +1278,12 @@ select {
       clear: both; }
     .small-block-grid-3 > li:nth-of-type(3n+1) {
       padding-left: 0rem;
-      padding-right: 2.5rem; }
-    .small-block-grid-3 > li:nth-of-type(3n+2) {
-      padding-left: 1.25rem;
       padding-right: 1.25rem; }
+    .small-block-grid-3 > li:nth-of-type(3n+2) {
+      padding-left: 0.625rem;
+      padding-right: 0.625rem; }
     .small-block-grid-3 > li:nth-of-type(3n) {
-      padding-left: 2.5rem;
+      padding-left: 1.25rem;
       padding-right: 0rem; }
 
   .small-block-grid-4 > li {
@@ -1295,15 +1295,15 @@ select {
       clear: both; }
     .small-block-grid-4 > li:nth-of-type(4n+1) {
       padding-left: 0rem;
-      padding-right: 2.8125rem; }
+      padding-right: 1.40625rem; }
     .small-block-grid-4 > li:nth-of-type(4n+2) {
-      padding-left: 0.9375rem;
-      padding-right: 1.875rem; }
-    .small-block-grid-4 > li:nth-of-type(4n+3) {
-      padding-left: 1.875rem;
+      padding-left: 0.46875rem;
       padding-right: 0.9375rem; }
+    .small-block-grid-4 > li:nth-of-type(4n+3) {
+      padding-left: 0.9375rem;
+      padding-right: 0.46875rem; }
     .small-block-grid-4 > li:nth-of-type(4n) {
-      padding-left: 2.8125rem;
+      padding-left: 1.40625rem;
       padding-right: 0rem; }
 
   .small-block-grid-5 > li {
@@ -1315,18 +1315,18 @@ select {
       clear: both; }
     .small-block-grid-5 > li:nth-of-type(5n+1) {
       padding-left: 0rem;
-      padding-right: 3rem; }
-    .small-block-grid-5 > li:nth-of-type(5n+2) {
-      padding-left: 0.75rem;
-      padding-right: 2.25rem; }
-    .small-block-grid-5 > li:nth-of-type(5n+3) {
-      padding-left: 1.5rem;
       padding-right: 1.5rem; }
-    .small-block-grid-5 > li:nth-of-type(5n+4) {
-      padding-left: 2.25rem;
+    .small-block-grid-5 > li:nth-of-type(5n+2) {
+      padding-left: 0.375rem;
+      padding-right: 1.125rem; }
+    .small-block-grid-5 > li:nth-of-type(5n+3) {
+      padding-left: 0.75rem;
       padding-right: 0.75rem; }
+    .small-block-grid-5 > li:nth-of-type(5n+4) {
+      padding-left: 1.125rem;
+      padding-right: 0.375rem; }
     .small-block-grid-5 > li:nth-of-type(5n) {
-      padding-left: 3rem;
+      padding-left: 1.5rem;
       padding-right: 0rem; }
 
   .small-block-grid-6 > li {
@@ -1338,21 +1338,21 @@ select {
       clear: both; }
     .small-block-grid-6 > li:nth-of-type(6n+1) {
       padding-left: 0rem;
-      padding-right: 3.125rem; }
+      padding-right: 1.5625rem; }
     .small-block-grid-6 > li:nth-of-type(6n+2) {
-      padding-left: 0.625rem;
-      padding-right: 2.5rem; }
-    .small-block-grid-6 > li:nth-of-type(6n+3) {
-      padding-left: 1.25rem;
-      padding-right: 1.875rem; }
-    .small-block-grid-6 > li:nth-of-type(6n+4) {
-      padding-left: 1.875rem;
+      padding-left: 0.3125rem;
       padding-right: 1.25rem; }
-    .small-block-grid-6 > li:nth-of-type(6n+5) {
-      padding-left: 2.5rem;
+    .small-block-grid-6 > li:nth-of-type(6n+3) {
+      padding-left: 0.625rem;
+      padding-right: 0.9375rem; }
+    .small-block-grid-6 > li:nth-of-type(6n+4) {
+      padding-left: 0.9375rem;
       padding-right: 0.625rem; }
+    .small-block-grid-6 > li:nth-of-type(6n+5) {
+      padding-left: 1.25rem;
+      padding-right: 0.3125rem; }
     .small-block-grid-6 > li:nth-of-type(6n) {
-      padding-left: 3.125rem;
+      padding-left: 1.5625rem;
       padding-right: 0rem; }
 
   .small-block-grid-7 > li {
@@ -1364,24 +1364,24 @@ select {
       clear: both; }
     .small-block-grid-7 > li:nth-of-type(7n+1) {
       padding-left: 0rem;
-      padding-right: 3.21429rem; }
-    .small-block-grid-7 > li:nth-of-type(7n+2) {
-      padding-left: 0.53571rem;
-      padding-right: 2.67857rem; }
-    .small-block-grid-7 > li:nth-of-type(7n+3) {
-      padding-left: 1.07143rem;
-      padding-right: 2.14286rem; }
-    .small-block-grid-7 > li:nth-of-type(7n+4) {
-      padding-left: 1.60714rem;
       padding-right: 1.60714rem; }
-    .small-block-grid-7 > li:nth-of-type(7n+5) {
-      padding-left: 2.14286rem;
+    .small-block-grid-7 > li:nth-of-type(7n+2) {
+      padding-left: 0.26786rem;
+      padding-right: 1.33929rem; }
+    .small-block-grid-7 > li:nth-of-type(7n+3) {
+      padding-left: 0.53571rem;
       padding-right: 1.07143rem; }
-    .small-block-grid-7 > li:nth-of-type(7n+6) {
-      padding-left: 2.67857rem;
+    .small-block-grid-7 > li:nth-of-type(7n+4) {
+      padding-left: 0.80357rem;
+      padding-right: 0.80357rem; }
+    .small-block-grid-7 > li:nth-of-type(7n+5) {
+      padding-left: 1.07143rem;
       padding-right: 0.53571rem; }
+    .small-block-grid-7 > li:nth-of-type(7n+6) {
+      padding-left: 1.33929rem;
+      padding-right: 0.26786rem; }
     .small-block-grid-7 > li:nth-of-type(7n) {
-      padding-left: 3.21429rem;
+      padding-left: 1.60714rem;
       padding-right: 0rem; }
 
   .small-block-grid-8 > li {
@@ -1393,27 +1393,27 @@ select {
       clear: both; }
     .small-block-grid-8 > li:nth-of-type(8n+1) {
       padding-left: 0rem;
-      padding-right: 3.28125rem; }
+      padding-right: 1.64063rem; }
     .small-block-grid-8 > li:nth-of-type(8n+2) {
-      padding-left: 0.46875rem;
-      padding-right: 2.8125rem; }
-    .small-block-grid-8 > li:nth-of-type(8n+3) {
-      padding-left: 0.9375rem;
-      padding-right: 2.34375rem; }
-    .small-block-grid-8 > li:nth-of-type(8n+4) {
-      padding-left: 1.40625rem;
-      padding-right: 1.875rem; }
-    .small-block-grid-8 > li:nth-of-type(8n+5) {
-      padding-left: 1.875rem;
+      padding-left: 0.23438rem;
       padding-right: 1.40625rem; }
-    .small-block-grid-8 > li:nth-of-type(8n+6) {
-      padding-left: 2.34375rem;
+    .small-block-grid-8 > li:nth-of-type(8n+3) {
+      padding-left: 0.46875rem;
+      padding-right: 1.17188rem; }
+    .small-block-grid-8 > li:nth-of-type(8n+4) {
+      padding-left: 0.70313rem;
       padding-right: 0.9375rem; }
-    .small-block-grid-8 > li:nth-of-type(8n+7) {
-      padding-left: 2.8125rem;
+    .small-block-grid-8 > li:nth-of-type(8n+5) {
+      padding-left: 0.9375rem;
+      padding-right: 0.70313rem; }
+    .small-block-grid-8 > li:nth-of-type(8n+6) {
+      padding-left: 1.17188rem;
       padding-right: 0.46875rem; }
+    .small-block-grid-8 > li:nth-of-type(8n+7) {
+      padding-left: 1.40625rem;
+      padding-right: 0.23438rem; }
     .small-block-grid-8 > li:nth-of-type(8n) {
-      padding-left: 3.28125rem;
+      padding-left: 1.64063rem;
       padding-right: 0rem; }
 
   .small-block-grid-9 > li {
@@ -1425,30 +1425,30 @@ select {
       clear: both; }
     .small-block-grid-9 > li:nth-of-type(9n+1) {
       padding-left: 0rem;
-      padding-right: 3.33333rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+2) {
-      padding-left: 0.41667rem;
-      padding-right: 2.91667rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+3) {
-      padding-left: 0.83333rem;
-      padding-right: 2.5rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+4) {
-      padding-left: 1.25rem;
-      padding-right: 2.08333rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+5) {
-      padding-left: 1.66667rem;
       padding-right: 1.66667rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+6) {
-      padding-left: 2.08333rem;
+    .small-block-grid-9 > li:nth-of-type(9n+2) {
+      padding-left: 0.20833rem;
+      padding-right: 1.45833rem; }
+    .small-block-grid-9 > li:nth-of-type(9n+3) {
+      padding-left: 0.41667rem;
       padding-right: 1.25rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+7) {
-      padding-left: 2.5rem;
+    .small-block-grid-9 > li:nth-of-type(9n+4) {
+      padding-left: 0.625rem;
+      padding-right: 1.04167rem; }
+    .small-block-grid-9 > li:nth-of-type(9n+5) {
+      padding-left: 0.83333rem;
       padding-right: 0.83333rem; }
-    .small-block-grid-9 > li:nth-of-type(9n+8) {
-      padding-left: 2.91667rem;
+    .small-block-grid-9 > li:nth-of-type(9n+6) {
+      padding-left: 1.04167rem;
+      padding-right: 0.625rem; }
+    .small-block-grid-9 > li:nth-of-type(9n+7) {
+      padding-left: 1.25rem;
       padding-right: 0.41667rem; }
+    .small-block-grid-9 > li:nth-of-type(9n+8) {
+      padding-left: 1.45833rem;
+      padding-right: 0.20833rem; }
     .small-block-grid-9 > li:nth-of-type(9n) {
-      padding-left: 3.33333rem;
+      padding-left: 1.66667rem;
       padding-right: 0rem; }
 
   .small-block-grid-10 > li {
@@ -1460,33 +1460,33 @@ select {
       clear: both; }
     .small-block-grid-10 > li:nth-of-type(10n+1) {
       padding-left: 0rem;
-      padding-right: 3.375rem; }
+      padding-right: 1.6875rem; }
     .small-block-grid-10 > li:nth-of-type(10n+2) {
-      padding-left: 0.375rem;
-      padding-right: 3rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+3) {
-      padding-left: 0.75rem;
-      padding-right: 2.625rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+4) {
-      padding-left: 1.125rem;
-      padding-right: 2.25rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+5) {
-      padding-left: 1.5rem;
-      padding-right: 1.875rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+6) {
-      padding-left: 1.875rem;
+      padding-left: 0.1875rem;
       padding-right: 1.5rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+7) {
-      padding-left: 2.25rem;
+    .small-block-grid-10 > li:nth-of-type(10n+3) {
+      padding-left: 0.375rem;
+      padding-right: 1.3125rem; }
+    .small-block-grid-10 > li:nth-of-type(10n+4) {
+      padding-left: 0.5625rem;
       padding-right: 1.125rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+8) {
-      padding-left: 2.625rem;
+    .small-block-grid-10 > li:nth-of-type(10n+5) {
+      padding-left: 0.75rem;
+      padding-right: 0.9375rem; }
+    .small-block-grid-10 > li:nth-of-type(10n+6) {
+      padding-left: 0.9375rem;
       padding-right: 0.75rem; }
-    .small-block-grid-10 > li:nth-of-type(10n+9) {
-      padding-left: 3rem;
+    .small-block-grid-10 > li:nth-of-type(10n+7) {
+      padding-left: 1.125rem;
+      padding-right: 0.5625rem; }
+    .small-block-grid-10 > li:nth-of-type(10n+8) {
+      padding-left: 1.3125rem;
       padding-right: 0.375rem; }
+    .small-block-grid-10 > li:nth-of-type(10n+9) {
+      padding-left: 1.5rem;
+      padding-right: 0.1875rem; }
     .small-block-grid-10 > li:nth-of-type(10n) {
-      padding-left: 3.375rem;
+      padding-left: 1.6875rem;
       padding-right: 0rem; }
 
   .small-block-grid-11 > li {
@@ -1498,36 +1498,36 @@ select {
       clear: both; }
     .small-block-grid-11 > li:nth-of-type(11n+1) {
       padding-left: 0.0rem;
-      padding-right: 3.40909rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+2) {
-      padding-left: 0.34091rem;
-      padding-right: 3.06818rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+3) {
-      padding-left: 0.68182rem;
-      padding-right: 2.72727rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+4) {
-      padding-left: 1.02273rem;
-      padding-right: 2.38636rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+5) {
-      padding-left: 1.36364rem;
-      padding-right: 2.04545rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+6) {
-      padding-left: 1.70455rem;
       padding-right: 1.70455rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+7) {
-      padding-left: 2.04545rem;
+    .small-block-grid-11 > li:nth-of-type(11n+2) {
+      padding-left: 0.17045rem;
+      padding-right: 1.53409rem; }
+    .small-block-grid-11 > li:nth-of-type(11n+3) {
+      padding-left: 0.34091rem;
       padding-right: 1.36364rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+8) {
-      padding-left: 2.38636rem;
+    .small-block-grid-11 > li:nth-of-type(11n+4) {
+      padding-left: 0.51136rem;
+      padding-right: 1.19318rem; }
+    .small-block-grid-11 > li:nth-of-type(11n+5) {
+      padding-left: 0.68182rem;
       padding-right: 1.02273rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+9) {
-      padding-left: 2.72727rem;
+    .small-block-grid-11 > li:nth-of-type(11n+6) {
+      padding-left: 0.85227rem;
+      padding-right: 0.85227rem; }
+    .small-block-grid-11 > li:nth-of-type(11n+7) {
+      padding-left: 1.02273rem;
       padding-right: 0.68182rem; }
-    .small-block-grid-11 > li:nth-of-type(11n+10) {
-      padding-left: 3.06818rem;
+    .small-block-grid-11 > li:nth-of-type(11n+8) {
+      padding-left: 1.19318rem;
+      padding-right: 0.51136rem; }
+    .small-block-grid-11 > li:nth-of-type(11n+9) {
+      padding-left: 1.36364rem;
       padding-right: 0.34091rem; }
+    .small-block-grid-11 > li:nth-of-type(11n+10) {
+      padding-left: 1.53409rem;
+      padding-right: 0.17045rem; }
     .small-block-grid-11 > li:nth-of-type(11n) {
-      padding-left: 3.40909rem;
+      padding-left: 1.70455rem;
       padding-right: 0.0rem; }
 
   .small-block-grid-12 > li {
@@ -1539,39 +1539,39 @@ select {
       clear: both; }
     .small-block-grid-12 > li:nth-of-type(12n+1) {
       padding-left: 0rem;
-      padding-right: 3.4375rem; }
+      padding-right: 1.71875rem; }
     .small-block-grid-12 > li:nth-of-type(12n+2) {
-      padding-left: 0.3125rem;
-      padding-right: 3.125rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+3) {
-      padding-left: 0.625rem;
-      padding-right: 2.8125rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+4) {
-      padding-left: 0.9375rem;
-      padding-right: 2.5rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+5) {
-      padding-left: 1.25rem;
-      padding-right: 2.1875rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+6) {
-      padding-left: 1.5625rem;
-      padding-right: 1.875rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+7) {
-      padding-left: 1.875rem;
+      padding-left: 0.15625rem;
       padding-right: 1.5625rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+8) {
-      padding-left: 2.1875rem;
+    .small-block-grid-12 > li:nth-of-type(12n+3) {
+      padding-left: 0.3125rem;
+      padding-right: 1.40625rem; }
+    .small-block-grid-12 > li:nth-of-type(12n+4) {
+      padding-left: 0.46875rem;
       padding-right: 1.25rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+9) {
-      padding-left: 2.5rem;
+    .small-block-grid-12 > li:nth-of-type(12n+5) {
+      padding-left: 0.625rem;
+      padding-right: 1.09375rem; }
+    .small-block-grid-12 > li:nth-of-type(12n+6) {
+      padding-left: 0.78125rem;
       padding-right: 0.9375rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+10) {
-      padding-left: 2.8125rem;
+    .small-block-grid-12 > li:nth-of-type(12n+7) {
+      padding-left: 0.9375rem;
+      padding-right: 0.78125rem; }
+    .small-block-grid-12 > li:nth-of-type(12n+8) {
+      padding-left: 1.09375rem;
       padding-right: 0.625rem; }
-    .small-block-grid-12 > li:nth-of-type(12n+11) {
-      padding-left: 3.125rem;
+    .small-block-grid-12 > li:nth-of-type(12n+9) {
+      padding-left: 1.25rem;
+      padding-right: 0.46875rem; }
+    .small-block-grid-12 > li:nth-of-type(12n+10) {
+      padding-left: 1.40625rem;
       padding-right: 0.3125rem; }
+    .small-block-grid-12 > li:nth-of-type(12n+11) {
+      padding-left: 1.5625rem;
+      padding-right: 0.15625rem; }
     .small-block-grid-12 > li:nth-of-type(12n) {
-      padding-left: 3.4375rem;
+      padding-left: 1.71875rem;
       padding-right: 0rem; } }
 @media only screen and (min-width: 40.0625em) {
   .medium-block-grid-1 > li {
@@ -1594,9 +1594,9 @@ select {
       clear: both; }
     .medium-block-grid-2 > li:nth-of-type(2n+1) {
       padding-left: 0rem;
-      padding-right: 1.875rem; }
+      padding-right: 0.9375rem; }
     .medium-block-grid-2 > li:nth-of-type(2n) {
-      padding-left: 1.875rem;
+      padding-left: 0.9375rem;
       padding-right: 0rem; }
 
   .medium-block-grid-3 > li {
@@ -1608,12 +1608,12 @@ select {
       clear: both; }
     .medium-block-grid-3 > li:nth-of-type(3n+1) {
       padding-left: 0rem;
-      padding-right: 2.5rem; }
-    .medium-block-grid-3 > li:nth-of-type(3n+2) {
-      padding-left: 1.25rem;
       padding-right: 1.25rem; }
+    .medium-block-grid-3 > li:nth-of-type(3n+2) {
+      padding-left: 0.625rem;
+      padding-right: 0.625rem; }
     .medium-block-grid-3 > li:nth-of-type(3n) {
-      padding-left: 2.5rem;
+      padding-left: 1.25rem;
       padding-right: 0rem; }
 
   .medium-block-grid-4 > li {
@@ -1625,15 +1625,15 @@ select {
       clear: both; }
     .medium-block-grid-4 > li:nth-of-type(4n+1) {
       padding-left: 0rem;
-      padding-right: 2.8125rem; }
+      padding-right: 1.40625rem; }
     .medium-block-grid-4 > li:nth-of-type(4n+2) {
-      padding-left: 0.9375rem;
-      padding-right: 1.875rem; }
-    .medium-block-grid-4 > li:nth-of-type(4n+3) {
-      padding-left: 1.875rem;
+      padding-left: 0.46875rem;
       padding-right: 0.9375rem; }
+    .medium-block-grid-4 > li:nth-of-type(4n+3) {
+      padding-left: 0.9375rem;
+      padding-right: 0.46875rem; }
     .medium-block-grid-4 > li:nth-of-type(4n) {
-      padding-left: 2.8125rem;
+      padding-left: 1.40625rem;
       padding-right: 0rem; }
 
   .medium-block-grid-5 > li {
@@ -1645,18 +1645,18 @@ select {
       clear: both; }
     .medium-block-grid-5 > li:nth-of-type(5n+1) {
       padding-left: 0rem;
-      padding-right: 3rem; }
-    .medium-block-grid-5 > li:nth-of-type(5n+2) {
-      padding-left: 0.75rem;
-      padding-right: 2.25rem; }
-    .medium-block-grid-5 > li:nth-of-type(5n+3) {
-      padding-left: 1.5rem;
       padding-right: 1.5rem; }
-    .medium-block-grid-5 > li:nth-of-type(5n+4) {
-      padding-left: 2.25rem;
+    .medium-block-grid-5 > li:nth-of-type(5n+2) {
+      padding-left: 0.375rem;
+      padding-right: 1.125rem; }
+    .medium-block-grid-5 > li:nth-of-type(5n+3) {
+      padding-left: 0.75rem;
       padding-right: 0.75rem; }
+    .medium-block-grid-5 > li:nth-of-type(5n+4) {
+      padding-left: 1.125rem;
+      padding-right: 0.375rem; }
     .medium-block-grid-5 > li:nth-of-type(5n) {
-      padding-left: 3rem;
+      padding-left: 1.5rem;
       padding-right: 0rem; }
 
   .medium-block-grid-6 > li {
@@ -1668,21 +1668,21 @@ select {
       clear: both; }
     .medium-block-grid-6 > li:nth-of-type(6n+1) {
       padding-left: 0rem;
-      padding-right: 3.125rem; }
+      padding-right: 1.5625rem; }
     .medium-block-grid-6 > li:nth-of-type(6n+2) {
-      padding-left: 0.625rem;
-      padding-right: 2.5rem; }
-    .medium-block-grid-6 > li:nth-of-type(6n+3) {
-      padding-left: 1.25rem;
-      padding-right: 1.875rem; }
-    .medium-block-grid-6 > li:nth-of-type(6n+4) {
-      padding-left: 1.875rem;
+      padding-left: 0.3125rem;
       padding-right: 1.25rem; }
-    .medium-block-grid-6 > li:nth-of-type(6n+5) {
-      padding-left: 2.5rem;
+    .medium-block-grid-6 > li:nth-of-type(6n+3) {
+      padding-left: 0.625rem;
+      padding-right: 0.9375rem; }
+    .medium-block-grid-6 > li:nth-of-type(6n+4) {
+      padding-left: 0.9375rem;
       padding-right: 0.625rem; }
+    .medium-block-grid-6 > li:nth-of-type(6n+5) {
+      padding-left: 1.25rem;
+      padding-right: 0.3125rem; }
     .medium-block-grid-6 > li:nth-of-type(6n) {
-      padding-left: 3.125rem;
+      padding-left: 1.5625rem;
       padding-right: 0rem; }
 
   .medium-block-grid-7 > li {
@@ -1694,24 +1694,24 @@ select {
       clear: both; }
     .medium-block-grid-7 > li:nth-of-type(7n+1) {
       padding-left: 0rem;
-      padding-right: 3.21429rem; }
-    .medium-block-grid-7 > li:nth-of-type(7n+2) {
-      padding-left: 0.53571rem;
-      padding-right: 2.67857rem; }
-    .medium-block-grid-7 > li:nth-of-type(7n+3) {
-      padding-left: 1.07143rem;
-      padding-right: 2.14286rem; }
-    .medium-block-grid-7 > li:nth-of-type(7n+4) {
-      padding-left: 1.60714rem;
       padding-right: 1.60714rem; }
-    .medium-block-grid-7 > li:nth-of-type(7n+5) {
-      padding-left: 2.14286rem;
+    .medium-block-grid-7 > li:nth-of-type(7n+2) {
+      padding-left: 0.26786rem;
+      padding-right: 1.33929rem; }
+    .medium-block-grid-7 > li:nth-of-type(7n+3) {
+      padding-left: 0.53571rem;
       padding-right: 1.07143rem; }
-    .medium-block-grid-7 > li:nth-of-type(7n+6) {
-      padding-left: 2.67857rem;
+    .medium-block-grid-7 > li:nth-of-type(7n+4) {
+      padding-left: 0.80357rem;
+      padding-right: 0.80357rem; }
+    .medium-block-grid-7 > li:nth-of-type(7n+5) {
+      padding-left: 1.07143rem;
       padding-right: 0.53571rem; }
+    .medium-block-grid-7 > li:nth-of-type(7n+6) {
+      padding-left: 1.33929rem;
+      padding-right: 0.26786rem; }
     .medium-block-grid-7 > li:nth-of-type(7n) {
-      padding-left: 3.21429rem;
+      padding-left: 1.60714rem;
       padding-right: 0rem; }
 
   .medium-block-grid-8 > li {
@@ -1723,27 +1723,27 @@ select {
       clear: both; }
     .medium-block-grid-8 > li:nth-of-type(8n+1) {
       padding-left: 0rem;
-      padding-right: 3.28125rem; }
+      padding-right: 1.64063rem; }
     .medium-block-grid-8 > li:nth-of-type(8n+2) {
-      padding-left: 0.46875rem;
-      padding-right: 2.8125rem; }
-    .medium-block-grid-8 > li:nth-of-type(8n+3) {
-      padding-left: 0.9375rem;
-      padding-right: 2.34375rem; }
-    .medium-block-grid-8 > li:nth-of-type(8n+4) {
-      padding-left: 1.40625rem;
-      padding-right: 1.875rem; }
-    .medium-block-grid-8 > li:nth-of-type(8n+5) {
-      padding-left: 1.875rem;
+      padding-left: 0.23438rem;
       padding-right: 1.40625rem; }
-    .medium-block-grid-8 > li:nth-of-type(8n+6) {
-      padding-left: 2.34375rem;
+    .medium-block-grid-8 > li:nth-of-type(8n+3) {
+      padding-left: 0.46875rem;
+      padding-right: 1.17188rem; }
+    .medium-block-grid-8 > li:nth-of-type(8n+4) {
+      padding-left: 0.70313rem;
       padding-right: 0.9375rem; }
-    .medium-block-grid-8 > li:nth-of-type(8n+7) {
-      padding-left: 2.8125rem;
+    .medium-block-grid-8 > li:nth-of-type(8n+5) {
+      padding-left: 0.9375rem;
+      padding-right: 0.70313rem; }
+    .medium-block-grid-8 > li:nth-of-type(8n+6) {
+      padding-left: 1.17188rem;
       padding-right: 0.46875rem; }
+    .medium-block-grid-8 > li:nth-of-type(8n+7) {
+      padding-left: 1.40625rem;
+      padding-right: 0.23438rem; }
     .medium-block-grid-8 > li:nth-of-type(8n) {
-      padding-left: 3.28125rem;
+      padding-left: 1.64063rem;
       padding-right: 0rem; }
 
   .medium-block-grid-9 > li {
@@ -1755,30 +1755,30 @@ select {
       clear: both; }
     .medium-block-grid-9 > li:nth-of-type(9n+1) {
       padding-left: 0rem;
-      padding-right: 3.33333rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+2) {
-      padding-left: 0.41667rem;
-      padding-right: 2.91667rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+3) {
-      padding-left: 0.83333rem;
-      padding-right: 2.5rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+4) {
-      padding-left: 1.25rem;
-      padding-right: 2.08333rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+5) {
-      padding-left: 1.66667rem;
       padding-right: 1.66667rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+6) {
-      padding-left: 2.08333rem;
+    .medium-block-grid-9 > li:nth-of-type(9n+2) {
+      padding-left: 0.20833rem;
+      padding-right: 1.45833rem; }
+    .medium-block-grid-9 > li:nth-of-type(9n+3) {
+      padding-left: 0.41667rem;
       padding-right: 1.25rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+7) {
-      padding-left: 2.5rem;
+    .medium-block-grid-9 > li:nth-of-type(9n+4) {
+      padding-left: 0.625rem;
+      padding-right: 1.04167rem; }
+    .medium-block-grid-9 > li:nth-of-type(9n+5) {
+      padding-left: 0.83333rem;
       padding-right: 0.83333rem; }
-    .medium-block-grid-9 > li:nth-of-type(9n+8) {
-      padding-left: 2.91667rem;
+    .medium-block-grid-9 > li:nth-of-type(9n+6) {
+      padding-left: 1.04167rem;
+      padding-right: 0.625rem; }
+    .medium-block-grid-9 > li:nth-of-type(9n+7) {
+      padding-left: 1.25rem;
       padding-right: 0.41667rem; }
+    .medium-block-grid-9 > li:nth-of-type(9n+8) {
+      padding-left: 1.45833rem;
+      padding-right: 0.20833rem; }
     .medium-block-grid-9 > li:nth-of-type(9n) {
-      padding-left: 3.33333rem;
+      padding-left: 1.66667rem;
       padding-right: 0rem; }
 
   .medium-block-grid-10 > li {
@@ -1790,33 +1790,33 @@ select {
       clear: both; }
     .medium-block-grid-10 > li:nth-of-type(10n+1) {
       padding-left: 0rem;
-      padding-right: 3.375rem; }
+      padding-right: 1.6875rem; }
     .medium-block-grid-10 > li:nth-of-type(10n+2) {
-      padding-left: 0.375rem;
-      padding-right: 3rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+3) {
-      padding-left: 0.75rem;
-      padding-right: 2.625rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+4) {
-      padding-left: 1.125rem;
-      padding-right: 2.25rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+5) {
-      padding-left: 1.5rem;
-      padding-right: 1.875rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+6) {
-      padding-left: 1.875rem;
+      padding-left: 0.1875rem;
       padding-right: 1.5rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+7) {
-      padding-left: 2.25rem;
+    .medium-block-grid-10 > li:nth-of-type(10n+3) {
+      padding-left: 0.375rem;
+      padding-right: 1.3125rem; }
+    .medium-block-grid-10 > li:nth-of-type(10n+4) {
+      padding-left: 0.5625rem;
       padding-right: 1.125rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+8) {
-      padding-left: 2.625rem;
+    .medium-block-grid-10 > li:nth-of-type(10n+5) {
+      padding-left: 0.75rem;
+      padding-right: 0.9375rem; }
+    .medium-block-grid-10 > li:nth-of-type(10n+6) {
+      padding-left: 0.9375rem;
       padding-right: 0.75rem; }
-    .medium-block-grid-10 > li:nth-of-type(10n+9) {
-      padding-left: 3rem;
+    .medium-block-grid-10 > li:nth-of-type(10n+7) {
+      padding-left: 1.125rem;
+      padding-right: 0.5625rem; }
+    .medium-block-grid-10 > li:nth-of-type(10n+8) {
+      padding-left: 1.3125rem;
       padding-right: 0.375rem; }
+    .medium-block-grid-10 > li:nth-of-type(10n+9) {
+      padding-left: 1.5rem;
+      padding-right: 0.1875rem; }
     .medium-block-grid-10 > li:nth-of-type(10n) {
-      padding-left: 3.375rem;
+      padding-left: 1.6875rem;
       padding-right: 0rem; }
 
   .medium-block-grid-11 > li {
@@ -1828,36 +1828,36 @@ select {
       clear: both; }
     .medium-block-grid-11 > li:nth-of-type(11n+1) {
       padding-left: 0.0rem;
-      padding-right: 3.40909rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+2) {
-      padding-left: 0.34091rem;
-      padding-right: 3.06818rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+3) {
-      padding-left: 0.68182rem;
-      padding-right: 2.72727rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+4) {
-      padding-left: 1.02273rem;
-      padding-right: 2.38636rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+5) {
-      padding-left: 1.36364rem;
-      padding-right: 2.04545rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+6) {
-      padding-left: 1.70455rem;
       padding-right: 1.70455rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+7) {
-      padding-left: 2.04545rem;
+    .medium-block-grid-11 > li:nth-of-type(11n+2) {
+      padding-left: 0.17045rem;
+      padding-right: 1.53409rem; }
+    .medium-block-grid-11 > li:nth-of-type(11n+3) {
+      padding-left: 0.34091rem;
       padding-right: 1.36364rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+8) {
-      padding-left: 2.38636rem;
+    .medium-block-grid-11 > li:nth-of-type(11n+4) {
+      padding-left: 0.51136rem;
+      padding-right: 1.19318rem; }
+    .medium-block-grid-11 > li:nth-of-type(11n+5) {
+      padding-left: 0.68182rem;
       padding-right: 1.02273rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+9) {
-      padding-left: 2.72727rem;
+    .medium-block-grid-11 > li:nth-of-type(11n+6) {
+      padding-left: 0.85227rem;
+      padding-right: 0.85227rem; }
+    .medium-block-grid-11 > li:nth-of-type(11n+7) {
+      padding-left: 1.02273rem;
       padding-right: 0.68182rem; }
-    .medium-block-grid-11 > li:nth-of-type(11n+10) {
-      padding-left: 3.06818rem;
+    .medium-block-grid-11 > li:nth-of-type(11n+8) {
+      padding-left: 1.19318rem;
+      padding-right: 0.51136rem; }
+    .medium-block-grid-11 > li:nth-of-type(11n+9) {
+      padding-left: 1.36364rem;
       padding-right: 0.34091rem; }
+    .medium-block-grid-11 > li:nth-of-type(11n+10) {
+      padding-left: 1.53409rem;
+      padding-right: 0.17045rem; }
     .medium-block-grid-11 > li:nth-of-type(11n) {
-      padding-left: 3.40909rem;
+      padding-left: 1.70455rem;
       padding-right: 0.0rem; }
 
   .medium-block-grid-12 > li {
@@ -1869,39 +1869,39 @@ select {
       clear: both; }
     .medium-block-grid-12 > li:nth-of-type(12n+1) {
       padding-left: 0rem;
-      padding-right: 3.4375rem; }
+      padding-right: 1.71875rem; }
     .medium-block-grid-12 > li:nth-of-type(12n+2) {
-      padding-left: 0.3125rem;
-      padding-right: 3.125rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+3) {
-      padding-left: 0.625rem;
-      padding-right: 2.8125rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+4) {
-      padding-left: 0.9375rem;
-      padding-right: 2.5rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+5) {
-      padding-left: 1.25rem;
-      padding-right: 2.1875rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+6) {
-      padding-left: 1.5625rem;
-      padding-right: 1.875rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+7) {
-      padding-left: 1.875rem;
+      padding-left: 0.15625rem;
       padding-right: 1.5625rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+8) {
-      padding-left: 2.1875rem;
+    .medium-block-grid-12 > li:nth-of-type(12n+3) {
+      padding-left: 0.3125rem;
+      padding-right: 1.40625rem; }
+    .medium-block-grid-12 > li:nth-of-type(12n+4) {
+      padding-left: 0.46875rem;
       padding-right: 1.25rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+9) {
-      padding-left: 2.5rem;
+    .medium-block-grid-12 > li:nth-of-type(12n+5) {
+      padding-left: 0.625rem;
+      padding-right: 1.09375rem; }
+    .medium-block-grid-12 > li:nth-of-type(12n+6) {
+      padding-left: 0.78125rem;
       padding-right: 0.9375rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+10) {
-      padding-left: 2.8125rem;
+    .medium-block-grid-12 > li:nth-of-type(12n+7) {
+      padding-left: 0.9375rem;
+      padding-right: 0.78125rem; }
+    .medium-block-grid-12 > li:nth-of-type(12n+8) {
+      padding-left: 1.09375rem;
       padding-right: 0.625rem; }
-    .medium-block-grid-12 > li:nth-of-type(12n+11) {
-      padding-left: 3.125rem;
+    .medium-block-grid-12 > li:nth-of-type(12n+9) {
+      padding-left: 1.25rem;
+      padding-right: 0.46875rem; }
+    .medium-block-grid-12 > li:nth-of-type(12n+10) {
+      padding-left: 1.40625rem;
       padding-right: 0.3125rem; }
+    .medium-block-grid-12 > li:nth-of-type(12n+11) {
+      padding-left: 1.5625rem;
+      padding-right: 0.15625rem; }
     .medium-block-grid-12 > li:nth-of-type(12n) {
-      padding-left: 3.4375rem;
+      padding-left: 1.71875rem;
       padding-right: 0rem; } }
 @media only screen and (min-width: 64.0625em) {
   .large-block-grid-1 > li {
@@ -1924,9 +1924,9 @@ select {
       clear: both; }
     .large-block-grid-2 > li:nth-of-type(2n+1) {
       padding-left: 0rem;
-      padding-right: 1.875rem; }
+      padding-right: 0.9375rem; }
     .large-block-grid-2 > li:nth-of-type(2n) {
-      padding-left: 1.875rem;
+      padding-left: 0.9375rem;
       padding-right: 0rem; }
 
   .large-block-grid-3 > li {
@@ -1938,12 +1938,12 @@ select {
       clear: both; }
     .large-block-grid-3 > li:nth-of-type(3n+1) {
       padding-left: 0rem;
-      padding-right: 2.5rem; }
-    .large-block-grid-3 > li:nth-of-type(3n+2) {
-      padding-left: 1.25rem;
       padding-right: 1.25rem; }
+    .large-block-grid-3 > li:nth-of-type(3n+2) {
+      padding-left: 0.625rem;
+      padding-right: 0.625rem; }
     .large-block-grid-3 > li:nth-of-type(3n) {
-      padding-left: 2.5rem;
+      padding-left: 1.25rem;
       padding-right: 0rem; }
 
   .large-block-grid-4 > li {
@@ -1955,15 +1955,15 @@ select {
       clear: both; }
     .large-block-grid-4 > li:nth-of-type(4n+1) {
       padding-left: 0rem;
-      padding-right: 2.8125rem; }
+      padding-right: 1.40625rem; }
     .large-block-grid-4 > li:nth-of-type(4n+2) {
-      padding-left: 0.9375rem;
-      padding-right: 1.875rem; }
-    .large-block-grid-4 > li:nth-of-type(4n+3) {
-      padding-left: 1.875rem;
+      padding-left: 0.46875rem;
       padding-right: 0.9375rem; }
+    .large-block-grid-4 > li:nth-of-type(4n+3) {
+      padding-left: 0.9375rem;
+      padding-right: 0.46875rem; }
     .large-block-grid-4 > li:nth-of-type(4n) {
-      padding-left: 2.8125rem;
+      padding-left: 1.40625rem;
       padding-right: 0rem; }
 
   .large-block-grid-5 > li {
@@ -1975,18 +1975,18 @@ select {
       clear: both; }
     .large-block-grid-5 > li:nth-of-type(5n+1) {
       padding-left: 0rem;
-      padding-right: 3rem; }
-    .large-block-grid-5 > li:nth-of-type(5n+2) {
-      padding-left: 0.75rem;
-      padding-right: 2.25rem; }
-    .large-block-grid-5 > li:nth-of-type(5n+3) {
-      padding-left: 1.5rem;
       padding-right: 1.5rem; }
-    .large-block-grid-5 > li:nth-of-type(5n+4) {
-      padding-left: 2.25rem;
+    .large-block-grid-5 > li:nth-of-type(5n+2) {
+      padding-left: 0.375rem;
+      padding-right: 1.125rem; }
+    .large-block-grid-5 > li:nth-of-type(5n+3) {
+      padding-left: 0.75rem;
       padding-right: 0.75rem; }
+    .large-block-grid-5 > li:nth-of-type(5n+4) {
+      padding-left: 1.125rem;
+      padding-right: 0.375rem; }
     .large-block-grid-5 > li:nth-of-type(5n) {
-      padding-left: 3rem;
+      padding-left: 1.5rem;
       padding-right: 0rem; }
 
   .large-block-grid-6 > li {
@@ -1998,21 +1998,21 @@ select {
       clear: both; }
     .large-block-grid-6 > li:nth-of-type(6n+1) {
       padding-left: 0rem;
-      padding-right: 3.125rem; }
+      padding-right: 1.5625rem; }
     .large-block-grid-6 > li:nth-of-type(6n+2) {
-      padding-left: 0.625rem;
-      padding-right: 2.5rem; }
-    .large-block-grid-6 > li:nth-of-type(6n+3) {
-      padding-left: 1.25rem;
-      padding-right: 1.875rem; }
-    .large-block-grid-6 > li:nth-of-type(6n+4) {
-      padding-left: 1.875rem;
+      padding-left: 0.3125rem;
       padding-right: 1.25rem; }
-    .large-block-grid-6 > li:nth-of-type(6n+5) {
-      padding-left: 2.5rem;
+    .large-block-grid-6 > li:nth-of-type(6n+3) {
+      padding-left: 0.625rem;
+      padding-right: 0.9375rem; }
+    .large-block-grid-6 > li:nth-of-type(6n+4) {
+      padding-left: 0.9375rem;
       padding-right: 0.625rem; }
+    .large-block-grid-6 > li:nth-of-type(6n+5) {
+      padding-left: 1.25rem;
+      padding-right: 0.3125rem; }
     .large-block-grid-6 > li:nth-of-type(6n) {
-      padding-left: 3.125rem;
+      padding-left: 1.5625rem;
       padding-right: 0rem; }
 
   .large-block-grid-7 > li {
@@ -2024,24 +2024,24 @@ select {
       clear: both; }
     .large-block-grid-7 > li:nth-of-type(7n+1) {
       padding-left: 0rem;
-      padding-right: 3.21429rem; }
-    .large-block-grid-7 > li:nth-of-type(7n+2) {
-      padding-left: 0.53571rem;
-      padding-right: 2.67857rem; }
-    .large-block-grid-7 > li:nth-of-type(7n+3) {
-      padding-left: 1.07143rem;
-      padding-right: 2.14286rem; }
-    .large-block-grid-7 > li:nth-of-type(7n+4) {
-      padding-left: 1.60714rem;
       padding-right: 1.60714rem; }
-    .large-block-grid-7 > li:nth-of-type(7n+5) {
-      padding-left: 2.14286rem;
+    .large-block-grid-7 > li:nth-of-type(7n+2) {
+      padding-left: 0.26786rem;
+      padding-right: 1.33929rem; }
+    .large-block-grid-7 > li:nth-of-type(7n+3) {
+      padding-left: 0.53571rem;
       padding-right: 1.07143rem; }
-    .large-block-grid-7 > li:nth-of-type(7n+6) {
-      padding-left: 2.67857rem;
+    .large-block-grid-7 > li:nth-of-type(7n+4) {
+      padding-left: 0.80357rem;
+      padding-right: 0.80357rem; }
+    .large-block-grid-7 > li:nth-of-type(7n+5) {
+      padding-left: 1.07143rem;
       padding-right: 0.53571rem; }
+    .large-block-grid-7 > li:nth-of-type(7n+6) {
+      padding-left: 1.33929rem;
+      padding-right: 0.26786rem; }
     .large-block-grid-7 > li:nth-of-type(7n) {
-      padding-left: 3.21429rem;
+      padding-left: 1.60714rem;
       padding-right: 0rem; }
 
   .large-block-grid-8 > li {
@@ -2053,27 +2053,27 @@ select {
       clear: both; }
     .large-block-grid-8 > li:nth-of-type(8n+1) {
       padding-left: 0rem;
-      padding-right: 3.28125rem; }
+      padding-right: 1.64063rem; }
     .large-block-grid-8 > li:nth-of-type(8n+2) {
-      padding-left: 0.46875rem;
-      padding-right: 2.8125rem; }
-    .large-block-grid-8 > li:nth-of-type(8n+3) {
-      padding-left: 0.9375rem;
-      padding-right: 2.34375rem; }
-    .large-block-grid-8 > li:nth-of-type(8n+4) {
-      padding-left: 1.40625rem;
-      padding-right: 1.875rem; }
-    .large-block-grid-8 > li:nth-of-type(8n+5) {
-      padding-left: 1.875rem;
+      padding-left: 0.23438rem;
       padding-right: 1.40625rem; }
-    .large-block-grid-8 > li:nth-of-type(8n+6) {
-      padding-left: 2.34375rem;
+    .large-block-grid-8 > li:nth-of-type(8n+3) {
+      padding-left: 0.46875rem;
+      padding-right: 1.17188rem; }
+    .large-block-grid-8 > li:nth-of-type(8n+4) {
+      padding-left: 0.70313rem;
       padding-right: 0.9375rem; }
-    .large-block-grid-8 > li:nth-of-type(8n+7) {
-      padding-left: 2.8125rem;
+    .large-block-grid-8 > li:nth-of-type(8n+5) {
+      padding-left: 0.9375rem;
+      padding-right: 0.70313rem; }
+    .large-block-grid-8 > li:nth-of-type(8n+6) {
+      padding-left: 1.17188rem;
       padding-right: 0.46875rem; }
+    .large-block-grid-8 > li:nth-of-type(8n+7) {
+      padding-left: 1.40625rem;
+      padding-right: 0.23438rem; }
     .large-block-grid-8 > li:nth-of-type(8n) {
-      padding-left: 3.28125rem;
+      padding-left: 1.64063rem;
       padding-right: 0rem; }
 
   .large-block-grid-9 > li {
@@ -2085,30 +2085,30 @@ select {
       clear: both; }
     .large-block-grid-9 > li:nth-of-type(9n+1) {
       padding-left: 0rem;
-      padding-right: 3.33333rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+2) {
-      padding-left: 0.41667rem;
-      padding-right: 2.91667rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+3) {
-      padding-left: 0.83333rem;
-      padding-right: 2.5rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+4) {
-      padding-left: 1.25rem;
-      padding-right: 2.08333rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+5) {
-      padding-left: 1.66667rem;
       padding-right: 1.66667rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+6) {
-      padding-left: 2.08333rem;
+    .large-block-grid-9 > li:nth-of-type(9n+2) {
+      padding-left: 0.20833rem;
+      padding-right: 1.45833rem; }
+    .large-block-grid-9 > li:nth-of-type(9n+3) {
+      padding-left: 0.41667rem;
       padding-right: 1.25rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+7) {
-      padding-left: 2.5rem;
+    .large-block-grid-9 > li:nth-of-type(9n+4) {
+      padding-left: 0.625rem;
+      padding-right: 1.04167rem; }
+    .large-block-grid-9 > li:nth-of-type(9n+5) {
+      padding-left: 0.83333rem;
       padding-right: 0.83333rem; }
-    .large-block-grid-9 > li:nth-of-type(9n+8) {
-      padding-left: 2.91667rem;
+    .large-block-grid-9 > li:nth-of-type(9n+6) {
+      padding-left: 1.04167rem;
+      padding-right: 0.625rem; }
+    .large-block-grid-9 > li:nth-of-type(9n+7) {
+      padding-left: 1.25rem;
       padding-right: 0.41667rem; }
+    .large-block-grid-9 > li:nth-of-type(9n+8) {
+      padding-left: 1.45833rem;
+      padding-right: 0.20833rem; }
     .large-block-grid-9 > li:nth-of-type(9n) {
-      padding-left: 3.33333rem;
+      padding-left: 1.66667rem;
       padding-right: 0rem; }
 
   .large-block-grid-10 > li {
@@ -2120,33 +2120,33 @@ select {
       clear: both; }
     .large-block-grid-10 > li:nth-of-type(10n+1) {
       padding-left: 0rem;
-      padding-right: 3.375rem; }
+      padding-right: 1.6875rem; }
     .large-block-grid-10 > li:nth-of-type(10n+2) {
-      padding-left: 0.375rem;
-      padding-right: 3rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+3) {
-      padding-left: 0.75rem;
-      padding-right: 2.625rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+4) {
-      padding-left: 1.125rem;
-      padding-right: 2.25rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+5) {
-      padding-left: 1.5rem;
-      padding-right: 1.875rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+6) {
-      padding-left: 1.875rem;
+      padding-left: 0.1875rem;
       padding-right: 1.5rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+7) {
-      padding-left: 2.25rem;
+    .large-block-grid-10 > li:nth-of-type(10n+3) {
+      padding-left: 0.375rem;
+      padding-right: 1.3125rem; }
+    .large-block-grid-10 > li:nth-of-type(10n+4) {
+      padding-left: 0.5625rem;
       padding-right: 1.125rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+8) {
-      padding-left: 2.625rem;
+    .large-block-grid-10 > li:nth-of-type(10n+5) {
+      padding-left: 0.75rem;
+      padding-right: 0.9375rem; }
+    .large-block-grid-10 > li:nth-of-type(10n+6) {
+      padding-left: 0.9375rem;
       padding-right: 0.75rem; }
-    .large-block-grid-10 > li:nth-of-type(10n+9) {
-      padding-left: 3rem;
+    .large-block-grid-10 > li:nth-of-type(10n+7) {
+      padding-left: 1.125rem;
+      padding-right: 0.5625rem; }
+    .large-block-grid-10 > li:nth-of-type(10n+8) {
+      padding-left: 1.3125rem;
       padding-right: 0.375rem; }
+    .large-block-grid-10 > li:nth-of-type(10n+9) {
+      padding-left: 1.5rem;
+      padding-right: 0.1875rem; }
     .large-block-grid-10 > li:nth-of-type(10n) {
-      padding-left: 3.375rem;
+      padding-left: 1.6875rem;
       padding-right: 0rem; }
 
   .large-block-grid-11 > li {
@@ -2158,36 +2158,36 @@ select {
       clear: both; }
     .large-block-grid-11 > li:nth-of-type(11n+1) {
       padding-left: 0.0rem;
-      padding-right: 3.40909rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+2) {
-      padding-left: 0.34091rem;
-      padding-right: 3.06818rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+3) {
-      padding-left: 0.68182rem;
-      padding-right: 2.72727rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+4) {
-      padding-left: 1.02273rem;
-      padding-right: 2.38636rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+5) {
-      padding-left: 1.36364rem;
-      padding-right: 2.04545rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+6) {
-      padding-left: 1.70455rem;
       padding-right: 1.70455rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+7) {
-      padding-left: 2.04545rem;
+    .large-block-grid-11 > li:nth-of-type(11n+2) {
+      padding-left: 0.17045rem;
+      padding-right: 1.53409rem; }
+    .large-block-grid-11 > li:nth-of-type(11n+3) {
+      padding-left: 0.34091rem;
       padding-right: 1.36364rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+8) {
-      padding-left: 2.38636rem;
+    .large-block-grid-11 > li:nth-of-type(11n+4) {
+      padding-left: 0.51136rem;
+      padding-right: 1.19318rem; }
+    .large-block-grid-11 > li:nth-of-type(11n+5) {
+      padding-left: 0.68182rem;
       padding-right: 1.02273rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+9) {
-      padding-left: 2.72727rem;
+    .large-block-grid-11 > li:nth-of-type(11n+6) {
+      padding-left: 0.85227rem;
+      padding-right: 0.85227rem; }
+    .large-block-grid-11 > li:nth-of-type(11n+7) {
+      padding-left: 1.02273rem;
       padding-right: 0.68182rem; }
-    .large-block-grid-11 > li:nth-of-type(11n+10) {
-      padding-left: 3.06818rem;
+    .large-block-grid-11 > li:nth-of-type(11n+8) {
+      padding-left: 1.19318rem;
+      padding-right: 0.51136rem; }
+    .large-block-grid-11 > li:nth-of-type(11n+9) {
+      padding-left: 1.36364rem;
       padding-right: 0.34091rem; }
+    .large-block-grid-11 > li:nth-of-type(11n+10) {
+      padding-left: 1.53409rem;
+      padding-right: 0.17045rem; }
     .large-block-grid-11 > li:nth-of-type(11n) {
-      padding-left: 3.40909rem;
+      padding-left: 1.70455rem;
       padding-right: 0.0rem; }
 
   .large-block-grid-12 > li {
@@ -2199,39 +2199,39 @@ select {
       clear: both; }
     .large-block-grid-12 > li:nth-of-type(12n+1) {
       padding-left: 0rem;
-      padding-right: 3.4375rem; }
+      padding-right: 1.71875rem; }
     .large-block-grid-12 > li:nth-of-type(12n+2) {
-      padding-left: 0.3125rem;
-      padding-right: 3.125rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+3) {
-      padding-left: 0.625rem;
-      padding-right: 2.8125rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+4) {
-      padding-left: 0.9375rem;
-      padding-right: 2.5rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+5) {
-      padding-left: 1.25rem;
-      padding-right: 2.1875rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+6) {
-      padding-left: 1.5625rem;
-      padding-right: 1.875rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+7) {
-      padding-left: 1.875rem;
+      padding-left: 0.15625rem;
       padding-right: 1.5625rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+8) {
-      padding-left: 2.1875rem;
+    .large-block-grid-12 > li:nth-of-type(12n+3) {
+      padding-left: 0.3125rem;
+      padding-right: 1.40625rem; }
+    .large-block-grid-12 > li:nth-of-type(12n+4) {
+      padding-left: 0.46875rem;
       padding-right: 1.25rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+9) {
-      padding-left: 2.5rem;
+    .large-block-grid-12 > li:nth-of-type(12n+5) {
+      padding-left: 0.625rem;
+      padding-right: 1.09375rem; }
+    .large-block-grid-12 > li:nth-of-type(12n+6) {
+      padding-left: 0.78125rem;
       padding-right: 0.9375rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+10) {
-      padding-left: 2.8125rem;
+    .large-block-grid-12 > li:nth-of-type(12n+7) {
+      padding-left: 0.9375rem;
+      padding-right: 0.78125rem; }
+    .large-block-grid-12 > li:nth-of-type(12n+8) {
+      padding-left: 1.09375rem;
       padding-right: 0.625rem; }
-    .large-block-grid-12 > li:nth-of-type(12n+11) {
-      padding-left: 3.125rem;
+    .large-block-grid-12 > li:nth-of-type(12n+9) {
+      padding-left: 1.25rem;
+      padding-right: 0.46875rem; }
+    .large-block-grid-12 > li:nth-of-type(12n+10) {
+      padding-left: 1.40625rem;
       padding-right: 0.3125rem; }
+    .large-block-grid-12 > li:nth-of-type(12n+11) {
+      padding-left: 1.5625rem;
+      padding-right: 0.15625rem; }
     .large-block-grid-12 > li:nth-of-type(12n) {
-      padding-left: 3.4375rem;
+      padding-left: 1.71875rem;
       padding-right: 0rem; } }
 .breadcrumbs {
   border-style: solid;
@@ -5127,17 +5127,17 @@ table {
   .tabs-content > .content {
     display: none;
     float: left;
-    padding: 1.875rem 0;
+    padding: 0.9375rem 0;
     width: 100%; }
     .tabs-content > .content.active {
       display: block;
       float: none; }
     .tabs-content > .content.contained {
-      padding: 1.875rem; }
+      padding: 0.9375rem; }
   .tabs-content.vertical {
     display: block; }
     .tabs-content.vertical > .content {
-      padding: 0 1.875rem; }
+      padding: 0 0.9375rem; }
 
 @media only screen and (min-width: 40.0625em) {
   .tabs.vertical {
@@ -7241,7 +7241,7 @@ footer {
   width: 100%;
   max-width: 75rem;
   margin: 0 auto;
-  padding: 0 1.875rem; }
+  padding: 0 0.9375rem; }
   .page-edit-print .action-buttons .button {
     margin-top: 0.75rem;
     margin-bottom: 0;
@@ -7297,67 +7297,6 @@ footer {
   margin-bottom: 1.875rem; }
   .page-edit-print .imageEditorToolbox form button:focus {
     outline: none; }
-.page-edit-print .imageEditorToolbox .image-list {
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 0.625rem !important; }
-  .page-edit-print .imageEditorToolbox .image-list:before, .page-edit-print .imageEditorToolbox .image-list:after {
-    content: " ";
-    display: table; }
-  .page-edit-print .imageEditorToolbox .image-list:after {
-    clear: both; }
-  .page-edit-print .imageEditorToolbox .image-list > li {
-    display: block;
-    float: left;
-    height: auto;
-    padding: 0 0.625rem 1.25rem; }
-  .page-edit-print .imageEditorToolbox .image-list > li {
-    list-style: none;
-    padding: 0 0.625rem 1.25rem;
-    width: 50%; }
-    .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(1n) {
-      clear: none; }
-    .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(2n+1) {
-      clear: both; }
-    .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(2n+1) {
-      padding-left: 0rem;
-      padding-right: 0.625rem; }
-    .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(2n) {
-      padding-left: 0.625rem;
-      padding-right: 0rem; }
-  @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
-    .page-edit-print .imageEditorToolbox .image-list {
-      display: block;
-      padding: 0;
-      margin: 0; }
-      .page-edit-print .imageEditorToolbox .image-list:before, .page-edit-print .imageEditorToolbox .image-list:after {
-        content: " ";
-        display: table; }
-      .page-edit-print .imageEditorToolbox .image-list:after {
-        clear: both; }
-      .page-edit-print .imageEditorToolbox .image-list > li {
-        display: block;
-        float: left;
-        height: auto;
-        padding: 0 0.625rem 1.25rem; }
-      .page-edit-print .imageEditorToolbox .image-list > li {
-        list-style: none;
-        padding: 0 0.625rem 1.25rem;
-        width: 33.33333%; }
-        .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(1n) {
-          clear: none; }
-        .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(3n+1) {
-          clear: both; }
-        .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(3n+1) {
-          padding-left: 0rem;
-          padding-right: 0.83333rem; }
-        .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(3n+2) {
-          padding-left: 0.41667rem;
-          padding-right: 0.41667rem; }
-        .page-edit-print .imageEditorToolbox .image-list > li:nth-of-type(3n) {
-          padding-left: 0.83333rem;
-          padding-right: 0rem; } }
 
 .page-prints .row-print {
   margin-bottom: 1.875rem; }
