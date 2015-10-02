@@ -7225,23 +7225,16 @@ footer {
       color: #7F7F7F;
       margin-bottom: 0; }
 
-.page-edit-print .left-off-canvas-toggle {
+.page-edit-print .left-off-canvas-toggle, .page-edit-print .toolbox-toogle {
   text-align: center; }
-  .page-edit-print .left-off-canvas-toggle label {
+  .page-edit-print .left-off-canvas-toggle label, .page-edit-print .toolbox-toogle label {
     background-color: #1B142A; }
-    .page-edit-print .left-off-canvas-toggle label i {
+    .page-edit-print .left-off-canvas-toggle label i, .page-edit-print .toolbox-toogle label i {
       font-size: 2.5rem;
       line-height: 4.6875rem;
       color: #fff; }
-.page-edit-print .tab-bar-section.full-width {
-  left: 0;
-  right: 0;
-  padding: 0; }
 .page-edit-print .action-buttons {
-  width: 100%;
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 0 0.9375rem; }
+  width: 100%; }
   .page-edit-print .action-buttons .button {
     margin-top: 0.75rem;
     margin-bottom: 0;
@@ -7264,26 +7257,60 @@ footer {
     cursor: pointer;
     list-style-type: none; }
 .page-edit-print .edit-surface {
-  margin-top: 50px; }
-.page-edit-print .page-editor-wrap {
   position: relative;
-  overflow: hidden; }
-  .page-edit-print .page-editor-wrap .page-editor {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+  margin-top: 1.875rem;
+  padding: 0 1.875rem; }
+  .page-edit-print .edit-surface .page-editor-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40.26268rem; }
+    @media (orientation: landscape) {
+      .page-edit-print .edit-surface .page-editor-wrap {
+        max-width: 28.66848rem; } }
+  @media (orientation: landscape) and (min-width: 1366px) {
+    .page-edit-print .edit-surface .page-editor-wrap {
+      max-width: 23.36957rem; } }
+  @media (orientation: landscape) and (min-width: 1440px) {
+    .page-edit-print .edit-surface .page-editor-wrap {
+      max-width: 29.34783rem; } }
+  @media (orientation: landscape) and (min-width: 1920px) {
+    .page-edit-print .edit-surface .page-editor-wrap {
+      max-width: 37.5rem; } }
+
+  @media (orientation: landscape) and (min-width: 1920px) and (min-height: 1200px) {
+    .page-edit-print .edit-surface .page-editor-wrap {
+      max-width: 42.93478rem; } }
+
+    .page-edit-print .edit-surface .page-editor-wrap .page-editor {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+      .page-edit-print .edit-surface .page-editor-wrap .page-editor iframe {
+        overflow: hidden; }
+  .page-edit-print .edit-surface .toolbox {
+    position: fixed;
     right: 0;
-    /*border: 1px solid #CCCCCC;*/ }
-    .page-edit-print .page-editor-wrap .page-editor iframe {
-      overflow: hidden; }
-.page-edit-print .toolbox {
-  background-color: #fff; }
-  .page-edit-print .toolbox .tabs .tab-title {
-    background-color: #DEDEDE; }
-  .page-edit-print .toolbox .tabs-content {
-    padding-left: 1.875rem;
-    padding-right: 1.875rem; }
+    top: 4.6875rem;
+    bottom: 0;
+    width: 100%;
+    overflow: auto;
+    max-width: 25rem;
+    background-color: #fff;
+    box-shadow: -0.125rem 0 0.1875rem rgba(0, 0, 0, 0.35); }
+    .page-edit-print .edit-surface .toolbox .tabs .tab-title {
+      background-color: #DEDEDE; }
+    .page-edit-print .edit-surface .toolbox .tabs-content {
+      padding-left: 1.875rem;
+      padding-right: 1.875rem; }
+  @media (min-width: 64em) {
+    .page-edit-print .edit-surface.toolbox-visible {
+      padding-right: 26.875rem; }
+      .page-edit-print .edit-surface.toolbox-visible .toolbox {
+        box-shadow: none; } }
 .page-edit-print .cke_chrome {
   box-shadow: none; }
 .page-edit-print .textEditorToolbox .cke, .page-edit-print .htmlEditorToolbox .cke, .page-edit-print .imageEditorToolbox .cke {

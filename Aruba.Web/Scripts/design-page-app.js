@@ -30,7 +30,7 @@
             }
         }
     })
-    .controller("printEditorCtrl", function ($scope, $q, printService, pageService, fieldValuesService, realEstateObjectService) {
+    .controller("printEditorCtrl", function ($scope, $q, $timeout, printService, pageService, fieldValuesService, realEstateObjectService) {
         // Local variables
         var currentSelectedTextField = null;
         var currentSelectedHtmlField = null;
@@ -86,11 +86,11 @@
         $scope.htmlEditorToolboxVisible = false;
         $scope.htmlEditorFormReady = false;
         $scope.imageEditorToolboxVisible = false;
-
+        $scope.toolboxVisible = true;
 
         // Scope functions
         $scope.switchToPage = function (pageId) {
-            $('.off-canvas-wrap').foundation('offcanvas', 'hide', 'move-right');
+            $(".off-canvas-wrap").foundation("offcanvas", "hide", "move-right");
             pageService.getPage(pageId)
                 .then(function (response) {
                     $scope.currentPage = response.data;
@@ -103,6 +103,11 @@
                 }, function (response) {
                     alert("Call to pageService.getPage failed.");
                 });
+        }
+
+        $scope.toggleToolboxVisible = function() {
+            $scope.toolboxVisible = !$scope.toolboxVisible;
+            $timeout(function () { $scope.resizeIframe(); });
         }
 
 
@@ -383,7 +388,7 @@
             }
             if (currentSelectedImageField) {
                 currentSelectedImageField.parent().removeClass("active");
-                $('img', currentSelectedImageField).guillotine('disable');
+                $("img", currentSelectedImageField).guillotine("disable");
                 currentSelectedImageField.click($scope.handleImageFieldClick); //Re-register click event to the old image
                 currentSelectedImageField = null;
             }

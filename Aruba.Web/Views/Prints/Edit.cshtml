@@ -12,11 +12,16 @@
                             </a>
                         </section>
 
-                        <section class="full-width tab-bar-section">
+                        <section class="middle tab-bar-section">
                             <div class="action-buttons clearfix">
                                 @Html.ActionLink("Tillbaka till översikten", "GeneratePdfPages", new { id = Model.PrintId }, new { role = "button", @class = "button success right" })
-                                @*@Html.ActionLink("Granska", "Preview", new { id = Model.PrintId }, new { role = "button", @class = "button alert right" })*@
                             </div>
+                        </section>
+
+                        <section class="right-small">
+                            <a class="toolbox-toogle" ng-click="toggleToolboxVisible()">
+                                <label><i class="fi-widget"></i></label>
+                            </a>
                         </section>
                     </nav>
 
@@ -31,58 +36,52 @@
                         </ul>
                     </aside>
 
-                    <div class="edit-surface">
-                        <div class="row">
-                            <div class="small-12 large-5 large-push-7 column">
-                                <div class="toolbox" ng-cloak>
-                                    <ul class="tabs" data-tab>
-                                        <li class="tab-title active"><a id="toolboxTab1" href="#panel1">Verktyg</a></li>
-                                        <li class="tab-title"><a id="toolboxTab2" href="#panel2">Mallar</a></li>
-                                        <li class="tab-title"><a id="toolboxTab3" href="#panel3">Extra</a></li>
-                                    </ul>
-                                    <div class="tabs-content">
-                                        <div class="content active" id="panel1">
-                                            <div class="textEditorToolbox clearfix" ng-show="textEditorToolboxVisible">
-                                                <form class="clearfix" name="textEditorForm" ng-show="textEditorFormReady">
-                                                    <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue"></textarea>
-                                                    <button class="right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || saveTextEditorValue()">Spara</button>
-                                                    <button class="right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || revertTextEditorValue()">Ångra</button>
-                                                </form>
-                                            </div>
-                                            <div class="htmlEditorToolbox clearfix" ng-show="htmlEditorToolboxVisible">
-                                                <form class="clearfix" name="htmlEditorForm" ng-show="htmlEditorFormReady">
-                                                    <textarea id="htmlEditor" name="body" ckeditor="htmlEditor" ng-model="htmlEditorValue"></textarea>
-                                                    <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || saveHtmlEditorValue()">Spara</button>
-                                                    <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || revertHtmlEditorValue()">Ångra</button>
-                                                </form>
-                                            </div>
-                                            <div class="imageEditorToolbox clearfix" ng-show="imageEditorToolboxVisible">
-                                                <form class="clearfix">
-                                                    <button class="left" ng-click="increaseImageSize()"><i class="fi-plus"></i></button>
-                                                    <button class="left" ng-click="decreaseImageSize()"><i class="fi-minus"></i></button>
-                                                </form>
-                                                <ul class="small-block-grid-2">
-                                                    <li ng-repeat="image in images" ng-click="handleObjectImageClick(image.imageUrl)">
-                                                        <img ng-src="{{image.thumbnailUrl}}" alt="" />
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="content" id="panel2">
-                                            <p>Kommer snart.</p>
-                                        </div>
-                                        <div class="content" id="panel3">
-                                            <p>Kommer snart.</p>
-                                        </div>
+                    <div class="edit-surface" ng-class="{'toolbox-visible' : toolboxVisible}">
+                        <div class="page-editor-wrap">
+                            <div id="dummy" class="dummy"></div>
+                            <div id="page-editor" class="page-editor">
+                            </div>
+                        </div>
+
+                        <div class="toolbox" ng-show="toolboxVisible" ng-cloak>
+                            <ul class="tabs" data-tab>
+                                <li class="tab-title active"><a id="toolboxTab1" href="#panel1">Verktyg</a></li>
+                                <li class="tab-title"><a id="toolboxTab2" href="#panel2">Mallar</a></li>
+                                <li class="tab-title"><a id="toolboxTab3" href="#panel3">Extra</a></li>
+                            </ul>
+                            <div class="tabs-content">
+                                <div class="content active" id="panel1">
+                                    <div class="textEditorToolbox clearfix" ng-show="textEditorToolboxVisible">
+                                        <form class="clearfix" name="textEditorForm" ng-show="textEditorFormReady">
+                                            <textarea id="textEditor" name="body" ckeditor="textEditor" ng-model="textEditorValue"></textarea>
+                                            <button class="right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || saveTextEditorValue()">Spara</button>
+                                            <button class="right" ng-class="{disabled : textEditorForm.$pristine}" ng-click="textEditorForm.$pristine || revertTextEditorValue()">Ångra</button>
+                                        </form>
+                                    </div>
+                                    <div class="htmlEditorToolbox clearfix" ng-show="htmlEditorToolboxVisible">
+                                        <form class="clearfix" name="htmlEditorForm" ng-show="htmlEditorFormReady">
+                                            <textarea id="htmlEditor" name="body" ckeditor="htmlEditor" ng-model="htmlEditorValue"></textarea>
+                                            <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || saveHtmlEditorValue()">Spara</button>
+                                            <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || revertHtmlEditorValue()">Ångra</button>
+                                        </form>
+                                    </div>
+                                    <div class="imageEditorToolbox clearfix" ng-show="imageEditorToolboxVisible">
+                                        <form class="clearfix">
+                                            <button class="left" ng-click="increaseImageSize()"><i class="fi-plus"></i></button>
+                                            <button class="left" ng-click="decreaseImageSize()"><i class="fi-minus"></i></button>
+                                        </form>
+                                        <ul class="small-block-grid-2">
+                                            <li ng-repeat="image in images" ng-click="handleObjectImageClick(image.imageUrl)">
+                                                <img ng-src="{{image.thumbnailUrl}}" alt="" />
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="small-12 small large-7 large-pull-5 column">
-                                <div class="page-editor-wrap">
-                                    <div id="dummy" class="dummy"></div>
-                                    <div id="page-editor" class="page-editor">
-                                    </div>
+                                <div class="content" id="panel2">
+                                    <p>Kommer snart.</p>
+                                </div>
+                                <div class="content" id="panel3">
+                                    <p>Kommer snart.</p>
                                 </div>
                             </div>
                         </div>

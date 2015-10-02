@@ -1,8 +1,10 @@
 ﻿@import "../partials/variables";
 @import "../partials/logo";
 
+$tab-bar-height: rem-calc(75);
+
 .page-edit-print {
-    .left-off-canvas-toggle {
+    .left-off-canvas-toggle, .toolbox-toogle {
         text-align: center;
 
         label {
@@ -10,23 +12,14 @@
 
             i {
                 font-size: rem-calc(40);
-                line-height: rem-calc(75);
+                line-height: $tab-bar-height;
                 color: $white;
             }
         }
     }
-
-    .tab-bar-section.full-width {
-        left: 0;
-        right: 0;
-        padding: 0;
-    }
-
+    
     .action-buttons {
         width: 100%;
-        max-width: $row-width;
-        margin: 0 auto;
-        padding: 0 $column-gutter/2;
 
         .button {
             margin-top: rem-calc(12);
@@ -46,13 +39,13 @@
     .left-off-canvas-menu {
         header {
             background-color: $silver;
-            height: rem-calc(75);
+            height: $tab-bar-height;
             padding: 0 rem-calc(30);
             box-sizing: border-box;
 
             h3 {
                 margin: 0;
-                line-height: rem-calc(75);
+                line-height: $tab-bar-height;
             }
         }
 
@@ -67,39 +60,86 @@
     }
 
     .edit-surface {
-        margin-top: 50px;
-    }
-
-    .page-editor-wrap {
         position: relative;
-        overflow: hidden;
+        margin-top: $column-gutter;
+        padding: 0 $column-gutter;
 
-        .page-editor {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
+        .page-editor-wrap {
+            position: relative;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+
+            $aspect-ratio-a5: 1.38;
+            $browser-address-bar-height-max: rem-calc(77); // Microsoft Edge 77px, Google Chrome 61px, Firefox 69px
+            $os-task-bar-height-max: rem-calc(40); // Windows 10 40px
+            $non-viewport-space-desktop: $browser-address-bar-height-max + $os-task-bar-height-max;
+            $non-viewport-space-tablet: rem-calc(0);
+
+            max-width: (rem-calc(1024) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-tablet)/$aspect-ratio-a5; // optimized for portrait iPad 768x1024
+            @media (orientation: landscape) {
+                max-width: (rem-calc(768) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-tablet)/$aspect-ratio-a5; // optimized for landscape iPad 1024x768
+                @media (min-width: 1366px) {
+                    max-width: (rem-calc(768) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1366x768
+                }
+
+                @media (min-width: 1440px) {
+                    max-width: (rem-calc(900) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1440x900
+                }
+
+                @media (min-width: 1920px) {
+                    max-width: (rem-calc(1080) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1920x1080
+                    @media (min-height: 1200px) {
+                        max-width: (rem-calc(1200) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1920x1200
+                    }
+                }
+            }
+
+
+            .page-editor {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                iframe {
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .toolbox {
+            position: fixed;
             right: 0;
-            /*border: 1px solid #CCCCCC;*/
-            iframe {
-                overflow: hidden;
+            top: $tab-bar-height;
+            bottom: rem-calc(0);
+            width: 100%;
+            overflow: auto;
+            max-width: rem-calc(400);
+            background-color: $white;
+            box-shadow: rem-calc(-2) 0 rem-calc(3) rgba(0,0,0,0.35);
+
+            .tabs {
+                .tab-title {
+                    background-color: $silver;
+                }
+            }
+
+            .tabs-content {
+                padding-left: rem-calc(30);
+                padding-right: rem-calc(30);
             }
         }
-    }
 
+        &.toolbox-visible {
+            @media (min-width: $medium-breakpoint) {
+                padding-right: rem-calc(400) + $column-gutter;
 
-    .toolbox {
-        background-color: $white;
-
-        .tabs {
-            .tab-title {
-                background-color: $silver;
+                .toolbox {
+                    box-shadow: none;
+                }
             }
-        }
-
-        .tabs-content {
-            padding-left: rem-calc(30);
-            padding-right: rem-calc(30);
         }
     }
 
