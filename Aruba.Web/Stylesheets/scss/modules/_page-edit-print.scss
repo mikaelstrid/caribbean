@@ -11,13 +11,13 @@ $tab-bar-height: rem-calc(75);
             background-color: $darkpurple;
 
             i {
-                font-size: rem-calc(40);
+                font-size: rem-calc(34);
                 line-height: $tab-bar-height;
                 color: $white;
             }
         }
     }
-    
+
     .action-buttons {
         width: 100%;
 
@@ -61,7 +61,7 @@ $tab-bar-height: rem-calc(75);
 
     .edit-surface {
         position: relative;
-        margin-top: $column-gutter;
+        margin: $column-gutter 0;
         padding: 0 $column-gutter;
 
         .page-editor-wrap {
@@ -69,32 +69,6 @@ $tab-bar-height: rem-calc(75);
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;
-
-            $aspect-ratio-a5: 1.38;
-            $browser-address-bar-height-max: rem-calc(77); // Microsoft Edge 77px, Google Chrome 61px, Firefox 69px
-            $os-task-bar-height-max: rem-calc(40); // Windows 10 40px
-            $non-viewport-space-desktop: $browser-address-bar-height-max + $os-task-bar-height-max;
-            $non-viewport-space-tablet: rem-calc(0);
-
-            max-width: (rem-calc(1024) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-tablet)/$aspect-ratio-a5; // optimized for portrait iPad 768x1024
-            @media (orientation: landscape) {
-                max-width: (rem-calc(768) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-tablet)/$aspect-ratio-a5; // optimized for landscape iPad 1024x768
-                @media (min-width: 1366px) {
-                    max-width: (rem-calc(768) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1366x768
-                }
-
-                @media (min-width: 1440px) {
-                    max-width: (rem-calc(900) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1440x900
-                }
-
-                @media (min-width: 1920px) {
-                    max-width: (rem-calc(1080) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1920x1080
-                    @media (min-height: 1200px) {
-                        max-width: (rem-calc(1200) - $tab-bar-height - 2*$column-gutter - $non-viewport-space-desktop)/$aspect-ratio-a5; // optimized for landscape 1920x1200
-                    }
-                }
-            }
-
 
             .page-editor {
                 position: absolute;
@@ -121,8 +95,14 @@ $tab-bar-height: rem-calc(75);
             box-shadow: rem-calc(-2) 0 rem-calc(3) rgba(0,0,0,0.35);
 
             .tabs {
+                background-color: $silver;
+
                 .tab-title {
                     background-color: $silver;
+
+                    a:focus {
+                        outline: none;
+                    }
                 }
             }
 

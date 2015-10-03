@@ -35,11 +35,13 @@
         var currentSelectedTextField = null;
         var currentSelectedHtmlField = null;
         var currentSelectedImageField = null;
+        var surroundingAreaHeight = -1;
 
         // Initialize the CKEditors
         $scope.textEditor = {
             language: "sv",
             uiColor: "#ffffff",
+            height: "6rem",
             toolbarGroups: [
 		        { name: "clipboard", groups: ["clipboard", "undo"] },
 		        { name: "editing", groups: ["find", "selection", "spellchecker", "editing"] },
@@ -77,7 +79,7 @@
 		        { name: "colors", groups: ["colors"] },
 		        { name: "about", groups: ["about"] }
             ],
-            removeButtons: "Underline,Subscript,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Scayt,Link,Anchor,Unlink,Image,Table,HorizontalRule,SpecialChar,Maximize,Source,Strike,Superscript,RemoveFormat,Outdent,Indent,Blockquote,Styles,About,Format"
+            removeButtons: "Underline,Subscript,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Scayt,Link,Anchor,Unlink,Image,Table,HorizontalRule,SpecialChar,Maximize,Source,Strike,Superscript,RemoveFormat,Outdent,Indent,Blockquote,Styles,About,Format,BulletedList,NumberedList"
         };
 
         // Scope variables
@@ -105,8 +107,13 @@
                 });
         }
 
-        $scope.toggleToolboxVisible = function() {
+        $scope.toggleToolbox = function() {
             $scope.toolboxVisible = !$scope.toolboxVisible;
+            $timeout(function () { $scope.resizeIframe(); });
+        }
+
+        $scope.showToolbox = function () {
+            $scope.toolboxVisible = true;
             $timeout(function () { $scope.resizeIframe(); });
         }
 
@@ -123,6 +130,7 @@
             $scope.textEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.textEditorForm, 100, function () { $scope.textEditorFormReady = true; });
+            $scope.showToolbox();
         }
         $scope.saveTextEditorValue = function () {
             // Remove newlines and <p> tags
@@ -159,6 +167,7 @@
             $scope.htmlEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.htmlEditorForm, 100, function () { $scope.htmlEditorFormReady = true; });
+            $scope.showToolbox();
         }
         $scope.saveHtmlEditorValue = function () {
             var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
@@ -191,6 +200,7 @@
             currentSelectedImageField.unbind("click");
             $("img", currentSelectedImageField).guillotine("enable");
             $("#toolboxTab1").click();
+            $scope.showToolbox();
         }
         $scope.handleObjectImageClick = function (imageUrl) {
             var targetImage = $("img", currentSelectedImageField);
@@ -366,11 +376,25 @@
         }
 
         $scope.resizeIframe = function () {
-            var scaleValue = $("#page-editor").width() / $scope.currentPage.width;
-            $("#page-editor iframe").css({
-                "transform-origin": "0 0",
-                "transform": "scale(" + scaleValue + ")"
+            if ($scope.currentPage == null) return;
+
+            $(".page-editor-wrap").css("max-width", $scope._calculatePageEditorMaxWidth());
+            $timeout(function() {
+                var pageEditor = $("#page-editor");
+                var scaleValue = pageEditor.width() / $scope.currentPage.width;
+                $("iframe", pageEditor).css({
+                    "transform-origin": "0 0",
+                    "transform": "scale(" + scaleValue + ")"
+                });
             });
+        }
+
+        $scope._calculatePageEditorMaxWidth = function () {
+            var editSurface = $(".edit-surface");
+            var verticalMargin = editSurface.outerHeight(true) - editSurface.outerHeight();
+            if (surroundingAreaHeight === -1) surroundingAreaHeight = $(".tab-bar").height() + verticalMargin;
+            var viewportHeight = $(window).height();
+            return (viewportHeight - surroundingAreaHeight) / $scope.currentPage.aspectRatioInPercent * 100;
         }
 
         $scope._isCurrentImageFieldInitialized = function () {

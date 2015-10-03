@@ -373,7 +373,6 @@
     <Content Include="bower.json" />
     <Content Include="Stylesheets\scss\main-editor.scss" />
     <Content Include="Stylesheets\scss\main-renderer.scss" />
-    <Content Include="Stylesheets\scss\main.scss" />
     <Content Include="Stylesheets\scss\modules\_base.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-printtemplate.scss" />
     <Content Include="Fonts\foundation-icons.eot" />
@@ -384,6 +383,7 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Stylesheets\scss\main.scss" />
     <None Include="Stylesheets\scss\modules\_editor.scss" />
     <Content Include="Stylesheets\scss\modules\_information-box.scss" />
     <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />
