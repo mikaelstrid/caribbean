@@ -105,6 +105,13 @@
     <script src="~/Scripts/lib/ckeditor/ckeditor.js"></script>
     <script src="~/Scripts/lib/ng-ckeditor.js"></script>
     <script src="~/Scripts/design-page-app.js"></script>
+
+    <script>
+        //:If added as style below the image will show without fader temporarily
+        $(document).ready(function() {
+            $(document.documentElement).css("background", "url('/Images/notes-514998_1920.jpg') no-repeat center center fixed");
+        });
+    </script>
 }
 
 @section styles
@@ -112,10 +119,6 @@
     <style>
         .background-fader-layer {
             display: block;
-        }
-
-        html {
-            background: url('/Images/notes-514998_1920.jpg') no-repeat center center fixed;
         }
     </style>
 }
