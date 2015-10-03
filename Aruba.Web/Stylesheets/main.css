@@ -7265,7 +7265,10 @@ footer {
   margin: 1.875rem; }
   .page-edit-print .left-off-canvas-menu .page-list li {
     cursor: pointer;
-    list-style-type: none; }
+    list-style-type: none;
+    margin-bottom: 0.9375rem; }
+    .page-edit-print .left-off-canvas-menu .page-list li:last-child {
+      margin-bottom: 0; }
 .page-edit-print .edit-surface {
   position: relative;
   margin: 1.875rem 0;

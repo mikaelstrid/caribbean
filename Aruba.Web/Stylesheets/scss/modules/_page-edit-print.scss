@@ -55,6 +55,11 @@ $tab-bar-height: rem-calc(75);
             li {
                 cursor: pointer;
                 list-style-type: none;
+                margin-bottom: rem-calc(15);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
         }
     }
