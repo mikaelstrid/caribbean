@@ -7320,6 +7320,8 @@ footer {
   margin-bottom: 1.875rem; }
   .page-edit-print .imageEditorToolbox form button:focus {
     outline: none; }
+.page-edit-print .imageEditorToolbox .object-images-list img:hover {
+  cursor: pointer; }
 
 .page-prints .row-print {
   margin-bottom: 1.875rem; }
