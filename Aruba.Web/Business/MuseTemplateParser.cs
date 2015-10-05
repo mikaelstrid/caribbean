@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using Caribbean.Models.Database;
 using Newtonsoft.Json.Linq;
+// ReSharper disable InconsistentNaming
 
 namespace Caribbean.Aruba.Web.Business
 {
@@ -21,10 +22,15 @@ namespace Caribbean.Aruba.Web.Business
         //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p.*?)\\^:(.*)\\|(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
         private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?[^<]*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
 
-        
+
+        //:TODO:
+        //private static readonly string REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE = "(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>";
+
         private static readonly Regex REGEX_IMAGE_FIELDS_TYPE1 = new Regex("(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/bild-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>");
         private static readonly Regex REGEX_IMAGE_FIELDS_TYPE2 = new Regex("(<div class=\\\"clip_)([^\\>]*?\\\")(>\\s*<!-- image -->\\s*<img.*?)(id=.*?)(src=\\\".*?)(\\/bild-)(.*?)(\\..*?\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\")(.*?\\/>)");
 
+
+        // === FIND FIELDS METHODS ===
 
         public IEnumerable<FieldInfoBase> FindAllFields(string templateHtml)
         {
@@ -70,6 +76,9 @@ namespace Caribbean.Aruba.Web.Business
         }
 
 
+
+        // === MARK/REPLACE FIELDS METHODS ===
+        
         public string MarkAllFields(string templateHtml, ICollection<FieldValue> fieldValues)
         {
             var updatedHtml = templateHtml;

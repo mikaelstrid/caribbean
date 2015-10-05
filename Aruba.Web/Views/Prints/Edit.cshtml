@@ -1,6 +1,6 @@
 ﻿@model Caribbean.Aruba.Web.ViewModels.Prints.EditPrintViewModel
 
-<div ng-init="printId = '@Model.PrintId'">
+<div ng-init="printId = '@Model.PrintId'; realEstateObjectId = '@Model.RealEstateObjectId';">
     <div ng-controller="printEditorCtrl">
         <div class="page page-edit-print">
             <div class="off-canvas-wrap" data-offcanvas>
@@ -71,7 +71,7 @@
                                             <button class="left" ng-click="decreaseImageSize()"><i class="fi-minus"></i></button>
                                         </form>
                                         <ul class="small-block-grid-2 object-images-list">
-                                            <li ng-repeat="image in images" ng-click="handleObjectImageClick(image.imageUrl)">
+                                            <li ng-repeat="image in objectImages" ng-click="handleObjectImageClick(image.imageUrl)">
                                                 <img ng-src="{{image.thumbnailUrl}}" alt="" />
                                             </li>
                                         </ul>

@@ -156,6 +156,7 @@ namespace Caribbean.Aruba.Web.Controllers
             {
                 PrintId = print.Id,
                 PrintVariantType = printVariantType.Type,
+                RealEstateObjectId = print.ObjectId,
                 Pages = print.Pages.Select(p => CreatePageViewModel(p, agent.Agency.Slug)).OrderBy(p => p.Position)
             });
         }

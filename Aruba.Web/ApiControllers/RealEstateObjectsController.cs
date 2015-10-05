@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.RealEstateObjects;
+using Caribbean.Models.RealEstateObjects;
 using Microsoft.AspNet.Identity;
 
 namespace Caribbean.Aruba.Web.ApiControllers
@@ -23,26 +24,32 @@ namespace Caribbean.Aruba.Web.ApiControllers
         }
 
 
-        [Route("api/realestateobjects/print/{printId:int}/images")]
-        public async Task<IHttpActionResult> GetImages(int printId)
+        [Route("api/realestateobjects/{id}/images")]
+        public async Task<IHttpActionResult> GetImages(string id)
         {
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
             if (agent == null) return Unauthorized();
 
-            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == printId);
-            if (print == null) return NotFound();
+            var realEstateObject = _vitecObjectRepository.GetDetailsById(objectId: id);
 
-            return Ok(GetObjectImages(print.ObjectId));
-        }
-
-        private IEnumerable<ImageApiModel> GetObjectImages(string objectId)
-        {
-            var vitecObject = _vitecObjectRepository.GetDetailsById(objectId);
-            return vitecObject.Images.Select(i => new ImageApiModel
-            {
-                ImageUrl = i.GetImageUrl(),
-                ThumbnailUrl = i.GetThumbnailUrl(width: 250)
+            return Ok(new ImagesApiModel {
+                ObjectImages = realEstateObject.ObjectImages.Select(i => new ImageApiModel
+                {
+                    ImageUrl = i.GetImageUrl(),
+                    ThumbnailUrl = i.GetThumbnailUrl(width: 250)
+                }),
+                StaffImages = realEstateObject.StaffImages.Select(i => new ImageApiModel
+                {
+                    ImageUrl = i.GetImageUrl(),
+                    ThumbnailUrl = i.GetThumbnailUrl(width: 250)
+                })
             });
+        }
+        
+        public class ImagesApiModel
+        {
+            public IEnumerable<ImageApiModel> ObjectImages { get; set; }
+            public IEnumerable<ImageApiModel> StaffImages { get; set; }
         }
 
         public class ImageApiModel

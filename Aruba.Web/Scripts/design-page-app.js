@@ -15,8 +15,8 @@
     })
     .service("realEstateObjectService", function ($http) {
         return {
-            getImages: function (printId) {
-                return $http.get("/api/realestateobjects/print/" + printId + "/images");
+            getImages: function (realEstateObjectId) {
+                return $http.get("/api/realestateobjects/" + realEstateObjectId + "/images");
             }
         }
     })
@@ -249,9 +249,9 @@
                 alert("Call printService.getPages failed.");
             });
 
-        realEstateObjectService.getImages($scope.printId)
+        realEstateObjectService.getImages($scope.realEstateObjectId)
             .then(function (response) {
-                $scope.images = response.data;
+                $scope.objectImages = response.data.objectImages;
             }, function (response) {
                 alert("Call realEstateObjectService.getImages failed.");
             });

@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Linq;
 using System.Xml.Linq;
 using Caribbean.Models.RealEstateObjects;
+using NLog;
 
 namespace Caribbean.DataAccessLayer.RealEstateObjects
 {
@@ -10,11 +11,13 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
     {
         VitecObjectSummary CreateSummary(XElement objectElement);
         VitecObjectDetails CreateDetails(string xml);
-        VitecObjectImage CreateImage(XElement pictureElement);
+        VitecObjectImage CreateObjectImage(XElement pictureElement);
     }
 
     public class VitecObjectFactory : IVitecObjectFactory
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly int _thumbnailWidthInPx;
 
         public VitecObjectFactory()
@@ -69,13 +72,13 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 XDocument = xmlDocument,
                 Id = objectElement.Attribute("gid").Value,
                 Address = objectElement.Element("msadress").Value,
-                Images = objectElement.Descendants("picture").Select(CreateImage),
+                ObjectImages = objectElement.Descendants("picture").Select(CreateObjectImage),
+                StaffImages = new [] { CreateStaffImage(objectElement.Element("Maklare"), "ma"), CreateStaffImage(objectElement.Element("Extrakontaktperson"), "ek") }.Where(i => i != null),
                 ModifiedTime = modifiedTime,
             };
         }
 
-
-        public VitecObjectImage CreateImage(XElement pictureElement)
+        public VitecObjectImage CreateObjectImage(XElement pictureElement)
         {
             try
             {
@@ -90,12 +93,34 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 };
 
             }
-            catch 
+            catch (Exception e)
             {
+                Logger.Warn(e, "Error when parsing object image element.");
                 return null;
             }
         }
 
+        private static VitecStaffImage CreateStaffImage(XElement staffElement, string elementPrefix)
+        {
+            try
+            {
+                if (staffElement == null)
+                {
+                    Logger.Trace($"Staff element ({elementPrefix}) == null");
+                    return null;
+                }
+
+                var imageUrl = staffElement.Element(elementPrefix + "BildUrl") ?.Value;
+                if (string.IsNullOrWhiteSpace(imageUrl)) return null;
+
+                return new VitecStaffImage { ImageUrl = imageUrl };
+            }
+            catch (Exception e)
+            {
+                Logger.Warn(e, "Error when parsing staff element.");
+                return null;
+            }
+        }
 
         // HELPER METHODS
         internal static ObjectStatus ParseObjectStatus(string value)

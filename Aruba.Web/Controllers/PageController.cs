@@ -63,7 +63,7 @@ namespace Caribbean.Aruba.Web.Controllers
         //private IEnumerable<EditPageViewModel.ObjectImageViewModel> GetObjectImages(string objectId, IUnitOfWork unitOfWork)
         //{
         //    var vitecObject = _vitecObjectRepository.GetDetailsById(objectId);
-        //    return vitecObject.Images.Select(i => new EditPageViewModel.ObjectImageViewModel
+        //    return vitecObject.ObjectImages.Select(i => new EditPageViewModel.ObjectImageViewModel
         //    {
         //        PictureUrl = i.GetImageUrl(),
         //        ThumbnailUrl = i.GetThumbnailUrl(width: 250)

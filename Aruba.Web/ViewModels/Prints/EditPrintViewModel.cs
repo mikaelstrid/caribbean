@@ -7,6 +7,7 @@ namespace Caribbean.Aruba.Web.ViewModels.Prints
         public int PrintId { get; set; }
         public IEnumerable<PageViewModel> Pages { get; set; }
         public string PrintVariantType { get; set; }
+        public string RealEstateObjectId { get; set; }
 
         public class PageViewModel
         {

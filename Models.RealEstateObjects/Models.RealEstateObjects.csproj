@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Enumerations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealEstateImageBase.cs" />
     <Compile Include="VitecObjectBase.cs" />
     <Compile Include="VitecObjectDetails.cs" />
     <Compile Include="VitecObjectImage.cs" />
     <Compile Include="VitecObjectSummary.cs" />
+    <Compile Include="VitecStaffImage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

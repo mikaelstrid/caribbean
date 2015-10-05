@@ -1,6 +1,6 @@
 namespace Caribbean.Models.RealEstateObjects
 {
-    public class VitecObjectImage
+    public class VitecObjectImage : RealEstateImageBase
     {
         private string _imageUrlWithoutSizeParameters;
         private string _thumbnailBaseUrlWithoutSizeParameters;
@@ -15,7 +15,7 @@ namespace Caribbean.Models.RealEstateObjects
             set { _imageUrlWithoutSizeParameters = value; }
         }
 
-        public string GetImageUrl(int? width = 10000, int? height = null)
+        public override string GetImageUrl(int? width = 10000, int? height = null)
         {
             return BuildImageUrl(width, height, _imageUrlWithoutSizeParameters);
         }
@@ -24,7 +24,7 @@ namespace Caribbean.Models.RealEstateObjects
         {
             set { _thumbnailBaseUrlWithoutSizeParameters = value; }
         }
-        public string GetThumbnailUrl(int? width = null, int? height = null)
+        public override string GetThumbnailUrl(int? width = null, int? height = null)
         {
             return BuildImageUrl(width, height, _thumbnailBaseUrlWithoutSizeParameters);
         }
