@@ -97,7 +97,9 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                 {
                     if (match.Groups.Count > 1)
                     {
-                        result.Add(match.Groups[1].Value);
+                        var value = match.Groups[1].Value;
+                        if (!result.Contains(value))
+                            result.Add(value);
                     }
                 }
             }

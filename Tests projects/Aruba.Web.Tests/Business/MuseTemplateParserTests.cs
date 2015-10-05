@@ -58,7 +58,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
             var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllImageType1Fields-case{number}-input.html");
 
             // ACT
-            var result = MuseTemplateParser.FindAllImageType1Fields(html);
+            var result = MuseTemplateParser.FindAllImageType1Fields(html, MuseTemplateParser.REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1);
 
             // ASSERT
             var simplifiedResult = result.Select(r => r.FieldName);
@@ -75,7 +75,37 @@ namespace Caribbean.Aruba.Web.Tests.Business
             var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllImageType2Fields-case{number}-input.html");
 
             // ACT
-            var result = MuseTemplateParser.FindAllImageType2Fields(html);
+            var result = MuseTemplateParser.FindAllImageType2Fields(html, MuseTemplateParser.REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2);
+
+            // ASSERT
+            var simplifiedResult = result.Select(r => r.FieldName);
+            simplifiedResult.ShouldAllBeEquivalentTo(expectedResult);
+        }
+
+
+        [TestCase("1", new[] { "2_3" })]
+        public void FindAllStaffImageType1Fields(string number, string[] expectedResult)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllStaffImageType1Fields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllImageType1Fields(html, MuseTemplateParser.REGEX_STAFF_IMAGE_FIELDS_TYPE1);
+
+            // ASSERT
+            var simplifiedResult = result.Select(r => r.FieldName);
+            simplifiedResult.ShouldAllBeEquivalentTo(expectedResult);
+        }
+
+
+        [TestCase("1", new[] { "linhai_300b_4x4_eec_2014_r%c3%b6d" })]
+        public void FindAllStaffImageType2Fields(string number, string[] expectedResult)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllStaffImageType2Fields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllImageType2Fields(html, MuseTemplateParser.REGEX_STAFF_IMAGE_FIELDS_TYPE2);
 
             // ASSERT
             var simplifiedResult = result.Select(r => r.FieldName);
@@ -139,7 +169,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
             };
 
             // ACT
-            var result = MuseTemplateParser.MarkEditableImageType1Fields(html, fieldValues);
+            var result = MuseTemplateParser.MarkEditableImageType1Fields(html, fieldValues, MuseTemplateParser.REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1, "realestateobject");
 
             // ASSERT
             result.Should().Be(File.ReadAllText(
@@ -174,11 +204,81 @@ namespace Caribbean.Aruba.Web.Tests.Business
             };
 
             // ACT
-            var result = MuseTemplateParser.MarkEditableImageType2Fields(html, fieldValues);
+            var result = MuseTemplateParser.MarkEditableImageType2Fields(html, fieldValues, MuseTemplateParser.REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2, "realestateobject");
 
             // ASSERT
             result.Should().Be(File.ReadAllText(
                 TEST_FILES_BASE_PATH + $"MarkEditableImageType2Fields-case{number}-output.html"));
+        }
+
+
+        [TestCase(1)]
+        [TestCase(2)]
+        public void MarkEditableStaffImageType1Fields(int number)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkEditableStaffImageType1Fields-case{number}-input.html");
+            var fieldValues = new[]
+            {
+                new FieldValue {FieldName = "2_3", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+            };
+
+            // ACT
+            var result = MuseTemplateParser.MarkEditableImageType1Fields(html, fieldValues, MuseTemplateParser.REGEX_STAFF_IMAGE_FIELDS_TYPE1, "staff");
+
+            // ASSERT
+            result.Should().Be(File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkEditableStaffImageType1Fields-case{number}-output.html"));
+        }
+
+        [TestCase("1")]
+        public void MarkEditableStaffImageType2Fields(string number)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkEditableStaffImageType2Fields-case{number}-input.html");
+            var fieldValues = new[]
+            {
+                new FieldValue {FieldName = "linhai_300b_4x4_eec_2014_r%c3%b6d", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "kymco500_red-510x398-crop-u124", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "arton11015-d39d5-1", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "arton11015-d39d5-4", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "5910_cc0d17a8", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "kymco500_red-510x398", Id = 19, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":0.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "linhai_300b_4x4_eec_2014_r%c3%b6d202x198-2", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "5910_cc0d17a8-crop-u121", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "kymco500_red-510x398-crop-u124", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "linhai_300b_4x4_eec_2014_r%c3%b6d207x148", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "5910_cc0d17a8-crop-u140", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "kymco500_red-510x398-crop-u143", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+            };
+
+            // ACT
+            var result = MuseTemplateParser.MarkEditableImageType2Fields(html, fieldValues, MuseTemplateParser.REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2, "staff");
+
+            // ASSERT
+            result.Should().Be(File.ReadAllText(
+                TEST_FILES_BASE_PATH + $"MarkEditableStaffImageType2Fields-case{number}-output.html"));
+        }
+
+
+        [TestCase(1)]
+        public void MarkAllFields(int number)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkAllFields-case{number}-input.html");
+            var fieldValues = new[]
+            {
+                new FieldValue {FieldName = "2_3", Id = 17, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+                new FieldValue {FieldName = "3_3", Id = 18, Value = "{\"url\":\"http://farm2.pics.objektdata.se/pic/pic.dll/image?url=26301%2fSFDFE4CF213B4EB464CBB361D0CEC725171.jpg&sizex=10000\",\"scale\":1.44296116504854,\"angle\":0,\"x\":0,\"y\":839,\"w\":1189,\"h\":793}"},
+            };
+            var sut = new MuseTemplateParser();
+
+            // ACT
+            var result = sut.MarkAllFields(html, fieldValues);
+
+            // ASSERT
+            result.Should().Be(File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkAllFields-case{number}-output.html"));
+
         }
     }
 }

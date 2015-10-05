@@ -10,7 +10,7 @@ using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace Caribbean.Aruba.Web.Tests
+namespace Caribbean.Aruba.Web.Tests.Business
 {
     public class InitialFieldValuesFactoryTests
     {
@@ -24,7 +24,7 @@ namespace Caribbean.Aruba.Web.Tests
             valueMappings.Add("ExistingDummy", "/NONEXISTING/XPATH");
             _valueMappings = valueMappings;
 
-            _vitecObjectDetails = new VitecObjectDetails { XDocument = XDocument.Load("..\\..\\TestFiles\\OBJ22998_1431132504.xml") };
+            _vitecObjectDetails = new VitecObjectDetails { XDocument = XDocument.Load("..\\..\\Business\\InitialFieldValuesFactoryTestFiles\\OBJ22998_1431132504.xml") };
         }
 
 

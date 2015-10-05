@@ -2,6 +2,7 @@
 $color-blue-transparent: rgba(125, 163, 208, 0.6);
 
 #page {
+    position: relative;
     overflow: hidden;
 }
 
@@ -29,7 +30,7 @@ $color-blue-transparent: rgba(125, 163, 208, 0.6);
         box-sizing: border-box;
 
         .editable-imagefield {
-            margin: -$border-width;
+            margin: -$border-width !important;
         }
     }
 

@@ -60,7 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitialFieldValuesFactoryTests.cs" />
+    <Compile Include="Business\InitialFieldValuesFactoryTests.cs" />
     <Compile Include="Business\MuseTemplateParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +101,8 @@
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case5-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case6-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case7-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllStaffImageType2Fields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllStaffImageType1Fields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-case2-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-caseCLOWN-input.html" />
@@ -133,6 +135,14 @@
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case4-output.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case5-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case5-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkAllFields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkAllFields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableStaffImageType2Fields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableStaffImageType2Fields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableStaffImageType1Fields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableStaffImageType1Fields-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableStaffImageType1Fields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableStaffImageType1Fields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case1-output.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case2-input.html" />
@@ -157,7 +167,7 @@
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case3-output.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case4-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case4-output.html" />
-    <Content Include="TestFiles\OBJ22998_1431132504.xml" />
+    <Content Include="Business\InitialFieldValuesFactoryTestFiles\OBJ22998_1431132504.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

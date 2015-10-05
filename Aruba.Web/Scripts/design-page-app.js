@@ -34,7 +34,8 @@
         // Local variables
         var currentSelectedTextField = null;
         var currentSelectedHtmlField = null;
-        var currentSelectedImageField = null;
+        var currentSelectedObjectImageField = null;
+        var currentSelectedStaffImageField = null;
         var surroundingAreaHeight = -1;
 
         // Initialize the CKEditors
@@ -87,7 +88,8 @@
         $scope.textEditorFormReady = false;
         $scope.htmlEditorToolboxVisible = false;
         $scope.htmlEditorFormReady = false;
-        $scope.imageEditorToolboxVisible = false;
+        $scope.objectImageEditorToolboxVisible = false;
+        $scope.staffImageEditorToolboxVisible = false;
         $scope.toolboxVisible = true;
 
         // Scope functions
@@ -192,18 +194,16 @@
 
 
         // Image editor functions
-        $scope.handleImageFieldClick = function () {
-            $scope._changeVisibleToolbox("imageEditor");
-            currentSelectedImageField = $(this);
+        $scope.handleImageFieldClick = function (currentImageField) {
             $scope.$apply();
-            currentSelectedImageField.parent().addClass("active");
-            currentSelectedImageField.unbind("click");
-            $("img", currentSelectedImageField).guillotine("enable");
+            currentImageField.parent().addClass("active");
+            currentImageField.unbind("click");
+            $("img", currentImageField).guillotine("enable");
             $("#toolboxTab1").click();
             $scope.showToolbox();
         }
-        $scope.handleObjectImageClick = function (imageUrl) {
-            var targetImage = $("img", currentSelectedImageField);
+        $scope.handleAvailableImageClick = function (currentImageField, imageUrl) {
+            var targetImage = $("img", currentImageField);
             targetImage.removeAttr("id");
             targetImage.removeAttr("width");
             targetImage.removeAttr("height");
@@ -211,8 +211,9 @@
             targetImage.hide()
                 .one("load", function () {
                     $(this).guillotine({
-                        width: currentSelectedImageField.width(),
-                        height: currentSelectedImageField.height(),
+                        width: currentImageField.width(),
+                        height: currentImageField.height(),
+                        init: { "scale": 0.1, "angle": 0, "x": 0, "y": 0 },
                         onChange: $scope.onImageEditorChange
                     });
                     $(this).fadeIn();
@@ -224,17 +225,36 @@
                 });
         }
         $scope.increaseImageSize = function () {
-            if (!$scope._isCurrentImageFieldInitialized()) return;
-            $("img", currentSelectedImageField).guillotine("zoomIn");
+            var currentImageField = $scope._getCurrentImageField();
+            if (!currentImageField) return;
+            $("img", currentImageField).guillotine("zoomIn");
         }
         $scope.decreaseImageSize = function () {
-            if (!$scope._isCurrentImageFieldInitialized()) return;
-            $("img", currentSelectedImageField).guillotine("zoomOut");
+            var currentImageField = $scope._getCurrentImageField();
+            if (!currentImageField) return;
+            $("img", currentImageField).guillotine("zoomOut");
         }
         $scope.onImageEditorChange = function () {
             $scope._saveImageEditorValue();
         }
 
+        $scope.handleObjectImageFieldClick = function () {
+            $scope._changeVisibleToolbox("objectImageEditor");
+            currentSelectedObjectImageField = $(this);
+            $scope.handleImageFieldClick(currentSelectedObjectImageField);
+        }
+        $scope.handleAvailableObjectImageClick = function (imageUrl) {
+            $scope.handleAvailableImageClick(currentSelectedObjectImageField, imageUrl);
+        }
+        
+        $scope.handleStaffImageFieldClick = function () {
+            $scope._changeVisibleToolbox("staffImageEditor");
+            currentSelectedStaffImageField = $(this);
+            $scope.handleImageFieldClick(currentSelectedStaffImageField);
+        }
+        $scope.handleAvailableStaffImageClick = function (imageUrl) {
+            $scope.handleAvailableImageClick(currentSelectedStaffImageField, imageUrl);
+        }
 
 
 
@@ -252,6 +272,7 @@
         realEstateObjectService.getImages($scope.realEstateObjectId)
             .then(function (response) {
                 $scope.objectImages = response.data.objectImages;
+                $scope.staffImages = response.data.staffImages;
             }, function (response) {
                 alert("Call realEstateObjectService.getImages failed.");
             });
@@ -278,12 +299,16 @@
             }, delayInMs);
         }
 
+
+
         $scope._saveImageEditorValue = function () {
-            if (!$scope._isCurrentImageFieldInitialized()) return;
-            var targetImage = $("img", currentSelectedImageField);
+            var currentImageField = $scope._getCurrentImageField();
+            if (!currentImageField) return;
+
+            var targetImage = $("img", currentImageField);
             var guillotineData = targetImage.guillotine("getData"); // { scale: 1.4, angle: 270, x: 10, y: 20, w: 400, h: 300 }
             var data = $.extend({}, { url: targetImage.attr("src") }, guillotineData);
-            $scope._saveFieldValue(currentSelectedImageField, data)
+            $scope._saveFieldValue(currentImageField, data)
                 .then(function () {
                     console.log("Field value updated successfully.");
                 }, function () {
@@ -309,7 +334,8 @@
             $scope._disableAllFields();
             $scope.textEditorToolboxVisible = (toolbox === "textEditor");
             $scope.htmlEditorToolboxVisible = (toolbox === "htmlEditor");
-            $scope.imageEditorToolboxVisible = (toolbox === "imageEditor");
+            $scope.objectImageEditorToolboxVisible = (toolbox === "objectImageEditor");
+            $scope.staffImageEditorToolboxVisible = (toolbox === "staffImageEditor");
         }
 
         $scope.initIframe = function () {
@@ -324,7 +350,6 @@
                 parent.addClass("editable-imagefield-parent");
                 parent.css("z-index", parseInt($(this).css("z-index")) + 1);
             });
-            editableImageFields.click($scope.handleImageFieldClick);
             $(".editable-imagefield[data-imagefieldtype='1']", iframe.contents()).each(function () {
                 if ($(this).data("afvid")) {
                     var initData = $(this).data("init");
@@ -342,6 +367,25 @@
                 $(this).parent().css("height", $(this).height());
                 $(this).css("width", $(this).width());
                 $(this).css("height", $(this).height());
+
+                $(this).parent().css("position", "absolute");
+                $(this).parent().css("left", $(this).css("left"));
+                $(this).parent().css("right", $(this).css("right"));
+                $(this).parent().css("top", $(this).css("top"));
+                $(this).parent().css("bottom", $(this).css("bottom"));
+                $(this).parent().css("z-index", $(this).css("z-index"));
+                $(this).parent().css("margin-top", $(this).css("margin-top"));
+                $(this).parent().css("margin-bottom", $(this).css("margin-bottom"));
+                $(this).parent().css("margin-left", $(this).css("margin-left"));
+                $(this).parent().css("margin-right", $(this).css("margin-right"));
+
+                $(this).css("position", "relative");
+                $(this).css("left", "0");
+                $(this).css("right", "0");
+                $(this).css("top", "0");
+                $(this).css("bottom", "0");
+                $(this).css("margin", "0");
+                
                 if ($(this).data("afvid")) {
                     var selectedPictureUrl = $(this).data("imgurl");
                     var targetImage = $("img", $(this));
@@ -368,6 +412,9 @@
                 }
             });
 
+            $(".editable-imagefield.realestateobject", iframe.contents()).click($scope.handleObjectImageFieldClick);
+            $(".editable-imagefield.staff", iframe.contents()).click($scope.handleStaffImageFieldClick);
+            
             //:#158: Everything is ready, just give the guillotine a few milliseconds to execute
             // and then show the iframe
             setTimeout(function () {
@@ -397,8 +444,18 @@
             return (viewportHeight - surroundingAreaHeight) / $scope.currentPage.aspectRatioInPercent * 100;
         }
 
-        $scope._isCurrentImageFieldInitialized = function () {
-            return currentSelectedImageField && !($("img", currentSelectedImageField).attr("id")); // Image selected and not a dummy image
+        $scope._isImageFieldInitialized = function (imageField) {
+            return imageField && !($("img", imageField).attr("id")); // Image selected and not a dummy image
+        }
+
+        $scope._getCurrentImageField = function () {
+            if ($scope._isImageFieldInitialized(currentSelectedObjectImageField)) {
+                return currentSelectedObjectImageField;
+            } else if ($scope._isImageFieldInitialized(currentSelectedStaffImageField)) {
+                return currentSelectedStaffImageField;
+            } else {
+                return null;
+            }
         }
 
         $scope._disableAllFields = function () {
@@ -410,12 +467,17 @@
                 currentSelectedHtmlField.removeClass("active");
                 currentSelectedHtmlField = null;
             }
-            if (currentSelectedImageField) {
-                currentSelectedImageField.parent().removeClass("active");
-                $("img", currentSelectedImageField).guillotine("disable");
-                currentSelectedImageField.click($scope.handleImageFieldClick); //Re-register click event to the old image
-                currentSelectedImageField = null;
+            if (currentSelectedObjectImageField) {
+                currentSelectedObjectImageField.parent().removeClass("active");
+                $("img", currentSelectedObjectImageField).guillotine("disable");
+                currentSelectedObjectImageField.click($scope.handleObjectImageFieldClick); //Re-register click event to the old image
+                currentSelectedObjectImageField = null;
+            }
+            if (currentSelectedStaffImageField) {
+                currentSelectedStaffImageField.parent().removeClass("active");
+                $("img", currentSelectedStaffImageField).guillotine("disable");
+                currentSelectedStaffImageField.click($scope.handleStaffImageFieldClick); //Re-register click event to the old image
+                currentSelectedStaffImageField = null;
             }
         }
-
     });

@@ -12,6 +12,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         VitecObjectSummary CreateSummary(XElement objectElement);
         VitecObjectDetails CreateDetails(string xml);
         VitecObjectImage CreateObjectImage(XElement pictureElement);
+        RealEstateImageBase CreateImage(XElement element);
     }
 
     public class VitecObjectFactory : IVitecObjectFactory
@@ -76,6 +77,12 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 StaffImages = new [] { CreateStaffImage(objectElement.Element("Maklare"), "ma"), CreateStaffImage(objectElement.Element("Extrakontaktperson"), "ek") }.Where(i => i != null),
                 ModifiedTime = modifiedTime,
             };
+        }
+
+        public RealEstateImageBase CreateImage(XElement element)
+        {
+            if (element.Name == "picture") return CreateObjectImage(element);
+            return new VitecStaffImage {ImageUrl = element.Value};
         }
 
         public VitecObjectImage CreateObjectImage(XElement pictureElement)

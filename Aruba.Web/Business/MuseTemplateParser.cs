@@ -23,11 +23,16 @@ namespace Caribbean.Aruba.Web.Business
         private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?[^<]*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
 
 
-        //:TODO:
-        //private static readonly string REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE = "(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>";
+        internal const string REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE = "(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>";
+        internal const string REGEX_IMAGE_FIELDS_TYPE2_TEMPLATE = "(<div class=\\\"clip_)([^\\>]*?\\\")(>\\s*<!-- image -->\\s*<img.*?)(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\")(.*?\\/>)";
 
-        private static readonly Regex REGEX_IMAGE_FIELDS_TYPE1 = new Regex("(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/objektbild-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>");
-        private static readonly Regex REGEX_IMAGE_FIELDS_TYPE2 = new Regex("(<div class=\\\"clip_)([^\\>]*?\\\")(>\\s*<!-- image -->\\s*<img.*?)(id=.*?)(src=\\\".*?)(\\/objektbild-)(.*?)(\\..*?\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\")(.*?\\/>)");
+
+        internal static string TEST1 = string.Format(REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE, "objektbild");
+        internal static readonly Regex REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1 = new Regex(TEST1);
+        internal static readonly Regex REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2 = new Regex(string.Format(REGEX_IMAGE_FIELDS_TYPE2_TEMPLATE, "objektbild"));
+
+        internal static readonly Regex REGEX_STAFF_IMAGE_FIELDS_TYPE1 = new Regex(string.Format(REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE, "personalbild"));
+        internal static readonly Regex REGEX_STAFF_IMAGE_FIELDS_TYPE2 = new Regex(string.Format(REGEX_IMAGE_FIELDS_TYPE2_TEMPLATE, "personalbild"));
 
 
         // === FIND FIELDS METHODS ===
@@ -36,14 +41,18 @@ namespace Caribbean.Aruba.Web.Business
         {
             var textFields = FindAllTextFields(templateHtml);
             var htmlFields = FindAllHtmlFields(templateHtml);
-            var imageType1Fields = FindAllImageType1Fields(templateHtml);
-            var imageType2Fields = FindAllImageType2Fields(templateHtml);
+            var realEstateObjectImageType1Fields = FindAllImageType1Fields(templateHtml, REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1);
+            var realEstateObjectImageType2Fields = FindAllImageType2Fields(templateHtml, REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2);
+            var staffImageType1Fields = FindAllImageType1Fields(templateHtml, REGEX_STAFF_IMAGE_FIELDS_TYPE1);
+            var staffImageType2Fields = FindAllImageType2Fields(templateHtml, REGEX_STAFF_IMAGE_FIELDS_TYPE2);
 
             var result = new List<FieldInfoBase>();
             result.AddRange(textFields);
             result.AddRange(htmlFields);
-            result.AddRange(imageType1Fields);
-            result.AddRange(imageType2Fields);
+            result.AddRange(realEstateObjectImageType1Fields);
+            result.AddRange(realEstateObjectImageType2Fields);
+            result.AddRange(staffImageType1Fields);
+            result.AddRange(staffImageType2Fields);
             return result;
         } 
 
@@ -65,14 +74,14 @@ namespace Caribbean.Aruba.Web.Business
         }
 
 
-        internal static List<ImageFieldInfo> FindAllImageType1Fields(string templateHtml)
+        internal static List<ImageFieldInfo> FindAllImageType1Fields(string templateHtml, Regex imageType1Regex)
         {
-            return REGEX_IMAGE_FIELDS_TYPE1.Matches(templateHtml).Cast<Match>().Select(m => new ImageFieldInfo { FieldName = m.Groups[5].Value }).ToList();
+            return imageType1Regex.Matches(templateHtml).Cast<Match>().Select(m => new ImageFieldInfo { FieldName = m.Groups[5].Value }).ToList();
         }
 
-        internal static List<ImageFieldInfo> FindAllImageType2Fields(string templateHtml)
+        internal static List<ImageFieldInfo> FindAllImageType2Fields(string templateHtml, Regex imageType2Regex)
         {
-            return REGEX_IMAGE_FIELDS_TYPE2.Matches(templateHtml).Cast<Match>().Select(m => new ImageFieldInfo { FieldName = m.Groups[7].Value }).ToList();
+            return imageType2Regex.Matches(templateHtml).Cast<Match>().Select(m => new ImageFieldInfo { FieldName = m.Groups[7].Value }).ToList();
         }
 
 
@@ -84,8 +93,10 @@ namespace Caribbean.Aruba.Web.Business
             var updatedHtml = templateHtml;
             updatedHtml = MarkEditableTextFields(updatedHtml, fieldValues);
             updatedHtml = MarkEditableHtmlFields(updatedHtml, fieldValues);
-            updatedHtml = MarkEditableImageType1Fields(updatedHtml, fieldValues);
-            updatedHtml = MarkEditableImageType2Fields(updatedHtml, fieldValues);
+            updatedHtml = MarkEditableImageType1Fields(updatedHtml, fieldValues, REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1, "realestateobject");
+            updatedHtml = MarkEditableImageType2Fields(updatedHtml, fieldValues, REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2, "realestateobject");
+            updatedHtml = MarkEditableImageType1Fields(updatedHtml, fieldValues, REGEX_STAFF_IMAGE_FIELDS_TYPE1, "staff");
+            updatedHtml = MarkEditableImageType2Fields(updatedHtml, fieldValues, REGEX_STAFF_IMAGE_FIELDS_TYPE2, "staff");
             return updatedHtml;
         }
 
@@ -138,10 +149,10 @@ namespace Caribbean.Aruba.Web.Business
             return regex.Replace(html, matchEvaluator);
         }
 
-        internal static string MarkEditableImageType1Fields(string html, ICollection<FieldValue> fieldValues)
+        internal static string MarkEditableImageType1Fields(string html, ICollection<FieldValue> fieldValues, Regex imageType1Regex, string imageFieldClassName = "")
         {
             var templateString = html;
-            var regex = REGEX_IMAGE_FIELDS_TYPE1;
+            var regex = imageType1Regex;
             foreach (Match match in regex.Matches(templateString))
             {
                 if (match.Groups.Count > 8)
@@ -167,7 +178,7 @@ namespace Caribbean.Aruba.Web.Business
                         var htmlGuillotineData = HttpUtility.HtmlEncode(guillotineData);
                         templateString = templateString.Replace(wrapperTageGroup, 
                             wrapperTageGroup + 
-                            " class=\"editable-imagefield\"" +
+                            " class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + "\"" +
                             " data-imagefieldtype=\"1\"" + 
                             string.Format(" data-afvid=\"{0}\"", fieldValue.Id) + 
                             string.Format(" data-init=\"{0}\"", htmlGuillotineData));
@@ -190,17 +201,17 @@ namespace Caribbean.Aruba.Web.Business
                     {
                         // Add "editable-imagefield" to parent div ("_clip")
                         // Add img afname
-                        templateString = templateString.Replace(wrapperTageGroup, wrapperTageGroup + " class=\"editable-imagefield\"" + string.Format(" data-imagefieldtype=\"1\" data-afname=\"{0}\"", imageFieldNameGroup));
+                        templateString = templateString.Replace(wrapperTageGroup, wrapperTageGroup + " class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + "\"" + string.Format(" data-imagefieldtype=\"1\" data-afname=\"{0}\"", imageFieldNameGroup));
                     }
                 }
             }
             return templateString;
         }
 
-        internal static string MarkEditableImageType2Fields(string html, ICollection<FieldValue> fieldValues)
+        internal static string MarkEditableImageType2Fields(string html, ICollection<FieldValue> fieldValues, Regex imageType2Regex, string imageFieldClassName = "")
         {
             var templateString = html;
-            foreach (Match match in REGEX_IMAGE_FIELDS_TYPE2.Matches(templateString))
+            foreach (Match match in imageType2Regex.Matches(templateString))
             {
                 var wrapperTagFirstPartGroup = match.Groups[1].Value;       // <div class="clip_
                 var wrapperTagLastPartGroup = match.Groups[2].Value;        // frame grpelem" id="u163"
@@ -222,7 +233,7 @@ namespace Caribbean.Aruba.Web.Business
                     // Add opening outer div
                     templateString = templateString.Replace(
                         wrapperTagFirstPartGroup + wrapperTagLastPartGroup,
-                        "<div><div class=\"editable-imagefield clip_" + wrapperTagLastPartGroup);
+                        "<div><div class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") +  " clip_" + wrapperTagLastPartGroup);
 
                     // Add afvid and data-init to parent div ("clip_")
                     var guillotineData = string.Format("{{\"scale\":{0},\"angle\":{1},\"x\":{2},\"y\":{3}}}",
@@ -255,7 +266,7 @@ namespace Caribbean.Aruba.Web.Business
                     // Add opening outer div
                     templateString = templateString.Replace(
                         wrapperTagFirstPartGroup + wrapperTagLastPartGroup,
-                        "<div><div class=\"editable-imagefield clip_" + wrapperTagLastPartGroup);
+                        "<div><div class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + " clip_" + wrapperTagLastPartGroup);
 
                     // Add afname to parent div ("clip_")
                     templateString = templateString.Replace(wrapperTagLastPartGroup, wrapperTagLastPartGroup + string.Format(" data-imagefieldtype=\"2\" data-afname=\"{0}\"", imageFieldNameGroup));
@@ -273,7 +284,7 @@ namespace Caribbean.Aruba.Web.Business
 
         private static string ReplaceDecimalComma(dynamic value)
         {
-            return value.ToString().Replace(",", ".");
+            return (value != null) ? value.ToString().Replace(",", ".") : null;
         }
 
     }

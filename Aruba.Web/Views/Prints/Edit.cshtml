@@ -65,13 +65,24 @@
                                             <button class="right" ng-class="{disabled : htmlEditorForm.$pristine}" ng-click="htmlEditorForm.$pristine || revertHtmlEditorValue()">Ångra</button>
                                         </form>
                                     </div>
-                                    <div class="imageEditorToolbox clearfix" ng-show="imageEditorToolboxVisible">
+                                    <div class="imageEditorToolbox clearfix" ng-show="objectImageEditorToolboxVisible">
                                         <form class="clearfix">
                                             <button class="left" ng-click="increaseImageSize()"><i class="fi-plus"></i></button>
                                             <button class="left" ng-click="decreaseImageSize()"><i class="fi-minus"></i></button>
                                         </form>
                                         <ul class="small-block-grid-2 object-images-list">
-                                            <li ng-repeat="image in objectImages" ng-click="handleObjectImageClick(image.imageUrl)">
+                                            <li ng-repeat="image in objectImages" ng-click="handleAvailableObjectImageClick(image.imageUrl)">
+                                                <img ng-src="{{image.thumbnailUrl}}" alt=""/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="imageEditorToolbox clearfix" ng-show="staffImageEditorToolboxVisible">
+                                        <form class="clearfix">
+                                            <button class="left" ng-click="increaseImageSize()"><i class="fi-plus"></i></button>
+                                            <button class="left" ng-click="decreaseImageSize()"><i class="fi-minus"></i></button>
+                                        </form>
+                                        <ul class="small-block-grid-2 object-images-list">
+                                            <li ng-repeat="image in staffImages" ng-click="handleAvailableStaffImageClick(image.imageUrl)">
                                                 <img ng-src="{{image.thumbnailUrl}}" alt="" />
                                             </li>
                                         </ul>

@@ -1,7 +1,13 @@
 ﻿@import '../partials/variables';
 
 #page {
+    position: relative;
     overflow: hidden;
+}
+
+.editable-imagefield-parent {
+    overflow: hidden;
+    position: relative;
 }
 
 strong {

@@ -89,7 +89,7 @@ namespace Caribbean.Aruba.Web.Business
                 return null;
             }
 
-            var image =  vitecObjectFactory.CreateObjectImage(pictureElement);
+            var image = vitecObjectFactory.CreateImage(pictureElement);
             if (image == null)
             {
                 Logger.Warn($"Could not create image for element {pictureElement}.");

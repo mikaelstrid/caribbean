@@ -1,4 +1,5 @@
 #page {
+  position: relative;
   overflow: hidden; }
 
 .editable-textfield, .editable-htmlfield {
@@ -18,7 +19,7 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box; }
     .editable-imagefield-parent:hover .editable-imagefield, .editable-imagefield-parent.active .editable-imagefield {
-      margin: -12px; }
+      margin: -12px !important; }
   .editable-imagefield-parent:hover .editable-imagefield .guillotine-window {
     cursor: pointer; }
   .editable-imagefield-parent.active .editable-imagefield .guillotine-window {
