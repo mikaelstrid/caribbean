@@ -26,8 +26,8 @@ namespace Caribbean.Aruba.Web.Business
         //:TODO:
         //private static readonly string REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE = "(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>";
 
-        private static readonly Regex REGEX_IMAGE_FIELDS_TYPE1 = new Regex("(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/bild-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>");
-        private static readonly Regex REGEX_IMAGE_FIELDS_TYPE2 = new Regex("(<div class=\\\"clip_)([^\\>]*?\\\")(>\\s*<!-- image -->\\s*<img.*?)(id=.*?)(src=\\\".*?)(\\/bild-)(.*?)(\\..*?\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\")(.*?\\/>)");
+        private static readonly Regex REGEX_IMAGE_FIELDS_TYPE1 = new Regex("(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/objektbild-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>");
+        private static readonly Regex REGEX_IMAGE_FIELDS_TYPE2 = new Regex("(<div class=\\\"clip_)([^\\>]*?\\\")(>\\s*<!-- image -->\\s*<img.*?)(id=.*?)(src=\\\".*?)(\\/objektbild-)(.*?)(\\..*?\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\")(.*?\\/>)");
 
 
         // === FIND FIELDS METHODS ===
