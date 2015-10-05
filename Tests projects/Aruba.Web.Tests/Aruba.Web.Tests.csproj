@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InitialFieldValuesFactoryTests.cs" />
+    <Compile Include="Business\MuseTemplateParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,8 +94,72 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case3-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case4-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case5-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case6-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case7-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-caseCLOWN-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType1Fields-caseMC-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType2Fields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType2Fields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType2Fields-caseCLOWN-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType2Fields-caseMC-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllRelativePaths-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllRelativePaths-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case3-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case4-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectPageIdInHtmlTag-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectPageIdInHtmlTag-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectPageIdInHtmlTag-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectPageIdInHtmlTag-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectScripts_case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectScripts_case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectStyles_case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\InjectStyles_case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case3-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case3-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case4-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case4-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case5-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableHtmlFields-case5-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case5-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType1Fields-case5-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-case3-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-case3-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-caseCLOWN-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-caseCLOWN-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-caseMC-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-caseMC-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case1-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case3-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case3-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case4-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case4-output.html" />
     <Content Include="TestFiles\OBJ22998_1431132504.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

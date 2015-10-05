@@ -80,7 +80,7 @@ namespace Caribbean.Aruba.Web.Tests
         {
             // ARRANGE
             var imageFieldInfo = new ImageFieldInfo { FieldName = "obj_gata" };
-            _mockVitecObjectFactory.Setup(m => m.CreateImage(It.IsAny<XElement>())).Returns((VitecObjectImage) null);
+            _mockVitecObjectFactory.Setup(m => m.CreateObjectImage(It.IsAny<XElement>())).Returns((VitecObjectImage) null);
 
             // ACT
             var result = InitialFieldValuesFactory.CreateInitialImageFieldValue(_mockVitecObjectFactory.Object, imageFieldInfo, _vitecObjectDetails, _valueMappings);
@@ -94,7 +94,7 @@ namespace Caribbean.Aruba.Web.Tests
         {
             // ARRANGE
             var imageFieldInfo = new ImageFieldInfo { FieldName = "obj_gata" };
-            _mockVitecObjectFactory.Setup(m => m.CreateImage(It.IsAny<XElement>())).Returns(new VitecObjectImage { ImageUrlWithoutSizeParameters = "http://www.test.com"});
+            _mockVitecObjectFactory.Setup(m => m.CreateObjectImage(It.IsAny<XElement>())).Returns(new VitecObjectImage { ImageUrlWithoutSizeParameters = "http://www.test.com"});
 
             // ACT
             var result = InitialFieldValuesFactory.CreateInitialImageFieldValue(_mockVitecObjectFactory.Object, imageFieldInfo, _vitecObjectDetails, _valueMappings);
