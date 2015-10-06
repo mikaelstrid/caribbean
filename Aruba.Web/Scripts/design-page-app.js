@@ -156,9 +156,10 @@
             if (!currentSelectedTextField) return;
             currentSelectedTextField.html($scope._trimTextEditorValue(newValue));
         });
-        $scope._trimTextEditorValue = function(value) {
+        $scope._trimTextEditorValue = function (value) {
             // Remove newlines and <p> tags
-            var trimmed = value.replace(/(\r\n|\n|\r)/gm, "");
+            var nonNullValue = value ? value : "<p></p>";
+            var trimmed = nonNullValue.replace(/(\r\n|\n|\r)/gm, "");
             trimmed = _.startsWith(trimmed, "<p>") ? trimmed.slice(3) : trimmed;
             trimmed = _.endsWith(trimmed, "</p>") ? trimmed.slice(0, trimmed.length - 4) : trimmed;
             return trimmed;
@@ -206,7 +207,8 @@
         });
         $scope._addParagraphClass = function(value) {
             var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
-            return value.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
+            var nonNullValue = value ? value : "<p></p>";
+            return nonNullValue.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
         }
 
 

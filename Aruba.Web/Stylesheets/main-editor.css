@@ -8,6 +8,8 @@
   .editable-textfield:hover, .editable-htmlfield:hover {
     background-color: rgba(125, 163, 208, 0.6);
     cursor: pointer; }
+  .editable-textfield:empty:before, .editable-htmlfield:empty:before {
+    content: "\00a0\00a0\00a0"; }
 
 .editable-imagefield-parent {
   overflow: hidden; }
