@@ -24,11 +24,9 @@ namespace Caribbean.Aruba.Web.Business
 
 
         internal const string REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE = "(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>";
-        internal const string REGEX_IMAGE_FIELDS_TYPE2_TEMPLATE = "(<div class=\\\"clip_)([^\\>]*?\\\")(>\\s*<!-- image -->\\s*<img.*?)(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\")(.*?\\/>)";
+        internal const string REGEX_IMAGE_FIELDS_TYPE2_TEMPLATE = "(<div class=\\\"clip_[^\\>]*?\\\">)(\\s*<!-- image -->\\s*<img.*?src=\\\".*?\\/{0}-)(.*?)(\\..*?\\\".*?\\/>)";
 
-
-        internal static string TEST1 = string.Format(REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE, "objektbild");
-        internal static readonly Regex REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1 = new Regex(TEST1);
+        internal static readonly Regex REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE1 = new Regex(string.Format(REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE, "objektbild"));
         internal static readonly Regex REGEX_REAL_ESTATE_OBJECT_IMAGE_FIELDS_TYPE2 = new Regex(string.Format(REGEX_IMAGE_FIELDS_TYPE2_TEMPLATE, "objektbild"));
 
         internal static readonly Regex REGEX_STAFF_IMAGE_FIELDS_TYPE1 = new Regex(string.Format(REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE, "personalbild"));
@@ -54,7 +52,7 @@ namespace Caribbean.Aruba.Web.Business
             result.AddRange(staffImageType1Fields);
             result.AddRange(staffImageType2Fields);
             return result;
-        } 
+        }
 
         internal static List<TextFieldInfo> FindAllTextFields(string templateHtml)
         {
@@ -81,13 +79,13 @@ namespace Caribbean.Aruba.Web.Business
 
         internal static List<ImageFieldInfo> FindAllImageType2Fields(string templateHtml, Regex imageType2Regex)
         {
-            return imageType2Regex.Matches(templateHtml).Cast<Match>().Select(m => new ImageFieldInfo { FieldName = m.Groups[7].Value }).ToList();
+            return imageType2Regex.Matches(templateHtml).Cast<Match>().Select(m => new ImageFieldInfo { FieldName = m.Groups[3].Value }).ToList();
         }
 
 
 
         // === MARK/REPLACE FIELDS METHODS ===
-        
+
         public string MarkAllFields(string templateHtml, ICollection<FieldValue> fieldValues)
         {
             var updatedHtml = templateHtml;
@@ -176,11 +174,11 @@ namespace Caribbean.Aruba.Web.Business
                         var guillotineData = string.Format("{{\"scale\":{0},\"angle\":{1},\"x\":{2},\"y\":{3}}}",
                             ReplaceDecimalComma(jsonObject.scale), ReplaceDecimalComma(jsonObject.angle), ReplaceDecimalComma(jsonObject.x), ReplaceDecimalComma(jsonObject.y));
                         var htmlGuillotineData = HttpUtility.HtmlEncode(guillotineData);
-                        templateString = templateString.Replace(wrapperTageGroup, 
-                            wrapperTageGroup + 
+                        templateString = templateString.Replace(wrapperTageGroup,
+                            wrapperTageGroup +
                             " class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + "\"" +
-                            " data-imagefieldtype=\"1\"" + 
-                            string.Format(" data-afvid=\"{0}\"", fieldValue.Id) + 
+                            " data-imagefieldtype=\"1\"" +
+                            string.Format(" data-afvid=\"{0}\"", fieldValue.Id) +
                             string.Format(" data-init=\"{0}\"", htmlGuillotineData));
 
                         // Remove img id tag
@@ -213,70 +211,44 @@ namespace Caribbean.Aruba.Web.Business
             var templateString = html;
             foreach (Match match in imageType2Regex.Matches(templateString))
             {
-                var wrapperTagFirstPartGroup = match.Groups[1].Value;       // <div class="clip_
-                var wrapperTagLastPartGroup = match.Groups[2].Value;        // frame grpelem" id="u163"
-                var idGroup = match.Groups[4].Value;                        // id="u397_img" 
-                var srcGroup = match.Groups[5].Value;                       // src="images
-                var imageFieldTagGroup = match.Groups[6].Value;             // /bild
-                var imageFieldNameGroup = match.Groups[7].Value;            // 2_3
-                var imageExtensionGroup = match.Groups[8].Value;            // .jpg"
-                var altTagGroup = match.Groups[9].Value;                    //  alt=""
-                var widthHeightGroup = match.Groups[10].Value;              //  width="600" height="900"
-                var remainingLastGroup = match.Groups[11].Value;            //  />
+                var wrapperTagGroup = match.Groups[1].Value;                // <div class="clip_frame colelem" id="u124">
+                var imgTagFirstPartGroup = match.Groups[2].Value;           // <!-- image -->< img class="block" id="u124_img" src="images/objektbild-
+                var imageFieldNameGroup = match.Groups[3].Value;            // kymco500_red-510x398-crop-u124
+                var imgTagLastPartGroup = match.Groups[4].Value;            // .jpg" alt="" width="280" height="218" />
 
                 var fieldValue = fieldValues.FirstOrDefault(fv => fv.FieldName == imageFieldNameGroup);
                 if (fieldValue != null)
                 {
                     dynamic jsonObject = JObject.Parse(fieldValue.Value);
 
-                    // Add "editable-imagefield" to parent div ("clip_")
-                    // Add opening outer div
-                    templateString = templateString.Replace(
-                        wrapperTagFirstPartGroup + wrapperTagLastPartGroup,
-                        "<div><div class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") +  " clip_" + wrapperTagLastPartGroup);
-
-                    // Add afvid and data-init to parent div ("clip_")
-                    var guillotineData = string.Format("{{\"scale\":{0},\"angle\":{1},\"x\":{2},\"y\":{3}}}",
-                        ReplaceDecimalComma(jsonObject.scale), ReplaceDecimalComma(jsonObject.angle), ReplaceDecimalComma(jsonObject.x), ReplaceDecimalComma(jsonObject.y));
+                    var guillotineData = $"{{\"scale\":{ReplaceDecimalComma(jsonObject.scale)},\"angle\":{ReplaceDecimalComma(jsonObject.angle)},\"x\":{ReplaceDecimalComma(jsonObject.x)},\"y\":{ReplaceDecimalComma(jsonObject.y)}}}";
                     var htmlGuillotineData = HttpUtility.HtmlEncode(guillotineData);
-                    templateString = templateString.Replace(wrapperTagLastPartGroup,
-                        wrapperTagLastPartGroup + 
+
+                    templateString = templateString.Replace(wrapperTagGroup,
+                        wrapperTagGroup +
+                        "<div class=\"editable-imagefield" + 
+                        (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + "\"" +
                         " data-imagefieldtype=\"2\"" +
-                        string.Format(" data-afvid=\"{0}\"", fieldValue.Id) +
-                        string.Format(" data-init=\"{0}\" data-imgurl=\"{1}\"", htmlGuillotineData, jsonObject.url));
+                        $" data-afvid=\"{fieldValue.Id}\"" +
+                        string.Format(" data-init=\"{0}\" data-imgurl=\"{1}\"", htmlGuillotineData, jsonObject.url) +
+                        ">");
 
-                    // Remove img id tag
-                    //templateString = templateString.Replace(idGroup, "");
-
-                    // Remove img width/height
-                    // Add closing outer div
-                    var currentLastPartWithImageFieldName =
-                        imageFieldTagGroup + imageFieldNameGroup + imageExtensionGroup + altTagGroup + widthHeightGroup + remainingLastGroup;
                     templateString = templateString.Replace(
-                        currentLastPartWithImageFieldName,
-                        imageFieldTagGroup + imageFieldNameGroup + imageExtensionGroup + altTagGroup + widthHeightGroup + remainingLastGroup + "</div>");
-
-                    // Replace src if field value exists
-                    //var currentSrc = srcGroup + imageFieldTagGroup + imageFieldNameGroup + imageExtensionGroup;
-                    //templateString = templateString.Replace(currentSrc, string.Format("src=\"{0}\"", jsonObject.url));
+                        imgTagFirstPartGroup + imageFieldNameGroup + imgTagLastPartGroup,
+                        imgTagFirstPartGroup + imageFieldNameGroup + imgTagLastPartGroup + "</div>");
                 }
                 else
                 {
-                    // Add "editable-imagefield" to parent div ("clip_")
-                    // Add opening outer div
-                    templateString = templateString.Replace(
-                        wrapperTagFirstPartGroup + wrapperTagLastPartGroup,
-                        "<div><div class=\"editable-imagefield" + (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + " clip_" + wrapperTagLastPartGroup);
+                    templateString = templateString.Replace(wrapperTagGroup,
+                        wrapperTagGroup +
+                        "<div class=\"editable-imagefield" +
+                        (!string.IsNullOrWhiteSpace(imageFieldClassName) ? " " + imageFieldClassName : "") + "\"" +
+                        $" data-imagefieldtype=\"2\" data-afname=\"{imageFieldNameGroup}\"" +
+                        ">");
 
-                    // Add afname to parent div ("clip_")
-                    templateString = templateString.Replace(wrapperTagLastPartGroup, wrapperTagLastPartGroup + string.Format(" data-imagefieldtype=\"2\" data-afname=\"{0}\"", imageFieldNameGroup));
-
-                    // Add closing outer div
-                    var currentLastPartWithImageFieldName =
-                        imageFieldTagGroup + imageFieldNameGroup + imageExtensionGroup + altTagGroup + widthHeightGroup + remainingLastGroup;
                     templateString = templateString.Replace(
-                        currentLastPartWithImageFieldName,
-                        imageFieldTagGroup + imageFieldNameGroup + imageExtensionGroup + altTagGroup + widthHeightGroup + remainingLastGroup + "</div>");
+                        imgTagFirstPartGroup + imageFieldNameGroup + imgTagLastPartGroup,
+                        imgTagFirstPartGroup + imageFieldNameGroup + imgTagLastPartGroup + "</div>");
                 }
             }
             return templateString;
@@ -286,7 +258,6 @@ namespace Caribbean.Aruba.Web.Business
         {
             return (value != null) ? value.ToString().Replace(",", ".") : null;
         }
-
     }
 
     public class FieldInfoBase

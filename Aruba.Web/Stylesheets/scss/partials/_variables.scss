@@ -18,9 +18,8 @@ $font-weight-bold: 700;
 
 
 // COLORS
-$white: #fff;
-$black: #000;
-$metal: #7F7F7F;
-$silver: #DEDEDE;
-$purple: #B50082;
-$darkpurple: #1B142A;
+// The main colors are found in _foundation-settings.scss
+$primary-dark           : #1B142A;
+$primary-transparent    : #B50082;
+$metal                  : #7F7F7F;
+$fog                    : #DEDEDE;

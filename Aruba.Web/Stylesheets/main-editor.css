@@ -1,5 +1,4 @@
 #page {
-  position: relative;
   overflow: hidden; }
 
 .editable-textfield, .editable-htmlfield {
@@ -11,8 +10,7 @@
     cursor: pointer; }
 
 .editable-imagefield-parent {
-  overflow: hidden;
-  position: relative; }
+  overflow: hidden; }
   .editable-imagefield-parent:hover, .editable-imagefield-parent.active {
     border: 12px solid rgba(125, 163, 208, 0.6);
     -moz-box-sizing: border-box;

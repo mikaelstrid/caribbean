@@ -22,7 +22,7 @@ html {
         padding: rem-calc(35) rem-calc(60);
 
         .logo {
-            @include logo($purple, $white);
+            @include logo($primary-color, $white);
         }
 
         .top-bar-section {

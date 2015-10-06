@@ -25,24 +25,6 @@
         $(this).css('width', $(this).width());
         $(this).css('height', $(this).height());
 
-        $(this).parent().css("position", "absolute");
-        $(this).parent().css("left", $(this).css("left"));
-        $(this).parent().css("right", $(this).css("right"));
-        $(this).parent().css("top", $(this).css("top"));
-        $(this).parent().css("bottom", $(this).css("bottom"));
-        $(this).parent().css("z-index", $(this).css("z-index"));
-        $(this).parent().css("margin-top", $(this).css("margin-top"));
-        $(this).parent().css("margin-bottom", $(this).css("margin-bottom"));
-        $(this).parent().css("margin-left", $(this).css("margin-left"));
-        $(this).parent().css("margin-right", $(this).css("margin-right"));
-
-        $(this).css("position", "relative");
-        $(this).css("left", "0");
-        $(this).css("right", "0");
-        $(this).css("top", "0");
-        $(this).css("bottom", "0");
-        $(this).css("margin", "0");
-
         if ($(this).data('afvid')) {
             var selectedPictureUrl = $(this).data('imgurl');
             var targetImage = $('img', $(this));

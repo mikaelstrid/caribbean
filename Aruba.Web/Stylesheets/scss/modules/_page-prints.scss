@@ -14,31 +14,31 @@
         color: $white;
 
         &.unknown {
-            background-color: $darkpurple;
+            background-color: $primary-color;
         }
 
         &.inprogress {
-            background-color: $darkpurple;
+            background-color: $primary-color;
         }
 
         &.completed {
-            background-color: $darkpurple;
+            background-color: $primary-color;
         }
 
         &.ordered {
-            background-color: $purple;
+            background-color: $primary-color;
         }
 
         &.shipped {
-            background-color: $purple;
+            background-color: $primary-color;
         }
 
         &.received {
-            background-color: $purple;
+            background-color: $primary-color;
         }
 
         &.archived {
-            background-color: $purple;
+            background-color: $primary-color;
         }
     }
 

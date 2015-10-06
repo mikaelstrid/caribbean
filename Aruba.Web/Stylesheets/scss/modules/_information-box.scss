@@ -3,7 +3,7 @@
 
 .information-box {
     color: $white;
-    background-color: $darkpurple;
+    background-color: $primary-dark;
 
     .progress-bar {
         padding: rem-calc(20) rem-calc(60);
@@ -36,7 +36,7 @@
             &.active {
                 .step-number {
                     background-color: $white;
-                    color: $darkpurple;
+                    color: $primary-dark;
                 }
 
                 .step-label {

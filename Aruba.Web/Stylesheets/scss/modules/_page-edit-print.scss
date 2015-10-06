@@ -8,7 +8,7 @@ $tab-bar-height: rem-calc(75);
         text-align: center;
 
         label {
-            background-color: $darkpurple;
+            background-color: $primary-dark;
 
             i {
                 font-size: rem-calc(34);
@@ -38,7 +38,7 @@ $tab-bar-height: rem-calc(75);
 
     .left-off-canvas-menu {
         header {
-            background-color: $silver;
+            background-color: $fog;
             height: $tab-bar-height;
             padding: 0 rem-calc(30);
             box-sizing: border-box;
@@ -100,10 +100,10 @@ $tab-bar-height: rem-calc(75);
             box-shadow: rem-calc(-2) 0 rem-calc(3) rgba(0,0,0,0.35);
 
             .tabs {
-                background-color: $silver;
+                background-color: $fog;
 
                 .tab-title {
-                    background-color: $silver;
+                    background-color: $fog;
 
                     a:focus {
                         outline: none;
