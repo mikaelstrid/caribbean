@@ -1,0 +1,72 @@
+﻿.page-login {
+    height: 100%;
+    width: 100%;
+
+    .box {
+        max-width: rem-calc(540);
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.25);
+        padding: rem-calc(50);
+        // http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+        position: relative;
+        top: 50%;
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    h1 {
+        font-size: rem-calc(22);
+        line-height: rem-calc(26);
+        font-weight: bold;
+        color: $white;
+        text-align: center;
+    }
+
+    form {
+        margin: rem-calc(50) auto 0 auto;
+
+        .prefix {
+            background-color: rgba(242,242,242,0.8);
+            height: rem-calc(65);
+            padding-top: rem-calc(10);
+        }
+
+        input[type="text"], input[type="password"] {
+            background-color: rgba(242,242,242,0.8);
+            height: rem-calc(65);
+            font-size: rem-calc(18);
+            line-height: rem-calc(23);
+            padding: rem-calc(21);
+            color: $primary-dark;
+            border: none;
+
+            &:focus {
+                border: none;
+            }
+        }
+
+        .button {
+            margin-top: rem-calc(20);
+            margin-bottom: 0;
+        }
+
+        ::-webkit-input-placeholder {
+            color: $primary-dark;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: $primary-dark;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: $primary-dark;
+        }
+
+        :-ms-input-placeholder {
+            color: $primary-dark;
+        }
+    }
+}

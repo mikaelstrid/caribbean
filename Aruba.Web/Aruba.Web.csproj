@@ -311,8 +311,11 @@
     <Content Include="Fonts\foundation-icons.css" />
     <Content Include="Fonts\foundation-icons.svg" />
     <Content Include="Images\balance-865091_1920.jpg" />
+    <Content Include="Images\envelope.svg" />
+    <Content Include="Images\key.svg" />
     <Content Include="Images\notes-514998_1920.jpg" />
     <Content Include="Images\toner-581905_1920.jpg" />
+    <Content Include="Images\tree-129r0560.jpg" />
     <Content Include="Scripts\design-page-app.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\lib\angular.js" />
@@ -389,6 +392,7 @@
     <Content Include="Stylesheets\scss\modules\_page-choose-realestateobject.scss" />
     <Content Include="Stylesheets\scss\modules\_page-edit-print.scss" />
     <Content Include="Stylesheets\scss\modules\_page-prints.scss" />
+    <Content Include="Stylesheets\scss\modules\_page-login.scss" />
     <None Include="Stylesheets\scss\modules\_renderer.scss" />
     <None Include="Properties\PublishProfiles\mm-aruba.pubxml" />
     <Content Include="Scripts\ai.0.15.0-build46802.js" />

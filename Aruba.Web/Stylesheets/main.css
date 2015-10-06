@@ -7154,6 +7154,63 @@ footer {
     background-color: #cf6e0e; }
   .button.transparent.info:hover, .button.transparent.info:focus {
     background-color: #666666; }
+.button.login {
+  color: #1B142A;
+  background-color: #f7f7f7; }
+  .button.login:hover, .button.login:focus {
+    color: #FFFFFF;
+    background-color: #B50082; }
+
+.page-login {
+  height: 100%;
+  width: 100%; }
+  .page-login .box {
+    max-width: 33.75rem;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 3.125rem;
+    position: relative;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .page-login h1 {
+    font-size: 1.375rem;
+    line-height: 1.625rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center; }
+  .page-login form {
+    margin: 3.125rem auto 0 auto; }
+    .page-login form .prefix {
+      background-color: rgba(242, 242, 242, 0.8);
+      height: 4.0625rem;
+      padding-top: 0.625rem; }
+    .page-login form input[type="text"], .page-login form input[type="password"] {
+      background-color: rgba(242, 242, 242, 0.8);
+      height: 4.0625rem;
+      font-size: 1.125rem;
+      line-height: 1.4375rem;
+      padding: 1.3125rem;
+      color: #1B142A;
+      border: none; }
+      .page-login form input[type="text"]:focus, .page-login form input[type="password"]:focus {
+        border: none; }
+    .page-login form .button {
+      margin-top: 1.25rem;
+      margin-bottom: 0; }
+    .page-login form ::-webkit-input-placeholder {
+      color: #1B142A; }
+    .page-login form :-moz-placeholder {
+      /* Firefox 18- */
+      color: #1B142A; }
+    .page-login form ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #1B142A; }
+    .page-login form :-ms-input-placeholder {
+      color: #1B142A; }
 
 .page-home {
   /*.recent-objects {

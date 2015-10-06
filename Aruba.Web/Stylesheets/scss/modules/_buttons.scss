@@ -37,4 +37,14 @@
             }
         }
     }
+
+    &.login {
+        color: $primary-dark;
+        background-color: #f7f7f7;
+
+        &:hover, &:focus {
+            color: $white;
+            background-color: $primary-color;
+        }
+    }
 }
