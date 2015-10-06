@@ -109,6 +109,7 @@ namespace Caribbean.Aruba.Web.Controllers
                 ModifiedTimeUtc = DateTime.UtcNow,
                 ObjectId = objectId,
                 PrintVariantSlug = templateSlug,
+                Status = PrintStatus.InProgress,
                 Pages = new List<Page>()
             };
 

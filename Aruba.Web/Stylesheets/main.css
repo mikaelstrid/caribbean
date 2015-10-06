@@ -7333,8 +7333,11 @@ footer {
   .page-prints .row-print:last-child {
     margin-bottom: 0; }
 .page-prints .printstatus {
-  padding: 0.3125rem 0.625rem;
-  color: #FFFFFF; }
+  padding: 0.625rem 1.25rem 0.6875rem;
+  color: #FFFFFF;
+  font-size: 0.6875rem;
+  line-height: 0.8125rem;
+  display: inline-block; }
   .page-prints .printstatus.unknown {
     background-color: #B50082; }
   .page-prints .printstatus.inprogress {

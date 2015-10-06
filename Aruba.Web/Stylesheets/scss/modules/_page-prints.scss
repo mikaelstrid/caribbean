@@ -10,8 +10,11 @@
     }
 
     .printstatus {
-        padding: rem-calc(5) rem-calc(10);
+        padding: rem-calc(10) rem-calc(20) rem-calc(11);
         color: $white;
+        font-size: rem-calc(11);
+        line-height: rem-calc(13);
+        display: inline-block;
 
         &.unknown {
             background-color: $primary-color;
