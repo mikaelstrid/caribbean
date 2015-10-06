@@ -63,7 +63,7 @@ body {
   cursor: auto;
   font-family: quicksand, sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.5;
   margin: 0;
   padding: 0;
@@ -1180,7 +1180,7 @@ select {
   border-width: 1px;
   display: block;
   font-size: 0.8125rem;
-  font-weight: 400;
+  font-weight: normal;
   margin-bottom: 1.25rem;
   padding: 0.875rem 1.5rem 0.875rem 0.875rem;
   position: relative;
@@ -2294,7 +2294,7 @@ button, .button {
   border-width: 0;
   cursor: pointer;
   font-family: quicksand, sans-serif;
-  font-weight: 400;
+  font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
@@ -3356,7 +3356,7 @@ label {
   cursor: pointer;
   display: block;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.5;
   margin-bottom: 0;
   /* Styles for required inputs */ }
@@ -3625,7 +3625,7 @@ fieldset {
   padding: 1.25rem; }
   fieldset legend {
     background: #FFFFFF;
-    font-weight: 700;
+    font-weight: bold;
     margin-left: -0.1875rem;
     margin: 0;
     padding: 0 0.1875rem; }
@@ -3635,7 +3635,7 @@ fieldset {
   display: block;
   font-size: 0.75rem;
   font-style: italic;
-  font-weight: 400;
+  font-weight: normal;
   margin-bottom: 1rem;
   margin-top: -1px;
   padding: 0.375rem 0.5625rem 0.5625rem;
@@ -3648,7 +3648,7 @@ span.error, small.error {
   display: block;
   font-size: 0.75rem;
   font-style: italic;
-  font-weight: 400;
+  font-weight: normal;
   margin-bottom: 1rem;
   margin-top: -1px;
   padding: 0.375rem 0.5625rem 0.5625rem;
@@ -3669,7 +3669,7 @@ span.error, small.error {
   display: block;
   font-size: 0.75rem;
   font-style: italic;
-  font-weight: 400;
+  font-weight: normal;
   margin-bottom: 1rem;
   margin-top: -1px;
   padding: 0.375rem 0.5625rem 0.5625rem;
@@ -3952,7 +3952,7 @@ label.error {
   color: #FFFFFF;
   display: none;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: normal;
   position: absolute;
   top: 0;
   width: 95%;
@@ -4007,7 +4007,7 @@ label.error {
 .joyride-tip-guide h5,
 .joyride-tip-guide h6 {
   color: #FFFFFF;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 1.25;
   margin: 0; }
 
@@ -4033,7 +4033,7 @@ label.error {
 .joyride-close-tip {
   color: #777777 !important;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: normal;
   line-height: .5 !important;
   position: absolute;
   text-decoration: none;
@@ -4111,7 +4111,7 @@ kbd {
 .label {
   display: inline-block;
   font-family: quicksand, sans-serif;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1;
   margin-bottom: auto;
   position: relative;
@@ -4420,7 +4420,7 @@ ul.pagination {
       background: #B50082;
       color: #FFFFFF;
       cursor: default;
-      font-weight: 700; }
+      font-weight: bold; }
       ul.pagination li.current a:hover, ul.pagination li.current a:focus, ul.pagination li.current button:hover, ul.pagination li.current button:focus {
         background: #B50082; }
   ul.pagination li {
@@ -4493,7 +4493,7 @@ ul.pagination {
     color: #EEEEEE;
     font-family: quicksand, sans-serif;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: normal;
     padding: 0.9375rem 1.25rem;
     text-align: center; }
   .pricing-table .price {
@@ -4501,7 +4501,7 @@ ul.pagination {
     color: #333333;
     font-family: quicksand, sans-serif;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: normal;
     padding: 0.9375rem 1.25rem;
     text-align: center; }
   .pricing-table .description {
@@ -4509,7 +4509,7 @@ ul.pagination {
     border-bottom: dotted 1px #DDDDDD;
     color: #777777;
     font-size: 0.75rem;
-    font-weight: 400;
+    font-weight: normal;
     line-height: 1.4;
     padding: 0.9375rem;
     text-align: center; }
@@ -4518,7 +4518,7 @@ ul.pagination {
     border-bottom: dotted 1px #DDDDDD;
     color: #333333;
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: normal;
     padding: 0.9375rem;
     text-align: center; }
   .pricing-table .cta-button {
@@ -4745,7 +4745,7 @@ ul.pagination {
     color: #AAAAAA;
     cursor: pointer;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 1;
     position: absolute;
     top: 0.625rem;
@@ -4760,7 +4760,7 @@ ul.pagination {
   padding: 0.875rem 0; }
   .side-nav li {
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: normal;
     margin: 0 0 0.4375rem 0; }
     .side-nav li a:not(.button) {
       color: #B50082;
@@ -4775,7 +4775,7 @@ ul.pagination {
     .side-nav li.active > a:first-child:not(.button) {
       color: #ff19be;
       font-family: quicksand, sans-serif;
-      font-weight: 400; }
+      font-weight: normal; }
     .side-nav li.divider {
       border-top: 1px solid;
       height: 0;
@@ -4896,7 +4896,7 @@ ul.pagination {
     float: left;
     font-family: quicksand, sans-serif;
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: normal;
     margin-left: 1rem;
     margin-bottom: 0; }
     .sub-nav dt a,
@@ -4916,7 +4916,7 @@ ul.pagination {
       background: #B50082;
       color: #FFFFFF;
       cursor: default;
-      font-weight: 400;
+      font-weight: normal;
       padding: 0.1875rem 1rem; }
       .sub-nav dt.active a:hover,
       .sub-nav dd.active a:hover,
@@ -5041,7 +5041,7 @@ table {
     table thead tr td {
       color: #222222;
       font-size: 0.875rem;
-      font-weight: 700;
+      font-weight: bold;
       padding: 0.5rem 0.625rem 0.625rem; }
   table tfoot {
     background: #F5F5F5; }
@@ -5049,7 +5049,7 @@ table {
     table tfoot tr td {
       color: #222222;
       font-size: 0.875rem;
-      font-weight: 700;
+      font-weight: bold;
       padding: 0.5rem 0.625rem 0.625rem; }
   table tr th,
   table tr td {
@@ -5175,7 +5175,7 @@ table {
   border-bottom: dotted 1px #CCCCCC;
   color: #333333;
   cursor: help;
-  font-weight: 700; }
+  font-weight: bold; }
   .has-tip:hover, .has-tip:focus {
     border-bottom: dotted 1px #51003b;
     color: #B50082; }
@@ -5187,7 +5187,7 @@ table {
   color: #FFFFFF;
   display: none;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.3;
   max-width: 300px;
   padding: 0.75rem;
@@ -5222,7 +5222,7 @@ table {
   color: #777777;
   display: block;
   font-size: 0.625rem;
-  font-weight: 400; }
+  font-weight: normal; }
 
 @media only screen and (min-width: 40.0625em) {
   .tooltip > .nub {
@@ -5321,7 +5321,7 @@ meta.foundation-mq-topbar {
       .top-bar .name h1 a, .top-bar .name h2 a, .top-bar .name h3 a, .top-bar .name h4 a, .top-bar .name p a, .top-bar .name span a {
         color: #FFFFFF;
         display: block;
-        font-weight: 400;
+        font-weight: normal;
         padding: 0 1.875rem;
         width: 75%; }
   .top-bar .toggle-topbar {
@@ -5332,7 +5332,7 @@ meta.foundation-mq-topbar {
       color: #FFFFFF;
       display: block;
       font-size: 0.8125rem;
-      font-weight: 700;
+      font-weight: bold;
       height: auto;
       line-height: auto;
       padding: 0 1.875rem;
@@ -5563,7 +5563,7 @@ meta.foundation-mq-topbar {
       height: auto;
       width: 100%; }
       .top-bar-section .dropdown li a {
-        font-weight: 400;
+        font-weight: normal;
         padding: 8px 1.875rem; }
         .top-bar-section .dropdown li a.parent-link {
           font-weight: 300; }
@@ -5584,7 +5584,7 @@ meta.foundation-mq-topbar {
     .top-bar-section .dropdown label {
       color: #777777;
       font-size: 0.625rem;
-      font-weight: 700;
+      font-weight: bold;
       margin-bottom: 0;
       padding: 8px 1.875rem 2px;
       text-transform: uppercase; }
@@ -5939,7 +5939,7 @@ a {
 p {
   font-family: inherit;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.6;
   margin-bottom: 1.25rem;
   text-rendering: optimizeLegibility; }
@@ -5956,7 +5956,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #222222;
   font-family: quicksand, sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.4;
   margin-bottom: 0.5rem;
   margin-top: 0.2rem;
@@ -5987,7 +5987,7 @@ h6 {
 .subheader {
   line-height: 1.4;
   color: #6f6f6f;
-  font-weight: 400;
+  font-weight: normal;
   margin-top: 0.2rem;
   margin-bottom: 0.5rem; }
 
@@ -6006,7 +6006,7 @@ i {
 
 strong,
 b {
-  font-weight: 700;
+  font-weight: bold;
   line-height: inherit; }
 
 small {
@@ -6020,7 +6020,7 @@ code {
   border-width: 1px;
   color: #333333;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-weight: 400;
+  font-weight: normal;
   padding: 0.125rem 0.3125rem 0.0625rem; }
 
 /* Lists */
@@ -6073,7 +6073,7 @@ ol {
 /* Definition Lists */
 dl dt {
   margin-bottom: 0.3rem;
-  font-weight: 700; }
+  font-weight: bold; }
 dl dd {
   margin-bottom: 0.75rem; }
 
@@ -6120,15 +6120,15 @@ blockquote p {
     margin: 0;
     display: block; }
   .vcard .fn {
-    font-weight: 700;
+    font-weight: bold;
     font-size: 0.9375rem; }
 
 .vevent .summary {
-  font-weight: 700; }
+  font-weight: bold; }
 .vevent abbr {
   cursor: default;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
   border: none;
   padding: 0 0.0625rem; }
 
@@ -6185,7 +6185,7 @@ blockquote p {
   position: relative; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
     color: #FFFFFF;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 4.6875rem;
     margin: 0; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4 {
@@ -6308,7 +6308,7 @@ ul.off-canvas-list {
     color: #999999;
     display: block;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: bold;
     margin: 0;
     padding: 0.3rem 0.9375rem;
     text-transform: uppercase; }
@@ -6489,7 +6489,7 @@ ul.off-canvas-list {
     border-bottom: none;
     border-top: 1px solid #5e5e5e;
     color: #999999;
-    font-weight: 700;
+    font-weight: bold;
     padding: 0.3rem 0.9375rem;
     text-transform: uppercase;
     margin: 0; }
@@ -6541,7 +6541,7 @@ ul.off-canvas-list {
     border-bottom: none;
     border-top: 1px solid #5e5e5e;
     color: #999999;
-    font-weight: 700;
+    font-weight: bold;
     padding: 0.3rem 0.9375rem;
     text-transform: uppercase;
     margin: 0; }
@@ -7211,29 +7211,31 @@ footer {
       color: #7F7F7F; }
 
 .page-choose-realestateobject ul.realestateobject-list .realestateobject {
-  border: 1px solid #7F7F7F; }
+  /*border: 1px solid $metal;*/
+  padding: 1.25rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25); }
   .page-choose-realestateobject ul.realestateobject-list .realestateobject img {
     width: 100%;
     max-width: none; }
   .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box {
-    padding: 0.625rem; }
+    padding-top: 0.9375rem; }
     .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box h4 {
       font-size: 1rem;
       line-height: 1.1875rem;
       font-weight: bold;
-      color: #7F7F7F; }
-    .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box h5 {
-      font-size: 0.875rem;
-      line-height: 1.0625rem;
-      font-weight: 300;
       color: #7F7F7F;
-      margin-bottom: 1.25rem; }
-    .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box p.price {
+      margin-top: 0;
+      margin-bottom: 0.9375rem; }
+    .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box p {
       font-size: 0.875rem;
       line-height: 1.0625rem;
-      font-weight: 300;
+      font-weight: normal;
       color: #7F7F7F;
       margin-bottom: 0; }
+      .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box p.price-information {
+        margin-bottom: 0.9375rem; }
+      .page-choose-realestateobject ul.realestateobject-list .realestateobject .description-box p.status-information {
+        color: #B50082; }
 
 .page-edit-print .left-off-canvas-toggle, .page-edit-print .toolbox-toogle {
   text-align: center; }

@@ -3,37 +3,41 @@
 .page-choose-realestateobject {
     ul.realestateobject-list {
         .realestateobject {
-            border: 1px solid $metal;
-            
+            /*border: 1px solid $metal;*/
+            padding: rem-calc(20);
+            box-shadow: 0 0 4px rgba(0,0,0,0.25);
+
             img {
                 width: 100%;
                 max-width: none;
             }
 
             .description-box {
-                padding: rem-calc(10);
+                padding-top: rem-calc(15);
 
                 h4 {
                     font-size: rem-calc(16);
                     line-height: rem-calc(19);
                     font-weight: bold;
                     color: $metal;
+                    margin-top: 0;
+                    margin-bottom: rem-calc(15);
                 }
 
-                h5 {
+                p {
                     font-size: rem-calc(14);
                     line-height: rem-calc(17);
-                    font-weight: 300;
-                    color: $metal;
-                    margin-bottom: rem-calc(20);
-                }
-
-                p.price {
-                    font-size: rem-calc(14);
-                    line-height: rem-calc(17);
-                    font-weight: 300;
+                    font-weight: normal;
                     color: $metal;
                     margin-bottom: 0;
+
+                    &.price-information {
+                        margin-bottom: rem-calc(15);
+                    }
+
+                    &.status-information {
+                        color: $primary-color;
+                    }
                 }
             }
         }

@@ -52,9 +52,12 @@
                             <div class="realestateobject">
                                 <img src="@o.ThumbailUrl" alt="@o.Address"/>
                                 <div class="description-box">
-                                    <h4>@o.Address</h4>
-                                    <h5>Änggården</h5>
-                                    <p class="price">@(o.Price.HasValue ? o.Price.Value.ToString("# ### ### ### ###") : "-") kr</p>
+                                    <h4>@o.CityArea - @o.Address</h4>
+                                    <p class="size-information">
+                                        @(o.NumberOfRooms?.ToString() ?? "-") rum och kök om @(o.SquareMeters?.ToString() ?? "-") kvm
+                                    </p>
+                                    <p class="price-information">Pris: @(o.Price?.ToString("# ### ### ### ###") ?? "-") kr</p>
+                                    <p class="status-information">&#8226; @Html.DisplayFor(m => o.Status)</p>
                                 </div>
                             </div>
                         </a>

@@ -443,6 +443,7 @@
     <Content Include="Views\Prints\Edit.cshtml" />
     <Content Include="Views\Prints\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PrintStatus.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ObjectStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

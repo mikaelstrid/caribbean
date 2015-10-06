@@ -35,6 +35,9 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             {
                 Id = objectElement.Element("GID").Value,
                 Address = objectElement.Element("Adress").Value,
+                CityArea = objectElement.Element("Omrade").Value,
+                NumberOfRooms = ConvertToInt(objectElement.Element("Rum").Value),
+                SquareMeters = ConvertToInt(objectElement.Element("BoArea").Value),
                 ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: _thumbnailWidthInPx),
                 Status = ParseObjectStatus(objectElement.Element("Kind").Value),
                 Price = ConvertToInt(objectElement.Element("Pris").Value),

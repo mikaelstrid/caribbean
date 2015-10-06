@@ -1,0 +1,9 @@
+﻿@using Caribbean.Models.RealEstateObjects
+@using Pixel.Utilities
+@model  ObjectStatus
+
+@{
+    var name = typeof(ObjectStatus).GetName(Model.ToString());
+}
+
+<span class="objectstatus @Model.ToString().ToLower()">@name</span>

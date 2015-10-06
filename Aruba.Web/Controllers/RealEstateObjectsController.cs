@@ -38,9 +38,13 @@ namespace Caribbean.Aruba.Web.Controllers
                 {
                     Id = o.Id,
                     Address = o.Address,
+                    CityArea = o.CityArea,
+                    SquareMeters = o.SquareMeters,
+                    NumberOfRooms = o.NumberOfRooms,
                     ThumbailUrl = o.ThumbnailUrl,
                     Price = o.Price,
-                    ModifiedTime = o.ModifiedTime
+                    ModifiedTime = o.ModifiedTime,
+                    Status = o.Status
                 })
             });
         }
