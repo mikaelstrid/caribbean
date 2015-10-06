@@ -122,63 +122,71 @@
 
         // Text editor functions
         $scope.textEditorValue = null;
-        $scope.textEditorPristineValue = null;
+        $scope.textEditorPristineValue = null;      
         $scope.handleTextFieldClick = function () {
+            if (currentSelectedTextField && $(this)[0] === currentSelectedTextField[0]) return;
             $scope.textEditorFormReady = false;
             $scope._changeVisibleToolbox("textEditor");
             currentSelectedTextField = $(this);
             currentSelectedTextField.addClass("active");
             $("#toolboxTab1").click();
+            $scope.textEditorPristineValue = $(this).html();
             $scope.textEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.textEditorForm, 100, function () { $scope.textEditorFormReady = true; });
             $scope.showToolbox();
         }
         $scope.saveTextEditorValue = function () {
-            // Remove newlines and <p> tags
-            var trimmed = $scope.textEditorValue;
-            trimmed = trimmed.replace(/(\r\n|\n|\r)/gm, "");
-            trimmed = _.startsWith(trimmed, "<p>") ? trimmed.slice(3) : trimmed;
-            trimmed = _.endsWith(trimmed, "</p>") ? trimmed.slice(0, trimmed.length - 4) : trimmed;
-
-            // Save the new value to the database
+            var trimmed = $scope._trimTextEditorValue($scope.textEditorValue);
             $scope._saveFieldValue(currentSelectedTextField, { html: trimmed })
                 .then(function () {
                     console.log("Field value updated successfully.");
+                    $scope.textEditorPristineValue = currentSelectedTextField.html();
                     $scope.textEditorForm.$setPristine();
                 }, function () {
                     alert("Field value update failed.");
                 });
-
-            // Update the print page preview
-            currentSelectedTextField.html(trimmed);
         }
         $scope.revertTextEditorValue = function () {
-            $scope.textEditorValue = currentSelectedTextField.html();
+            currentSelectedTextField.html($scope.textEditorPristineValue);
+            $scope.textEditorValue = $scope.textEditorPristineValue;
             $scope.delayedSetPristine($scope.textEditorForm, 100);
+        }
+        $scope.$watch("textEditorValue", function (newValue) {
+            if (!currentSelectedTextField) return;
+            currentSelectedTextField.html($scope._trimTextEditorValue(newValue));
+        });
+        $scope._trimTextEditorValue = function(value) {
+            // Remove newlines and <p> tags
+            var trimmed = value.replace(/(\r\n|\n|\r)/gm, "");
+            trimmed = _.startsWith(trimmed, "<p>") ? trimmed.slice(3) : trimmed;
+            trimmed = _.endsWith(trimmed, "</p>") ? trimmed.slice(0, trimmed.length - 4) : trimmed;
+            return trimmed;
         }
 
 
         // HTML editor functions
+        $scope.htmlEditorValue = null;
+        $scope.htmlEditorPristineValue = null;
         $scope.handleHtmlFieldClick = function () {
+            if (currentSelectedHtmlField && $(this)[0] === currentSelectedHtmlField[0]) return;
             $scope.htmlEditorFormReady = false;
             $scope._changeVisibleToolbox("htmlEditor");
             currentSelectedHtmlField = $(this);
             currentSelectedHtmlField.addClass("active");
             $("#toolboxTab1").click();
+            $scope.htmlEditorPristineValue = $(this).html();
             $scope.htmlEditorValue = $(this).html();
             $scope.$apply();
             $scope.delayedSetPristine($scope.htmlEditorForm, 100, function () { $scope.htmlEditorFormReady = true; });
             $scope.showToolbox();
         }
         $scope.saveHtmlEditorValue = function () {
-            var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
-            var withParagraphClass = $scope.htmlEditorValue.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
-
-            // Save the new value to the database
+            var withParagraphClass = $scope._addParagraphClass($scope.htmlEditorValue);
             $scope._saveFieldValue(currentSelectedHtmlField, { html: withParagraphClass })
                 .then(function () {
                     console.log("Field value updated successfully.");
+                    $scope.htmlEditorPristineValue = currentSelectedHtmlField.html();
                     $scope.htmlEditorForm.$setPristine();
                 }, function () {
                     alert("Field value update failed.");
@@ -188,8 +196,17 @@
             currentSelectedHtmlField.html(withParagraphClass);
         }
         $scope.revertHtmlEditorValue = function () {
-            $scope.htmlEditorValue = currentSelectedHtmlField.html();
+            currentSelectedHtmlField.html($scope.htmlEditorPristineValue);
+            $scope.htmlEditorValue = $scope.htmlEditorPristineValue;
             $scope.delayedSetPristine($scope.htmlEditorForm, 100);
+        }
+        $scope.$watch("htmlEditorValue", function (newValue) {
+            if (!currentSelectedHtmlField) return;
+            currentSelectedHtmlField.html($scope._addParagraphClass(newValue));
+        });
+        $scope._addParagraphClass = function(value) {
+            var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
+            return value.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
         }
 
 
@@ -443,10 +460,12 @@
         $scope._disableAllFields = function () {
             if (currentSelectedTextField) {
                 currentSelectedTextField.removeClass("active");
+                currentSelectedTextField.html($scope.textEditorPristineValue);
                 currentSelectedTextField = null;
             }
             if (currentSelectedHtmlField) {
                 currentSelectedHtmlField.removeClass("active");
+                currentSelectedHtmlField.html($scope.htmlEditorPristineValue);
                 currentSelectedHtmlField = null;
             }
             if (currentSelectedObjectImageField) {

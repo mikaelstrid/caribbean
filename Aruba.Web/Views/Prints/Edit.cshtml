@@ -14,7 +14,7 @@
 
                         <section class="middle tab-bar-section">
                             <div class="action-buttons clearfix">
-                                @Html.ActionLink("Tillbaka till översikten", "GeneratePdfPages", new { id = Model.PrintId }, new { role = "button", @class = "button success right" })
+                                @Html.ActionLink("Tillbaka till översikten", "GeneratePdfPages", new {id = Model.PrintId}, new {role = "button", @class = "button success right"})
                             </div>
                         </section>
 
@@ -31,7 +31,7 @@
                         </header>
                         <ul class="page-list">
                             <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">
-                                <img ng-src="{{page.thumbnailUrl}}" alt="Sida {{page.position}}" />
+                                <img ng-src="{{page.thumbnailUrl}}" alt="Sida {{page.position}}"/>
                             </li>
                         </ul>
                     </aside>
@@ -83,7 +83,7 @@
                                         </form>
                                         <ul class="small-block-grid-2 object-images-list">
                                             <li ng-repeat="image in staffImages" ng-click="handleAvailableStaffImageClick(image.imageUrl)">
-                                                <img ng-src="{{image.thumbnailUrl}}" alt="" />
+                                                <img ng-src="{{image.thumbnailUrl}}" alt=""/>
                                             </li>
                                         </ul>
                                     </div>
