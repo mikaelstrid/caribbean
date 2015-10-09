@@ -112,8 +112,11 @@ $tab-bar-height: rem-calc(75);
             }
 
             .tabs-content {
-                padding-left: rem-calc(30);
-                padding-right: rem-calc(30);
+                padding: rem-calc(30);
+
+                > .content {
+                    padding: 0;
+                }
             }
         }
 
@@ -159,6 +162,31 @@ $tab-bar-height: rem-calc(75);
         .object-images-list {
             img:hover {
                 cursor: pointer;
+            }
+        }
+    }
+
+    .hideableFieldsToolbox {
+        li.hideable-field-toggle {
+            border: 1px solid $iron;
+            margin-bottom: rem-calc(30);
+            padding: rem-calc(15);
+
+            p {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &.on {
+                color: $white;
+                background-color: $success-color;
+
+                h5 {
+                    color: $white;
+                }
             }
         }
     }

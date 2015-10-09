@@ -45,4 +45,24 @@
                 });
         }
     });
+
+    var parseSavedHideableFieldValue = function(savedValue) {
+        if (!savedValue || !savedValue.value) return true; // Default to true if no value saved
+        try {
+            return JSON.parse(savedValue.value).visible;
+        }
+        catch (err) {
+            console.log("Could not parse saved hideable field value.", savedValue);
+            return true;
+        }
+    }
+    $("img[src*='doljbar-beskrivning']").each(function () {
+        var fieldDescriptorParts = $(this).attr("alt").split("|");
+        if (fieldDescriptorParts.length < 3) return true;
+        var name = fieldDescriptorParts[0];
+        var savedValue = _.find(fieldValues, function (fv) { return fv.name === name });
+        var savedVisibility = parseSavedHideableFieldValue(savedValue);
+        var grandParent = $(this).parent().parent();
+        grandParent.toggle(savedVisibility);
+    });
 });

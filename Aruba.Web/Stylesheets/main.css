@@ -7362,8 +7362,9 @@ footer {
         .page-edit-print .edit-surface .toolbox .tabs .tab-title a:focus {
           outline: none; }
     .page-edit-print .edit-surface .toolbox .tabs-content {
-      padding-left: 1.875rem;
-      padding-right: 1.875rem; }
+      padding: 1.875rem; }
+      .page-edit-print .edit-surface .toolbox .tabs-content > .content {
+        padding: 0; }
   @media (min-width: 64em) {
     .page-edit-print .edit-surface.toolbox-visible {
       padding-right: 26.875rem; }
@@ -7384,6 +7385,19 @@ footer {
     outline: none; }
 .page-edit-print .imageEditorToolbox .object-images-list img:hover {
   cursor: pointer; }
+.page-edit-print .hideableFieldsToolbox li.hideable-field-toggle {
+  border: 1px solid #CCCCCC;
+  margin-bottom: 1.875rem;
+  padding: 0.9375rem; }
+  .page-edit-print .hideableFieldsToolbox li.hideable-field-toggle p {
+    margin-bottom: 0; }
+  .page-edit-print .hideableFieldsToolbox li.hideable-field-toggle:hover {
+    cursor: pointer; }
+  .page-edit-print .hideableFieldsToolbox li.hideable-field-toggle.on {
+    color: #FFFFFF;
+    background-color: #72AB73; }
+    .page-edit-print .hideableFieldsToolbox li.hideable-field-toggle.on h5 {
+      color: #FFFFFF; }
 
 .page-prints .row-print {
   margin-bottom: 1.875rem; }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Caribbean.Models.Database;
+using Newtonsoft.Json;
 
 namespace Caribbean.Aruba.Web.Business
 {
@@ -32,7 +34,8 @@ namespace Caribbean.Aruba.Web.Business
             var renderHtmlString = _museTemplateParser.MarkAllFields(templateHtml, modelPage.FieldValues);
             renderHtmlString = InjectPageIdInHtmlTag(renderHtmlString, modelPage.Id);
             renderHtmlString = InjectStyles(renderHtmlString, new[] { "/Stylesheets/vendor/jquery.guillotine.css", "/Stylesheets/main-renderer.css" });
-            renderHtmlString = InjectScripts(renderHtmlString, new[] { "/Scripts/vendor/jquery.guillotine.js", "/Scripts/render-scripts.js" });
+            renderHtmlString = InjectScripts(renderHtmlString, new[] { "/Scripts/vendor/jquery.guillotine.js", "/Scripts/lib/lodash.js", "/Scripts/render-scripts.js" });
+            renderHtmlString = InjectFieldValues(renderHtmlString, modelPage);
             return renderHtmlString;
         }
 
@@ -64,6 +67,23 @@ namespace Caribbean.Aruba.Web.Business
                 templateString = regex.Replace(templateString, scriptLink + "$1");
             }
             return templateString;
+        }
+
+        internal static string InjectFieldValues(string html, Page modelPage)
+        {
+            var fieldValues = modelPage.FieldValues.Select(fv => new FieldValueViewModel { id = fv.Id, name = fv.FieldName, value = fv.Value });
+            var fieldValuesJsonString = JsonConvert.SerializeObject(fieldValues);
+            var regex = new Regex("(<\\/head>)");
+            var fieldValuesScript = $"    <script>var fieldValues={fieldValuesJsonString};</script>\r\n";
+            return regex.Replace(html, fieldValuesScript + "$1");
+        }
+
+
+        internal class FieldValueViewModel
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+            public string value { get; set; }
         }
     }
 }

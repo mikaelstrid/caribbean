@@ -91,8 +91,13 @@
                                 <div class="content" id="panel2">
                                     <p>Kommer snart.</p>
                                 </div>
-                                <div class="content" id="panel3">
-                                    <p>Kommer snart.</p>
+                                <div class="content hideableFieldsToolbox" id="panel3">
+                                    <ul class="small-block-grid-1">
+                                        <li ng-repeat="field in hideableFields" ng-click="toggleHideableField(field)" class="hideable-field-toggle" ng-class="{on : field.visible}">
+                                            <h5>{{field.title}}</h5>
+                                            <p>{{field.description}}</p>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

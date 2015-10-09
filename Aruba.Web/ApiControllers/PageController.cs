@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caribbean.DataAccessLayer.Database;
@@ -29,7 +26,7 @@ namespace Caribbean.Aruba.Web.ApiControllers
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
             if (agent == null) return Unauthorized();
 
-            var requestedPage = await _unitOfWork.PageRepository.GetSingle(p => p.Id == id);
+            var requestedPage = (await _unitOfWork.PageRepository.Get(p => p.Id == id, includeProperties: "FieldValues")).FirstOrDefault();
             if (requestedPage == null) return NotFound();
 
             var model = CreatePageViewModel(_templateMetadataRepository, requestedPage, agent.Agency.Slug);
@@ -51,7 +48,8 @@ namespace Caribbean.Aruba.Web.ApiControllers
                 Position = page.Position,
                 PreviewUrl = Url.Link("PageEditorRoute", new { id = page.Id }),
                 Width = pageTemplate.Width,
-                Height = pageTemplate.Height
+                Height = pageTemplate.Height,
+                FieldValues = page.FieldValues.Select(fv => new FieldValueViewModel { Id = fv.Id, Name = fv.FieldName, Value = fv.Value})
             };
         }
 
@@ -64,6 +62,15 @@ namespace Caribbean.Aruba.Web.ApiControllers
             public int Height { get; set; }
 
             public double AspectRatioInPercent => ((double)Height / (double)Width) * 100;
+
+            public IEnumerable<FieldValueViewModel> FieldValues { get; set; }
+        }
+
+        public class FieldValueViewModel
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Value { get; set; }
         }
 
 

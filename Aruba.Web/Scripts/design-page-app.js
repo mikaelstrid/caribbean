@@ -84,13 +84,14 @@
         };
 
         // Scope variables
+        $scope.toolboxVisible = true;
         $scope.textEditorToolboxVisible = false;
         $scope.textEditorFormReady = false;
         $scope.htmlEditorToolboxVisible = false;
         $scope.htmlEditorFormReady = false;
         $scope.objectImageEditorToolboxVisible = false;
         $scope.staffImageEditorToolboxVisible = false;
-        $scope.toolboxVisible = true;
+        $scope.hideableFields = [];
 
         // Scope functions
         $scope.switchToPage = function (pageId) {
@@ -113,7 +114,6 @@
             $scope.toolboxVisible = !$scope.toolboxVisible;
             $timeout(function () { $scope.resizeIframe(); });
         }
-
         $scope.showToolbox = function () {
             $scope.toolboxVisible = true;
             $timeout(function () { $scope.resizeIframe(); });
@@ -276,6 +276,50 @@
         }
 
 
+        // Hideable fields functions
+        $scope.updateHideableFieldsList = function (iframe) {
+            $scope.hideableFields = [];
+            $("img[src*='doljbar-beskrivning']", iframe.contents()).each(function () {
+                var fieldDescriptorParts = $(this).attr("alt").split("|");
+                if (fieldDescriptorParts.length < 3) return true;
+                var name = fieldDescriptorParts[0];
+                var savedValue = _.find($scope.currentPage.fieldValues, function (fv) { return fv.name === name });
+                var savedVisibility = $scope._parseSavedHideableFieldValue(savedValue);
+                var grandParent = $(this).parent().parent();
+                $scope.hideableFields.push({
+                    name: name,
+                    title: fieldDescriptorParts[1],
+                    description: fieldDescriptorParts[2],
+                    visible: savedVisibility,
+                    domId: grandParent.attr("id")
+                });
+                grandParent.toggle(savedVisibility);
+            });
+            $scope.$apply();
+        }
+        $scope._parseSavedHideableFieldValue = function(savedValue) {
+            if (!savedValue || !savedValue.value) return true; // Default to true if no value saved
+            try {
+                return JSON.parse(savedValue.value).visible;
+            }
+            catch (err) {
+                console.log("Could not parse saved hideable field value.", savedValue);
+                return true;
+            }
+        }
+        $scope.toggleHideableField = function (field) {
+            field.visible = !field.visible;
+            $("#" + field.domId, $("#pageEditorIframe").contents()).toggle(field.visible);
+            $scope._saveHideableFieldValue($scope.currentPage.id, field.name, field.visible)
+                .then(function () {
+                    console.log("Hideable field value updated successfully.");
+                }, function () {
+                    alert("Field value update failed.");
+                });
+        }
+        $scope._saveHideableFieldValue = function (pageId, fieldName, visible) {
+            return fieldValuesService.addFieldValue(pageId, fieldName, JSON.stringify({ visible: visible }));
+        }
 
 
         // Initialization
@@ -415,7 +459,9 @@
 
             $(".editable-imagefield.realestateobject", iframe.contents()).click($scope.handleObjectImageFieldClick);
             $(".editable-imagefield.staff", iframe.contents()).click($scope.handleStaffImageFieldClick);
-            
+
+            $scope.updateHideableFieldsList(iframe);
+
             //:#158: Everything is ready, just give the guillotine a few milliseconds to execute
             // and then show the iframe
             setTimeout(function () {
@@ -448,7 +494,6 @@
         $scope._isImageFieldInitialized = function (imageField) {
             return imageField && !($("img", imageField).attr("id")); // Image selected and not a dummy image
         }
-
         $scope._getCurrentImageField = function () {
             if ($scope._isImageFieldInitialized(currentSelectedObjectImageField)) {
                 return currentSelectedObjectImageField;
