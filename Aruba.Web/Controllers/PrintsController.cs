@@ -205,8 +205,11 @@ namespace Caribbean.Aruba.Web.Controllers
             var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
             if (print == null) return HttpNotFound("No print with a matching id found.");
 
-            if (print.Pages.Any(p => string.IsNullOrWhiteSpace(p.PdfUrl)))
-                return new HttpStatusCodeResult(500, "All pages need to have generated PDFs.");
+            if (print.Pages.Any(p => p.PdfJobStatus != JobStatus.Completed || string.IsNullOrWhiteSpace(p.PdfUrl)))
+            {
+                TempData["warning"] = "Trycksakens sidor håller på att genereras och är strax klara. Vänta några sekunder och försök igen.";
+                return RedirectToAction("Index");
+            }
 
             var result = _printPdfGeneratorService.GeneratePdf(print);
             if (result == null)

@@ -25,4 +25,11 @@ namespace Caribbean.Models.Database
         [Display(Name = "Arkiverad")]
         Archived
     }
+
+    public enum JobStatus
+    {
+        Unknown,
+        InProgress,
+        Completed
+    }
 }

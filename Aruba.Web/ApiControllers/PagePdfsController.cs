@@ -3,6 +3,7 @@ using System.Web.Http;
 using Caribbean.Aruba.SharedTypes;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
+using Caribbean.Models.Database;
 
 namespace Caribbean.Aruba.Web.ApiControllers
 {
@@ -28,7 +29,9 @@ namespace Caribbean.Aruba.Web.ApiControllers
             if (agent == null) return Unauthorized();
             
             if (!string.IsNullOrWhiteSpace(existingPage.PdfName)) _pagePdfRepository.Delete(existingPage.PdfName);
-
+            
+            if (existingPage.PdfJobId == model.JobId) existingPage.PdfJobStatus = JobStatus.Completed; // Otherwise another Id is queued later
+            existingPage.PdfJobDurationMs = model.JobDurationMs;
             existingPage.PdfName = model.AssetName;
             existingPage.PdfUrl = model.AssetUrl;
             _unitOfWork.PageRepository.Update(existingPage);

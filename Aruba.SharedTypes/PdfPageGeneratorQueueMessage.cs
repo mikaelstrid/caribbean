@@ -1,9 +1,13 @@
-﻿namespace Caribbean.Aruba.SharedTypes
+﻿using System;
+
+namespace Caribbean.Aruba.SharedTypes
 {
     public class PdfPageGeneratorQueueMessage
     {
         public int PageId { get; set; }
         public string AgentUserId { get; set; }
+        public Guid PdfJobId { get; set; }
+        public Guid ThumbnailJobId { get; set; }
         public int PageWidth { get; set; }
         public int PageHeight { get; set; }
         public int ThumbnailWidth { get; set; }

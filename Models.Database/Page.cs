@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Caribbean.Models.Database
@@ -7,9 +8,16 @@ namespace Caribbean.Models.Database
         public int Id { get; set; }
         public int Position { get; set; }
         public string PageTemplateSlug { get; set; }
+
+        public Guid ThumbnailJobId { get; set; }
+        public JobStatus ThumbnailJobStatus { get; set; }
+        public long ThumbnailJobDurationMs { get; set; }
         public string ThumbnailName { get; set; }
         public string ThumbnailUrl { get; set; }
 
+        public Guid PdfJobId { get; set; }
+        public JobStatus PdfJobStatus { get; set; }
+        public long PdfJobDurationMs { get; set; }
         public string PdfName { get; set; }
         public string PdfUrl { get; set; }
 

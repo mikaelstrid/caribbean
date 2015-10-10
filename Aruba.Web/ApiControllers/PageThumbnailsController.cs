@@ -3,6 +3,7 @@ using System.Web.Http;
 using Caribbean.Aruba.SharedTypes;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
+using Caribbean.Models.Database;
 
 namespace Caribbean.Aruba.Web.ApiControllers
 {
@@ -29,6 +30,8 @@ namespace Caribbean.Aruba.Web.ApiControllers
             
             if (!string.IsNullOrWhiteSpace(existingPage.ThumbnailName)) _pageThumbnailRepository.Delete(existingPage.ThumbnailName);
 
+            if (existingPage.ThumbnailJobId == model.JobId) existingPage.ThumbnailJobStatus = JobStatus.Completed; // Otherwise another Id is queued later
+            existingPage.ThumbnailJobDurationMs = model.JobDurationMs;
             existingPage.ThumbnailName = model.AssetName;
             existingPage.ThumbnailUrl = model.AssetUrl;
             _unitOfWork.PageRepository.Update(existingPage);

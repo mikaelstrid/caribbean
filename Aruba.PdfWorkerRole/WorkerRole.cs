@@ -38,40 +38,47 @@ namespace Aruba.PdfWorkerRole
 
                     var localStorage = RoleEnvironment.GetLocalResource("LocalStoreForTemporaryPdfs").RootPath;
                     var pageUrl = string.Format(RoleEnvironment.GetConfigurationSettingValue("RenderPageBaseUrl"), message.AgentUserId, message.PageId);
-                    var nameWithoutExtension = $"{message.PageId}-{Guid.NewGuid().ToString("N")}";
-                    var thumbnailName = nameWithoutExtension + ".jpg";
-                    var pdfName = nameWithoutExtension + ".pdf";
+                    var thumbnailName = $"{message.PageId}-{message.ThumbnailJobId.ToString("N")}" + ".jpg";
+                    var pdfName = $"{message.PageId}-{message.PdfJobId.ToString("N")}" + ".pdf";
+
+                    var stopWatch = new Stopwatch();
 
                     // === THUMBNAIL ===
+                    stopWatch.Start();
                     var thumbnailLocalFilePath = RenderThumbnail(pageUrl, thumbnailName, localStorage, message);
-                    Logger.Debug("Thumbnail created: {0}", thumbnailLocalFilePath);
+                    var elapsed = stopWatch.ElapsedMilliseconds;
+                    Logger.Debug($"Thumbnail created: {thumbnailLocalFilePath} in {elapsed} ms.");
 
                     var thumbnailBlob = UploadAssetToBlobStorage(thumbnailLocalFilePath, "pagethumbnails");
                     if (thumbnailBlob != null)
                     {
                         File.Delete(thumbnailLocalFilePath);
-                        Logger.Debug("Thumbnail uploaded: {0}", thumbnailBlob.Uri.ToString());
+                        Logger.Debug($"Thumbnail uploaded: {thumbnailBlob.Uri.ToString()} in {stopWatch.ElapsedMilliseconds - elapsed} ms.");
 
-                        await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, thumbnailBlob.Name, thumbnailBlob.Uri.ToString(), "UpdatePageThumbnailUrl");
+                        await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, message.ThumbnailJobId, stopWatch.ElapsedMilliseconds, thumbnailBlob.Name, thumbnailBlob.Uri.ToString(), "UpdatePageThumbnailUrl");
                     }
                     else
                         Logger.Warn("Thumbnail could not be uploaded.");
 
                     // === PDF ===
+                    stopWatch.Restart();
                     var pdfLocalFilePath = RenderPdf(pageUrl, pdfName, localStorage, message);
-                    Logger.Debug("PDF created: {0}", pdfLocalFilePath);
+                    elapsed = stopWatch.ElapsedMilliseconds;
+                    Logger.Debug($"PDF created: {pdfLocalFilePath} in {elapsed} ms.");
 
                     var pdfBlob = UploadAssetToBlobStorage(pdfLocalFilePath, "pagepdfs");
                     if (pdfBlob != null)
                     {
                         File.Delete(pdfLocalFilePath);
-                        Logger.Debug("PDF uploaded: {0}", pdfBlob.Uri.ToString());
-                        await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, pdfBlob.Name, pdfBlob.Uri.ToString(), "UpdatePagePdfUrl");
+                        Logger.Debug($"PDF uploaded: {pdfBlob.Uri.ToString()} in {stopWatch.ElapsedMilliseconds - elapsed} ms.");
+
+                        await CallServiceToSaveAssetReferenceInDatabase(message.AgentUserId, message.PageId, message.PdfJobId, stopWatch.ElapsedMilliseconds, pdfBlob.Name, pdfBlob.Uri.ToString(), "UpdatePagePdfUrl");
                     }
                     else
                         Logger.Warn("PDF could not be uploaded.");
 
                     receivedMessage.Complete();
+                    stopWatch.Stop();
                 }
                 catch (Exception e)
                 {
@@ -182,12 +189,12 @@ namespace Aruba.PdfWorkerRole
             }
         }
 
-        private static async Task CallServiceToSaveAssetReferenceInDatabase(string agentUserId, int pageId, string assetName, string assetUrl, string urlConfigurationSettingName)
+        private static async Task CallServiceToSaveAssetReferenceInDatabase(string agentUserId, int pageId, Guid jobId, long jobDuration, string assetName, string assetUrl, string urlConfigurationSettingName)
         {
             var updateAssetUrl = RoleEnvironment.GetConfigurationSettingValue(urlConfigurationSettingName);
             using (var client = new HttpClient())
             {
-                var apiModel = new PostAssetApiModel { AgentUserId = agentUserId, PageId = pageId, AssetName = assetName, AssetUrl = assetUrl };
+                var apiModel = new PostAssetApiModel { AgentUserId = agentUserId, PageId = pageId, JobId = jobId, JobDurationMs = jobDuration, AssetName = assetName, AssetUrl = assetUrl };
                 var response = await client.PostAsJsonAsync(updateAssetUrl, apiModel);
                 Logger.Trace("Response from HttpClient: {0}, {1}", response.StatusCode, response.ReasonPhrase);
             }
