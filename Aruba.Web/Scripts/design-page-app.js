@@ -449,7 +449,7 @@
                                 init: initData,
                                 onChange: $scope.onImageEditorChange
                             });
-                            $("img", $(this)).guillotine("disable");
+                            $(this).guillotine("disable");
                             $(this).show();
                         })
                         .attr("src", selectedPictureUrl)

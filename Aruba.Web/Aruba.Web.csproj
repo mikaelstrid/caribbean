@@ -360,7 +360,6 @@
     <Content Include="Scripts\lib\lodash.js" />
     <Content Include="Scripts\lib\modernizr.js" />
     <Content Include="Scripts\lib\ng-ckeditor.js" />
-    <Content Include="Scripts\ckeditor-config-custom.js" />
     <Content Include="Stylesheets\lib\foundation.css" />
     <Content Include="Stylesheets\lib\normalize.css" />
     <Content Include="Stylesheets\main-editor.css" />
