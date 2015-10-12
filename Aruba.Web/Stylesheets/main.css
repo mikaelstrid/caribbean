@@ -7188,16 +7188,16 @@ footer {
       background-color: rgba(242, 242, 242, 0.8);
       height: 4.0625rem;
       padding-top: 0.625rem; }
-    .page-login form input[type="text"], .page-login form input[type="password"] {
+    .page-login form input[type="email"], .page-login form input[type="password"] {
       background-color: rgba(242, 242, 242, 0.8);
       height: 4.0625rem;
       font-size: 1.125rem;
       line-height: 1.4375rem;
       padding: 1.3125rem;
       color: #1B142A;
-      border: none; }
-      .page-login form input[type="text"]:focus, .page-login form input[type="password"]:focus {
-        border: none; }
+      /*border: none;*/ }
+      .page-login form input[type="email"]:focus, .page-login form input[type="password"]:focus {
+        border-color: #CCCCCC; }
     .page-login form .button {
       margin-top: 1.25rem;
       margin-bottom: 0; }

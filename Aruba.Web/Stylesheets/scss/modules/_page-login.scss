@@ -34,17 +34,17 @@
             padding-top: rem-calc(10);
         }
 
-        input[type="text"], input[type="password"] {
+        input[type="email"], input[type="password"] {
             background-color: rgba(242,242,242,0.8);
             height: rem-calc(65);
             font-size: rem-calc(18);
             line-height: rem-calc(23);
             padding: rem-calc(21);
             color: $primary-dark;
-            border: none;
+            /*border: none;*/
 
             &:focus {
-                border: none;
+                border-color: $iron;
             }
         }
 
