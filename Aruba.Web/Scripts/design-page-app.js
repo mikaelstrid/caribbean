@@ -86,7 +86,7 @@
         };
 
         // Scope variables
-        $scope.toolboxVisible = true;
+        $scope.toolboxVisible = false;
         $scope.textEditorToolboxVisible = false;
         $scope.textEditorFormReady = false;
         $scope.htmlEditorToolboxVisible = false;
