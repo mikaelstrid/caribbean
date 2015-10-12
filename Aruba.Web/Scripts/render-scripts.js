@@ -65,4 +65,6 @@
         var grandParent = $(this).parent().parent();
         grandParent.toggle(savedVisibility);
     });
+
+    $(".crop_area").hide();
 });
