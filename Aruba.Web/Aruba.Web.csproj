@@ -324,6 +324,7 @@
     <Content Include="Scripts\lib\ckeditor\config.js" />
     <Content Include="Scripts\lib\ckeditor\contents.css" />
     <Content Include="Scripts\lib\ckeditor\lang\sv.js" />
+    <Content Include="Scripts\lib\ckeditor\plugins\doNothing\plugin.js" />
     <Content Include="Scripts\lib\ckeditor\skins\moono\dialog.css" />
     <Content Include="Scripts\lib\ckeditor\skins\moono\dialog_ie.css" />
     <Content Include="Scripts\lib\ckeditor\skins\moono\dialog_ie7.css" />
