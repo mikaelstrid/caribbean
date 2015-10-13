@@ -1,4 +1,5 @@
-﻿using Caribbean.DataAccessLayer.RealEstateObjects;
+﻿using System;
+using Caribbean.DataAccessLayer.RealEstateObjects;
 using Caribbean.Models.RealEstateObjects;
 using FluentAssertions;
 using NUnit.Framework;
@@ -43,7 +44,7 @@ namespace DataAccessLayer.RealEstateObjects.Tests
         [TestCase("340", "True", ObjectStatus.Coming)]
         [TestCase("350", "True", ObjectStatus.Coming)]
         [TestCase("510", "True", ObjectStatus.Coming)]
-        public void ParseObjectStatus_ShouldReturnComing_IfInputIs190(string kind, string kommandeForsaljning, ObjectStatus expected)
+        public void ParseObjectStatus_TestCases(string kind, string kommandeForsaljning, ObjectStatus expected)
         {
             // ARRANGE
 
@@ -52,6 +53,39 @@ namespace DataAccessLayer.RealEstateObjects.Tests
 
             // ASSERT
             result.Should().Be(expected);
+        }
+
+
+        [TestCase("den 3 januari 2012 11:06", 2012, 1, 3, 11, 06)]
+        [TestCase("den 19 november 2013 10:51", 2013, 11, 19, 10, 51)]
+        [TestCase("den 11 maj 2011 14:26", 2011, 5, 11, 14, 26)]
+        [TestCase("den 9 februari 2012 13:24", 2012, 2, 9, 13, 24)]
+        [TestCase("den 26 augusti 2013 11:59", 2013, 8, 26, 11, 59)]
+        [TestCase("den 8 mars 2013 09:39", 2013, 3, 8, 9, 39)]
+        public void ParseNyTid_TestCases(string input, int year, int month, int day, int hour, int minute)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = VitecObjectFactory.ParseNyTid(input);
+
+            // ASSERT
+            result.Should().Be(new DateTime(year, month, day, hour, minute, 0));
+        }
+
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase("   ")]
+        [TestCase("blablaba")]
+        public void ParseNyTid_ShouldReturnDateTimeMin_IfInputIsIllegal(string input)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = VitecObjectFactory.ParseNyTid(input);
+
+            // ASSERT
+            result.Should().Be(DateTime.MinValue);
         }
 
     }

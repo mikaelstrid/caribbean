@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 using Caribbean.Models.RealEstateObjects;
@@ -68,8 +69,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             if (xmlDocument == null) throw new ArgumentNullException(nameof(xmlDocument));
             var objectElement = xmlDocument.Element("OBJEKT");
 
-            DateTime modifiedTime;
-            if (!DateTime.TryParse(objectElement.Element("akttid").Value, out modifiedTime)) modifiedTime = DateTime.MinValue;
+            var modifiedTime = ParseNyTid(objectElement.Element("nytid").Value);
 
             return new VitecObjectDetails
             {
@@ -78,7 +78,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 Address = objectElement.Element("msadress").Value,
                 ObjectImages = objectElement.Descendants("picture").Select(CreateObjectImage),
                 StaffImages = new [] { CreateStaffImage(objectElement.Element("Maklare"), "ma"), CreateStaffImage(objectElement.Element("Extrakontaktperson"), "ek") }.Where(i => i != null),
-                ModifiedTime = modifiedTime,
+                CreatedTime = modifiedTime,
             };
         }
 
@@ -132,6 +132,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             }
         }
 
+
         // HELPER METHODS
         internal static ObjectStatus ParseObjectStatus(string kind, string kommandeForsaljning)
         {
@@ -139,6 +140,15 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             if (kind.StartsWith("2") || kind.StartsWith("3")) return ObjectStatus.ForSale;
             if (kind.StartsWith("5")) return ObjectStatus.Reference;
             return ObjectStatus.Unknown;
+        }
+
+        internal static DateTime ParseNyTid(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return DateTime.MinValue;
+
+            DateTime time;
+            if (!DateTime.TryParseExact(input, "\\d\\e\\n d MMMM yyyy HH:mm", new CultureInfo("sv-SE"), DateTimeStyles.None, out time)) time = DateTime.MinValue;
+            return time;
         }
     }
 }

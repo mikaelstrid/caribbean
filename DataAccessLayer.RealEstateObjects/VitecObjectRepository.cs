@@ -113,15 +113,25 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         private VitecObjectSummary CreateSummary(MemoryCache cache, XElement vitecObjectXml)
         {
             var createdSummary = _vitecObjectFactory.CreateSummary(vitecObjectXml);
+
             try
             {
-                var cachedModifiedTime = (DateTime) cache[CACHE_PREFIX_MODIFIED_TIME + createdSummary.Id];
-                createdSummary.ModifiedTime = cachedModifiedTime;
+                var valueInCache = cache[CACHE_PREFIX_MODIFIED_TIME + createdSummary.Id];
+                if (valueInCache != null)
+                {
+                    var cachedModifiedTime = (DateTime) valueInCache;
+                    createdSummary.CreatedTime = cachedModifiedTime;
+                }
+                else
+                {
+                    var details = GetDetailsById(createdSummary.Id);
+                    createdSummary.CreatedTime = details.CreatedTime;
+                }
             }
             catch
             {
                 var details = GetDetailsById(createdSummary.Id);
-                createdSummary.ModifiedTime = details.ModifiedTime;
+                createdSummary.CreatedTime = details.CreatedTime;
             }
             return createdSummary;
         }
@@ -149,7 +159,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
 
             var createdObjectDetails = _vitecObjectFactory.CreateDetails(xml);
 
-            cache.Set(CACHE_PREFIX_MODIFIED_TIME + objectId, createdObjectDetails.ModifiedTime, DateTimeOffset.Now.AddMonths(1));
+            cache.Set(CACHE_PREFIX_MODIFIED_TIME + objectId, createdObjectDetails.CreatedTime, DateTimeOffset.Now.AddMonths(1));
             if (!_disableCaching)
             {
                 cache.Set(CACHE_PREFIX_DETAILS + objectId, createdObjectDetails, DateTimeOffset.Now.AddMinutes(30));

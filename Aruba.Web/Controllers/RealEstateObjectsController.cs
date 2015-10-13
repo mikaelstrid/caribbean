@@ -34,7 +34,7 @@ namespace Caribbean.Aruba.Web.Controllers
             return View(new ChooseObjectViewModel
             {
                 SelectedPrintTemplateSlug = selectedPrintTemplateName,
-                AvailableObjects = availableObjects.OrderBy(o => o.Status).ThenByDescending(o => o.ModifiedTime).Select(o => new ObjectSummaryViewModel
+                AvailableObjects = availableObjects.OrderBy(o => o.Status).ThenByDescending(o => o.CreatedTime).Select(o => new ObjectSummaryViewModel
                 {
                     Id = o.Id,
                     Address = o.Address,
@@ -43,7 +43,7 @@ namespace Caribbean.Aruba.Web.Controllers
                     NumberOfRooms = o.NumberOfRooms,
                     ThumbailUrl = o.ThumbnailUrl,
                     Price = o.Price,
-                    ModifiedTime = o.ModifiedTime,
+                    CreatedTime = o.CreatedTime,
                     Status = o.Status
                 })
             });

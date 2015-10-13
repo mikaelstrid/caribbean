@@ -10,7 +10,7 @@ namespace Caribbean.Aruba.Web.ViewModels.RealEstateObject
         //public ObjectStatus Status { get; set; }
         public string ThumbailUrl { get; set; }
         public int? Price { get; set; }
-        public DateTime ModifiedTime { get; set; }
+        public DateTime CreatedTime { get; set; }
         public string CityArea { get; set; }
         public int? NumberOfRooms { get; set; }
         public int? SquareMeters { get; set; }

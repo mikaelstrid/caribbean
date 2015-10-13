@@ -48,7 +48,7 @@
                         urlHelper.Action("Create", "Prints", new { t = Model.SelectedPrintTemplateSlug, o = o.Id });
 
                     <li>
-                        <a href="@url">
+                        <a href="@url" title="@o.CreatedTime.ToString()">
                             <div class="realestateobject">
                                 <img src="@o.ThumbailUrl" alt="@o.Address"/>
                                 <div class="description-box">
