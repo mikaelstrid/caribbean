@@ -295,7 +295,7 @@
                     visible: savedVisibility,
                     domId: grandParent.attr("id")
                 });
-                grandParent.toggle(savedVisibility);
+                grandParent.css("visibility", savedVisibility ? "visible" : "hidden");
             });
             $scope.$apply();
         }
@@ -311,7 +311,7 @@
         }
         $scope.toggleHideableField = function (field) {
             field.visible = !field.visible;
-            $("#" + field.domId, $("#pageEditorIframe").contents()).toggle(field.visible);
+            $("#" + field.domId, $("#pageEditorIframe").contents()).css("visibility", field.visible ? "visible" : "hidden");
             $scope._saveHideableFieldValue($scope.currentPage.id, field.name, field.visible)
                 .then(function () {
                     console.log("Hideable field value updated successfully.");
