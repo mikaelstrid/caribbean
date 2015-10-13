@@ -39,7 +39,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 NumberOfRooms = ConvertToInt(objectElement.Element("Rum").Value),
                 SquareMeters = ConvertToInt(objectElement.Element("BoArea").Value),
                 ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: _thumbnailWidthInPx),
-                Status = ParseObjectStatus(objectElement.Element("Kind").Value),
+                Status = ParseObjectStatus(objectElement.Element("Kind").Value, objectElement.Element("KommandeForsaljning").Value),
                 Price = ConvertToInt(objectElement.Element("Pris").Value),
             };
         }
@@ -133,11 +133,11 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         }
 
         // HELPER METHODS
-        internal static ObjectStatus ParseObjectStatus(string value)
+        internal static ObjectStatus ParseObjectStatus(string kind, string kommandeForsaljning)
         {
-            if (value.StartsWith("1")) return ObjectStatus.Coming;
-            if (value.StartsWith("2") || value.StartsWith("3")) return ObjectStatus.ForSale;
-            if (value.StartsWith("5")) return ObjectStatus.Reference;
+            if (kommandeForsaljning == "1" || kommandeForsaljning == "True" || kind.StartsWith("1")) return ObjectStatus.Coming;
+            if (kind.StartsWith("2") || kind.StartsWith("3")) return ObjectStatus.ForSale;
+            if (kind.StartsWith("5")) return ObjectStatus.Reference;
             return ObjectStatus.Unknown;
         }
     }
