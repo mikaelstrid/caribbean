@@ -21,7 +21,7 @@
                 </div>
             }
 
-            @foreach (var p in Model.Prints)
+            @foreach (var p in Model.Prints.OrderByDescending(p => p.CreationTimeUtc))
             {
                 <div class="row row-print">
                     <div class="small-2 column">
