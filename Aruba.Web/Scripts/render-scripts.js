@@ -66,5 +66,5 @@
         grandParent.toggle(savedVisibility);
     });
 
-    $(".crop_area").hide();
+    $(".crop_area").css("visibility", "hidden");
 });
