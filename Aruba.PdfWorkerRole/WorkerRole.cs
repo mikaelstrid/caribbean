@@ -20,6 +20,8 @@ namespace Aruba.PdfWorkerRole
 {
     public class WorkerRole : RoleEntryPoint
     {
+        private const int DEFAULT_RENDER_TIMEOUT_IN_SECONDS = 120;
+
         private QueueClient _client;
         private readonly ManualResetEvent _completedEvent = new ManualResetEvent(false);
 
@@ -117,11 +119,14 @@ namespace Aruba.PdfWorkerRole
                 EnableRaisingEvents = true
             };
 
+            int timeoutInSeconds;
+            if (!int.TryParse(RoleEnvironment.GetConfigurationSettingValue("RenderThumbnailTimeoutInSeconds"), out timeoutInSeconds)) timeoutInSeconds = DEFAULT_RENDER_TIMEOUT_IN_SECONDS;
+            
             process.OutputDataReceived += (s, a) => outputBuilder.Append(a.Data);
 
             process.Start();
             process.BeginOutputReadLine();
-            process.WaitForExit(20000);
+            process.WaitForExit(timeoutInSeconds * 1000);
             process.CancelOutputRead();
 
             if (outputBuilder.Length > 0) Logger.Trace("Output from RenderThumbnail: " + outputBuilder);
@@ -152,11 +157,15 @@ namespace Aruba.PdfWorkerRole
                 EnableRaisingEvents = true
             };
 
+            //:#263: Increase the timeout since the job sometimes takes long time
+            int timeoutInSeconds;
+            if (!int.TryParse(RoleEnvironment.GetConfigurationSettingValue("RenderPdfTimeoutInSeconds"), out timeoutInSeconds)) timeoutInSeconds = DEFAULT_RENDER_TIMEOUT_IN_SECONDS;
+
             process.OutputDataReceived += (s, a) => outputBuilder.Append(a.Data);
 
             process.Start();
             process.BeginOutputReadLine();
-            process.WaitForExit(20000);
+            process.WaitForExit(timeoutInSeconds * 1000);
             process.CancelOutputRead();
 
             if (outputBuilder.Length > 0) Logger.Trace("Output from RenderPdf: " + outputBuilder);
