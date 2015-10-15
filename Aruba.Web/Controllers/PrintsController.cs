@@ -207,7 +207,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
             if (print.Pages.Any(p => p.PdfJobStatus != JobStatus.Completed || string.IsNullOrWhiteSpace(p.PdfUrl)))
             {
-                TempData["warning"] = "Trycksakens sidor håller på att genereras och är strax klara. Vänta några sekunder och försök igen.";
+                TempData["warning"] = "Trycksakens sidor håller på att genereras och detta kan ta upp till en minut. Vänta en stund och klicka på knappen igen.";
                 return RedirectToAction("Index");
             }
 
