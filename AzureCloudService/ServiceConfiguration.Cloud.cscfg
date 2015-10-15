@@ -12,6 +12,14 @@
       <Setting name="UpdatePagePdfUrl" value="http://objektprint.modernmaklarmedia.se/api/pagepdfs" />
       <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcaribbean;AccountKey=Q5m8rJ7RnqmApmrc3VP2z9RpXJdSuzY5yf5hhWhEzh0RnRjpfJZwAVjLwMXgXwAbhInW2Tmx7N4KTzuKyV8+nA==" />
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mmcaribbean;AccountKey=Q5m8rJ7RnqmApmrc3VP2z9RpXJdSuzY5yf5hhWhEzh0RnRjpfJZwAVjLwMXgXwAbhInW2Tmx7N4KTzuKyV8+nA==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="aruba" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEDMH6CknLr+DRGtxMbm8C+owDQYJKoZIhvcNAQEBBQAEggEABYI50gYTSKLFYLMGhMFFBAxv4OHECudSTBLLERVxxr58dSisNMCGocb0igpv3IfUV1BdI5YjnaxZwPLJHejADCc1SHaVC4L9EpmhHLg99EyMMLKhSOnr+jU94/mnTKjrBWyIiBWr2NLLHuRTYzo+HRB7MQqzHRpCQJ/GdjRF58HxSgc2mIEdNdWL8/FQJ2w5SERDpkwCD5fkWT5S9BqA99alsb7JEZjvqMlmHMNAupV34ShOaVZb8Vl7X7Xtu0/3WYI3KOQxtLH8a+EiBjiv+UFje6KdicWKUIadA9WsIFsK9IVdxe0e86Dm8y5YLlYGYozZRSgbbDv12QmixLBJfzAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECOvh1FHduJorgBBbuuYXS0ZBEllMgR9v+P/5" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-10-14T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
     </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="CEE3B941B72D95EBCA42EE492A6D81B4590EB252" thumbprintAlgorithm="sha1" />
+    </Certificates>
   </Role>
 </ServiceConfiguration>

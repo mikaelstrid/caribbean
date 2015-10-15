@@ -101,7 +101,7 @@ namespace Aruba.PdfWorkerRole
             var outputFilePath = Path.Combine(targetDirectory, thumbnailName);
 
             var args =
-                $"{"phantomjs-script-thumbnail.js"} {pageUrl} {outputFilePath} {message.PageWidth} {message.PageHeight} {message.ThumbnailWidth} {message.ThumbnailHeight}";
+                $"--disk-cache=true {"phantomjs-script-thumbnail.js"} {pageUrl} {outputFilePath} {message.PageWidth} {message.PageHeight} {message.ThumbnailWidth} {message.ThumbnailHeight}";
 
             var processStartInfo = new ProcessStartInfo
             {

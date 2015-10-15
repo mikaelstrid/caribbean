@@ -16,5 +16,9 @@
       <LocalStorage name="LocalStoreForTemporaryPdfs" sizeInMB="100" cleanOnRoleRecycle="true" />
       <LocalStorage name="CustomLogs" cleanOnRoleRecycle="false" sizeInMB="1024" />
     </LocalResources>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
   </WorkerRole>
 </ServiceDefinition>
