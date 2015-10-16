@@ -54,7 +54,7 @@
                                 <div class="description-box">
                                     <h4>@o.CityArea - @o.Address</h4>
                                     <p class="size-information">
-                                        @(o.NumberOfRooms?.ToString() ?? "-") rum och kök om @(o.SquareMeters?.ToString() ?? "-") kvm
+                                        @(o.NumberOfRooms?.ToString("N1") ?? "-") rum och kök om @(o.SquareMeters?.ToString() ?? "-") kvm
                                     </p>
                                     <p class="price-information">Pris: @(o.Price?.ToString("# ### ### ### ###") ?? "-") kr</p>
                                     <p class="status-information">&#8226; @Html.DisplayFor(m => o.Status)</p>

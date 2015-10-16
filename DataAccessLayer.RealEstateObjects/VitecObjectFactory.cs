@@ -37,7 +37,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
                 Id = objectElement.Element("GID").Value,
                 Address = objectElement.Element("Adress").Value,
                 CityArea = objectElement.Element("Omrade").Value,
-                NumberOfRooms = ConvertToInt(objectElement.Element("Rum").Value),
+                NumberOfRooms = ConvertToDoubleSwedish(objectElement.Element("Rum").Value),
                 SquareMeters = ConvertToInt(objectElement.Element("BoArea").Value),
                 ThumbnailUrl = CreateSummaryThumbnailUrl(objectElement.Element("BildUrl").Value, width: _thumbnailWidthInPx),
                 Status = ParseObjectStatus(objectElement.Element("Kind").Value, objectElement.Element("KommandeForsaljning").Value),
@@ -45,10 +45,17 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             };
         }
 
-        private static int? ConvertToInt(string s)
+        internal static int? ConvertToInt(string s)
         {
             int value;
             return int.TryParse(s.Replace(".", "").Replace(" ", ""), out value) ? (int?) value : null;
+        }
+
+        internal static double? ConvertToDoubleSwedish(string input)
+        {
+            if (input == null) return null;
+            double value;
+            return double.TryParse(input.Replace(".", "").Replace(" ", ""), NumberStyles.Any, new CultureInfo("sv-SE"), out value) ? (double?)value : null;
         }
 
         private string CreateSummaryThumbnailUrl(string originalUrl, int width)

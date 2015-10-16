@@ -88,5 +88,24 @@ namespace DataAccessLayer.RealEstateObjects.Tests
             result.Should().Be(DateTime.MinValue);
         }
 
+
+        [TestCase("", null)]
+        [TestCase("abc", null)]
+        [TestCase(null, null)]
+        [TestCase("1", 1)]
+        [TestCase("1000", 1000)]
+        [TestCase("1 000", 1000)]
+        [TestCase("1.000", 1000)]
+        [TestCase("3,5", 3.5)]
+        public void ConvertToDoubleSwedish_TestCases(string input, double? expectedValue)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = VitecObjectFactory.ConvertToDoubleSwedish(input);
+
+            // ASSERT
+            result.Should().Be(expectedValue);
+        }
     }
 }

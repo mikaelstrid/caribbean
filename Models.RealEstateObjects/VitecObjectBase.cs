@@ -10,6 +10,6 @@ namespace Caribbean.Models.RealEstateObjects
         public DateTime CreatedTime { get; set; }
         public string CityArea { get; set; }
         public int? SquareMeters { get; set; }
-        public int? NumberOfRooms { get; set; }
+        public double? NumberOfRooms { get; set; }
     }
 }
