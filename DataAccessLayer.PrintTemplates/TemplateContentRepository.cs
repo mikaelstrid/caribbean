@@ -12,11 +12,13 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
     public interface ITemplateContentRepository
     {
         string GetPageTemplateBySlug(string agencySlug, string pageTemplateSlug);
+        void EmptyCache();
     }
 
     public class TemplateContentRepository : TemplateRepositoryBase, ITemplateContentRepository
     {
         private readonly bool _disableCaching;
+
 
         public TemplateContentRepository()
         {
@@ -27,6 +29,7 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
         }
 
         private const string CACHE_PREFIX_PAGE_TEMPLATE_CONTENT = "PTC_";
+
 
         public string GetPageTemplateBySlug(string agencySlug, string pageTemplateSlug)
         {
@@ -104,6 +107,16 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                 }
             }
             return result;
+        }
+
+
+        public void EmptyCache()
+        {
+            var cache = MemoryCache.Default;
+            foreach (var entry in cache.Where(e => e.Key.StartsWith(CACHE_PREFIX_PAGE_TEMPLATE_CONTENT)))
+            {
+                cache.Remove(entry.Key);
+            }
         }
     }
 }

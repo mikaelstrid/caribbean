@@ -14,11 +14,13 @@ namespace Caribbean.Aruba.Web.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITemplateMetadataRepository _templateMetadataRepository;
+        private readonly ITemplateContentRepository _templateContentRepository;
 
-        public PrintTemplatesController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository)
+        public PrintTemplatesController(IUnitOfWork unitOfWork, ITemplateMetadataRepository templateMetadataRepository, ITemplateContentRepository templateContentRepository)
         {
             _unitOfWork = unitOfWork;
             _templateMetadataRepository = templateMetadataRepository;
+            _templateContentRepository = templateContentRepository;
         }
 
         [Route("valj/{o?}")]
@@ -43,6 +45,13 @@ namespace Caribbean.Aruba.Web.Controllers
                     ThumbnailUrl = t.ThumbnailUrl
                 })
             });
+        }
+
+        public ActionResult EmptyCache(string o)
+        {
+            _templateMetadataRepository.EmptyCache();
+            _templateContentRepository.EmptyCache();
+            return RedirectToAction("Choose", new {o});
         }
     }
 }

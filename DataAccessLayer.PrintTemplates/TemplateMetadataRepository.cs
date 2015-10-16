@@ -17,6 +17,7 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
         IEnumerable<PrintTemplateMetadata> GetAllPrintTemplatesForAgency(string agencySlug);
         PrintTemplateMetadata GetPrintVariantBySlug(string agencySlug, string printVariantSlug);
         PageTemplateMetadata GetPageTemplateBySlug(string agencySlug, string pageTemplateSlug);
+        void EmptyCache();
     }
 
     public class TemplateMetadataRepository : TemplateRepositoryBase, ITemplateMetadataRepository
@@ -102,6 +103,15 @@ namespace Caribbean.DataAccessLayer.PrintTemplates
                 cache.Set(cacheKey, createdMetadata, DateTimeOffset.Now.AddMinutes(30));
 
             return createdMetadata;
+        }
+
+        public void EmptyCache()
+        {
+            var cache = MemoryCache.Default;
+            foreach (var entry in cache.Where(e => e.Key.StartsWith(CACHE_PREFIX_PRINT_VARIANT) || e.Key.StartsWith(CACHE_PREFIX_PAGE_TEMPLATE_METADATA)))
+            {
+                cache.Remove(entry.Key);
+            }
         }
 
 

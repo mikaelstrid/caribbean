@@ -45,13 +45,13 @@
                 @foreach (var t in Model.AvailablePrintTypes)
                 {
                     var url = string.IsNullOrEmpty(Model.SelectedObjectId) ?
-                        urlHelper.Action("Choose", "RealEstateObjects", new { t = t.Slug }) :
-                        urlHelper.Action("Create", "Prints", new { t = t.Slug, o = Model.SelectedObjectId });
+                        urlHelper.Action("Choose", "RealEstateObjects", new {t = t.Slug}) :
+                        urlHelper.Action("Create", "Prints", new {t = t.Slug, o = Model.SelectedObjectId});
 
                     <li>
                         <a href="@url">
                             <div class="printtemplate clearfix">
-                                <img src="@t.ThumbnailUrl" alt="@t.SubType" />
+                                <img src="@t.ThumbnailUrl" alt="@t.SubType"/>
                                 <div class="description-box">
                                     <h4>@t.Type</h4>
                                     <h5>@t.SubType</h5>
@@ -62,6 +62,10 @@
                     </li>
                 }
             </ul>
+            @if (User.Identity.Name.StartsWith("mikael") || User.Identity.Name.StartsWith("per"))
+            {
+                @Html.ActionLink("Töm cache", "EmptyCache", new { o = Model.SelectedObjectId }, new {@class = "button"})
+            }
         </div>
     </div>
 </div>

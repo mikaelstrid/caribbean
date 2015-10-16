@@ -44,8 +44,8 @@
                 @foreach (var o in Model.AvailableObjects.Where(o => !string.IsNullOrEmpty(o.Address)))
                 {
                     var url = string.IsNullOrEmpty(Model.SelectedPrintTemplateSlug) ?
-                        urlHelper.Action("Choose", "PrintTemplates", new { o = o.Id }) :
-                        urlHelper.Action("Create", "Prints", new { t = Model.SelectedPrintTemplateSlug, o = o.Id });
+                        urlHelper.Action("Choose", "PrintTemplates", new {o = o.Id}) :
+                        urlHelper.Action("Create", "Prints", new {t = Model.SelectedPrintTemplateSlug, o = o.Id});
 
                     <li>
                         <a href="@url" title="@o.CreatedTime.ToString("yyyy-MM-dd HH:mm")">
@@ -64,6 +64,10 @@
                     </li>
                 }
             </ul>
+            @if (User.Identity.Name.StartsWith("mikael") || User.Identity.Name.StartsWith("per"))
+            {
+                @Html.ActionLink("Töm cache", "EmptyCache", new { t = Model.SelectedPrintTemplateSlug }, new { @class = "button" })
+            }
         </div>
     </div>
 </div>

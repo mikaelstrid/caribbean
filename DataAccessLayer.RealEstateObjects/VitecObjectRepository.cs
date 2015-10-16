@@ -16,6 +16,7 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
         IEnumerable<VitecObjectSummary> GetAllSummariesForAgency(string vitecCustomerId);
         VitecObjectSummary GetSummaryById(string vitecCustomerId, string objectId);
         VitecObjectDetails GetDetailsById(string objectId);
+        void EmptyCache();
     }
 
     public class VitecObjectRepository : IVitecObjectRepository
@@ -166,6 +167,15 @@ namespace Caribbean.DataAccessLayer.RealEstateObjects
             }
 
             return createdObjectDetails;
+        }
+
+        public void EmptyCache()
+        {
+            var cache = MemoryCache.Default;
+            foreach (var entry in cache.Where(e => e.Key.StartsWith(CACHE_PREFIX_DETAILS) || e.Key.StartsWith(CACHE_PREFIX_SUMMARY) || e.Key.StartsWith(CACHE_PREFIX_MODIFIED_TIME)))
+            {
+                cache.Remove(entry.Key);
+            }
         }
 
         private static string LoadVitecDetailsXmlString(string objectId)

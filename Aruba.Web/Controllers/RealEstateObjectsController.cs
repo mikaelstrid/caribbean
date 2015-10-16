@@ -48,5 +48,11 @@ namespace Caribbean.Aruba.Web.Controllers
                 })
             });
         }
+
+        public ActionResult EmptyCache(string t)
+        {
+            _vitecObjectRepository.EmptyCache();
+            return RedirectToAction("Choose", new { t });
+        }
     }
 }
