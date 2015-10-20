@@ -60,7 +60,7 @@ namespace Caribbean.Aruba.Web.Business
 
         internal static List<HtmlFieldInfo> FindAllHtmlFields(string templateHtml)
         {
-            return REGEX_HTML_FIELDS.Matches(templateHtml).Cast<Match>().Select(m => new HtmlFieldInfo { FieldName = m.Groups[2].Value, FirstParagraphClass = GetFirstParagraphClass(m.Groups[1].Value) }).ToList();
+            return REGEX_HTML_FIELDS.Matches(templateHtml).Cast<Match>().Select(m => new HtmlFieldInfo { FieldName = m.Groups[2].Value, FieldTemplate = m.Groups[4].Value, FirstParagraphClass = GetFirstParagraphClass(m.Groups[1].Value) }).ToList();
         }
 
         private static string GetFirstParagraphClass(string firstParagraghTag)
@@ -271,6 +271,7 @@ namespace Caribbean.Aruba.Web.Business
     public class HtmlFieldInfo : FieldInfoBase
     {
         public string FirstParagraphClass { get; set; }
+        public string FieldTemplate { get; set; }
     }
     public class ImageFieldInfo : FieldInfoBase
     {

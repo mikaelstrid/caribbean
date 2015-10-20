@@ -32,7 +32,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase("field1", "{obj_gata}", "Långenäs 141")]
         [TestCase("field2", "{obj_omrade}", "Mölnlycke, Råda, Härryda")]
         [TestCase("field3", "{obj_rum}", "10")]
-        public void CreateInitialTextFieldValue_SimpleTextFields(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        public void CreateInitialTextFieldValue_OnlyPlaceholder(string fieldName, string fieldTemplate, string expectedValueFromXml)
         {
             // ARRANGE
 
@@ -50,7 +50,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase("field2", "{obj_boarea} kvm", "300 kvm")]
         [TestCase("field3", "Antal rum: {obj_rum}st", "Antal rum: 10st")]
         [TestCase("field3", "Storlek: {obj_boarea} kvm", "Storlek: 300 kvm")]
-        public void CreateInitialTextFieldValue_TextFieldsWithOnePlaceholderAndSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        public void CreateInitialTextFieldValue_OnePlaceholderAndSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
         {
             // ARRANGE
 
@@ -68,7 +68,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase("field2", "175 kvm", "175 kvm")]
         [TestCase("field3", "Antal rum: 18st", "Antal rum: 18st")]
         [TestCase("field3", "Storlek: 99 kvm", "Storlek: 99 kvm")]
-        public void CreateInitialTextFieldValue_TextFieldsWithNoPlaceholderButSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        public void CreateInitialTextFieldValue_NoPlaceholderButSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
         {
             // ARRANGE
 
@@ -85,7 +85,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase("field1", "{obj_rum} rum och kök om {obj_boarea} kvm", "10 rum och kök om 300 kvm")]
         [TestCase("field2", "Antal rum: {obj_rum}st (totalt {obj_boarea} kvm)", "Antal rum: 10st (totalt 300 kvm)")]
         [TestCase("field3", "Storlek: {obj_boarea} kvm fördelat på {obj_rum} rum", "Storlek: 300 kvm fördelat på 10 rum")]
-        public void CreateInitialTextFieldValue_TextFieldsWithMultiplePlaceholdersAndSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        public void CreateInitialTextFieldValue_MultiplePlaceholdersAndSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
         {
             // ARRANGE
 
@@ -98,6 +98,70 @@ namespace Caribbean.Aruba.Web.Tests.Business
             // ASSERT
             result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
         }
+
+
+
+        // === CreateInitialHtmlFieldValue ===
+        [TestCase("field1", "{obj_gata}", "Brodtext", "<p class=\"Brodtext\">Långenäs 141</p>")]
+        public void CreateInitialHtmlFieldValue_OnlyPlaceholder(string fieldName, string fieldTemplate, string firstParagraphClass, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialHtmlFieldValue(
+                new HtmlFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate, FirstParagraphClass = firstParagraphClass },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
+
+        [TestCase("field1", "Huset ligger vackert vid en sjö.</p><p>Kom och köp!", "Brodtext", "<p class=\"Brodtext\">Huset ligger vackert vid en sjö.</p><p>Kom och köp!</p>")]
+        public void CreateInitialHtmlFieldValue_NoPlaceholderButSomeFreetext(string fieldName, string fieldTemplate, string firstParagraphClass, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialHtmlFieldValue(
+                new HtmlFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate, FirstParagraphClass = firstParagraphClass },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
+
+        [TestCase("field1", "{obj_gata} ligger vackert vid en sjö.</p><p>Kom och köp!", "Brodtext", "<p class=\"Brodtext\">Långenäs 141 ligger vackert vid en sjö.</p><p>Kom och köp!</p>")]
+        public void CreateInitialHtmlFieldValue_OnePlaceholderAndSomeFreetext(string fieldName, string fieldTemplate, string firstParagraphClass, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialHtmlFieldValue(
+                new HtmlFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate, FirstParagraphClass = firstParagraphClass },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
+
+        [TestCase("field1", "{obj_gata} ligger vackert vid en sjö.</p><p>{obj_saljbeskrivning}", "Brodtext", "<p class=\"Brodtext\">Långenäs 141 ligger vackert vid en sjö.</p><p>Husets läge bjuder på det bästa av två världar, med 2 km till Mölnlycke centrum och 500m till den vackra badplatsen vid Landvettersjön. Här har du känslan av att bo på landet och samtidigt närheten till stan.</p>")]
+        public void CreateInitialHtmlFieldValue_MultiplePlaceholdersAndSomeFreetext(string fieldName, string fieldTemplate, string firstParagraphClass, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialHtmlFieldValue(
+                new HtmlFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate, FirstParagraphClass = firstParagraphClass },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
+
 
 
         // === CreateInitialImageFieldValue ===

@@ -94,10 +94,12 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case31-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case2-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case3-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case4-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case32-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case5-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case6-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllHtmlFields-case7-input.html" />

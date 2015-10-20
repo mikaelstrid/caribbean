@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Caribbean.Aruba.Web.Business;
 using Caribbean.Models.Database;
@@ -15,7 +16,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase(2, 1)]
         [TestCase(3, 2)]
         [TestCase(4, 3)]
-        public void FindAllTextFields_SimpleTextFields(int number, int expectedResultIndex)
+        public void FindAllTextFields_OnlyPlaceholder(int number, int expectedResultIndex)
         {
             var expectedResults = new[]
             {
@@ -54,7 +55,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
 
         [TestCase(31, 0)]
         [TestCase(32, 1)]
-        public void FindAllTextFields_TextFieldsWithNoPlaceholderButSomeFreetext(int number, int expectedResultIndex)
+        public void FindAllTextFields_NoPlaceholderButSomeFreetext(int number, int expectedResultIndex)
         {
             var expectedResults = new[]
             {
@@ -74,7 +75,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
 
         [TestCase(51, 0)]
         [TestCase(52, 1)]
-        public void FindAllTextFields_TextFieldsWithOnePlaceholderAndSomeFreetext(int number, int expectedResultIndex)
+        public void FindAllTextFields_OnePlaceholderAndSomeFreetext(int number, int expectedResultIndex)
         {
             var expectedResults = new[]
             {
@@ -94,7 +95,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
 
         [TestCase(91, 0)]
         [TestCase(92, 1)]
-        public void FindAllTextFields_TextFieldsWithMultiplePlaceholdersAndSomeFreetext(int number, int expectedResultIndex)
+        public void FindAllTextFields_MultiplePlaceholdersAndSomeFreetext(int number, int expectedResultIndex)
         {
             var expectedResults = new[]
             {
@@ -114,14 +115,14 @@ namespace Caribbean.Aruba.Web.Tests.Business
 
 
 
-        [TestCase(1, new[] { "fritext" }, new[] { "Brodtext" })]
-        [TestCase(2, new[] { "fritext" }, new[] { "Brodtext" })]
-        [TestCase(3, new[] { "fritext" }, new[] { "Brodtext" })]
-        [TestCase(4, new[] { "fritext" }, new[] { "Brodtext" })]
-        [TestCase(5, new[] { "fritext", "fritext2" }, new[] { "Brodtext", "Brodtext2" })]
-        [TestCase(6, new[] { "objekt_kort_saljbeskrivning" }, new[] { "" })]
-        [TestCase(7, new[] { "objekt_kort_saljbeskrivning", "fritext" }, new[] { "", "Brodtext" })]
-        public void FindAllHtmlFields(int number, string[] expectedFieldNames, string[] expectedFirstParagraphClasses)
+        [TestCase(1, new[] { "fritext" }, new[] { "Brodtext" }, new[] { "Här kan man skriva en hel radda med text och för att demonstrera." })]
+        [TestCase(2, new[] { "fritext" }, new[] { "Brodtext" }, new[] { "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n        <p class=\"Brodtext\" id=\"u291-8\">Här kom det nya stycket som utlovat. Tjusigt eller hur?" })]
+        [TestCase(3, new[] { "fritext" }, new[] { "Brodtext" }, new[] { "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n    <p class=\"Brodtext\">Här kom det nya stycket som utlovat. Tjusigt eller hur?" })]
+        [TestCase(4, new[] { "fritext" }, new[] { "Brodtext" }, new[] { "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n                            <p class=\"Brodtext\" id=\"u291-8\">Här kom det nya stycket som utlovat. Tjusigt eller hur?" })]
+        [TestCase(5, new[] { "fritext", "fritext2" }, new[] { "Brodtext", "Brodtext2" }, new[] { "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n    <p class=\"Brodtext\">Här kom det nya stycket som utlovat. Tjusigt eller hur?", "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n    <p class=\"Brodtext\">Här kom det nya stycket som utlovat. Tjusigt eller hur?" })]
+        [TestCase(6, new[] { "objekt_kort_saljbeskrivning" }, new[] { "" }, new[] { " Mycket tilltalande bostad i två etage om 116 m² samt stor och härlig terrass om ca 20 m² i västerläge. Generösa sällskapsytor med ny vacker tillbyggnad och tre bra sovrum samt två badrum. Sällskapsrum och kök i öppen planlösning med stor rymd och ljusinsläpp från tre håll. Bostaden är i mycket gott skick och har påkostade materialval. Området är en oas beläget i en historisk marin miljö med havet och naturen inpå knuten med staden på nära avstånd." })]
+        [TestCase(7, new[] { "objekt_kort_saljbeskrivning", "fritext" }, new[] { "", "Brodtext" }, new[] { " Mycket tilltalande bostad i två etage om 116 m² samt stor och härlig terrass om ca 20 m² i västerläge. Generösa sällskapsytor med ny vacker tillbyggnad och tre bra sovrum samt två badrum. Sällskapsrum och kök i öppen planlösning med stor rymd och ljusinsläpp från tre håll. Bostaden är i mycket gott skick och har påkostade materialval. Området är en oas beläget i en historisk marin miljö med havet och naturen inpå knuten med staden på nära avstånd.", "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n        <p class=\"Brodtext\">Här kom det nya stycket som utlovat. Tjusigt eller hur?" })]
+        public void FindAllHtmlFields_NoPlaceholders(int number, string[] expectedFieldNames, string[] expectedFirstParagraphClasses, string[] expectedFieldTemplates)
         {
             // ARRANGE
             var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllHtmlFields-case{number}-input.html");
@@ -130,9 +131,54 @@ namespace Caribbean.Aruba.Web.Tests.Business
             var result = MuseTemplateParser.FindAllHtmlFields(html);
 
             // ASSERT
-            var simplifiedExpected = expectedFieldNames.Zip(expectedFirstParagraphClasses, (f, s) => new HtmlFieldInfo { FieldName = f, FirstParagraphClass = s });
+            var simplifiedExpected = CreateSimplifiedExpectedResults(expectedFieldNames, expectedFirstParagraphClasses, expectedFieldTemplates);
             result.ShouldAllBeEquivalentTo(simplifiedExpected);
         }
+
+        [TestCase(31, new[] { "fritext" }, new[] { "Brodtext" }, new[] { "Här kan man skriva en hel radda med text om {obj_gata} för att demonstrera." })]
+        public void FindAllHtmlFields_OnePlaceholder(int number, string[] expectedFieldNames, string[] expectedFirstParagraphClasses, string[] expectedFieldTemplates)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllHtmlFields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllHtmlFields(html);
+
+            // ASSERT
+            var simplifiedExpected = CreateSimplifiedExpectedResults(expectedFieldNames, expectedFirstParagraphClasses, expectedFieldTemplates);
+            result.ShouldAllBeEquivalentTo(simplifiedExpected);
+        }
+
+        [TestCase(32, new[] { "fritext", "fritext2" }, new[] { "Brodtext", "Brodtext2" }, new[] { "{obj_gata} ligger mysigt och avskiljt</p>\r\n    <p class=\"Brodtext\">på ca {obj_area} kvm.", "Här kan man skriva en hel radda med text och för att demonstrera både det och hur det ser ut med nytt stycke så låter jag lite &quot;dummy-text&quot; följa med i mallen.</p>\r\n    <p class=\"Brodtext\">Här kom det nya stycket som utlovat. Tjusigt eller hur?" })]
+        public void FindAllHtmlFields_MultiplePlaceholders(int number, string[] expectedFieldNames, string[] expectedFirstParagraphClasses, string[] expectedFieldTemplates)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllHtmlFields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllHtmlFields(html);
+
+            // ASSERT
+            var simplifiedExpected = CreateSimplifiedExpectedResults(expectedFieldNames, expectedFirstParagraphClasses, expectedFieldTemplates);
+            result.ShouldAllBeEquivalentTo(simplifiedExpected);
+        }
+
+        private static IEnumerable<HtmlFieldInfo> CreateSimplifiedExpectedResults(string[] expectedFieldNames, string[] expectedFirstParagraphClasses, string[] expectedFieldTemplates)
+        {
+            var simplifiedExpected = new List<HtmlFieldInfo>();
+            for (var i = 0; i < expectedFieldNames.Length; i++)
+            {
+                simplifiedExpected.Add(new HtmlFieldInfo
+                {
+                    FieldName = expectedFieldNames[i],
+                    FieldTemplate = expectedFieldTemplates[i],
+                    FirstParagraphClass = expectedFirstParagraphClasses[i]
+                });
+            }
+            return simplifiedExpected;
+        }
+
+
 
 
 

@@ -59,32 +59,35 @@ namespace Caribbean.Aruba.Web.Business
 
         internal static FieldValue CreateInitialTextFieldValue(TextFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
         {
-            var REGEX_PLACEHOLDERS = new Regex("{(\\w*)}");
+            var fieldValue = FillPlaceholders(fieldInfo.FieldTemplate, vitecObject, valueMappings);
+            return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = fieldValue }) };
+        }
 
-            var fieldValue = fieldInfo.FieldTemplate;
-            foreach (var match in REGEX_PLACEHOLDERS.Matches(fieldInfo.FieldTemplate).Cast<Match>())
+        internal static FieldValue CreateInitialHtmlFieldValue(HtmlFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
+        {
+            var wrappedFieldTemplate = $"<p class=\"{fieldInfo.FirstParagraphClass}\">{fieldInfo.FieldTemplate}</p>";
+            var fieldValue = FillPlaceholders(wrappedFieldTemplate, vitecObject, valueMappings);
+            return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = fieldValue }) };
+        }
+
+        private static string FillPlaceholders(string fieldTemplate, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
+        {
+            var regexPlaceholders = new Regex("{(\\w*)}");
+            var result = fieldTemplate;
+            foreach (var match in regexPlaceholders.Matches(fieldTemplate).Cast<Match>())
             {
                 var placeholderName = match.Groups[1].Value;
                 var xpath = GetFieldPath(placeholderName, valueMappings);
                 var vitecValue = vitecObject.GetElementValue(xpath);
                 if (vitecValue != null)
                 {
-                    fieldValue = fieldValue.Replace($"{{{placeholderName}}}", vitecValue);
+                    result = result.Replace($"{{{placeholderName}}}", vitecValue);
                 }
             }
-
-            return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = fieldValue }) };
+            return result;
         }
 
-        private static FieldValue CreateInitialHtmlFieldValue(HtmlFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
-        {
-            var xpath = GetFieldPath(fieldInfo.FieldName, valueMappings);
-            var vitecValue = vitecObject.GetElementValue(xpath);
-            if (vitecValue == null) return null;
-            if (!vitecValue.StartsWith("<p")) vitecValue = $"<p class=\"{fieldInfo.FirstParagraphClass}\">{vitecValue}</p>";
-            return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = vitecValue }) };
-        }
-        
+
         internal static FieldValue CreateInitialImageFieldValue(IVitecObjectFactory vitecObjectFactory, ImageFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
         {
             var xpath = GetFieldPath(fieldInfo.FieldName, valueMappings);
