@@ -15,7 +15,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase(2, 1)]
         [TestCase(3, 2)]
         [TestCase(4, 3)]
-        public void FindAllTextFields(int number, int expectedResultIndex)
+        public void FindAllTextFields_SimpleTextFields(int number, int expectedResultIndex)
         {
             var expectedResults = new[]
             {
@@ -40,6 +40,46 @@ namespace Caribbean.Aruba.Web.Tests.Business
                     new TextFieldInfo {FieldName = "field13", FieldTemplate = "{extra_kontaktperson_mobil}" },
                     new TextFieldInfo {FieldName = "field14", FieldTemplate = "{kontorets_mail}" }
                 },
+            };
+
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllTextFields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllTextFields(html);
+
+            // ASSERT
+            result.ShouldAllBeEquivalentTo(expectedResults[expectedResultIndex]);
+        }
+
+        [TestCase(51, 0)]
+        [TestCase(52, 1)]
+        public void FindAllTextFields_TextFieldsWithOnePlaceholderAndSomeFreetext(int number, int expectedResultIndex)
+        {
+            var expectedResults = new[]
+            {
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "{objekt_rum} rum och kök" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "{objekt_storlek} kvm" } },
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "Antal rum: {objekt_rum}st" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "Storlek: {objekt_storlek} kvm" } },
+            };
+
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllTextFields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllTextFields(html);
+
+            // ASSERT
+            result.ShouldAllBeEquivalentTo(expectedResults[expectedResultIndex]);
+        }
+
+        [TestCase(91, 0)]
+        [TestCase(92, 1)]
+        public void FindAllTextFields_TextFieldsWithMultiplePlaceholdersAndSomeFreetext(int number, int expectedResultIndex)
+        {
+            var expectedResults = new[]
+            {
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "{objekt_rum} rum och kök om {objekt_storlek} kvm" } },
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "Antal rum: {objekt_rum}st (totalt {objekt_storlek} kvm)" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "Storlek: {objekt_storlek} kvm fördelat på {objekt_rum} rum" } },
             };
 
             // ARRANGE

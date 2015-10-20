@@ -32,7 +32,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase("field1", "{obj_gata}", "Långenäs 141")]
         [TestCase("field2", "{obj_omrade}", "Mölnlycke, Råda, Härryda")]
         [TestCase("field3", "{obj_rum}", "10")]
-        public void CreateInitialTextFieldValue_ShouldReturnCorrectValue(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        public void CreateInitialTextFieldValue_SimpleTextFields(string fieldName, string fieldTemplate, string expectedValueFromXml)
         {
             // ARRANGE
 
@@ -46,6 +46,40 @@ namespace Caribbean.Aruba.Web.Tests.Business
             result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
         }
 
+        [TestCase("field1", "{obj_rum} rum och kök", "10 rum och kök")]
+        [TestCase("field2", "{obj_boarea} kvm", "300 kvm")]
+        [TestCase("field3", "Antal rum: {obj_rum}st", "Antal rum: 10st")]
+        [TestCase("field3", "Storlek: {obj_boarea} kvm", "Storlek: 300 kvm")]
+        public void CreateInitialTextFieldValue_TextFieldsWithOnePlaceholderAndSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialTextFieldValue(
+                new TextFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
+
+        [TestCase("field1", "{obj_rum} rum och kök om {obj_boarea} kvm", "10 rum och kök om 300 kvm")]
+        [TestCase("field2", "Antal rum: {obj_rum}st (totalt {obj_boarea} kvm)", "Antal rum: 10st (totalt 300 kvm)")]
+        [TestCase("field3", "Storlek: {obj_boarea} kvm fördelat på {obj_rum} rum", "Storlek: 300 kvm fördelat på 10 rum")]
+        public void CreateInitialTextFieldValue_TextFieldsWithMultiplePlaceholdersAndSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialTextFieldValue(
+                new TextFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
 
 
         // === CreateInitialImageFieldValue ===

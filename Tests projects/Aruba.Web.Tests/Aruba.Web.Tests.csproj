@@ -113,6 +113,10 @@
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllImageType2Fields-caseMC-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllRelativePaths-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllRelativePaths-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case92-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case91-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case52-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case51-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case2-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\FindAllTextFields-case3-input.html" />
