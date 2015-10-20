@@ -18,10 +18,8 @@ namespace Caribbean.Aruba.Web.Business
     {
         private static readonly Regex REGEX_TEXT_FIELDS = new Regex("\\[([\\w]*?)\\|(.*?)\\]");
 
-        //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?class=\\\"([^\\\"]*?)\\\"[^<]*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
-        //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p.*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
-        //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p.*?)\\^:(.*)\\|(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
-        private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?[^<]*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
+        //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?[^<]*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
+        private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?[^<]*?)\\[#([^\\]]*)(\\|)(.*?)\\](<\\/p>)", RegexOptions.Singleline);
 
 
         internal const string REGEX_IMAGE_FIELDS_TYPE1_TEMPLATE = "(<div id=\\\".*?_clip\\\")>\\s*<img.*?(id=.*?)(src=\\\".*?)(\\/{0}-)(.*?)(\\..*?\\\")(.*?)( width=\\\".*?\\\" height=\\\".*?\\\").*?\\/>";

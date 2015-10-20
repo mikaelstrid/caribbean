@@ -117,7 +117,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase(1, new[] { "fritext" }, new[] { "Brodtext" })]
         [TestCase(2, new[] { "fritext" }, new[] { "Brodtext" })]
         [TestCase(3, new[] { "fritext" }, new[] { "Brodtext" })]
-        [TestCase(4, new[] { "beskrivning" }, new[] { "Brodtext" })]
+        [TestCase(4, new[] { "fritext" }, new[] { "Brodtext" })]
         [TestCase(5, new[] { "fritext", "fritext2" }, new[] { "Brodtext", "Brodtext2" })]
         [TestCase(6, new[] { "objekt_kort_saljbeskrivning" }, new[] { "" })]
         [TestCase(7, new[] { "objekt_kort_saljbeskrivning", "fritext" }, new[] { "", "Brodtext" })]
@@ -226,6 +226,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
+        [TestCase(5)]
         public void MarkEditableHtmlFields(int number)
         {
             // ARRANGE
