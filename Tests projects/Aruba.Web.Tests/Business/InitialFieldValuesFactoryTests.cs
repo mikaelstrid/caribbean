@@ -29,16 +29,16 @@ namespace Caribbean.Aruba.Web.Tests.Business
 
 
         // === CreateInitialTextFieldValue ===
-        [TestCase("obj_gata", "Långenäs 141")]
-        [TestCase("obj_omrade", "Mölnlycke, Råda, Härryda")]
-        [TestCase("obj_rum", "10")]
-        public void CreateInitialTextFieldValue_ShouldReturnCorrectValue(string fieldName, string expectedValueFromXml)
+        [TestCase("field1", "{obj_gata}", "Långenäs 141")]
+        [TestCase("field2", "{obj_omrade}", "Mölnlycke, Råda, Härryda")]
+        [TestCase("field3", "{obj_rum}", "10")]
+        public void CreateInitialTextFieldValue_ShouldReturnCorrectValue(string fieldName, string fieldTemplate, string expectedValueFromXml)
         {
             // ARRANGE
 
             // ACT
             var result = InitialFieldValuesFactory.CreateInitialTextFieldValue(
-                new TextFieldInfo { FieldName = fieldName }, 
+                new TextFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate}, 
                 _vitecObjectDetails, 
                 _valueMappings);
 

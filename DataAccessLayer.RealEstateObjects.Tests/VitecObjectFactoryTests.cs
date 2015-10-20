@@ -92,10 +92,10 @@ namespace DataAccessLayer.RealEstateObjects.Tests
         [TestCase("", null)]
         [TestCase("abc", null)]
         [TestCase(null, null)]
-        [TestCase("1", 1)]
-        [TestCase("1000", 1000)]
-        [TestCase("1 000", 1000)]
-        [TestCase("1.000", 1000)]
+        [TestCase("1", 1.0)]
+        [TestCase("1000", 1000.0)]
+        [TestCase("1 000", 1000.0)]
+        [TestCase("1.000", 1000.0)]
         [TestCase("3,5", 3.5)]
         public void ConvertToDoubleSwedish_TestCases(string input, double? expectedValue)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Caribbean.DataAccessLayer.Database;
@@ -58,10 +59,21 @@ namespace Caribbean.Aruba.Web.Business
 
         internal static FieldValue CreateInitialTextFieldValue(TextFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)
         {
-            var xpath = GetFieldPath(fieldInfo.FieldName, valueMappings);
-            var vitecValue = vitecObject.GetElementValue(xpath);
-            if (vitecValue == null) return null;
-            return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = vitecValue }) };
+            var REGEX_PLACEHOLDERS = new Regex("{(\\w*)}");
+
+            var fieldValue = fieldInfo.FieldTemplate;
+            foreach (var match in REGEX_PLACEHOLDERS.Matches(fieldInfo.FieldTemplate).Cast<Match>())
+            {
+                var placeholderName = match.Groups[1].Value;
+                var xpath = GetFieldPath(placeholderName, valueMappings);
+                var vitecValue = vitecObject.GetElementValue(xpath);
+                if (vitecValue != null)
+                {
+                    fieldValue = fieldValue.Replace($"{{{placeholderName}}}", vitecValue);
+                }
+            }
+
+            return new FieldValue { FieldName = fieldInfo.FieldName, Value = JsonConvert.SerializeObject(new { html = fieldValue }) };
         }
 
         private static FieldValue CreateInitialHtmlFieldValue(HtmlFieldInfo fieldInfo, VitecObjectDetails vitecObject, IReadOnlyDictionary<string, string> valueMappings)

@@ -11,12 +11,37 @@ namespace Caribbean.Aruba.Web.Tests.Business
     {
         private const string TEST_FILES_BASE_PATH = "..\\..\\Business\\MuseTemplateParserTestFiles\\";
 
-        [TestCase(1, new[] { "objekt_rum", "objekt_storlek" })]
-        [TestCase(2, new[] { "objekt_rum", "objekt_storlek" })]
-        [TestCase(3, new string[0])]
-        [TestCase(4, new[] { "objekt_gata", "objekt_rum", "objekt_storlek", "kontorets_adress", "kontorets_tel", "kontorets_mail", "kontorets_www", "ansvarig_maklare", "ansvarig_maklare_tel", "ansvarig_maklare_mobil", "ansvarig_maklare_mail", "extra_kontaktperson", "extra_kontaktperson_tel", "extra_kontaktperson_mobil", "kontorets_mail",  })]
-        public void FindAllTextFields(int number, string[] expectedResult)
+        [TestCase(1, 0)]
+        [TestCase(2, 1)]
+        [TestCase(3, 2)]
+        [TestCase(4, 3)]
+        public void FindAllTextFields(int number, int expectedResultIndex)
         {
+            var expectedResults = new[]
+            {
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "{objekt_rum}" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "{objekt_storlek}" } },
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "{objekt_rum}" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "{objekt_storlek}" } },
+                new TextFieldInfo[0],
+                new []
+                {
+                    new TextFieldInfo {FieldName = "field0", FieldTemplate = "{objekt_gata}" },
+                    new TextFieldInfo {FieldName = "field1", FieldTemplate = "{objekt_rum}" },
+                    new TextFieldInfo {FieldName = "field2", FieldTemplate = "{objekt_storlek}" },
+                    new TextFieldInfo {FieldName = "field3", FieldTemplate = "{kontorets_adress}" },
+                    new TextFieldInfo {FieldName = "field4", FieldTemplate = "{kontorets_tel}" },
+                    new TextFieldInfo {FieldName = "field5", FieldTemplate = "{kontorets_mail}" },
+                    new TextFieldInfo {FieldName = "field6", FieldTemplate = "{kontorets_www}" },
+                    new TextFieldInfo {FieldName = "field7", FieldTemplate = "{ansvarig_maklare}" },
+                    new TextFieldInfo {FieldName = "field8", FieldTemplate = "{ansvarig_maklare_tel}" },
+                    new TextFieldInfo {FieldName = "field9", FieldTemplate = "{ansvarig_maklare_mobil}" },
+                    new TextFieldInfo {FieldName = "field10", FieldTemplate = "{ansvarig_maklare_mail}" },
+                    new TextFieldInfo {FieldName = "field11", FieldTemplate = "{extra_kontaktperson}" },
+                    new TextFieldInfo {FieldName = "field12", FieldTemplate = "{extra_kontaktperson_tel}" },
+                    new TextFieldInfo {FieldName = "field13", FieldTemplate = "{extra_kontaktperson_mobil}" },
+                    new TextFieldInfo {FieldName = "field14", FieldTemplate = "{kontorets_mail}" }
+                },
+            };
+
             // ARRANGE
             var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllTextFields-case{number}-input.html");
 
@@ -24,8 +49,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
             var result = MuseTemplateParser.FindAllTextFields(html);
 
             // ASSERT
-            var simplifiedResult = result.Select(r => r.FieldName);
-            simplifiedResult.ShouldAllBeEquivalentTo(expectedResult);
+            result.ShouldAllBeEquivalentTo(expectedResults[expectedResultIndex]);
         }
 
         [TestCase(1, new[] { "fritext" }, new[] { "Brodtext" })]
@@ -44,7 +68,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
             var result = MuseTemplateParser.FindAllHtmlFields(html);
 
             // ASSERT
-            var simplifiedExpected = expectedFieldNames.Zip(expectedFirstParagraphClasses, (f, s) => new HtmlFieldInfo { FieldName = f, FirstParagraphClass = s});
+            var simplifiedExpected = expectedFieldNames.Zip(expectedFirstParagraphClasses, (f, s) => new HtmlFieldInfo { FieldName = f, FirstParagraphClass = s });
             result.ShouldAllBeEquivalentTo(simplifiedExpected);
         }
 
@@ -123,7 +147,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
             var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkEditableTextFields-case{number}-input.html");
             var fieldValues = new[]
             {
-                new FieldValue {FieldName = "objekt_rum", Id = 17, Value = "{\"html\":\"4rok\"}"},
+                new FieldValue {FieldName = "field1", Id = 17, Value = "{\"html\":\"4rok\"}"},
             };
 
             // ACT
@@ -175,7 +199,7 @@ namespace Caribbean.Aruba.Web.Tests.Business
             result.Should().Be(File.ReadAllText(
                 TEST_FILES_BASE_PATH + $"MarkEditableImageType1Fields-case{number}-output.html"));
         }
-    
+
         [TestCase("1")]
         [TestCase("2")]
         [TestCase("3")]

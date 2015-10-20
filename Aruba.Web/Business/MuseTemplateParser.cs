@@ -16,7 +16,8 @@ namespace Caribbean.Aruba.Web.Business
 
     public class MuseTemplateParser : IMuseTemplateParser
     {
-        private static readonly Regex REGEX_TEXT_FIELDS = new Regex("\\^:([^\\|]*?):\\^");
+        private static readonly Regex REGEX_TEXT_FIELDS = new Regex("\\[([\\w]*?)\\|(.*?)\\]");
+
         //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p[^\\>]*?class=\\\"([^\\\"]*?)\\\"[^<]*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
         //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p.*?)\\^:([^:]*)(\\|)(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
         //private static readonly Regex REGEX_HTML_FIELDS = new Regex("(<p.*?)\\^:(.*)\\|(.*?):\\^(<\\/p>)", RegexOptions.Singleline);
@@ -56,7 +57,7 @@ namespace Caribbean.Aruba.Web.Business
 
         internal static List<TextFieldInfo> FindAllTextFields(string templateHtml)
         {
-            return REGEX_TEXT_FIELDS.Matches(templateHtml).Cast<Match>().Select(m => new TextFieldInfo { FieldName = m.Groups[1].Value }).ToList();
+            return REGEX_TEXT_FIELDS.Matches(templateHtml).Cast<Match>().Select(m => new TextFieldInfo { FieldName = m.Groups[1].Value, FieldTemplate = m.Groups[2].Value }).ToList();
         }
 
         internal static List<HtmlFieldInfo> FindAllHtmlFields(string templateHtml)
@@ -103,13 +104,14 @@ namespace Caribbean.Aruba.Web.Business
             var matchEvaluator = new MatchEvaluator(match =>
             {
                 var fieldName = match.Groups[1].Value;
+                var fieldTemplate = match.Groups[2].Value;
                 var fieldValue = fieldValues.FirstOrDefault(fv => fv.FieldName == fieldName);
                 if (fieldValue != null)
                 {
                     dynamic jsonObject = JObject.Parse(fieldValue.Value);
-                    return string.Format("<span class=\"editable-textfield\" data-afvid=\"{0}\">{1}</span>", fieldValue.Id, jsonObject.html);
+                    return $"<span class=\"editable-textfield\" data-afvid=\"{fieldValue.Id}\">{jsonObject.html}</span>";
                 }
-                return string.Format("<span class=\"editable-textfield\" data-afname=\"{0}\">{0}</span>", fieldName);
+                return $"<span class=\"editable-textfield\" data-afname=\"{fieldName}\">{fieldTemplate}</span>";
             });
 
             return REGEX_TEXT_FIELDS.Replace(html, matchEvaluator);
@@ -266,6 +268,7 @@ namespace Caribbean.Aruba.Web.Business
     }
     public class TextFieldInfo : FieldInfoBase
     {
+        public string FieldTemplate { get; set; }
     }
     public class HtmlFieldInfo : FieldInfoBase
     {
