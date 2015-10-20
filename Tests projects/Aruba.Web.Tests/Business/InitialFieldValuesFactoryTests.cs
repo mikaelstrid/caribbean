@@ -64,6 +64,24 @@ namespace Caribbean.Aruba.Web.Tests.Business
             result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
         }
 
+        [TestCase("field1", "4 rum och kök", "4 rum och kök")]
+        [TestCase("field2", "175 kvm", "175 kvm")]
+        [TestCase("field3", "Antal rum: 18st", "Antal rum: 18st")]
+        [TestCase("field3", "Storlek: 99 kvm", "Storlek: 99 kvm")]
+        public void CreateInitialTextFieldValue_TextFieldsWithNoPlaceholderButSomeFreetext(string fieldName, string fieldTemplate, string expectedValueFromXml)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = InitialFieldValuesFactory.CreateInitialTextFieldValue(
+                new TextFieldInfo { FieldName = fieldName, FieldTemplate = fieldTemplate },
+                _vitecObjectDetails,
+                _valueMappings);
+
+            // ASSERT
+            result.Value.Should().Be(JsonConvert.SerializeObject(new { html = expectedValueFromXml }));
+        }
+
         [TestCase("field1", "{obj_rum} rum och kök om {obj_boarea} kvm", "10 rum och kök om 300 kvm")]
         [TestCase("field2", "Antal rum: {obj_rum}st (totalt {obj_boarea} kvm)", "Antal rum: 10st (totalt 300 kvm)")]
         [TestCase("field3", "Storlek: {obj_boarea} kvm fördelat på {obj_rum} rum", "Storlek: 300 kvm fördelat på 10 rum")]

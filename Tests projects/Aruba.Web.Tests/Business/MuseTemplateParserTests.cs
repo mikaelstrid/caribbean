@@ -52,6 +52,26 @@ namespace Caribbean.Aruba.Web.Tests.Business
             result.ShouldAllBeEquivalentTo(expectedResults[expectedResultIndex]);
         }
 
+        [TestCase(31, 0)]
+        [TestCase(32, 1)]
+        public void FindAllTextFields_TextFieldsWithNoPlaceholderButSomeFreetext(int number, int expectedResultIndex)
+        {
+            var expectedResults = new[]
+            {
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "4 rum och kök" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "100 kvm" } },
+                new [] { new TextFieldInfo {FieldName = "field1", FieldTemplate = "Antal rum: 4st" }, new TextFieldInfo {FieldName = "field2", FieldTemplate = "Storlek: 100 kvm" } },
+            };
+
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"FindAllTextFields-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.FindAllTextFields(html);
+
+            // ASSERT
+            result.ShouldAllBeEquivalentTo(expectedResults[expectedResultIndex]);
+        }
+
         [TestCase(51, 0)]
         [TestCase(52, 1)]
         public void FindAllTextFields_TextFieldsWithOnePlaceholderAndSomeFreetext(int number, int expectedResultIndex)
@@ -91,6 +111,8 @@ namespace Caribbean.Aruba.Web.Tests.Business
             // ASSERT
             result.ShouldAllBeEquivalentTo(expectedResults[expectedResultIndex]);
         }
+
+
 
         [TestCase(1, new[] { "fritext" }, new[] { "Brodtext" })]
         [TestCase(2, new[] { "fritext" }, new[] { "Brodtext" })]
