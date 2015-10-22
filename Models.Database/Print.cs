@@ -14,6 +14,7 @@ namespace Caribbean.Models.Database
 
         public string PdfName { get; set; }
         public string PdfUrl { get; set; }
+        public DateTime PdfCreationTimeUtc { get; set; }
 
         public int AgentId { get; set; }
 

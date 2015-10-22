@@ -73,13 +73,15 @@ namespace Caribbean.Aruba.Web.Business
 
         private void SetJobStatusInDatabase(Page page, Guid jobId)
         {
+            var utcNow = DateTime.UtcNow;
+
             page.ThumbnailJobId = jobId;
+            page.ThumbnailJobEnqueueTimeUtc = utcNow;
             page.ThumbnailJobStatus = JobStatus.InProgress;
-            page.ThumbnailJobDurationMs = -1;
 
             page.PdfJobId = jobId;
+            page.PdfJobEnqueueTimeUtc = utcNow;
             page.PdfJobStatus = JobStatus.InProgress;
-            page.PdfJobDurationMs = -1;
 
             _unitOfWork.PageRepository.Update(page);
             _unitOfWork.Save();

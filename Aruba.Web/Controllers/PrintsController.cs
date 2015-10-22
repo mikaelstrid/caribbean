@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -110,6 +112,7 @@ namespace Caribbean.Aruba.Web.Controllers
                 ObjectId = objectId,
                 PrintVariantSlug = templateSlug,
                 Status = PrintStatus.InProgress,
+                PdfCreationTimeUtc = SqlDateTime.MinValue.Value,
                 Pages = new List<Page>()
             };
 
@@ -117,7 +120,18 @@ namespace Caribbean.Aruba.Web.Controllers
             foreach (var proposedPageSlug in printVariantMetadata.ProposedPageSlugs)
             {
                 pagePosition++;
-                var page = new Page { Position = pagePosition, PageTemplateSlug = proposedPageSlug, FieldValues = new List<FieldValue>() };
+                var page = new Page
+                {
+                    Position = pagePosition,
+                    PageTemplateSlug = proposedPageSlug,
+
+                    ThumbnailJobEnqueueTimeUtc = SqlDateTime.MinValue.Value,
+                    ThumbnailJobCompletionTimeUtc = SqlDateTime.MinValue.Value,
+                    PdfJobEnqueueTimeUtc = SqlDateTime.MinValue.Value,
+                    PdfJobCompletionTimeUtc = SqlDateTime.MinValue.Value,
+
+                    FieldValues = new List<FieldValue>()
+                };
 
                 var templateHtml = _templateContentRepository.GetPageTemplateBySlug(agent.Agency.Slug, proposedPageSlug);
                 var templateFields = _museTemplateParser.FindAllFields(templateHtml);
@@ -211,6 +225,16 @@ namespace Caribbean.Aruba.Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            // Check if the existing print PDF is created after the individual PDF pages were created/updated
+            if (!string.IsNullOrWhiteSpace(print.PdfUrl) && 
+                print.Pages.All(p => p.PdfJobCompletionTimeUtc < print.PdfCreationTimeUtc))
+            {
+                using (var webClient = new WebClient())
+                {
+                    return File(webClient.OpenRead(print.PdfUrl), "application/pdf", print.PdfName);
+                }
+            }
+
             var result = _printPdfGeneratorService.GeneratePdf(print);
             if (result == null)
                 return new HttpStatusCodeResult(500, "Could not generate and save print PDF.");
@@ -279,6 +303,7 @@ namespace Caribbean.Aruba.Web.Controllers
 
             print.PdfName = printPdfName;
             print.PdfUrl = printPdfUrl;
+            print.PdfCreationTimeUtc = DateTime.UtcNow;
             _unitOfWork.PrintRepository.Update(print);
             _unitOfWork.Save();
         }

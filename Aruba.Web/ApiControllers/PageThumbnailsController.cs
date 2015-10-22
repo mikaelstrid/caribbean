@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Caribbean.Aruba.SharedTypes;
 using Caribbean.DataAccessLayer.Database;
@@ -30,7 +31,11 @@ namespace Caribbean.Aruba.Web.ApiControllers
             
             if (!string.IsNullOrWhiteSpace(existingPage.ThumbnailName)) _pageThumbnailRepository.Delete(existingPage.ThumbnailName);
 
-            if (existingPage.ThumbnailJobId == model.JobId) existingPage.ThumbnailJobStatus = JobStatus.Completed; // Otherwise another Id is queued later
+            if (existingPage.ThumbnailJobId == model.JobId) // Otherwise another Id is queued later
+            {
+                existingPage.ThumbnailJobStatus = JobStatus.Completed; 
+                existingPage.ThumbnailJobCompletionTimeUtc = DateTime.UtcNow;
+            }
             existingPage.ThumbnailJobDurationMs = model.JobDurationMs;
             existingPage.ThumbnailName = model.AssetName;
             existingPage.ThumbnailUrl = model.AssetUrl;
