@@ -314,7 +314,7 @@
     <Content Include="Images\envelope.svg" />
     <Content Include="Images\key.svg" />
     <Content Include="Images\notes-514998_1920.jpg" />
-    <Content Include="Images\page-overview-fallback-image.jpg" />
+    <Content Include="Images\page-overview-fallback-image.png" />
     <Content Include="Images\toner-581905_1920.jpg" />
     <Content Include="Images\tree-129r0560.jpg" />
     <Content Include="Scripts\design-page-app.js" />
