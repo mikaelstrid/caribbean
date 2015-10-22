@@ -308,10 +308,40 @@
     <Compile Include="ViewModels\RealEstateObject\ObjectSummaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Fonts\foundation-icons.css" />
     <Content Include="Fonts\foundation-icons.svg" />
     <Content Include="Images\balance-865091_1920.jpg" />
     <Content Include="Images\envelope.svg" />
+    <Content Include="Images\favicons\android-chrome-144x144.png" />
+    <Content Include="Images\favicons\android-chrome-192x192.png" />
+    <Content Include="Images\favicons\android-chrome-36x36.png" />
+    <Content Include="Images\favicons\android-chrome-48x48.png" />
+    <Content Include="Images\favicons\android-chrome-72x72.png" />
+    <Content Include="Images\favicons\android-chrome-96x96.png" />
+    <Content Include="Images\favicons\apple-touch-icon-114x114.png" />
+    <Content Include="Images\favicons\apple-touch-icon-120x120.png" />
+    <Content Include="Images\favicons\apple-touch-icon-144x144.png" />
+    <Content Include="Images\favicons\apple-touch-icon-152x152.png" />
+    <Content Include="Images\favicons\apple-touch-icon-180x180.png" />
+    <Content Include="Images\favicons\apple-touch-icon-57x57.png" />
+    <Content Include="Images\favicons\apple-touch-icon-60x60.png" />
+    <Content Include="Images\favicons\apple-touch-icon-72x72.png" />
+    <Content Include="Images\favicons\apple-touch-icon-76x76.png" />
+    <Content Include="Images\favicons\apple-touch-icon-precomposed.png" />
+    <Content Include="Images\favicons\apple-touch-icon.png" />
+    <Content Include="Images\favicons\browserconfig.xml" />
+    <Content Include="Images\favicons\favicon-16x16.png" />
+    <Content Include="Images\favicons\favicon-194x194.png" />
+    <Content Include="Images\favicons\favicon-32x32.png" />
+    <Content Include="Images\favicons\favicon-96x96.png" />
+    <Content Include="Images\favicons\favicon.ico" />
+    <Content Include="Images\favicons\mstile-144x144.png" />
+    <Content Include="Images\favicons\mstile-150x150.png" />
+    <Content Include="Images\favicons\mstile-310x150.png" />
+    <Content Include="Images\favicons\mstile-310x310.png" />
+    <Content Include="Images\favicons\mstile-70x70.png" />
+    <Content Include="Images\favicons\safari-pinned-tab.svg" />
     <Content Include="Images\key.svg" />
     <Content Include="Images\notes-514998_1920.jpg" />
     <Content Include="Images\page-overview-fallback-image.png" />
@@ -367,7 +397,6 @@
     <Content Include="Stylesheets\main-renderer.css" />
     <Content Include="Stylesheets\main.css" />
     <Content Include="Stylesheets\vendor\jquery.guillotine.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -384,6 +413,7 @@
     <Content Include="Fonts\foundation-icons.woff" />
     <Content Include="Scripts\lib\ckeditor\skins\moono\readme.md" />
     <Content Include="Stylesheets\scss\modules\_buttons.scss" />
+    <Content Include="Images\favicons\manifest.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -449,6 +479,7 @@
     <Content Include="Views\Prints\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PrintStatus.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ObjectStatus.cshtml" />
+    <Content Include="Views\Shared\_Favicons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
