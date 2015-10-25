@@ -10,6 +10,7 @@ namespace Caribbean.Aruba.Web
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.MapSignalR();
         }
     }
 }

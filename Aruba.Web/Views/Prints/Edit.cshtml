@@ -116,6 +116,8 @@
 
 @section scripts
 {
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>
     <script src="~/Scripts/lib/lodash.js"></script>
     <script src="~/Scripts/vendor/jquery.guillotine.min.js"></script>
     <script src="~/Scripts/lib/ckeditor/ckeditor.js"></script>
@@ -126,6 +128,19 @@
         //:If added as style below the image will show without fader temporarily
         $(document).ready(function() {
             $(document.documentElement).css("background", "url('/Images/notes-514998_1920.jpg') no-repeat center center fixed");
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var chat = $.connection.notificationsHub;
+            chat.client.hello = function () {
+                console.log("Server says Hello!");
+            };
+            $.connection.hub.start().done(function () {
+                console.log("Hub connected.");
+                chat.server.hello();
+            });
         });
     </script>
 }
