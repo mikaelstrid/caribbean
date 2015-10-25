@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.SignalR;
+﻿using Microsoft.AspNet.SignalR;
 
 namespace Caribbean.Aruba.Web.Hubs
 {
     public class NotificationsHub : Hub
     {
-        public void Hello()
+        private readonly INotificationsBroadcaster _notificationsBroadcaster;
+
+        public NotificationsHub(INotificationsBroadcaster notificationsBroadcaster)
         {
-            Clients.All.hello();
+            _notificationsBroadcaster = notificationsBroadcaster;
+        }
+
+        public void SubscribeToPrintChanges(int printId)
+        {
+            _notificationsBroadcaster.SubscribeToPrintChanges(Context.ConnectionId, printId);
         }
     }
 }

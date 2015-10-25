@@ -30,7 +30,7 @@
                             <h3>Sidplanering</h3>
                         </header>
                         <ul class="page-list">
-                            <li ng-repeat="page in pages" ng-click="switchToPage(page.id)">
+                            <li ng-repeat="page in pages" ng-click="switchToPage(page.id)" data-pageid="{{page.id}}">
                                 <img ng-src="{{page.thumbnailUrl || '/Images/page-overview-fallback-image.png'}}" alt="Sida {{page.position}}"/>
                             </li>
                         </ul>
@@ -128,19 +128,6 @@
         //:If added as style below the image will show without fader temporarily
         $(document).ready(function() {
             $(document.documentElement).css("background", "url('/Images/notes-514998_1920.jpg') no-repeat center center fixed");
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(function () {
-            var chat = $.connection.notificationsHub;
-            chat.client.hello = function () {
-                console.log("Server says Hello!");
-            };
-            $.connection.hub.start().done(function () {
-                console.log("Hub connected.");
-                chat.server.hello();
-            });
         });
     </script>
 }

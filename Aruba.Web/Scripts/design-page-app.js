@@ -334,6 +334,20 @@
                 alert("Call printService.getPages failed.");
             });
 
+
+
+        var notificationsHub = $.connection.notificationsHub;
+        notificationsHub.client.pageThumbnailUpdated = function (pageId, thumbnailUrl) {
+            $(".page-list li[data-pageid='" + pageId + "'] img")
+                .hide()
+                .attr("src", thumbnailUrl)
+                .fadeIn();
+        };
+        $.connection.hub.start().done(function () {
+            notificationsHub.server.subscribeToPrintChanges($scope.printId);
+        });
+
+
         realEstateObjectService.getImages($scope.realEstateObjectId)
             .then(function (response) {
                 $scope.objectImages = response.data.objectImages;

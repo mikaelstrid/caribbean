@@ -57,6 +57,10 @@
       <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Autofac.Integration.SignalR, Version=3.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.SignalR2.3.1.0\lib\net45\Autofac.Integration.SignalR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
@@ -292,6 +296,7 @@
     <Compile Include="Business\PagePdfGeneratorProxyService.cs" />
     <Compile Include="Business\PrintPdfGeneratorService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Hubs\NotificationsBroadcaster.cs" />
     <Compile Include="Hubs\NotificationsHub.cs" />
     <Compile Include="ViewModels\FullTopbarLayoutViewModel.cs" />
     <Compile Include="ViewModels\Prints\IndexPrintsViewModel.cs" />
@@ -446,7 +451,9 @@
     <Content Include="Scripts\vendor\jquery.guillotine.js" />
     <Content Include="Scripts\vendor\jquery.guillotine.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
