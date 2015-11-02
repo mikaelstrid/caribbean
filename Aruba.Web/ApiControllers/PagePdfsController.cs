@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caribbean.Aruba.SharedTypes;
+using Caribbean.Aruba.Web.Hubs;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.DataAccessLayer.PrintTemplates;
 using Caribbean.Models.Database;
@@ -13,11 +15,13 @@ namespace Caribbean.Aruba.Web.ApiControllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPagePdfRepository _pagePdfRepository;
+        private readonly INotificationsBroadcaster _notificationsBroadcaster;
 
-        public PagePdfsController(IUnitOfWork unitOfWork, IPagePdfRepository pagePdfRepository)
+        public PagePdfsController(IUnitOfWork unitOfWork, IPagePdfRepository pagePdfRepository, INotificationsBroadcaster notificationsBroadcaster)
         {
             _unitOfWork = unitOfWork;
             _pagePdfRepository = pagePdfRepository;
+            _notificationsBroadcaster = notificationsBroadcaster;
         }
 
         [AllowAnonymous]
@@ -41,6 +45,13 @@ namespace Caribbean.Aruba.Web.ApiControllers
             existingPage.PdfUrl = model.AssetUrl;
             _unitOfWork.PageRepository.Update(existingPage);
             _unitOfWork.Save();
+
+            var print = (await _unitOfWork.PrintRepository.Get(p => p.Id == existingPage.PrintId, includeProperties: "Pages")).FirstOrDefault();
+            if (print != null && print.Pages.All(p => p.PdfJobStatus == JobStatus.Completed))
+            {
+                _notificationsBroadcaster.BroadcastAllPagePdfsReady(print.Id);
+            }
+
             return Ok();
         }
     }

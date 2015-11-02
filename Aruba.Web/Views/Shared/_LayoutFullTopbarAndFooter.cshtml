@@ -46,11 +46,5 @@
 }
 
 @section scripts {
-    <script>
-        $(document).ready(function () {
-            $(window).one("scroll", function () { console.log("Scroll") });
-        });
-    </script>
-
     @RenderSection("scripts", required: false)
 }

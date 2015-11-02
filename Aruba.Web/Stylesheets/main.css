@@ -7403,6 +7403,15 @@ footer {
   margin-bottom: 1.875rem; }
   .page-prints .row-print:last-child {
     margin-bottom: 0; }
+  .page-prints .row-print .button.get-pdf.disabled {
+    display: block;
+    cursor: wait; }
+  .page-prints .row-print .button.get-pdf.enabled {
+    display: none; }
+  .page-prints .row-print.ready .button.get-pdf.disabled {
+    display: none; }
+  .page-prints .row-print.ready .button.get-pdf.enabled {
+    display: block; }
 .page-prints .printstatus {
   padding: 0.625rem 1.25rem 0.6875rem;
   color: #FFFFFF;

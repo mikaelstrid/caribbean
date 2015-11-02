@@ -7,6 +7,29 @@
         &:last-child {
             margin-bottom: 0;
         }
+
+        .button.get-pdf {
+            &.disabled {
+                display: block;
+                cursor: wait;
+            }
+
+            &.enabled {
+                display: none;
+            }
+        }
+
+        &.ready {
+            .button.get-pdf {
+                &.disabled {
+                    display: none;
+                }
+
+                &.enabled {
+                    display: block;
+                }
+            }
+        }
     }
 
     .printstatus {

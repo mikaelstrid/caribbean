@@ -6,6 +6,8 @@ namespace Caribbean.Aruba.Web.Hubs
     {
         void SubscribeToPrintChanges(string connectionId, int printId);
         void BroadcastPageThumbnailUpdate(int printId, int pageId, string thumbnailUrl);
+        void BroadcastAllPagePdfsReady(int printId);
+        void BroadcastPagePdfNotReady(int printId);
     }
 
     public class NotificationsBroadcaster : INotificationsBroadcaster
@@ -29,6 +31,19 @@ namespace Caribbean.Aruba.Web.Hubs
                 .pageThumbnailUpdated(pageId, thumbnailUrl);
         }
 
+        public void BroadcastAllPagePdfsReady(int printId)
+        {
+            _hubContext.Clients
+                .Group(CreatePrintSubscribesGroupName(printId))
+                .allPagePdfsReady(printId);
+        }
+
+        public void BroadcastPagePdfNotReady(int printId)
+        {
+            _hubContext.Clients
+                .Group(CreatePrintSubscribesGroupName(printId))
+                .pagePdfNotReady(printId);
+        }
 
 
         private static string CreatePrintSubscribesGroupName(int printId)

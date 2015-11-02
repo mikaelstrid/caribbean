@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using Caribbean.Models.Database
 @model Caribbean.Aruba.Web.ViewModels.Prints.IndexPrintsViewModel
 @{
     Layout = "../Shared/_LayoutFullTopbarAndFooter.cshtml";
@@ -23,7 +24,7 @@
 
             @foreach (var p in Model.Prints.OrderByDescending(p => p.CreationTimeUtc))
             {
-                <div class="row row-print">
+                <div class="row row-print @(p.PdfStatus == JobStatus.Completed ? "ready" : "")" data-printid="@p.Id">
                     <div class="small-2 column">
                         <img src="@p.ThumbnailUrl" alt="@p.Address" />
                     </div>
@@ -37,8 +38,9 @@
                     </div>
                     <div class="small-2 column">@Html.DisplayFor(m => p.Status)</div>
                     <div class="small-3 column action-buttons">
-                        @Html.ActionLink("Hämta PDF", "GetPdf", new { id = p.Id }, new { role = "button", @class = "button tiny right get-pdf" })
                         @Html.ActionLink("Redigera", "Edit", new { id = p.Id }, new { role = "button", @class = "button tiny right" })
+                        @Html.ActionLink("Hämta PDF", "GetPdf", new { id = p.Id }, new { role = "button", @class = "button tiny right get-pdf disabled", title = "PDF:n håller på att genereras, vänta en stund så är den strax klar." })
+                        @Html.ActionLink("Hämta PDF", "GetPdf", new {id = p.Id}, new {role = "button", @class = "button tiny right get-pdf enabled"})
                     </div>
                 </div>
             }
@@ -58,9 +60,25 @@
 
 @section scripts
 {
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
     <script>
         $(document).ready(function () {
             $(".get-pdf").click(function () { $(".alert-box a.close").click(); });
+
+            var notificationsHub = $.connection.notificationsHub;
+            notificationsHub.client.allPagePdfsReady = function (printId) {
+                $("[data-printid='" + printId + "']").addClass("ready");
+            };
+            notificationsHub.client.pagePdfNotReady = function (printId) {
+                $("[data-printid='" + printId + "']").removeClass("ready");
+            };
+            $.connection.hub.start().done(function () {
+                $(".row-print").each(function() {
+                    notificationsHub.server.subscribeToPrintChanges($(this).data("printid"));
+                });
+            });
         });
     </script>
 }

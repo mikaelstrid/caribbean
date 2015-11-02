@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using Caribbean.Aruba.SharedTypes;
+using Caribbean.Aruba.Web.Hubs;
 using Caribbean.DataAccessLayer.Database;
 using Caribbean.Models.Database;
 using Microsoft.ServiceBus.Messaging;
@@ -21,11 +22,13 @@ namespace Caribbean.Aruba.Web.Business
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         private readonly IUnitOfWork _unitOfWork;
+        private readonly INotificationsBroadcaster _notificationsBroadcaster;
         private QueueClient _ordersQueueClient;
 
-        public PagePdfGeneratorProxyService(IUnitOfWork unitOfWork)
+        public PagePdfGeneratorProxyService(IUnitOfWork unitOfWork, INotificationsBroadcaster notificationsBroadcaster)
         {
             _unitOfWork = unitOfWork;
+            _notificationsBroadcaster = notificationsBroadcaster;
         }
 
         public void Initialize()
@@ -62,6 +65,8 @@ namespace Caribbean.Aruba.Web.Business
                     Dpi = dpi
                 });
                 _ordersQueueClient.Send(new BrokeredMessage(json));
+
+                _notificationsBroadcaster.BroadcastPagePdfNotReady(page.PrintId);
 
                 SetJobStatusInDatabase(page, jobId);
             }

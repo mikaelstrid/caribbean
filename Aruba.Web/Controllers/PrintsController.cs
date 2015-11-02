@@ -61,7 +61,7 @@ namespace Caribbean.Aruba.Web.Controllers
             var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
             if (agent == null) return HttpNotFound("No agent associated with the username found.");
 
-            var prints = await _unitOfWork.PrintRepository.Get(p => p.AgentId == agent.Id);
+            var prints = await _unitOfWork.PrintRepository.Get(p => p.AgentId == agent.Id, includeProperties: "Pages");
 
             return View(new IndexPrintsViewModel
             {
@@ -86,6 +86,7 @@ namespace Caribbean.Aruba.Web.Controllers
                 TemplateName = template.Name,
                 Status = print.Status,
                 CreationTimeUtc = print.CreationTimeUtc,
+                PdfStatus = print.Pages.Min(p => p.PdfJobStatus),
                 PdfUrl = print.PdfUrl
             };
         }

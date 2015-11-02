@@ -23,6 +23,7 @@ namespace Caribbean.Aruba.Web.ViewModels.Prints
             public PrintStatus Status { get; set; }
             public DateTime CreationTimeUtc { get; set; }
             public string PdfUrl { get; set; }
+            public JobStatus PdfStatus { get; set; }
         }
     }
 }
