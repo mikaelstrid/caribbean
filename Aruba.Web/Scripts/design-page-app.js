@@ -98,6 +98,8 @@
         $scope.textEditorValue = null;
         $scope.textEditorPristineValue = null;
         $scope.handleTextFieldClick = function () {
+            //:#249: The click event handler is always active to be able to open the toolbox if closed
+            $scope.showToolbox();
             if (currentSelectedTextField && $(this)[0] === currentSelectedTextField[0]) return;
             $scope.textEditorFormReady = false;
             $scope._changeVisibleToolbox("textEditor");
@@ -144,6 +146,8 @@
         $scope.htmlEditorValue = null;
         $scope.htmlEditorPristineValue = null;
         $scope.handleHtmlFieldClick = function () {
+            //:#249: The click event handler is always active to be able to open the toolbox if closed
+            $scope.showToolbox();
             if (currentSelectedHtmlField && $(this)[0] === currentSelectedHtmlField[0]) return;
             $scope.htmlEditorFormReady = false;
             $scope._changeVisibleToolbox("htmlEditor");
@@ -190,7 +194,8 @@
         $scope.handleImageFieldClick = function (currentImageField) {
             $scope.$apply();
             currentImageField.parent().addClass("active");
-            currentImageField.unbind("click");
+            //:#249: The click event handler is always active to be able to open the toolbox if closed
+            //currentImageField.unbind("click");
             $("img", currentImageField).guillotine("enable");
             $("#toolboxTab1").click();
             $scope.showToolbox();
@@ -232,6 +237,10 @@
         }
 
         $scope.handleObjectImageFieldClick = function () {
+            //:#249: The click event handler is always active to be able to open the toolbox if closed
+            $scope.showToolbox();
+            if (currentSelectedObjectImageField && $(this)[0] === currentSelectedObjectImageField[0]) return;
+
             $scope._changeVisibleToolbox("objectImageEditor");
             currentSelectedObjectImageField = $(this);
             $scope.handleImageFieldClick(currentSelectedObjectImageField);
@@ -241,6 +250,10 @@
         }
 
         $scope.handleStaffImageFieldClick = function () {
+            //:#249: The click event handler is always active to be able to open the toolbox if closed
+            $scope.showToolbox();
+            if (currentSelectedStaffImageField && $(this)[0] === currentSelectedStaffImageField[0]) return;
+
             $scope._changeVisibleToolbox("staffImageEditor");
             currentSelectedStaffImageField = $(this);
             $scope.handleImageFieldClick(currentSelectedStaffImageField);
@@ -506,13 +519,15 @@
             if (currentSelectedObjectImageField) {
                 currentSelectedObjectImageField.parent().removeClass("active");
                 $("img", currentSelectedObjectImageField).guillotine("disable");
-                currentSelectedObjectImageField.click($scope.handleObjectImageFieldClick); //Re-register click event to the old image
+                //:#249: The click event handler is always active to be able to open the toolbox if closed
+                //currentSelectedObjectImageField.click($scope.handleObjectImageFieldClick); //Re-register click event to the old image
                 currentSelectedObjectImageField = null;
             }
             if (currentSelectedStaffImageField) {
                 currentSelectedStaffImageField.parent().removeClass("active");
                 $("img", currentSelectedStaffImageField).guillotine("disable");
-                currentSelectedStaffImageField.click($scope.handleStaffImageFieldClick); //Re-register click event to the old image
+                //:#249: The click event handler is always active to be able to open the toolbox if closed
+                //currentSelectedStaffImageField.click($scope.handleStaffImageFieldClick); //Re-register click event to the old image
                 currentSelectedStaffImageField = null;
             }
         }
