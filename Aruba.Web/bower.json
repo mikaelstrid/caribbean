@@ -10,7 +10,6 @@
     "normalize-css": "~3.0.3",
     "angular": "~1.4.5",
     "lodash": "~3.10.1",
-    "ckeditor": "~4.5.3",
     "ng-ckeditor": "~0.2.1"
   },
   "overrides": {

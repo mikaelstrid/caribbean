@@ -18,19 +18,6 @@ gulp.task('bower-css', function () {
 		.pipe(gulp.dest('./Stylesheets/lib'));
 });
 
-gulp.task('bower-ckeditor', function () {
-    var baseDir = 'bower_components/ckeditor';
-    gulp.src([
-        baseDir + '/**/*.*',
-        '!' + baseDir + '/samples/**',
-        '!' + baseDir + '/skins/kama/**',
-        '!' + baseDir + '/plugins/**',
-        '!' + baseDir + '/lang/**/!(sv.js)',
-        '!' + baseDir + '/*.json',
-        '!' + baseDir + '/*.md'])
-        .pipe(gulp.dest('./Scripts/lib/ckeditor'));
-});
-
 gulp.task('sass', function () {
     return gulpRubySass('./Stylesheets/scss/**/*.scss', {
         loadPath: ['bower_components/foundation/scss']

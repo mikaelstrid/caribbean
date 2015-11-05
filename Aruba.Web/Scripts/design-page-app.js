@@ -43,46 +43,18 @@
             language: "sv",
             uiColor: "#ffffff",
             height: "6rem",
-            toolbarGroups: [
-                { name: "clipboard", groups: ["clipboard", "undo"] },
-                { name: "editing", groups: ["find", "selection", "spellchecker", "editing"] },
-                { name: "links", groups: ["links"] },
-                { name: "insert", groups: ["insert"] },
-                { name: "forms", groups: ["forms"] },
-                { name: "tools", groups: ["tools"] },
-                { name: "document", groups: ["mode", "document", "doctools"] },
-                { name: "others", groups: ["others"] },
-                "/",
-                { name: "basicstyles", groups: ["basicstyles", "cleanup"] },
-                { name: "paragraph", groups: ["list", "indent", "blocks", "align", "bidi", "paragraph"] },
-                { name: "styles", groups: ["styles"] },
-                { name: "colors", groups: ["colors"] },
-                { name: "about", groups: ["about"] }
+            toolbar: [
+                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
             ],
-            removeButtons: "Subscript,Strike,Anchor,Image,Blockquote,Styles,Format,About,Cut,Copy,Paste,PasteText,Redo,Undo,Link,Scayt,Source,Maximize,RemoveFormat,NumberedList,Indent,Outdent,Table,HorizontalRule,SpecialChar,PasteFromWord,Unlink,BulletedList,Superscript,Underline",
             extraPlugins: 'doNothing',
             keystrokes: [[13 /*Enter*/, 'doNothing'], [CKEDITOR.SHIFT + 13 /*Shift-Enter*/, 'doNothing']] //:#251: http://ckeditor.com/forums/CKEditor-3.x/Disable-Enter-Key
         };
         $scope.htmlEditor = {
             language: "sv",
             uiColor: "#ffffff",
-            toolbarGroups: [
-		        { name: "clipboard", groups: ["clipboard", "undo"] },
-		        { name: "editing", groups: ["find", "selection", "spellchecker", "editing"] },
-		        { name: "links", groups: ["links"] },
-		        { name: "insert", groups: ["insert"] },
-		        { name: "forms", groups: ["forms"] },
-		        { name: "tools", groups: ["tools"] },
-		        { name: "document", groups: ["mode", "document", "doctools"] },
-		        { name: "others", groups: ["others"] },
-		        "/",
-		        { name: "basicstyles", groups: ["basicstyles", "cleanup"] },
-		        { name: "paragraph", groups: ["list", "indent", "blocks", "align", "bidi", "paragraph"] },
-		        { name: "styles", groups: ["styles"] },
-		        { name: "colors", groups: ["colors"] },
-		        { name: "about", groups: ["about"] }
-            ],
-            removeButtons: "Underline,Subscript,Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Scayt,Link,Anchor,Unlink,Image,Table,HorizontalRule,SpecialChar,Maximize,Source,Strike,Superscript,RemoveFormat,Outdent,Indent,Blockquote,Styles,About,Format,BulletedList,NumberedList"
+            toolbar: [
+                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+            ]
         };
 
         // Scope variables
@@ -112,7 +84,7 @@
                 });
         }
 
-        $scope.toggleToolbox = function() {
+        $scope.toggleToolbox = function () {
             $scope.toolboxVisible = !$scope.toolboxVisible;
             $timeout(function () { $scope.resizeIframe(); });
         }
@@ -124,7 +96,7 @@
 
         // Text editor functions
         $scope.textEditorValue = null;
-        $scope.textEditorPristineValue = null;      
+        $scope.textEditorPristineValue = null;
         $scope.handleTextFieldClick = function () {
             if (currentSelectedTextField && $(this)[0] === currentSelectedTextField[0]) return;
             $scope.textEditorFormReady = false;
@@ -207,7 +179,7 @@
             if (!currentSelectedHtmlField) return;
             currentSelectedHtmlField.html($scope._addParagraphClass(newValue));
         });
-        $scope._addParagraphClass = function(value) {
+        $scope._addParagraphClass = function (value) {
             var paragraphClass = currentSelectedHtmlField.data("firstparagraphclass");
             var nonNullValue = value ? value : "<p></p>";
             return nonNullValue.replace(/<p.*?>/gi, "<p class=\"" + paragraphClass + "\">");
@@ -267,7 +239,7 @@
         $scope.handleAvailableObjectImageClick = function (imageUrl) {
             $scope.handleAvailableImageClick(currentSelectedObjectImageField, imageUrl);
         }
-        
+
         $scope.handleStaffImageFieldClick = function () {
             $scope._changeVisibleToolbox("staffImageEditor");
             currentSelectedStaffImageField = $(this);
@@ -299,7 +271,7 @@
             });
             $scope.$apply();
         }
-        $scope._parseSavedHideableFieldValue = function(savedValue) {
+        $scope._parseSavedHideableFieldValue = function (savedValue) {
             if (!savedValue || !savedValue.value) return true; // Default to true if no value saved
             try {
                 return JSON.parse(savedValue.value).visible;
@@ -446,7 +418,7 @@
                 $(this).parent().css("height", $(this).height());
                 $(this).css("width", $(this).width());
                 $(this).css("height", $(this).height());
-                
+
                 if ($(this).data("afvid")) {
                     var selectedPictureUrl = $(this).data("imgurl");
                     var targetImage = $("img", $(this));
@@ -489,7 +461,7 @@
             if ($scope.currentPage == null) return;
 
             $(".page-editor-wrap").css("max-width", $scope._calculatePageEditorMaxWidth());
-            $timeout(function() {
+            $timeout(function () {
                 var pageEditor = $("#page-editor");
                 var scaleValue = pageEditor.width() / $scope.currentPage.width;
                 $("iframe", pageEditor).css({
