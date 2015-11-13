@@ -38,8 +38,9 @@
                     </div>
                     <div class="small-2 column">@Html.DisplayFor(m => p.Status)</div>
                     <div class="small-3 column action-buttons">
-                        @Html.ActionLink("Redigera", "Edit", new { id = p.Id }, new { role = "button", @class = "button tiny right" })
-                        @Html.ActionLink("Hämta PDF", "GetPdf", new { id = p.Id }, new { role = "button", @class = "button tiny right get-pdf disabled", title = "PDF:n håller på att genereras, vänta en stund så är den strax klar." })
+                        <a data-id="@p.Id" class="button tiny right delete">Ta bort</a>
+                        @Html.ActionLink("Redigera", "Edit", new {id = p.Id}, new {role = "button", @class = "button tiny right"})
+                        @Html.ActionLink("Hämta PDF", "GetPdf", new {id = p.Id}, new {role = "button", @class = "button tiny right get-pdf disabled", title = "PDF:n håller på att genereras, vänta en stund så är den strax klar."})
                         @Html.ActionLink("Hämta PDF", "GetPdf", new {id = p.Id}, new {role = "button", @class = "button tiny right get-pdf enabled"})
                     </div>
                 </div>
@@ -66,6 +67,11 @@
     <script>
         $(document).ready(function () {
             $(".get-pdf").click(function () { $(".alert-box a.close").click(); });
+            $(".delete").click(function() {
+                if (window.confirm("Är du säker på att du vill ta bort trycksaken?")) {
+                    window.location = "/trycksaker/radera/" + $(this).data("id");
+                }
+            });
 
             var notificationsHub = $.connection.notificationsHub;
             notificationsHub.client.allPagePdfsReady = function (printId) {

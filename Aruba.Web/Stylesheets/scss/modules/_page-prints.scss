@@ -70,10 +70,11 @@
 
     .action-buttons {
         .button {
-            margin-right: rem-calc(20);
+            margin-left: rem-calc(10);
+            margin-bottom: rem-calc(10);
 
-            &:first-child {
-                margin-right: 0;
+            &:last-child {
+                margin-left: 0;
             }
         }
     }

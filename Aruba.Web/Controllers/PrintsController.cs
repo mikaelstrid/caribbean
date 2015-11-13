@@ -32,6 +32,8 @@ namespace Caribbean.Aruba.Web.Controllers
         private readonly IPrintPdfGeneratorService _printPdfGeneratorService;
         private readonly IPrintPdfRepository _printPdfRepository;
         private readonly IPagePdfGeneratorProxyService _pagePdfGeneratorProxyService;
+        private readonly IPagePdfRepository _pagePdfRepository;
+        private readonly IPageThumbnailRepository _pageThumbnailRepository;
 
         public PrintsController(
             IUnitOfWork unitOfWork,
@@ -42,7 +44,9 @@ namespace Caribbean.Aruba.Web.Controllers
             IInitialFieldValuesFactory initialFieldValuesFactory,
             IPrintPdfGeneratorService printPdfGeneratorService,
             IPrintPdfRepository printPdfRepository,
-            IPagePdfGeneratorProxyService pagePdfGeneratorProxyService)
+            IPagePdfGeneratorProxyService pagePdfGeneratorProxyService,
+            IPagePdfRepository pagePdfRepository,
+            IPageThumbnailRepository pageThumbnailRepository)
         {
             _unitOfWork = unitOfWork;
             _templateMetadataRepository = templateMetadataRepository;
@@ -53,6 +57,8 @@ namespace Caribbean.Aruba.Web.Controllers
             _printPdfGeneratorService = printPdfGeneratorService;
             _printPdfRepository = printPdfRepository;
             _pagePdfGeneratorProxyService = pagePdfGeneratorProxyService;
+            _pagePdfRepository = pagePdfRepository;
+            _pageThumbnailRepository = pageThumbnailRepository;
         }
 
         [Route]
@@ -176,6 +182,29 @@ namespace Caribbean.Aruba.Web.Controllers
                 Pages = print.Pages.Select(p => CreatePageViewModel(p, agent.Agency.Slug)).OrderBy(p => p.Position)
             });
         }
+
+        [Route("radera/{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var agent = await _unitOfWork.AgentRepository.GetByUserId(User.Identity.GetUserId());
+            if (agent == null) return HttpNotFound("No agent associated with the username found.");
+
+            var print = await _unitOfWork.PrintRepository.GetSingle(p => p.Id == id, "Pages");
+            if (print == null) return HttpNotFound("No print with a matching id found.");
+
+            foreach (var page in print.Pages)
+            {
+                if (!string.IsNullOrWhiteSpace(page.ThumbnailName)) _pageThumbnailRepository.Delete(page.ThumbnailName);
+                if (!string.IsNullOrWhiteSpace(page.PdfName)) _pagePdfRepository.Delete(page.PdfName);
+            }
+            if (!string.IsNullOrWhiteSpace(print.PdfName)) _printPdfRepository.Delete(print.PdfName);
+
+            _unitOfWork.PrintRepository.Delete(id);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Index");
+        }
+
 
         private EditPrintViewModel.PageViewModel CreatePageViewModel(Page page, string agencySlug)
         {
