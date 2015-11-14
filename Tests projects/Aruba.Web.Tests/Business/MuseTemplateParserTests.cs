@@ -413,7 +413,24 @@ namespace Caribbean.Aruba.Web.Tests.Business
 
             // ASSERT
             result.Should().Be(File.ReadAllText(TEST_FILES_BASE_PATH + $"MarkAllFields-case{number}-output.html"));
+        }
 
+
+
+
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public void ReplaceSuperscriptElements(int number)
+        {
+            // ARRANGE
+            var html = File.ReadAllText(TEST_FILES_BASE_PATH + $"ReplaceSuperscriptElements-case{number}-input.html");
+
+            // ACT
+            var result = MuseTemplateParser.ReplaceSuperscriptElements(html);
+
+            // ASSERT
+            result.Should().Be(File.ReadAllText(TEST_FILES_BASE_PATH + $"ReplaceSuperscriptElements-case{number}-output.html"));
         }
     }
 }

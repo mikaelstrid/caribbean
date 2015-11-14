@@ -12,6 +12,7 @@ namespace Caribbean.Aruba.Web.Business
     {
         IEnumerable<FieldInfoBase> FindAllFields(string templateHtml);
         string MarkAllFields(string templateHtml, ICollection<FieldValue> fieldValues);
+        string ReplaceInvalidElements(string html);
     }
 
     public class MuseTemplateParser : IMuseTemplateParser
@@ -258,6 +259,20 @@ namespace Caribbean.Aruba.Web.Business
         {
             return (value != null) ? value.ToString().Replace(",", ".") : null;
         }
+
+
+        // === OTHER METHODS ===
+
+        public string ReplaceInvalidElements(string html)
+        {
+            return ReplaceSuperscriptElements(html);
+        }
+
+        internal static string ReplaceSuperscriptElements(string html)
+        {
+            return Regex.Replace(html, "<span class=\\\"superscript\\\">(.*?)<\\/span>", "<sup>$1</sup>");
+        }
+
     }
 
     public class FieldInfoBase

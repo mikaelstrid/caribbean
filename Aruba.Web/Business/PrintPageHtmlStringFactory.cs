@@ -24,6 +24,7 @@ namespace Caribbean.Aruba.Web.Business
         public string CreatePageEditorHtmlString(string templateHtml, Page modelPage)
         {
             var editorHtmlString = _museTemplateParser.MarkAllFields(templateHtml, modelPage.FieldValues);
+            editorHtmlString = _museTemplateParser.ReplaceInvalidElements(editorHtmlString);
             editorHtmlString = InjectPageIdInHtmlTag(editorHtmlString, modelPage.Id);
             editorHtmlString = InjectStyles(editorHtmlString, new[] { "/Stylesheets/vendor/jquery.guillotine.css", "/Stylesheets/main-editor.css" });
             return editorHtmlString;
@@ -32,12 +33,14 @@ namespace Caribbean.Aruba.Web.Business
         public string CreatePageRenderHtmlString(string templateHtml, Page modelPage)
         {
             var renderHtmlString = _museTemplateParser.MarkAllFields(templateHtml, modelPage.FieldValues);
+            renderHtmlString = _museTemplateParser.ReplaceInvalidElements(renderHtmlString);
             renderHtmlString = InjectPageIdInHtmlTag(renderHtmlString, modelPage.Id);
             renderHtmlString = InjectStyles(renderHtmlString, new[] { "/Stylesheets/vendor/jquery.guillotine.css", "/Stylesheets/main-renderer.css" });
             renderHtmlString = InjectScripts(renderHtmlString, new[] { "/Scripts/vendor/jquery.guillotine.js", "/Scripts/lib/lodash.js", "/Scripts/render-scripts.js" });
             renderHtmlString = InjectFieldValues(renderHtmlString, modelPage);
             return renderHtmlString;
         }
+
 
         internal static string InjectPageIdInHtmlTag(string html, int pageId)
         {

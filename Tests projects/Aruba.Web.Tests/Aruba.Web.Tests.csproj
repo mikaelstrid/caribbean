@@ -169,6 +169,12 @@
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableImageType2Fields-caseMC-output.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\ReplaceSuperscriptElements-case3-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\ReplaceSuperscriptElements-case3-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\ReplaceSuperscriptElements-case2-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\ReplaceSuperscriptElements-case2-input.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\ReplaceSuperscriptElements-case1-output.html" />
+    <Content Include="Business\MuseTemplateParserTestFiles\ReplaceSuperscriptElements-case1-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case2-input.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case2-output.html" />
     <Content Include="Business\MuseTemplateParserTestFiles\MarkEditableTextFields-case3-input.html" />
